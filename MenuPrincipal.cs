@@ -99,5 +99,10 @@ namespace BRAMSELU
                 this.Close();
             }
         }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmEmpleados());
+        }
     }
 }

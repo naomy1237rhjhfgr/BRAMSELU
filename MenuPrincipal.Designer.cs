@@ -18,6 +18,7 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.pnlSidebar.Controls.Add(this.btnEmpleados);
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
             this.pnlSidebar.Controls.Add(this.btnReportes);
             this.pnlSidebar.Controls.Add(this.btnVentas);
@@ -53,6 +55,24 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(256, 600);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 476);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnEmpleados.Size = new System.Drawing.Size(230, 48);
+            this.btnEmpleados.TabIndex = 10;
+            this.btnEmpleados.Text = "👤  Empleados";
+            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleados.UseVisualStyleBackColor = false;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
             // btnCerrarSesion
             // 
@@ -290,5 +310,6 @@
         private System.Windows.Forms.Panel pnlContenido;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnEmpleados;
     }
 }
