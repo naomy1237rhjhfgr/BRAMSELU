@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{176FF018-AE70-4DA8-865C-474A9A71F266}</ProjectGuid>
+    <ProjectGuid>{30EF7495-7856-C1F4-ED3D-75F892B5E3CD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BRAMSELU</RootNamespace>
     <AssemblyName>BRAMSELU</AssemblyName>
