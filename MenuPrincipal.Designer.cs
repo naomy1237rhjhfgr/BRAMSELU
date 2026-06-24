@@ -256,7 +256,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(130)))), ((int)(((byte)(115)))));
-            this.lblFecha.Location = new System.Drawing.Point(53, 110);
+            this.lblFecha.Location = new System.Drawing.Point(44, 109);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(169, 30);
             this.lblFecha.TabIndex = 1;
@@ -267,7 +267,7 @@
             this.lblBienvenida.AutoSize = true;
             this.lblBienvenida.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblBienvenida.Location = new System.Drawing.Point(50, 60);
+            this.lblBienvenida.Location = new System.Drawing.Point(39, 37);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(315, 60);
             this.lblBienvenida.TabIndex = 0;
