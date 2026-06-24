@@ -1,7 +1,5 @@
-﻿using BRAMSELU;
-using System;
+﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace BRAMSELU
@@ -18,80 +16,68 @@ namespace BRAMSELU
 
         private void frmInventario_Load(object sender, EventArgs e)
         {
-            dgvDatos.AutoGenerateColumns = true;
             CargarDatos();
+            BloquearCampos(true);
         }
 
         private void CargarDatos()
         {
             dgvDatos.DataSource = inv.MostrarProductos();
-
-            if (dgvDatos.Columns.Contains("IdProducto"))
-                dgvDatos.Columns["IdProducto"].HeaderText = "ID";
-
-            if (dgvDatos.Columns.Contains("NombreProducto"))
-                dgvDatos.Columns["NombreProducto"].HeaderText = "Producto";
-
-            if (dgvDatos.Columns.Contains("Marca"))
-                dgvDatos.Columns["Marca"].HeaderText = "Marca";
-
-            if (dgvDatos.Columns.Contains("Categoria"))
-                dgvDatos.Columns["Categoria"].HeaderText = "Categoría";
-
-            if (dgvDatos.Columns.Contains("Precio"))
-                dgvDatos.Columns["Precio"].HeaderText = "Precio";
-
-            if (dgvDatos.Columns.Contains("Stock"))
-                dgvDatos.Columns["Stock"].HeaderText = "Stock";
         }
 
-        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void BloquearCampos(bool bloquear)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
+            bool h = !bloquear;
 
-                idSeleccionado = Convert.ToInt32(fila.Cells["IdProducto"].Value);
+            txtNombre.Enabled = h;
+            txtMarca.Enabled = h;
+            txtCategoria.Enabled = h;
+            txtPrecio.Enabled = h;
+            txtStock.Enabled = h;
+        }
 
-                txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
-                txtMarca.Text = fila.Cells["Marca"].Value.ToString();
-                txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
-                txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
-                txtStock.Text = fila.Cells["Stock"].Value.ToString();
-            }
+        private void Limpiar()
+        {
+            txtNombre.Clear();
+            txtMarca.Clear();
+            txtCategoria.Clear();
+            txtPrecio.Clear();
+            txtStock.Clear();
+
+            idSeleccionado = 0;
         }
 
         private bool ValidarCampos()
         {
-            if (txtNombre.Text == "")
+            if (txtNombre.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese el nombre");
                 txtNombre.Focus();
                 return false;
             }
 
-            if (txtMarca.Text == "")
+            if (txtMarca.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese la marca");
                 txtMarca.Focus();
                 return false;
             }
 
-            if (txtCategoria.Text == "")
+            if (txtCategoria.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese la categoría");
                 txtCategoria.Focus();
                 return false;
             }
 
-            if (txtPrecio.Text == "")
+            if (txtPrecio.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese el precio");
                 txtPrecio.Focus();
                 return false;
             }
 
-            if (txtStock.Text == "")
+            if (txtStock.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese el stock");
                 txtStock.Focus();
@@ -101,47 +87,28 @@ namespace BRAMSELU
             return true;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!ValidarCampos())
-                return;
+            if (e.RowIndex < 0) return;
 
-            decimal precio = Convert.ToDecimal(txtPrecio.Text);
-            int stock = Convert.ToInt32(txtStock.Text);
+            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
 
-            if (idSeleccionado == 0)
-            {
-                inv.InsertarProducto(
-                    txtNombre.Text,
-                    txtMarca.Text,
-                    txtCategoria.Text,
-                    precio,
-                    stock);
+            idSeleccionado = Convert.ToInt32(fila.Cells["IdProducto"].Value);
 
-                MessageBox.Show("Producto guardado");
-            }
-            else
-            {
-                inv.EditarProducto(
-                    idSeleccionado,
-                    txtNombre.Text,
-                    txtMarca.Text,
-                    txtCategoria.Text,
-                    precio,
-                    stock);
+            txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
+            txtMarca.Text = fila.Cells["Marca"].Value.ToString();
+            txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
+            txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
+            txtStock.Text = fila.Cells["Stock"].Value.ToString();
 
-                MessageBox.Show("Producto actualizado");
-            }
+            BloquearCampos(true);
+        }
 
-            CargarDatos();
-
-            txtNombre.Text = "";
-            txtMarca.Text = "";
-            txtCategoria.Text = "";
-            txtPrecio.Text = "";
-            txtStock.Text = "";
-
-            idSeleccionado = 0;
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            BloquearCampos(false);
+            txtNombre.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -152,7 +119,52 @@ namespace BRAMSELU
                 return;
             }
 
-            MessageBox.Show("Modifique los datos y luego presione Guardar");
+            BloquearCampos(false);
+            txtNombre.Focus();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+                return;
+
+            try
+            {
+                decimal precio = Convert.ToDecimal(txtPrecio.Text);
+                int stock = Convert.ToInt32(txtStock.Text);
+
+                if (idSeleccionado == 0)
+                {
+                    inv.InsertarProducto(
+                        txtNombre.Text,
+                        txtMarca.Text,
+                        txtCategoria.Text,
+                        precio,
+                        stock);
+
+                    MessageBox.Show("Producto guardado");
+                }
+                else
+                {
+                    inv.EditarProducto(
+                        idSeleccionado,
+                        txtNombre.Text,
+                        txtMarca.Text,
+                        txtCategoria.Text,
+                        precio,
+                        stock);
+
+                    MessageBox.Show("Producto actualizado");
+                }
+
+                CargarDatos();
+                Limpiar();
+                BloquearCampos(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -171,27 +183,26 @@ namespace BRAMSELU
 
             if (r == DialogResult.Yes)
             {
-                inv.EliminarProducto(idSeleccionado);
+                try
+                {
+                    inv.EliminarProducto(idSeleccionado);
 
-                MessageBox.Show("Producto eliminado");
+                    MessageBox.Show("Producto eliminado");
 
-                CargarDatos();
-
-                txtNombre.Text = "";
-                txtMarca.Text = "";
-                txtCategoria.Text = "";
-                txtPrecio.Text = "";
-                txtStock.Text = "";
-
-                idSeleccionado = 0;
+                    CargarDatos();
+                    Limpiar();
+                    BloquearCampos(true);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-
-      
-            if (txtBuscar.Text == "")
+            if (txtBuscar.Text.Trim() == "")
             {
                 CargarDatos();
                 return;
@@ -201,7 +212,15 @@ namespace BRAMSELU
 
             if (int.TryParse(txtBuscar.Text, out id))
             {
-                dgvDatos.DataSource = inv.BuscarPorId(id);
+                DataTable dt = inv.BuscarPorId(id);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontró el producto");
+                    return;
+                }
+
+                dgvDatos.DataSource = dt;
             }
             else
             {
@@ -209,6 +228,8 @@ namespace BRAMSELU
             }
         }
 
-       
+        
+
+        
     }
 }
