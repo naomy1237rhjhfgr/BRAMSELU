@@ -14,11 +14,24 @@ namespace BRAMSELU
             InitializeComponent();
         }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            // Cargar logo desde la carpeta img del proyecto
+            string logoPath = System.IO.Path.Combine(
+                Application.StartupPath, "img", "logo.png");
+
+            if (System.IO.File.Exists(logoPath))
+                picLogo.Image = System.Drawing.Image.FromFile(logoPath);
+        }
+
+        
+
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasena.Text))
             {
-                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -44,33 +57,30 @@ namespace BRAMSELU
                             reader.Close();
                             conexion.Cerrar();
 
-                            MessageBox.Show($"¡Bienvenido {nombreCompleto}!", "Inicio de Sesión Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"¡Bienvenido {nombreCompleto}!", "Inicio de Sesión Exitoso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Abre el menú principal pasándole el nombre y el rol del usuario autenticado
                             frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, rol);
                             menu.Show();
                             this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Autenticación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 conexion.Cerrar();
             }
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
