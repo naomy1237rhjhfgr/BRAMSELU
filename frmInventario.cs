@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BRAMSELU;
+using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace BRAMSELU
@@ -22,111 +24,76 @@ namespace BRAMSELU
 
         private void CargarDatos()
         {
-            try
-            {
-                dgvDatos.DataSource = null;
-                dgvDatos.AutoGenerateColumns = true;
-                dgvDatos.DataSource = inv.MostrarProductos();
+            dgvDatos.DataSource = inv.MostrarProductos();
 
-                if (dgvDatos.Columns.Contains("IdProducto"))
-                {
-                    dgvDatos.Columns["IdProducto"].HeaderText = "ID";
-                    dgvDatos.Columns["IdProducto"].Width = 60;
-                }
+            if (dgvDatos.Columns.Contains("IdProducto"))
+                dgvDatos.Columns["IdProducto"].HeaderText = "ID";
 
-                if (dgvDatos.Columns.Contains("NombreProducto"))
-                    dgvDatos.Columns["NombreProducto"].HeaderText = "Producto";
+            if (dgvDatos.Columns.Contains("NombreProducto"))
+                dgvDatos.Columns["NombreProducto"].HeaderText = "Producto";
 
-                if (dgvDatos.Columns.Contains("Marca"))
-                    dgvDatos.Columns["Marca"].HeaderText = "Marca";
+            if (dgvDatos.Columns.Contains("Marca"))
+                dgvDatos.Columns["Marca"].HeaderText = "Marca";
 
-                if (dgvDatos.Columns.Contains("Categoria"))
-                    dgvDatos.Columns["Categoria"].HeaderText = "Categoría";
+            if (dgvDatos.Columns.Contains("Categoria"))
+                dgvDatos.Columns["Categoria"].HeaderText = "Categoría";
 
-                if (dgvDatos.Columns.Contains("Precio"))
-                    dgvDatos.Columns["Precio"].HeaderText = "Precio";
+            if (dgvDatos.Columns.Contains("Precio"))
+                dgvDatos.Columns["Precio"].HeaderText = "Precio";
 
-                if (dgvDatos.Columns.Contains("Stock"))
-                    dgvDatos.Columns["Stock"].HeaderText = "Stock";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar datos: " + ex.Message);
-            }
+            if (dgvDatos.Columns.Contains("Stock"))
+                dgvDatos.Columns["Stock"].HeaderText = "Stock";
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
-
-            idSeleccionado = Convert.ToInt32(fila.Cells["IdProducto"].Value);
-
-            txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
-            txtMarca.Text = fila.Cells["Marca"].Value.ToString();
-            txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
-            txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
-            txtStock.Text = fila.Cells["Stock"].Value.ToString();
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
+            if (e.RowIndex >= 0)
             {
-                dgvDatos.DataSource = inv.BuscarProducto(txtBuscar.Text.Trim());
+                DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
+
+                idSeleccionado = Convert.ToInt32(fila.Cells["IdProducto"].Value);
+
+                txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
+                txtMarca.Text = fila.Cells["Marca"].Value.ToString();
+                txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
+                txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
+                txtStock.Text = fila.Cells["Stock"].Value.ToString();
             }
-            catch
-            {
-            }
-        }
-
-        private void LimpiarCampos()
-        {
-            txtNombre.Clear();
-            txtMarca.Clear();
-            txtCategoria.Clear();
-            txtPrecio.Clear();
-            txtStock.Clear();
-
-            idSeleccionado = 0;
-
-            txtNombre.Focus();
         }
 
         private bool ValidarCampos()
         {
-            if (txtNombre.Text.Trim() == "")
+            if (txtNombre.Text == "")
             {
-                MessageBox.Show("Ingrese el nombre del producto");
+                MessageBox.Show("Ingrese el nombre");
                 txtNombre.Focus();
                 return false;
             }
 
-            if (txtMarca.Text.Trim() == "")
+            if (txtMarca.Text == "")
             {
                 MessageBox.Show("Ingrese la marca");
                 txtMarca.Focus();
                 return false;
             }
 
-            if (txtCategoria.Text.Trim() == "")
+            if (txtCategoria.Text == "")
             {
                 MessageBox.Show("Ingrese la categoría");
                 txtCategoria.Focus();
                 return false;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out _))
+            if (txtPrecio.Text == "")
             {
-                MessageBox.Show("Ingrese un precio válido");
+                MessageBox.Show("Ingrese el precio");
                 txtPrecio.Focus();
                 return false;
             }
 
-            if (!int.TryParse(txtStock.Text, out _))
+            if (txtStock.Text == "")
             {
-                MessageBox.Show("Ingrese un stock válido");
+                MessageBox.Show("Ingrese el stock");
                 txtStock.Focus();
                 return false;
             }
@@ -134,51 +101,47 @@ namespace BRAMSELU
             return true;
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos()) return;
+            if (!ValidarCampos())
+                return;
 
-            try
+            decimal precio = Convert.ToDecimal(txtPrecio.Text);
+            int stock = Convert.ToInt32(txtStock.Text);
+
+            if (idSeleccionado == 0)
             {
-                decimal precio = decimal.Parse(txtPrecio.Text);
-                int stock = int.Parse(txtStock.Text);
+                inv.InsertarProducto(
+                    txtNombre.Text,
+                    txtMarca.Text,
+                    txtCategoria.Text,
+                    precio,
+                    stock);
 
-                if (idSeleccionado == 0)
-                {
-                    inv.InsertarProducto(
-                        txtNombre.Text,
-                        txtMarca.Text,
-                        txtCategoria.Text,
-                        precio,
-                        stock);
-
-                    MessageBox.Show("Producto guardado correctamente");
-                }
-                else
-                {
-                    inv.EditarProducto(
-                        idSeleccionado,
-                        txtNombre.Text,
-                        txtMarca.Text,
-                        txtCategoria.Text,
-                        precio,
-                        stock);
-
-                    MessageBox.Show("Producto actualizado correctamente");
-                }
-
-                CargarDatos();
-                LimpiarCampos();
+                MessageBox.Show("Producto guardado");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                inv.EditarProducto(
+                    idSeleccionado,
+                    txtNombre.Text,
+                    txtMarca.Text,
+                    txtCategoria.Text,
+                    precio,
+                    stock);
+
+                MessageBox.Show("Producto actualizado");
             }
+
+            CargarDatos();
+
+            txtNombre.Text = "";
+            txtMarca.Text = "";
+            txtCategoria.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
+
+            idSeleccionado = 0;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -189,7 +152,7 @@ namespace BRAMSELU
                 return;
             }
 
-            txtNombre.Focus();
+            MessageBox.Show("Modifique los datos y luego presione Guardar");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -210,11 +173,42 @@ namespace BRAMSELU
             {
                 inv.EliminarProducto(idSeleccionado);
 
-                MessageBox.Show("Producto eliminado correctamente");
+                MessageBox.Show("Producto eliminado");
 
                 CargarDatos();
-                LimpiarCampos();
+
+                txtNombre.Text = "";
+                txtMarca.Text = "";
+                txtCategoria.Text = "";
+                txtPrecio.Text = "";
+                txtStock.Text = "";
+
+                idSeleccionado = 0;
             }
         }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+      
+            if (txtBuscar.Text == "")
+            {
+                CargarDatos();
+                return;
+            }
+
+            int id;
+
+            if (int.TryParse(txtBuscar.Text, out id))
+            {
+                dgvDatos.DataSource = inv.BuscarPorId(id);
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un ID válido");
+            }
+        }
+
+       
     }
 }

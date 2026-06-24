@@ -22,20 +22,14 @@ namespace BRAMSELU
             return dt;
         }
 
-        public DataTable BuscarProducto(string buscar)
+        public DataTable BuscarPorId(int id)
         {
             DataTable dt = new DataTable();
 
-            string sql = @"SELECT *
-                           FROM Productos
-                           WHERE CAST(IdProducto AS VARCHAR) LIKE @Buscar
-                           OR NombreProducto LIKE @Buscar
-                           OR Marca LIKE @Buscar
-                           OR Categoria LIKE @Buscar";
+            string sql = "SELECT * FROM Productos WHERE IdProducto=@Id";
 
             SqlCommand cmd = new SqlCommand(sql, conexion.Abrir());
-
-            cmd.Parameters.AddWithValue("@Buscar", "%" + buscar + "%");
+            cmd.Parameters.AddWithValue("@Id", id);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);

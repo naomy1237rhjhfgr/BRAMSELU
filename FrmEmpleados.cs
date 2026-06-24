@@ -201,7 +201,7 @@ namespace BRAMSELU
                 : comp.Buscar(texto);
 
             if (resultado.Rows.Count == 0)
-                MessageBox.Show("No se encontraron empleados con ese nombre.",
+                MessageBox.Show("No se encontraron empleados con ese numero de identidad.",
                                 "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CargarDatos(resultado);
