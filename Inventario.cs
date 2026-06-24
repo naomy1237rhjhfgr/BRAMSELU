@@ -22,6 +22,29 @@ namespace BRAMSELU
             return dt;
         }
 
+        public DataTable BuscarProducto(string buscar)
+        {
+            DataTable dt = new DataTable();
+
+            string sql = @"SELECT *
+                           FROM Productos
+                           WHERE CAST(IdProducto AS VARCHAR) LIKE @Buscar
+                           OR NombreProducto LIKE @Buscar
+                           OR Marca LIKE @Buscar
+                           OR Categoria LIKE @Buscar";
+
+            SqlCommand cmd = new SqlCommand(sql, conexion.Abrir());
+
+            cmd.Parameters.AddWithValue("@Buscar", "%" + buscar + "%");
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            conexion.Cerrar();
+
+            return dt;
+        }
+
         public void InsertarProducto(string nombre, string marca,
             string categoria, decimal precio, int stock)
         {

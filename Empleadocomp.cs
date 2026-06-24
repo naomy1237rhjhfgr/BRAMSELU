@@ -98,11 +98,11 @@ namespace BRAMSELU
         {
             DataTable tabla = new DataTable();
 
-            string consulta = "SELECT * FROM Empleados WHERE Nombre LIKE @Nombre";
+            string consulta = "SELECT * FROM Empleados WHERE Identidad LIKE @Identidad";
 
             SqlCommand cmd = new SqlCommand(consulta, conexion.Abrir());
 
-            cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
+            cmd.Parameters.AddWithValue("@Identidad", "%" + nombre + "%");
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
