@@ -146,7 +146,7 @@
             this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAcento.Location = new System.Drawing.Point(0, 0);
             this.pnlAcento.Name = "pnlAcento";
-            this.pnlAcento.Size = new System.Drawing.Size(800, 6);
+            this.pnlAcento.Size = new System.Drawing.Size(1271, 6);
             this.pnlAcento.TabIndex = 5;
             // 
             // frmLogin
@@ -154,7 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1271, 526);
             this.Controls.Add(this.pnlCard);
             this.Controls.Add(this.pnlAcento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
