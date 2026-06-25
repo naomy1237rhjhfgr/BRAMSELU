@@ -123,6 +123,7 @@
             // 
             // btnEmpleados
             // 
+            this.btnEmpleados.BackColor = System.Drawing.Color.Transparent;
             this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleados.FlatAppearance.BorderSize = 0;
             this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -142,6 +143,7 @@
             // 
             // btnCerrarSesion
             // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(90)))), ((int)(((byte)(80)))));
@@ -161,6 +163,7 @@
             // 
             // btnReportes
             // 
+            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -180,6 +183,7 @@
             // 
             // btnVentas
             // 
+            this.btnVentas.BackColor = System.Drawing.Color.Transparent;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -199,6 +203,7 @@
             // 
             // btnCategorias
             // 
+            this.btnCategorias.BackColor = System.Drawing.Color.Transparent;
             this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategorias.FlatAppearance.BorderSize = 0;
             this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -218,6 +223,7 @@
             // 
             // btnInventario
             // 
+            this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInventario.FlatAppearance.BorderSize = 0;
             this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -237,6 +243,7 @@
             // 
             // btnServicios
             // 
+            this.btnServicios.BackColor = System.Drawing.Color.Transparent;
             this.btnServicios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnServicios.FlatAppearance.BorderSize = 0;
             this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -256,6 +263,7 @@
             // 
             // btnCitas
             // 
+            this.btnCitas.BackColor = System.Drawing.Color.Transparent;
             this.btnCitas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCitas.FlatAppearance.BorderSize = 0;
             this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -275,6 +283,7 @@
             // 
             // btnClientes
             // 
+            this.btnClientes.BackColor = System.Drawing.Color.Transparent;
             this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
@@ -295,7 +304,8 @@
             // lblUsuarioActivo
             // 
             this.lblUsuarioActivo.AutoSize = true;
-            this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.lblUsuarioActivo.Location = new System.Drawing.Point(31, 69);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
@@ -804,7 +814,29 @@
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(293, 43);
             this.lblBienvenida.TabIndex = 0;
-            this.lblBienvenida.Text = "Bienvenido(a)";
+            this.lblBienvenida.Text = "Bienvenida, bella ";
+            // 
+            // pnlSidebar
+            // 
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.pnlSidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSidebar.BackgroundImage")));
+            this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlSidebar.Controls.Add(this.btnEmpleados);
+            this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
+            this.pnlSidebar.Controls.Add(this.btnClientes);
+            this.pnlSidebar.Controls.Add(this.btnReportes);
+            this.pnlSidebar.Controls.Add(this.btnServicios);
+            this.pnlSidebar.Controls.Add(this.lblLogo);
+            this.pnlSidebar.Controls.Add(this.btnCitas);
+            this.pnlSidebar.Controls.Add(this.btnVentas);
+            this.pnlSidebar.Controls.Add(this.btnInventario);
+            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
+            this.pnlSidebar.Controls.Add(this.btnCategorias);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(256, 659);
+            this.pnlSidebar.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
@@ -850,9 +882,11 @@
             this.MinimumSize = new System.Drawing.Size(802, 449);
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BRAMSELU - Menú Principal";
+            this.Text = "Menú ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
+            this.pnlContenido.ResumeLayout(false);
+            this.pnlContenido.PerformLayout();
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
             this.pnlContenido.ResumeLayout(false);

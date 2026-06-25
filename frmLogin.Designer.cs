@@ -174,10 +174,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.IsMdiContainer = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BRAMSELU — Iniciar Sesión";
+            this.Text = "BRAMSELU ";
             this.pnlCard.ResumeLayout(false);
             this.pnlCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
