@@ -30,15 +30,6 @@
             this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.lblLogo = new System.Windows.Forms.Label();
             this.pnlContenido = new System.Windows.Forms.Panel();
-            this.lblResumenGeneral = new System.Windows.Forms.Label();
-            this.pnlCardClientes = new System.Windows.Forms.Panel();
-            this.pnlCardCitas = new System.Windows.Forms.Panel();
-            this.pnlCardProductos = new System.Windows.Forms.Panel();
-            this.pnlCardCategorias = new System.Windows.Forms.Panel();
-            this.pnlCardVentas = new System.Windows.Forms.Panel();
-            this.pnlCardIngresos = new System.Windows.Forms.Panel();
-            this.pnlCardReportes = new System.Windows.Forms.Panel();
-            this.pnlCardEmpleados = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
@@ -245,106 +236,13 @@
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.pnlContenido.Controls.Add(this.lblResumenGeneral);
-            this.pnlContenido.Controls.Add(this.pnlCardClientes);
-            this.pnlContenido.Controls.Add(this.pnlCardCitas);
-            this.pnlContenido.Controls.Add(this.pnlCardProductos);
-            this.pnlContenido.Controls.Add(this.pnlCardCategorias);
-            this.pnlContenido.Controls.Add(this.pnlCardVentas);
-            this.pnlContenido.Controls.Add(this.pnlCardIngresos);
-            this.pnlContenido.Controls.Add(this.pnlCardReportes);
-            this.pnlContenido.Controls.Add(this.pnlCardEmpleados);
             this.pnlContenido.Controls.Add(this.lblFecha);
             this.pnlContenido.Controls.Add(this.lblBienvenida);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(256, 0);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1024, 768);
-            this.pnlContenido.Size = new System.Drawing.Size(744, 659);
+            this.pnlContenido.Size = new System.Drawing.Size(746, 659);
             this.pnlContenido.TabIndex = 1;
-            // 
-            // lblResumenGeneral
-            // 
-            this.lblResumenGeneral.AutoSize = true;
-            this.lblResumenGeneral.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.lblResumenGeneral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(144)))), ((int)(((byte)(98)))));
-            this.lblResumenGeneral.Location = new System.Drawing.Point(44, 160);
-            this.lblResumenGeneral.Name = "lblResumenGeneral";
-            this.lblResumenGeneral.Size = new System.Drawing.Size(219, 36);
-            this.lblResumenGeneral.TabIndex = 2;
-            this.lblResumenGeneral.Text = "Resumen general";
-            // 
-            // pnlCardClientes
-            // 
-            this.pnlCardClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardClientes.Location = new System.Drawing.Point(44, 210);
-            this.pnlCardClientes.Name = "pnlCardClientes";
-            this.pnlCardClientes.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardClientes.TabIndex = 3;
-            // 
-            // pnlCardCitas
-            // 
-            this.pnlCardCitas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardCitas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardCitas.Location = new System.Drawing.Point(274, 210);
-            this.pnlCardCitas.Name = "pnlCardCitas";
-            this.pnlCardCitas.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardCitas.TabIndex = 4;
-            // 
-            // pnlCardProductos
-            // 
-            this.pnlCardProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardProductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardProductos.Location = new System.Drawing.Point(504, 210);
-            this.pnlCardProductos.Name = "pnlCardProductos";
-            this.pnlCardProductos.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardProductos.TabIndex = 5;
-            // 
-            // pnlCardCategorias
-            // 
-            this.pnlCardCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardCategorias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardCategorias.Location = new System.Drawing.Point(734, 210);
-            this.pnlCardCategorias.Name = "pnlCardCategorias";
-            this.pnlCardCategorias.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardCategorias.TabIndex = 6;
-            // 
-            // pnlCardVentas
-            // 
-            this.pnlCardVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardVentas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardVentas.Location = new System.Drawing.Point(44, 420);
-            this.pnlCardVentas.Name = "pnlCardVentas";
-            this.pnlCardVentas.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardVentas.TabIndex = 7;
-            // 
-            // pnlCardIngresos
-            // 
-            this.pnlCardIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardIngresos.Location = new System.Drawing.Point(274, 420);
-            this.pnlCardIngresos.Name = "pnlCardIngresos";
-            this.pnlCardIngresos.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardIngresos.TabIndex = 8;
-            // 
-            // pnlCardReportes
-            // 
-            this.pnlCardReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardReportes.Location = new System.Drawing.Point(504, 420);
-            this.pnlCardReportes.Name = "pnlCardReportes";
-            this.pnlCardReportes.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardReportes.TabIndex = 9;
-            // 
-            // pnlCardEmpleados
-            // 
-            this.pnlCardEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.pnlCardEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCardEmpleados.Location = new System.Drawing.Point(734, 420);
-            this.pnlCardEmpleados.Name = "pnlCardEmpleados";
-            this.pnlCardEmpleados.Size = new System.Drawing.Size(210, 190);
-            this.pnlCardEmpleados.TabIndex = 10;
             // 
             // lblFecha
             // 
@@ -387,28 +285,6 @@
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(256, 768);
-            this.pnlSidebar.TabIndex = 0;
-            // 
-            // pnlSidebar
-            // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            this.pnlSidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSidebar.BackgroundImage")));
-            this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlSidebar.Controls.Add(this.btnEmpleados);
-            this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
-            this.pnlSidebar.Controls.Add(this.btnClientes);
-            this.pnlSidebar.Controls.Add(this.btnReportes);
-            this.pnlSidebar.Controls.Add(this.btnServicios);
-            this.pnlSidebar.Controls.Add(this.lblLogo);
-            this.pnlSidebar.Controls.Add(this.btnCitas);
-            this.pnlSidebar.Controls.Add(this.btnVentas);
-            this.pnlSidebar.Controls.Add(this.btnInventario);
-            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
-            this.pnlSidebar.Controls.Add(this.btnCategorias);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(256, 659);
             this.pnlSidebar.TabIndex = 0;
             // 
@@ -416,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 659);
+            this.ClientSize = new System.Drawing.Size(1002, 659);
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
             this.MinimumSize = new System.Drawing.Size(1024, 640);
