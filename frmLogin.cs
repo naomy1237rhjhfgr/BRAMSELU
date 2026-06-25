@@ -16,8 +16,6 @@ namespace BRAMSELU
 
         
 
-        
-
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasena.Text))

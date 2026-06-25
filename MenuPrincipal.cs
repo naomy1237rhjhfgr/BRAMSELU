@@ -21,8 +21,8 @@ namespace BRAMSELU
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
             lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
-            lblFecha.Text = DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy",
-                new System.Globalization.CultureInfo("es-ES"));
+            //lblFecha.Text = DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy",
+                //new System.Globalization.CultureInfo("es-ES"));
         }
 
        
@@ -103,6 +103,14 @@ namespace BRAMSELU
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmEmpleados());
+        }
+
+        private void btnPanel_Click(object sender, EventArgs e)
+        {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
         }
     }
 }
