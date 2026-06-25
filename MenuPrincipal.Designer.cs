@@ -19,6 +19,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.btnPanel = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -73,11 +75,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblBienvenida = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnPanel = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.lblBienvenida = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -96,30 +97,54 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(33)))), ((int)(((byte)(26)))));
+            this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlSidebar.Controls.Add(this.pictureBox9);
             this.pnlSidebar.Controls.Add(this.btnPanel);
             this.pnlSidebar.Controls.Add(this.btnEmpleados);
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
+            this.pnlSidebar.Controls.Add(this.btnClientes);
             this.pnlSidebar.Controls.Add(this.btnReportes);
-            this.pnlSidebar.Controls.Add(this.btnVentas);
-            this.pnlSidebar.Controls.Add(this.btnCategorias);
-            this.pnlSidebar.Controls.Add(this.btnInventario);
             this.pnlSidebar.Controls.Add(this.btnServicios);
             this.pnlSidebar.Controls.Add(this.btnCitas);
-            this.pnlSidebar.Controls.Add(this.btnClientes);
+            this.pnlSidebar.Controls.Add(this.btnVentas);
+            this.pnlSidebar.Controls.Add(this.btnInventario);
             this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
+            this.pnlSidebar.Controls.Add(this.btnCategorias);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(325, 770);
+            this.pnlSidebar.Size = new System.Drawing.Size(316, 770);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(0, 614);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(316, 156);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 12;
+            this.pictureBox9.TabStop = false;
+            // 
+            // btnPanel
+            // 
+            this.btnPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(33)))), ((int)(((byte)(26)))));
+            this.btnPanel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(154)))), ((int)(((byte)(107)))));
+            this.btnPanel.Location = new System.Drawing.Point(25, 12);
+            this.btnPanel.Name = "btnPanel";
+            this.btnPanel.Size = new System.Drawing.Size(245, 54);
+            this.btnPanel.TabIndex = 11;
+            this.btnPanel.Text = "BRAMSELÚ";
+            this.btnPanel.UseVisualStyleBackColor = false;
+            this.btnPanel.Click += new System.EventHandler(this.btnPanel_Click);
             // 
             // btnEmpleados
             // 
@@ -309,7 +334,7 @@
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.lblUsuarioActivo.Location = new System.Drawing.Point(31, 69);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(100, 19);
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
@@ -322,9 +347,9 @@
             this.pnlContenido.Controls.Add(this.dateTimePicker1);
             this.pnlContenido.Controls.Add(this.lblBienvenida);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenido.Location = new System.Drawing.Point(325, 0);
+            this.pnlContenido.Location = new System.Drawing.Point(316, 0);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1292, 770);
+            this.pnlContenido.Size = new System.Drawing.Size(1301, 770);
             this.pnlContenido.TabIndex = 1;
             // 
             // label26
@@ -805,39 +830,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lblBienvenida
-            // 
-            this.lblBienvenida.AutoSize = true;
-            this.lblBienvenida.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblBienvenida.Location = new System.Drawing.Point(44, 23);
-            this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(293, 43);
-            this.lblBienvenida.TabIndex = 0;
-            this.lblBienvenida.Text = "Bienvenida, bella ";
-            // 
-            // pnlSidebar
-            // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            this.pnlSidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSidebar.BackgroundImage")));
-            this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlSidebar.Controls.Add(this.btnEmpleados);
-            this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
-            this.pnlSidebar.Controls.Add(this.btnClientes);
-            this.pnlSidebar.Controls.Add(this.btnReportes);
-            this.pnlSidebar.Controls.Add(this.btnServicios);
-            this.pnlSidebar.Controls.Add(this.lblLogo);
-            this.pnlSidebar.Controls.Add(this.btnCitas);
-            this.pnlSidebar.Controls.Add(this.btnVentas);
-            this.pnlSidebar.Controls.Add(this.btnInventario);
-            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
-            this.pnlSidebar.Controls.Add(this.btnCategorias);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(256, 659);
-            this.pnlSidebar.TabIndex = 0;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -847,29 +839,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(307, 30);
             this.dateTimePicker1.TabIndex = 4;
             // 
-            // btnPanel
+            // lblBienvenida
             // 
-            this.btnPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(33)))), ((int)(((byte)(26)))));
-            this.btnPanel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(154)))), ((int)(((byte)(107)))));
-            this.btnPanel.Location = new System.Drawing.Point(25, 12);
-            this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(245, 54);
-            this.btnPanel.TabIndex = 11;
-            this.btnPanel.Text = "BRAMSELÚ";
-            this.btnPanel.UseVisualStyleBackColor = false;
-            this.btnPanel.Click += new System.EventHandler(this.btnPanel_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(0, 614);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(325, 156);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 12;
-            this.pictureBox9.TabStop = false;
+            this.lblBienvenida.AutoSize = true;
+            this.lblBienvenida.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.lblBienvenida.Location = new System.Drawing.Point(44, 23);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(358, 43);
+            this.lblBienvenida.TabIndex = 0;
+            this.lblBienvenida.Text = "Bienvenida, bella ";
             // 
             // frmMenuPrincipal
             // 
@@ -885,10 +864,9 @@
             this.Text = "Menú ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
-            this.pnlContenido.ResumeLayout(false);
-            this.pnlContenido.PerformLayout();
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.pnlContenido.ResumeLayout(false);
             this.pnlContenido.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -916,7 +894,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
