@@ -293,12 +293,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 659);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
             this.MinimumSize = new System.Drawing.Size(1024, 640);
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BRAMSELU - Menú Principal";
+            this.Text = "Menú ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.pnlContenido.ResumeLayout(false);
