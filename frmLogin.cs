@@ -14,16 +14,6 @@ namespace BRAMSELU
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            // Cargar logo desde la carpeta img del proyecto
-            string logoPath = System.IO.Path.Combine(
-                Application.StartupPath, "img", "logo.png");
-
-            if (System.IO.File.Exists(logoPath))
-                picLogo.Image = System.Drawing.Image.FromFile(logoPath);
-        }
-
         
 
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
