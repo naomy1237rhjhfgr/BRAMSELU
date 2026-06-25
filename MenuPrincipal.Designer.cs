@@ -23,14 +23,14 @@
             this.btnPanel = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.btnVentas = new System.Windows.Forms.Button();
-            this.btnCategorias = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnCitas = new System.Windows.Forms.Button();
-            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.lblUsuarioActivo = new System.Windows.Forms.Label();
+            this.btnCategorias = new System.Windows.Forms.Button();
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -119,14 +119,14 @@
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(316, 770);
+            this.pnlSidebar.Size = new System.Drawing.Size(316, 813);
             this.pnlSidebar.TabIndex = 0;
             // 
             // pictureBox9
             // 
             this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(0, 614);
+            this.pictureBox9.Location = new System.Drawing.Point(0, 657);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(316, 156);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -186,6 +186,26 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
+            // btnClientes
+            // 
+            this.btnClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnClientes.Location = new System.Drawing.Point(35, 117);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(248, 38);
+            this.btnClientes.TabIndex = 2;
+            this.btnClientes.Text = "👤  Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // btnReportes
             // 
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
@@ -205,66 +225,6 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // btnVentas
-            // 
-            this.btnVentas.BackColor = System.Drawing.Color.Transparent;
-            this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVentas.FlatAppearance.BorderSize = 0;
-            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
-            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btnVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnVentas.Location = new System.Drawing.Point(35, 317);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(248, 38);
-            this.btnVentas.TabIndex = 7;
-            this.btnVentas.Text = "🛒  Ventas";
-            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.UseVisualStyleBackColor = false;
-            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
-            // 
-            // btnCategorias
-            // 
-            this.btnCategorias.BackColor = System.Drawing.Color.Transparent;
-            this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCategorias.FlatAppearance.BorderSize = 0;
-            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
-            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategorias.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btnCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnCategorias.Location = new System.Drawing.Point(35, 274);
-            this.btnCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnCategorias.Size = new System.Drawing.Size(248, 42);
-            this.btnCategorias.TabIndex = 6;
-            this.btnCategorias.Text = "🏷️  Categorías";
-            this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorias.UseVisualStyleBackColor = false;
-            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.BackColor = System.Drawing.Color.Transparent;
-            this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnInventario.Location = new System.Drawing.Point(35, 236);
-            this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(248, 38);
-            this.btnInventario.TabIndex = 5;
-            this.btnInventario.Text = "📦  Inventario";
-            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.UseVisualStyleBackColor = false;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnServicios
             // 
@@ -306,25 +266,45 @@
             this.btnCitas.UseVisualStyleBackColor = false;
             this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
-            // btnClientes
+            // btnVentas
             // 
-            this.btnClientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnClientes.Location = new System.Drawing.Point(35, 117);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(248, 38);
-            this.btnClientes.TabIndex = 2;
-            this.btnClientes.Text = "👤  Clientes";
-            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.UseVisualStyleBackColor = false;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            this.btnVentas.BackColor = System.Drawing.Color.Transparent;
+            this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnVentas.Location = new System.Drawing.Point(35, 317);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnVentas.Size = new System.Drawing.Size(248, 38);
+            this.btnVentas.TabIndex = 7;
+            this.btnVentas.Text = "🛒  Ventas";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.UseVisualStyleBackColor = false;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnInventario.Location = new System.Drawing.Point(35, 236);
+            this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnInventario.Size = new System.Drawing.Size(248, 38);
+            this.btnInventario.TabIndex = 5;
+            this.btnInventario.Text = "📦  Inventario";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.UseVisualStyleBackColor = false;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // lblUsuarioActivo
             // 
@@ -338,6 +318,26 @@
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
+            // btnCategorias
+            // 
+            this.btnCategorias.BackColor = System.Drawing.Color.Transparent;
+            this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategorias.FlatAppearance.BorderSize = 0;
+            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategorias.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnCategorias.Location = new System.Drawing.Point(35, 274);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnCategorias.Size = new System.Drawing.Size(248, 42);
+            this.btnCategorias.TabIndex = 6;
+            this.btnCategorias.Text = "🏷️  Categorías";
+            this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategorias.UseVisualStyleBackColor = false;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            // 
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
@@ -349,7 +349,7 @@
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(316, 0);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1301, 770);
+            this.pnlContenido.Size = new System.Drawing.Size(1543, 813);
             this.pnlContenido.TabIndex = 1;
             // 
             // label26
@@ -854,7 +854,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1617, 770);
+            this.ClientSize = new System.Drawing.Size(1859, 813);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

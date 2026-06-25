@@ -65,6 +65,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLasesClientes\Cliente.cs" />
+    <Compile Include="CLasesClientes\ClienteDatos.cs" />
     <Compile Include="ClasesProducto\ClaseProducto.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Empleado.cs" />
@@ -132,6 +134,9 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCitas.resx">
+      <DependentUpon>frmCitas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
