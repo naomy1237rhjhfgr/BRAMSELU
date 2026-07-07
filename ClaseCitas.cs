@@ -89,10 +89,10 @@ namespace BRAMSELU
             if (_precio < 0) return false;
             return true;
         }
-
+        
         public bool Guardar()
         {
-            if (Validar())
+            if (!Validar())
             {
                 string strFecha = _fecha.ToString("yyyy-MM-dd");
                 string strHora = _hora;
@@ -125,7 +125,7 @@ namespace BRAMSELU
 
         public bool Modificar()
         {
-            if (Validar() && _id > 0)
+            if (!Validar() && _id > 0)
             {
                 string strFecha = _fecha.ToString("yyyy-MM-dd");
                 string strHora = _hora;
