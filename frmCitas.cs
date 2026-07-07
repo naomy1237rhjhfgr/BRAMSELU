@@ -13,15 +13,12 @@ namespace BRAMSELU
     public partial class frmCitas : Form
     {
         private ClaseCitas claseCitas;
-        private object dgvCitas;
-        private object errorProvider1;
-
-        public object DtpHora { get; private set; }
 
         public frmCitas()
         {
             InitializeComponent();
             claseCitas = new ClaseCitas();
+            errorProvider1.SetError();
         }
         private void frmCitas_Load(object sender, EventArgs e)
         {
