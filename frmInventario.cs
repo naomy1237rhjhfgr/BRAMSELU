@@ -30,7 +30,7 @@ namespace BRAMSELU
             MostrarEnGrid(inv.MostrarProductos());
         }
 
-       
+        
         private void MostrarEnGrid(DataTable dt)
         {
             dgvDatos.RowTemplate.Height = 60;
@@ -51,7 +51,7 @@ namespace BRAMSELU
                 dgvDatos.Columns.Insert(index, colImagen);
             }
 
-           
+          
             if (dgvDatos.Columns.Contains("FechaRegistro"))
                 dgvDatos.Columns["FechaRegistro"].Visible = false;
         }
@@ -83,6 +83,8 @@ namespace BRAMSELU
             txtCategoria.Enabled = h;
             txtPrecio.Enabled = h;
             txtStock.Enabled = h;
+
+            btnCargarImagen.Enabled = h;
         }
 
         private void Limpiar()
@@ -129,6 +131,14 @@ namespace BRAMSELU
                 return false;
             }
 
+            decimal precioValidado;
+            if (!decimal.TryParse(txtPrecio.Text.Trim(), out precioValidado) || precioValidado <= 0)
+            {
+                MessageBox.Show("Ingrese un precio válido, mayor a 0");
+                txtPrecio.Focus();
+                return false;
+            }
+
             if (txtStock.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese el stock");
@@ -136,7 +146,49 @@ namespace BRAMSELU
                 return false;
             }
 
+            int stockValidado;
+            if (!int.TryParse(txtStock.Text.Trim(), out stockValidado) || stockValidado < 0)
+            {
+                MessageBox.Show("Ingrese un stock válido (0 o mayor)");
+                txtStock.Focus();
+                return false;
+            }
+
+            if (imagenSeleccionada == null)
+            {
+                MessageBox.Show("Debe cargar una imagen del producto");
+                btnCargarImagen.Focus();
+                return false;
+            }
+
             return true;
+        }
+
+   
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.' && !txtPrecio.Text.Contains("."))
+                return;
+
+            e.Handled = true;
+        }
+
+      
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            e.Handled = true;
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -201,7 +253,7 @@ namespace BRAMSELU
                     {
                         using (Image imagenOriginal = Image.FromFile(ofd.FileName))
                         {
-                            // Se clona para no dejar el archivo bloqueado en disco
+                        
                             Image copia = new Bitmap(imagenOriginal);
 
                             picImagen.Image = copia;
