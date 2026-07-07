@@ -6,9 +6,7 @@ namespace BRAMSELU
     internal class Conexion
     {
       
-        private SqlConnection cn = new SqlConnection(
-    "Server=localhost;Database=BRAMSELU;Trusted_Connection=True;TrustServerCertificate=True"
-);
+        private SqlConnection cn = new SqlConnection("Server=localhost;Database=BRAMSELU;Trusted_Connection=True;TrustServerCertificate=True");
 
         
         public SqlConnection Abrir()

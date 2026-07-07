@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Web.Management;
 
 namespace BRAMSELU
 {
@@ -15,11 +17,13 @@ namespace BRAMSELU
         private string _servicio;
         private string _especialista;
         private DateTime _fecha;
-        private DateTime _hora;
+        private string _hora;
         private string _duracion;
         private string _notas;
         private string _estado;
-        private float _precio;
+        private decimal _precio;
+        private Conexion _conexion;
+
 
         /// <summary>
         /// Constructor por defecto
@@ -32,18 +36,18 @@ namespace BRAMSELU
             _servicio = string.Empty;
             _especialista = string.Empty;
             _fecha = DateTime.Now;
-            _hora = DateTime.Now;
+            _hora = string.Empty;
             _duracion = string.Empty;
             _notas = string.Empty;
             _estado = "Activo";
             _precio = 0;
-            _conexion = new ClasseConexion();
+            _conexion = new Conexion();
         }
 
         /// <summary>
         /// Constructor completo
         /// </summary>
-        public ClaseCitas(int id, string cliente, string telefono, string servicio, string especialista, DateTime fecha, DateTime hora, string duracion, string notas, string estado, decimal precio)
+        public ClaseCitas(int id, string cliente, string telefono, string servicio, string especialista, DateTime fecha, string hora, string duracion, string notas, string estado, decimal precio)
         {
             _id = id;
             _cliente = cliente;
@@ -55,18 +59,17 @@ namespace BRAMSELU
             _duracion = duracion;
             _notas = notas;
             _estado = estado;
-            _precio = (float)precio;
-            _conexion = new ClasseConexion();
+            _precio = (decimal)precio;
+            _conexion = new Conexion();
         }
 
-        // Propiedades públicas
         public int ID { get { return _id; } set { _id = value; } }
         public string Cliente { get { return _cliente; } set { _cliente = value; } }
         public string Telefono { get { return _telefono; } set { _telefono = value; } }
         public string Servicio { get { return _servicio; } set { _servicio = value; } }
         public string Especialista { get { return _especialista; } set { _especialista = value; } }
         public DateTime Fecha { get { return _fecha; } set { _fecha = value; } }
-        public DateTime Hora { get { return _hora; } set { _hora = value; } }
+        public string Hora { get { return _hora; } set { _hora = value; } }
         public string Duracion { get { return _duracion; } set { _duracion = value; } }
         public string Notas { get { return _notas; } set { _notas = value; } }
         public string Estado { get { return _estado; } set { _estado = value; } }
@@ -91,18 +94,28 @@ namespace BRAMSELU
         {
             if (Validar())
             {
-                // Conversión de fechas al formato estándar de SQL Server (YYYY-MM-DD y HH:MM:SS)
                 string strFecha = _fecha.ToString("yyyy-MM-dd");
-                string strHora = _hora.ToString("HH:mm:ss");
-
-                // Reemplazar coma por punto para evitar fallos de formato decimal en SQL
+                string strHora = _hora;
                 string strPrecio = _precio.ToString().Replace(',', '.');
 
                 string SQL = $"insert into citas (cliente, telefono, servicio, especialista, fecha, hora, duracion, notas, estado, precio) " +
                              $"values('{_cliente}', '{_telefono}', '{_servicio}', '{_especialista}', '{strFecha}', '{strHora}', '{_duracion}', '{_notas}', '{_estado}', {strPrecio})";
 
-                _conexion.ExecutarSQL(SQL);
-                return true;
+                try
+                {
+                    SqlConnection cnAbierta = _conexion.Abrir();
+                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
+                    comando.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex) 
+                {
+                    throw new Exception("Error al guardar la cita: " + ex.Message);
+                }
+                finally
+                {
+                    _conexion.Cerrar();
+                }
             }
             else
             {
@@ -115,15 +128,28 @@ namespace BRAMSELU
             if (Validar() && _id > 0)
             {
                 string strFecha = _fecha.ToString("yyyy-MM-dd");
-                string strHora = _hora.ToString("HH:mm:ss");
+                string strHora = _hora;
                 string strPrecio = _precio.ToString().Replace(',', '.');
 
                 string SQL = $"update citas set cliente='{_cliente}', telefono='{_telefono}', servicio='{_servicio}', " +
                              $"especialista='{_especialista}', fecha='{strFecha}', hora='{strHora}', duracion='{_duracion}', " +
                              $"notas='{_notas}', estado='{_estado}', precio={strPrecio} where id={_id}";
 
-                _conexion.ExecutarSQL(SQL);
-                return true;
+                try
+                {
+                    SqlConnection cnAbierta = _conexion.Abrir();
+                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
+                    comando.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex) 
+                {
+                    throw new Exception("Error al guardar la cita: " + ex.Message);
+                }
+                finally
+                {
+                    _conexion.Cerrar();
+                }
             }
             else
             {
@@ -136,8 +162,21 @@ namespace BRAMSELU
             if (_id > 0)
             {
                 string SQL = $"delete from citas where id={_id}";
-                _conexion.ExecutarSQL(SQL);
-                return true;
+                try
+                {
+                    SqlConnection cnAbierta = _conexion.Abrir();
+                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
+                    comando.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al guardar la cita: " + ex.Message);
+                }
+                finally
+                {
+                    _conexion.Cerrar();
+                }
             }
             else
             {

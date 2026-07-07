@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblEspecialista = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.LblTelefono = new System.Windows.Forms.Label();
@@ -42,8 +43,8 @@
             this.CmbServicio = new System.Windows.Forms.ComboBox();
             this.LblNotas = new System.Windows.Forms.Label();
             this.CmbEspecialista = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.DtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.DtpHora = new System.Windows.Forms.DateTimePicker();
             this.TxtNotas = new System.Windows.Forms.TextBox();
             this.CmbEstado = new System.Windows.Forms.ComboBox();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
@@ -54,7 +55,9 @@
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // LblEspecialista
@@ -198,21 +201,21 @@
             this.CmbEspecialista.Size = new System.Drawing.Size(352, 24);
             this.CmbEspecialista.TabIndex = 55;
             // 
-            // dateTimePicker1
+            // DtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(59, 289);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(246, 22);
-            this.dateTimePicker1.TabIndex = 56;
-            this.dateTimePicker1.Value = new System.DateTime(2026, 6, 28, 21, 56, 45, 0);
+            this.DtpFecha.Location = new System.Drawing.Point(59, 289);
+            this.DtpFecha.Name = "DtpFecha";
+            this.DtpFecha.Size = new System.Drawing.Size(246, 22);
+            this.DtpFecha.TabIndex = 56;
+            this.DtpFecha.Value = new System.DateTime(2026, 6, 28, 21, 56, 45, 0);
             // 
-            // dateTimePicker2
+            // DtpHora
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(326, 289);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(264, 22);
-            this.dateTimePicker2.TabIndex = 57;
-            this.dateTimePicker2.Value = new System.DateTime(2026, 6, 28, 21, 56, 45, 0);
+            this.DtpHora.Location = new System.Drawing.Point(326, 289);
+            this.DtpHora.Name = "DtpHora";
+            this.DtpHora.Size = new System.Drawing.Size(264, 22);
+            this.DtpHora.TabIndex = 57;
+            this.DtpHora.Value = new System.DateTime(2026, 6, 28, 21, 56, 45, 0);
             // 
             // TxtNotas
             // 
@@ -331,6 +334,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(382, 551);
             this.dataGridView1.TabIndex = 67;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -347,8 +354,8 @@
             this.Controls.Add(this.LblPrecio);
             this.Controls.Add(this.LblEstado);
             this.Controls.Add(this.TxtNotas);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DtpHora);
+            this.Controls.Add(this.DtpFecha);
             this.Controls.Add(this.CmbEspecialista);
             this.Controls.Add(this.LblNotas);
             this.Controls.Add(this.CmbServicio);
@@ -366,6 +373,7 @@
             this.Name = "frmCitas";
             this.Text = "frmCitas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,8 +394,8 @@
         private System.Windows.Forms.ComboBox CmbServicio;
         private System.Windows.Forms.Label LblNotas;
         private System.Windows.Forms.ComboBox CmbEspecialista;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker DtpFecha;
+        private System.Windows.Forms.DateTimePicker DtpHora;
         private System.Windows.Forms.TextBox TxtNotas;
         private System.Windows.Forms.ComboBox CmbEstado;
         private System.Windows.Forms.TextBox TxtPrecio;
@@ -398,5 +406,6 @@
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

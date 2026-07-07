@@ -12,60 +12,79 @@ namespace BRAMSELU
 {
     public partial class frmCitas : Form
     {
-        private ClaseCitas claseCitas;
+        private ClaseCitas claseCita;
 
         public frmCitas()
         {
             InitializeComponent();
-            claseCitas = new ClaseCitas();
-            errorProvider1.SetError();
-        }
-        private void frmCitas_Load(object sender, EventArgs e)
-        {
-            // Aquí puedes llamar a un método para llenar los ComboBoxes o listar las citas en el DataGridView si es necesario.
-            LimpiarFormulario();
+            claseCita = new ClaseCitas();
         }
 
-        private bool ValidarFormulario()
+        private void frmCitas_Load(object sender, EventArgs e)
         {
-            // Validar Cliente
+            DtpFecha.Format = DateTimePickerFormat.Short;
+            DtpHora.Format = DateTimePickerFormat.Time;
+            DtpHora.ShowUpDown = true;
+        }
+
+        private bool Validar()
+        {
+            errorProvider1.Clear();
+            bool esValido = true;
+
             if (CmbCliente.SelectedIndex == -1)
             {
                 errorProvider1.SetError(CmbCliente, "Seleccione un cliente");
-                return false;
+                esValido = false;
             }
-            // Validar Servicio
             if (CmbServicio.SelectedIndex == -1)
             {
                 errorProvider1.SetError(CmbServicio, "Seleccione un servicio");
-                return false;
+                esValido = false;
             }
-            // Validar Especialista
             if (CmbEspecialista.SelectedIndex == -1)
             {
                 errorProvider1.SetError(CmbEspecialista, "Seleccione un especialista");
-                return false;
+                esValido = false;
             }
-            // Validar Precio
-            if (string.IsNullOrEmpty(TxtPrecio.Text))
-            {
-                errorProvider1.SetError(TxtPrecio, "Escriba el precio del servicio");
-                return false;
-            }
-            // Validar Estado
             if (CmbEstado.SelectedIndex == -1)
             {
-                errorProvider1.SetError(CmbEstado, "Seleccione el estado de la cita");
-                return false;
+                errorProvider1.SetError(CmbEstado, "Seleccione un estado");
+                esValido = false;
             }
 
-            object value = errorProvider1.Clear();
-            return true;
+            if (string.IsNullOrWhiteSpace(TxtPrecio.Text))
+            {
+                errorProvider1.SetError(TxtPrecio, "Ingrese el precio");
+                esValido = false;
+            }
+            else if (!decimal.TryParse(TxtPrecio.Text, out _))
+            {
+                errorProvider1.SetError(TxtPrecio, "El precio debe ser un número válido");
+                esValido = false;
+            }
+
+            return esValido;
         }
 
-        private void LimpiarFormulario()
+        private void MapearDatos()
         {
-            claseCitas = new ClaseCitas(); // Reinicia la instancia (ID vuelve a 0)
+
+            claseCita.Cliente = CmbCliente.Text;
+            claseCita.Telefono = TxtTelefono.Text;
+            claseCita.Servicio = CmbServicio.Text;
+            claseCita.Especialista = CmbEspecialista.Text;
+            claseCita.Fecha = DtpFecha.Value;
+            claseCita.Hora = DtpHora.Value.ToString("HH:mm");
+            claseCita.Duracion =TxtDuracion.Text;
+            claseCita.Notas = TxtNotas.Text;
+            claseCita.Estado = CmbEstado.Text;
+            claseCita.Precio = Convert.ToDecimal(TxtPrecio.Text);
+        }
+
+        private void Limpiar()
+        {
+            claseCita = new ClaseCitas(); 
             CmbCliente.SelectedIndex = -1;
             TxtTelefono.Clear();
             CmbServicio.SelectedIndex = -1;
@@ -79,121 +98,82 @@ namespace BRAMSELU
             errorProvider1.Clear();
         }
 
-        private void LlenarClaseConCampos()
-        {
-            claseCitas.Cliente = CmbCliente.SelectedItem.ToString();
-            claseCitas.Telefono = TxtTelefono.Text;
-            claseCitas.Servicio = CmbServicio.SelectedItem.ToString();
-            claseCitas.Especialista = CmbEspecialista.SelectedItem.ToString();
-            claseCitas.Fecha = DtpFecha.Value;
-            claseCitas.Hora = DtpHora.Value;
-            claseCitas.Duracion = TxtDuracion.Text;
-            claseCitas.Notas = TxtNotas.Text;
-            claseCitas.Estado = CmbEstado.SelectedItem.ToString();
-
-            decimal.TryParse(TxtPrecio.Text, out decimal precio);
-            claseCitas.Precio = precio;
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarFormulario();
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (ValidarFormulario())
+            if (Validar())
             {
-                LlenarClaseConCampos();
-
-                if (claseCitas.ID == 0)
+                MapearDatos();
+                if (claseCita.Guardar())
                 {
-                    if (claseCitas.Guardar())
-                    {
-                        MessageBox.Show("Cita agendada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarFormulario();
-                        // Aquí puedes refrescar tu DataGridView
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo guardar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                    // Aquí deberías llamar a una función para actualizar tu DataGridView
                 }
-                else 
+                else
                 {
-                    if (claseCitas.Modificar())
-                    {
-                        MessageBox.Show("Cita modificada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarFormulario();
-                        // Aquí puedes refrescar tu DataGridView
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo modificar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Error al guardar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvCitas.CurrentRow != null)
+            if (Validar() && claseCita.ID > 0)
             {
-                claseCitas.ID = Convert.ToInt32(dgvCitas.CurrentRow.Cells["id"].Value);
-
-                CmbCliente.Text = dgvCitas.CurrentRow.Cells["cliente"].Value.ToString();
-                TxtTelefono.Text = dgvCitas.CurrentRow.Cells["telefono"].Value.ToString();
-                CmbServicio.Text = dgvCitas.CurrentRow.Cells["servicio"].Value.ToString();
-                CmbEspecialista.SelectedItem = dgvCitas.CurrentRow.Cells["especialista"].Value.ToString();
-                DtpFecha.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells["fecha"].Value);
-                DtpHora.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells["hora"].Value);
-                TxtDuracion.Text = dgvCitas.CurrentRow.Cells["duracion"].Value.ToString();
-                TxtNotas.Text = dgvCitas.CurrentRow.Cells["notas"].Value.ToString();
-                CmbEstado.SelectedItem = dgvCitas.CurrentRow.Cells["estado"].Value.ToString();
-                TxtPrecio.Text = dgvCitas.CurrentRow.Cells["precio"].Value.ToString();
+                MapearDatos();
+                if (claseCita.Modificar())
+                {
+                    MessageBox.Show("Cita actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una cita de la tabla para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una cita existente para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (claseCitas.ID > 0)
+            if (claseCita.ID > 0)
             {
-                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar esta cita?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar esta cita?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    if (claseCitas.Eliminar())
+                    if (claseCita.Eliminar())
                     {
                         MessageBox.Show("Cita eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarFormulario();
-                        // Aquí puedes refrescar tu DataGridView
+                        Limpiar();
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error al eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione una cita primero mediante el botón Editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una cita para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == '.')
+            Limpiar();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                e.Handled = false;
+                e.Handled = true;
             }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
