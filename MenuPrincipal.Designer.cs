@@ -33,7 +33,6 @@
             this.btnCategorias = new System.Windows.Forms.Button();
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -75,8 +74,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.PanelHeader = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.pnlContenido.SuspendLayout();
@@ -97,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PanelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -138,7 +138,7 @@
             this.btnPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(33)))), ((int)(((byte)(26)))));
             this.btnPanel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(154)))), ((int)(((byte)(107)))));
-            this.btnPanel.Location = new System.Drawing.Point(25, 12);
+            this.btnPanel.Location = new System.Drawing.Point(38, 20);
             this.btnPanel.Name = "btnPanel";
             this.btnPanel.Size = new System.Drawing.Size(245, 54);
             this.btnPanel.TabIndex = 11;
@@ -312,7 +312,7 @@
             this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(31, 69);
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(33, 86);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
             this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
             this.lblUsuarioActivo.TabIndex = 1;
@@ -341,11 +341,8 @@
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.pnlContenido.Controls.Add(this.label26);
-            this.pnlContenido.Controls.Add(this.label25);
+            this.pnlContenido.Controls.Add(this.PanelHeader);
             this.pnlContenido.Controls.Add(this.tableLayoutPanel1);
-            this.pnlContenido.Controls.Add(this.dateTimePicker1);
-            this.pnlContenido.Controls.Add(this.lblBienvenida);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(316, 0);
             this.pnlContenido.Name = "pnlContenido";
@@ -357,22 +354,11 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(130)))), ((int)(((byte)(115)))));
-            this.label26.Location = new System.Drawing.Point(54, 73);
+            this.label26.Location = new System.Drawing.Point(6, 86);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(284, 25);
             this.label26.TabIndex = 7;
             this.label26.Text = "CENTRO DE GESTIÓN BRAMSELÚ";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(130)))), ((int)(((byte)(115)))));
-            this.label25.Location = new System.Drawing.Point(53, 117);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(144, 25);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Panel de control";
             // 
             // tableLayoutPanel1
             // 
@@ -794,7 +780,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 194);
+            this.label3.Location = new System.Drawing.Point(109, 229);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 3;
@@ -804,7 +790,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(124, 175);
+            this.label2.Location = new System.Drawing.Point(122, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 19);
             this.label2.TabIndex = 2;
@@ -814,7 +800,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(132, 146);
+            this.label1.Location = new System.Drawing.Point(130, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 29);
             this.label1.TabIndex = 1;
@@ -823,32 +809,33 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(106, 78);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(185, 117);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(977, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(307, 30);
-            this.dateTimePicker1.TabIndex = 4;
             // 
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
             this.lblBienvenida.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblBienvenida.Location = new System.Drawing.Point(44, 23);
+            this.lblBienvenida.Location = new System.Drawing.Point(36, 23);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(358, 43);
             this.lblBienvenida.TabIndex = 0;
             this.lblBienvenida.Text = "Bienvenida, bella ";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.Controls.Add(this.label26);
+            this.PanelHeader.Controls.Add(this.lblBienvenida);
+            this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelHeader.Location = new System.Drawing.Point(0, 0);
+            this.PanelHeader.Name = "PanelHeader";
+            this.PanelHeader.Size = new System.Drawing.Size(1543, 145);
+            this.PanelHeader.TabIndex = 8;
             // 
             // frmMenuPrincipal
             // 
@@ -869,7 +856,6 @@
             this.pnlSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.pnlContenido.ResumeLayout(false);
-            this.pnlContenido.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -895,6 +881,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelHeader.ResumeLayout(false);
+            this.PanelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -956,9 +944,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnPanel;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Panel PanelHeader;
     }
 }
