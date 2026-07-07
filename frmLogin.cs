@@ -25,8 +25,6 @@ namespace BRAMSELU
 
             try
             {
-                // El login se valida directamente contra dbo.Empleados,
-                // que es donde están Usuario, Contrasena, TipoUsuario y Estado.
                 string query = @"SELECT Nombre, Apellido, TipoUsuario, Estado
                                  FROM Empleados
                                  WHERE Usuario = @usuario AND Contrasena = @contrasena";
@@ -58,7 +56,7 @@ namespace BRAMSELU
                             reader.Close();
                             conexion.Cerrar();
 
-                            // Verifica que el tipo de usuario sea uno de los valores permitidos
+                         
                             bool esAdministrador = tipoUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase);
                             bool esEmpleado = tipoUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
 
