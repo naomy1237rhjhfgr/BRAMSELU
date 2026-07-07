@@ -40,12 +40,12 @@ namespace BRAMSELU
         }
 
         public void InsertarProducto(string nombre, string marca,
-            string categoria, decimal precio, int stock)
+            string categoria, decimal precio, int stock, byte[] imagen)
         {
             string sql = @"INSERT INTO Productos
-                          (NombreProducto,Marca,Categoria,Precio,Stock)
+                          (NombreProducto,Marca,Categoria,Precio,Stock,Imagen)
                           VALUES
-                          (@Nombre,@Marca,@Categoria,@Precio,@Stock)";
+                          (@Nombre,@Marca,@Categoria,@Precio,@Stock,@Imagen)";
 
             SqlCommand cmd = new SqlCommand(sql, conexion.Abrir());
 
@@ -54,6 +54,7 @@ namespace BRAMSELU
             cmd.Parameters.AddWithValue("@Categoria", categoria);
             cmd.Parameters.AddWithValue("@Precio", precio);
             cmd.Parameters.AddWithValue("@Stock", stock);
+            cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = (object)imagen ?? DBNull.Value;
 
             cmd.ExecuteNonQuery();
 
@@ -61,14 +62,15 @@ namespace BRAMSELU
         }
 
         public void EditarProducto(int id, string nombre, string marca,
-            string categoria, decimal precio, int stock)
+            string categoria, decimal precio, int stock, byte[] imagen)
         {
             string sql = @"UPDATE Productos
                            SET NombreProducto=@Nombre,
                                Marca=@Marca,
                                Categoria=@Categoria,
                                Precio=@Precio,
-                               Stock=@Stock
+                               Stock=@Stock,
+                               Imagen=@Imagen
                            WHERE IdProducto=@Id";
 
             SqlCommand cmd = new SqlCommand(sql, conexion.Abrir());
@@ -79,6 +81,7 @@ namespace BRAMSELU
             cmd.Parameters.AddWithValue("@Categoria", categoria);
             cmd.Parameters.AddWithValue("@Precio", precio);
             cmd.Parameters.AddWithValue("@Stock", stock);
+            cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = (object)imagen ?? DBNull.Value;
 
             cmd.ExecuteNonQuery();
 

@@ -14,8 +14,6 @@ namespace BRAMSELU
             InitializeComponent();
         }
 
-        
-
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasena.Text))
@@ -27,10 +25,9 @@ namespace BRAMSELU
 
             try
             {
-                string query = @"SELECT U.NombreCompleto, R.NombreRol 
-                                 FROM Usuarios U 
-                                 INNER JOIN Roles R ON U.IdRol = R.IdRol 
-                                 WHERE U.Usuario = @usuario AND U.Contrasena = @contrasena";
+                string query = @"SELECT Nombre, Apellido, TipoUsuario, Estado
+                                 FROM Empleados
+                                 WHERE Usuario = @usuario AND Contrasena = @contrasena";
 
                 using (SqlCommand cmd = new SqlCommand(query, conexion.Abrir()))
                 {
@@ -41,16 +38,39 @@ namespace BRAMSELU
                     {
                         if (reader.Read())
                         {
-                            string nombreCompleto = reader["NombreCompleto"].ToString();
-                            string rol = reader["NombreRol"].ToString();
+                            bool activo = Convert.ToBoolean(reader["Estado"]);
+
+                            if (!activo)
+                            {
+                                reader.Close();
+                                conexion.Cerrar();
+
+                                MessageBox.Show("Este usuario está inactivo. Contacte al administrador.",
+                                    "Usuario inactivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            string nombreCompleto = reader["Nombre"].ToString() + " " + reader["Apellido"].ToString();
+                            string tipoUsuario = reader["TipoUsuario"].ToString().Trim();
 
                             reader.Close();
                             conexion.Cerrar();
 
-                            MessageBox.Show($"¡Bienvenido {nombreCompleto}!", "Inicio de Sesión Exitoso",
+                         
+                            bool esAdministrador = tipoUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase);
+                            bool esEmpleado = tipoUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
+
+                            if (!esAdministrador && !esEmpleado)
+                            {
+                                MessageBox.Show("El tipo de usuario no es válido. Contacte al administrador.",
+                                    "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            MessageBox.Show($"¡Bienvenido {nombreCompleto}! ({tipoUsuario})", "Inicio de Sesión Exitoso",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, rol);
+                            frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, tipoUsuario);
                             menu.Show();
                             this.Hide();
                         }
