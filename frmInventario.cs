@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
+using BRAMSELU.ClasesProducto;
 
 namespace BRAMSELU
 {
     public partial class frmInventario : Form
     {
         Inventario inv = new Inventario();
+        ImagenProducto imgHelper = new ImagenProducto();
+
         int idSeleccionado = 0;
+        byte[] imagenSeleccionada = null;
 
         public frmInventario()
         {
@@ -22,7 +27,51 @@ namespace BRAMSELU
 
         private void CargarDatos()
         {
-            dgvDatos.DataSource = inv.MostrarProductos();
+            MostrarEnGrid(inv.MostrarProductos());
+        }
+
+       
+        private void MostrarEnGrid(DataTable dt)
+        {
+            dgvDatos.RowTemplate.Height = 60;
+            dgvDatos.DataSource = dt;
+
+            if (dgvDatos.Columns.Contains("Imagen"))
+            {
+                int index = dgvDatos.Columns["Imagen"].Index;
+                dgvDatos.Columns.Remove("Imagen");
+
+                DataGridViewImageColumn colImagen = new DataGridViewImageColumn();
+                colImagen.Name = "Imagen";
+                colImagen.DataPropertyName = "Imagen";
+                colImagen.HeaderText = "Imagen";
+                colImagen.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                colImagen.Width = 90;
+
+                dgvDatos.Columns.Insert(index, colImagen);
+            }
+
+           
+            if (dgvDatos.Columns.Contains("FechaRegistro"))
+                dgvDatos.Columns["FechaRegistro"].Visible = false;
+        }
+
+        
+        private void dgvDatos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvDatos.Columns[e.ColumnIndex].Name != "Imagen")
+                return;
+
+            if (e.Value == null || e.Value == DBNull.Value)
+                return;
+
+            byte[] datos = e.Value as byte[];
+
+            if (datos != null && datos.Length > 0)
+            {
+                e.Value = imgHelper.BytesAImagen(datos);
+                e.FormattingApplied = true;
+            }
         }
 
         private void BloquearCampos(bool bloquear)
@@ -43,6 +92,9 @@ namespace BRAMSELU
             txtCategoria.Clear();
             txtPrecio.Clear();
             txtStock.Clear();
+
+            picImagen.Image = null;
+            imagenSeleccionada = null;
 
             idSeleccionado = 0;
         }
@@ -101,6 +153,19 @@ namespace BRAMSELU
             txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
             txtStock.Text = fila.Cells["Stock"].Value.ToString();
 
+            object valorImagen = fila.Cells["Imagen"].Value;
+
+            if (valorImagen != null && valorImagen != DBNull.Value)
+            {
+                imagenSeleccionada = (byte[])valorImagen;
+                picImagen.Image = imgHelper.BytesAImagen(imagenSeleccionada);
+            }
+            else
+            {
+                imagenSeleccionada = null;
+                picImagen.Image = null;
+            }
+
             BloquearCampos(true);
         }
 
@@ -123,6 +188,34 @@ namespace BRAMSELU
             txtNombre.Focus();
         }
 
+        private void btnCargarImagen_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                ofd.Title = "Seleccione una imagen del producto";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (Image imagenOriginal = Image.FromFile(ofd.FileName))
+                        {
+                            // Se clona para no dejar el archivo bloqueado en disco
+                            Image copia = new Bitmap(imagenOriginal);
+
+                            picImagen.Image = copia;
+                            imagenSeleccionada = imgHelper.ImagenABytes(copia);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo cargar la imagen: " + ex.Message);
+                    }
+                }
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
@@ -140,7 +233,8 @@ namespace BRAMSELU
                         txtMarca.Text,
                         txtCategoria.Text,
                         precio,
-                        stock);
+                        stock,
+                        imagenSeleccionada);
 
                     MessageBox.Show("Producto guardado");
                 }
@@ -152,7 +246,8 @@ namespace BRAMSELU
                         txtMarca.Text,
                         txtCategoria.Text,
                         precio,
-                        stock);
+                        stock,
+                        imagenSeleccionada);
 
                     MessageBox.Show("Producto actualizado");
                 }
@@ -220,16 +315,12 @@ namespace BRAMSELU
                     return;
                 }
 
-                dgvDatos.DataSource = dt;
+                MostrarEnGrid(dt);
             }
             else
             {
                 MessageBox.Show("Ingrese un ID válido");
             }
         }
-
-        
-
-        
     }
 }

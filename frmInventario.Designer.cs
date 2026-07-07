@@ -40,7 +40,11 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblImagen = new System.Windows.Forms.Label();
+            this.picImagen = new System.Windows.Forms.PictureBox();
+            this.btnCargarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAcento
@@ -97,6 +101,7 @@
             this.btnNuevo.TabIndex = 4;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -169,6 +174,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(900, 270);
             this.dgvDatos.TabIndex = 8;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
+            this.dgvDatos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDatos_CellFormatting);
             // 
             // pnlSeparador
             // 
@@ -305,12 +311,53 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
+            // lblImagen
+            // 
+            this.lblImagen.AutoSize = true;
+            this.lblImagen.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblImagen.Location = new System.Drawing.Point(500, 514);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(79, 25);
+            this.lblImagen.TabIndex = 22;
+            this.lblImagen.Text = "Imagen:";
+            // 
+            // picImagen
+            // 
+            this.picImagen.BackColor = System.Drawing.Color.White;
+            this.picImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImagen.Location = new System.Drawing.Point(600, 518);
+            this.picImagen.Name = "picImagen";
+            this.picImagen.Size = new System.Drawing.Size(140, 140);
+            this.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImagen.TabIndex = 23;
+            this.picImagen.TabStop = false;
+            // 
+            // btnCargarImagen
+            // 
+            this.btnCargarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(130)))), ((int)(((byte)(160)))));
+            this.btnCargarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarImagen.FlatAppearance.BorderSize = 0;
+            this.btnCargarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnCargarImagen.ForeColor = System.Drawing.Color.White;
+            this.btnCargarImagen.Location = new System.Drawing.Point(766, 518);
+            this.btnCargarImagen.Name = "btnCargarImagen";
+            this.btnCargarImagen.Size = new System.Drawing.Size(150, 34);
+            this.btnCargarImagen.TabIndex = 24;
+            this.btnCargarImagen.Text = "Cargar Imagen";
+            this.btnCargarImagen.UseVisualStyleBackColor = false;
+            this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
+            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(960, 560);
+            this.ClientSize = new System.Drawing.Size(960, 720);
+            this.Controls.Add(this.btnCargarImagen);
+            this.Controls.Add(this.picImagen);
+            this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.lblTitulo);
@@ -334,12 +381,13 @@
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.txtStock);
             this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.MinimumSize = new System.Drawing.Size(800, 560);
+            this.MinimumSize = new System.Drawing.Size(800, 720);
             this.Name = "frmInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BRAMSELU - Control de Inventario";
             this.Load += new System.EventHandler(this.frmInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,5 +419,9 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Button btnBuscar;
+        // ── Controles de imagen ────────────────────────────────────────
+        private System.Windows.Forms.Label lblImagen;
+        private System.Windows.Forms.PictureBox picImagen;
+        private System.Windows.Forms.Button btnCargarImagen;
     }
 }
