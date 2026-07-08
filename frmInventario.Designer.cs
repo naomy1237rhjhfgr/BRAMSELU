@@ -63,7 +63,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
             this.lblTitulo.Location = new System.Drawing.Point(30, 22);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(341, 45);
+            this.lblTitulo.Size = new System.Drawing.Size(293, 37);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Control de Inventario";
             // 
@@ -72,9 +72,9 @@
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblBuscar.Location = new System.Drawing.Point(12, 75);
+            this.lblBuscar.Location = new System.Drawing.Point(30, 72);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(72, 25);
+            this.lblBuscar.Size = new System.Drawing.Size(59, 21);
             this.lblBuscar.TabIndex = 2;
             this.lblBuscar.Text = "Buscar:";
             // 
@@ -82,9 +82,9 @@
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBuscar.Location = new System.Drawing.Point(90, 72);
+            this.txtBuscar.Location = new System.Drawing.Point(108, 69);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(220, 34);
+            this.txtBuscar.Size = new System.Drawing.Size(220, 30);
             this.txtBuscar.TabIndex = 3;
             // 
             // btnNuevo
@@ -95,7 +95,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(330, 70);
+            this.btnNuevo.Location = new System.Drawing.Point(348, 67);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 32);
             this.btnNuevo.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(440, 70);
+            this.btnEditar.Location = new System.Drawing.Point(458, 67);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 32);
             this.btnEditar.TabIndex = 5;
@@ -127,7 +127,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(550, 70);
+            this.btnEliminar.Location = new System.Drawing.Point(568, 67);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 32);
             this.btnEliminar.TabIndex = 6;
@@ -143,7 +143,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(660, 70);
+            this.btnGuardar.Location = new System.Drawing.Point(678, 67);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 32);
             this.btnGuardar.TabIndex = 7;
@@ -191,7 +191,7 @@
             this.lblSeccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
             this.lblSeccion.Location = new System.Drawing.Point(30, 412);
             this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(184, 25);
+            this.lblSeccion.Size = new System.Drawing.Size(156, 21);
             this.lblSeccion.TabIndex = 10;
             this.lblSeccion.Text = "Datos del Producto";
             // 
@@ -202,7 +202,7 @@
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblNombre.Location = new System.Drawing.Point(30, 442);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(85, 25);
+            this.lblNombre.Size = new System.Drawing.Size(71, 21);
             this.lblNombre.TabIndex = 11;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -213,7 +213,7 @@
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblMarca.Location = new System.Drawing.Point(510, 442);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(69, 25);
+            this.lblMarca.Size = new System.Drawing.Size(56, 21);
             this.lblMarca.TabIndex = 13;
             this.lblMarca.Text = "Marca:";
             // 
@@ -224,7 +224,7 @@
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblCategoria.Location = new System.Drawing.Point(30, 480);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(98, 25);
+            this.lblCategoria.Size = new System.Drawing.Size(80, 21);
             this.lblCategoria.TabIndex = 15;
             this.lblCategoria.Text = "Categoría:";
             // 
@@ -235,7 +235,7 @@
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblPrecio.Location = new System.Drawing.Point(510, 480);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(69, 25);
+            this.lblPrecio.Size = new System.Drawing.Size(56, 21);
             this.lblPrecio.TabIndex = 17;
             this.lblPrecio.Text = "Precio:";
             // 
@@ -246,7 +246,7 @@
             this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblStock.Location = new System.Drawing.Point(30, 518);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(60, 25);
+            this.lblStock.Size = new System.Drawing.Size(50, 21);
             this.lblStock.TabIndex = 19;
             this.lblStock.Text = "Stock:";
             // 
@@ -256,7 +256,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Location = new System.Drawing.Point(130, 438);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(340, 34);
+            this.txtNombre.Size = new System.Drawing.Size(340, 30);
             this.txtNombre.TabIndex = 12;
             // 
             // txtMarca
@@ -265,7 +265,7 @@
             this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMarca.Location = new System.Drawing.Point(600, 438);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(230, 34);
+            this.txtMarca.Size = new System.Drawing.Size(230, 30);
             this.txtMarca.TabIndex = 14;
             // 
             // txtCategoria
@@ -274,7 +274,7 @@
             this.txtCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCategoria.Location = new System.Drawing.Point(130, 476);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(340, 34);
+            this.txtCategoria.Size = new System.Drawing.Size(340, 30);
             this.txtCategoria.TabIndex = 16;
             // 
             // txtPrecio
@@ -283,7 +283,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecio.Location = new System.Drawing.Point(600, 476);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(140, 34);
+            this.txtPrecio.Size = new System.Drawing.Size(140, 30);
             this.txtPrecio.TabIndex = 18;
             // 
             // txtStock
@@ -292,7 +292,7 @@
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStock.Location = new System.Drawing.Point(130, 514);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(140, 34);
+            this.txtStock.Size = new System.Drawing.Size(140, 30);
             this.txtStock.TabIndex = 20;
             // 
             // btnBuscar
@@ -303,7 +303,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(766, 68);
+            this.btnBuscar.Location = new System.Drawing.Point(784, 65);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 34);
             this.btnBuscar.TabIndex = 21;
@@ -318,7 +318,7 @@
             this.lblImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblImagen.Location = new System.Drawing.Point(500, 514);
             this.lblImagen.Name = "lblImagen";
-            this.lblImagen.Size = new System.Drawing.Size(79, 25);
+            this.lblImagen.Size = new System.Drawing.Size(65, 21);
             this.lblImagen.TabIndex = 22;
             this.lblImagen.Text = "Imagen:";
             // 
@@ -351,7 +351,7 @@
             // 
             // frmInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(960, 720);

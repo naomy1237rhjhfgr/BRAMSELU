@@ -13,18 +13,37 @@ namespace BRAMSELU
     public partial class frmCitas : Form
     {
         private ClaseCitas claseCita;
+        private int idCitaSeleccionada = -1;
+
+        private const string PLACEHOLDER_HORA = "Ej. 02:30 PM";
+        private const string PLACEHOLDER_DURACION = "Ej. 1 hora / 45 mins";
+        private const string PLACEHOLDER_NOTAS = "Escriba observaciones adicionales aquí...";
+        private const string PLACEHOLDER_PRECIO = "0.00";
 
         public frmCitas()
         {
             InitializeComponent();
             claseCita = new ClaseCitas();
-        }
 
+            ConfigurarComponentes();
+        }
         private void frmCitas_Load(object sender, EventArgs e)
         {
-            DtpFecha.Format = DateTimePickerFormat.Short;
-            DtpHora.Format = DateTimePickerFormat.Time;
-            DtpHora.ShowUpDown = true;
+            CargarDatosGrid();
+        }
+        private void ConfigurarComponentes()
+        {
+            CmbCliente.Items.AddRange(new string[] { "Juan Pérez", "María López", "Carlos Mendoza", "Ana Martínez" });
+            CmbServicio.Items.AddRange(new string[] { "Limpieza facial completa", "Masaje relajante", "Exfoliación corporal", "Tratamiento antiacné" });
+            CmbEspecialista.Items.AddRange(new string[] { "Dra. Elena Gómez", "Dra. Valeria Ruiz", "Carlos Estévez" });
+            CmbEstado.Items.AddRange(new string[] { "Pendiente", "Confirmada", "Completada", "Cancelada" });
+
+            dgvCitas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCitas.MultiSelect = false;
+            dgvCitas.ReadOnly = true;
+            ConfigurarPlaceholders();
+
+            TxtTelefono.MaxLength = 9;
         }
 
         private bool Validar()
@@ -100,65 +119,17 @@ namespace BRAMSELU
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (Validar())
-            {
-                MapearDatos();
-                if (claseCita.Guardar())
-                {
-                    MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Limpiar();
-                    // Aquí deberías llamar a una función para actualizar tu DataGridView
-                }
-                else
-                {
-                    MessageBox.Show("Error al guardar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (Validar() && claseCita.ID > 0)
-            {
-                MapearDatos();
-                if (claseCita.Modificar())
-                {
-                    MessageBox.Show("Cita actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una cita existente para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (claseCita.ID > 0)
-            {
-                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar esta cita?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resultado == DialogResult.Yes)
-                {
-                    if (claseCita.Eliminar())
-                    {
-                        MessageBox.Show("Cita eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una cita para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
