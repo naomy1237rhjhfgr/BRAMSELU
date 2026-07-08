@@ -32,8 +32,8 @@
             this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.btnCategorias = new System.Windows.Forms.Button();
             this.PanelHeader = new System.Windows.Forms.Panel();
-            this.lblBienvenida = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.lblBienvenida = new System.Windows.Forms.Label();
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -61,14 +61,14 @@
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(316, 813);
+            this.pnlSidebar.Size = new System.Drawing.Size(316, 735);
             this.pnlSidebar.TabIndex = 0;
             // 
             // pictureBox9
             // 
             this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(0, 657);
+            this.pictureBox9.Location = new System.Drawing.Point(0, 579);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(316, 156);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -287,19 +287,8 @@
             this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(1543, 145);
+            this.PanelHeader.Size = new System.Drawing.Size(1170, 145);
             this.PanelHeader.TabIndex = 8;
-            // 
-            // lblBienvenida
-            // 
-            this.lblBienvenida.AutoSize = true;
-            this.lblBienvenida.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblBienvenida.Location = new System.Drawing.Point(36, 23);
-            this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(667, 43);
-            this.lblBienvenida.TabIndex = 0;
-            this.lblBienvenida.Text = "BIENVENIDO, ADMINISTRADOR";
             // 
             // label26
             // 
@@ -312,6 +301,17 @@
             this.label26.TabIndex = 7;
             this.label26.Text = "CENTRO DE GESTIÓN BRAMSELÚ";
             // 
+            // lblBienvenida
+            // 
+            this.lblBienvenida.AutoSize = true;
+            this.lblBienvenida.Font = new System.Drawing.Font("Georgia", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.lblBienvenida.Location = new System.Drawing.Point(36, 23);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(667, 43);
+            this.lblBienvenida.TabIndex = 0;
+            this.lblBienvenida.Text = "BIENVENIDO, ADMINISTRADOR";
+            // 
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
@@ -319,17 +319,14 @@
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(316, 0);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1543, 813);
+            this.pnlContenido.Size = new System.Drawing.Size(1170, 735);
             this.pnlContenido.TabIndex = 1;
             // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1859, 813);
-            this.ControlBox = false;
-            this.ClientSize = new System.Drawing.Size(1617, 770);
-            this.ClientSize = new System.Drawing.Size(1002, 659);
+            this.ClientSize = new System.Drawing.Size(1486, 735);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
