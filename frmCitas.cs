@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,228 +12,313 @@ namespace BRAMSELU
 {
     public partial class frmCitas : Form
     {
-        private ClaseCitas claseCita;
-        private int idCitaSeleccionada = 0;
+        CitaDAL comp = new CitaDAL();
+        int idSeleccionado = 0;
+        bool modoEdicion = false;
 
-        private const string PLACEHOLDER_HORA = "Ej. 02:30 PM";
-        private const string PLACEHOLDER_DURACION = "Ej. 1 hora / 45 mins";
-        private const string PLACEHOLDER_NOTAS = "Escriba observaciones adicionales aquí...";
-        private const string PLACEHOLDER_PRECIO = "0.00";
+        const string PLACEHOLDER_HORA = "Ej. 02:30 PM";
+        const string PLACEHOLDER_DURACION = "Ej. 30 min o 1 Hora";
+        const string PLACEHOLDER_PRECIO = "Ej. 0.00";
+        const string PLACEHOLDER_NOTAS = "Escriba observaciones aquí...";
 
         public frmCitas()
         {
             InitializeComponent();
-            claseCita = new ClaseCitas();
-
-            ConfigurarComponentes();
         }
+
         private void frmCitas_Load(object sender, EventArgs e)
         {
-            RefrescarGrid();
-        }
-        private void ConfigurarComponentes()
-        {
-            CmbCliente.Items.AddRange(new string[] { "Juan Pérez", "María López", "Carlos Mendoza", "Ana Martínez" });
-            CmbServicio.Items.AddRange(new string[] { "Limpieza facial completa", "Masaje relajante", "Exfoliación corporal", "Tratamiento antiacné" });
-            CmbEspecialista.Items.AddRange(new string[] { "Dra. Elena Gómez", "Dra. Valeria Ruiz", "Carlos Estévez" });
-            CmbEstado.Items.AddRange(new string[] { "Pendiente", "Confirmada", "Completada", "Cancelada" });
+            CargarDatos();
+            BloquearCampos(true);
+            ActualizarBotones(false);
+            InicializarPlaceholders();
 
-            dgvCitas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCitas.MultiSelect = false;
-            dgvCitas.ReadOnly = true;
-            dgvCitas.AllowUserToAddRows = false;
+            CmbEstado.Items.Clear();
+            CmbEstado.Items.Add("Pendiente");
+            CmbEstado.Items.Add("Confirmada");
+            CmbEstado.Items.Add("Completada");
+            CmbEstado.Items.Add("Cancelada");
+            CmbEstado.SelectedIndex = 0;
 
-            ConfigurarPlaceholders();
-
-            TxtTelefono.MaxLength = 9;
-        }
-        private void RefrescarGrid(string filtro = "")
-        {
-            dgvCitas.DataSource = claseCita.ListarCitas(filtro);
-            FormatearColumnasGrid();
-        }
-        private void FormatearColumnasGrid()
-        {
-            if (dgvCitas.Columns.Count > 0)
+            try
             {
-                if (dgvCitas.Columns["Id"] != null) dgvCitas.Columns["Id"].Visible = false;
-                if (dgvCitas.Columns["Notas"] != null) dgvCitas.Columns["Notas"].Visible = false;
+                Cliente clienteDAL = new Cliente();
+                LlenarComboBox(CmbCliente, clienteDAL.Mostrar(), "Nombre", "IdCliente");
 
-                if (dgvCitas.Columns["Precio"] != null)
-            {
-                    dgvCitas.Columns["Precio"].DefaultCellStyle.Format = "L. #,##0.00";
-            }
-            }
-            }
-        #region PLACEHOLDER MANAGEMENT
-        private void ConfigurarPlaceholders()
-            {
-            SetPlaceholder(TxtHora, PLACEHOLDER_HORA);
-            SetPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
-            SetPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
-            SetPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
-            }
+                Servicio servicioDAL = new Servicio();
+                LlenarComboBox(CmbServicio, servicioDAL.Mostrar(), "NombreServicio", "IdServicio");
 
-        private void SetPlaceholder(TextBox txtHora, string pLACEHOLDER_HORA)
-        {
-            throw new NotImplementedException();
+                Empleado empleadoDAL = new Empleado();
+                LlenarComboBox(CmbEspecialista, empleadoDAL.Mostrar(), "Nombre", "IdEmpleado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las listas de selección: " + ex.Message,
+                                "Error de inicialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        #endregion
+        }
 
-        #region VALIDACIONES DE ENTRADA
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private void CargarDatos(DataTable tabla = null)
+        {
+            dgvCitas.DataSource = tabla ?? comp.Mostrar();
+        }
+
+        private void BloquearCampos(bool bloquear)
             {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) e.Handled = true;
+            bool h = !bloquear;
+            CmbCliente.Enabled = h;
+            TxtTelefono.Enabled = h;
+            CmbServicio.Enabled = h;
+            CmbEspecialista.Enabled = h;
+            DtpFecha.Enabled = h;
+            TxtHora.Enabled = h;
+            TxtDuracion.Enabled = h;
+            TxtPrecio.Enabled = h;
+            TxtNotas.Enabled = h;
+            CmbEstado.Enabled = h;
             }
 
-        private void txtPrecio_Leave(object sender, EventArgs e)
+        private void ActualizarBotones(bool conRegistro)
+        {
+            BtnEditar.Enabled = conRegistro;
+            BtnEliminar.Enabled = conRegistro;
+            BtnGuardar.Enabled = false;
+        }
+
+        private void InicializarPlaceholders()
             {
-            if (TxtPrecio.Text != PLACEHOLDER_PRECIO && decimal.TryParse(TxtPrecio.Text, out decimal result))
-            {
-                TxtPrecio.Text = result.ToString("F2");
+            ConfigurarPlaceholder(TxtHora, PLACEHOLDER_HORA);
+            ConfigurarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
+            ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
+            ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
             }
-        }
 
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-            TxtTelefono.TextChanged -= txtTelefono_TextChanged;
-            string num = TxtTelefono.Text.Replace("-", "");
-            if (num.Length > 4)
+        private void ConfigurarPlaceholder(TextBox txt, string placeholder)
             {
-                TxtTelefono.Text = num.Insert(4, "-");
-                TxtTelefono.SelectionStart = TxtTelefono.Text.Length;
+            if (string.IsNullOrWhiteSpace(txt.Text) || txt.Text == placeholder)
+            {
+                txt.Text = placeholder;
+                txt.ForeColor = Color.Gray;
         }
-            TxtTelefono.TextChanged += txtTelefono_TextChanged;
         }
-        #endregion
 
-        #region ACCIONES CRUD (BOTONES)
-
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void QuitarPlaceholder(TextBox txt, string placeholder)
         {
-            LimpiarFormulario();
+            if (txt.Text == placeholder)
+            {
+                txt.Text = "";
+                txt.ForeColor = Color.Black;
+        }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void LimpiarCampos()
         {
-            string cliente = CmbCliente.SelectedItem?.ToString() ?? "";
-            string telefono = TxtTelefono.Text.Trim();
-            string servicio = CmbServicio.SelectedItem?.ToString() ?? "";
-            string especialista = CmbEspecialista.SelectedItem?.ToString() ?? "No asignado";
-            DateTime fecha = DtpFecha.Value;
+            CmbCliente.SelectedIndex = -1;
+            TxtTelefono.Clear();
+            CmbServicio.SelectedIndex = -1;
+            CmbEspecialista.SelectedIndex = -1;
+            DtpFecha.Value = DateTime.Now;
+            CmbEstado.SelectedIndex = -1;
+            idSeleccionado = 0;
+
+            InicializarPlaceholders();
+        }
+
+        private ClaseCitas ObtenerCitaDelFormulario()
+        {
             string hora = TxtHora.Text == PLACEHOLDER_HORA ? "" : TxtHora.Text.Trim();
             string duracion = TxtDuracion.Text == PLACEHOLDER_DURACION ? "" : TxtDuracion.Text.Trim();
             string notas = TxtNotas.Text == PLACEHOLDER_NOTAS ? "" : TxtNotas.Text.Trim();
-            string estado = CmbEstado.SelectedItem?.ToString() ?? "Pendiente";
+            string precioTexto = TxtPrecio.Text == PLACEHOLDER_PRECIO ? "0" : TxtPrecio.Text.Trim();
 
-            decimal.TryParse(TxtPrecio.Text, out decimal precioFinal);
+            decimal.TryParse(precioTexto, out decimal precio);
 
-            claseCita = new ClaseCitas(idCitaSeleccionada, cliente, telefono, servicio, especialista, fecha, hora, duracion, notas, estado, precioFinal);
-
-            string resultado = claseCita.Guardar();
-
-            if (resultado == "OK")
+            return new ClaseCitas
             {
-                MessageBox.Show("Operación realizada con éxito.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarFormulario();
-                RefrescarGrid();
+                ID = idSeleccionado,
+                Cliente = CmbCliente.SelectedValue?.ToString() ?? "",
+                Telefono = TxtTelefono.Text.Trim(),
+                Servicio = CmbServicio.SelectedValue?.ToString() ?? "",
+                Especialista = CmbEspecialista.SelectedValue?.ToString() ?? "",
+                Fecha = DtpFecha.Value,
+                Hora = hora,
+                Duracion = duracion,
+                Notas = notas,
+                Estado = CmbEstado.SelectedItem?.ToString() ?? "Pendiente",
+                Precio = precio
+            };
         }
-            else
+
+        private bool ValidarCampos()
+        {
+            if (CmbCliente.SelectedIndex == -1 ||
+                CmbServicio.SelectedIndex == -1 ||
+                TxtHora.Text == PLACEHOLDER_HORA || string.IsNullOrWhiteSpace(TxtHora.Text))
             {
-                MessageBox.Show(resultado, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Cliente, Servicio y Hora son campos obligatorios.",
+                                "Campos requeridos",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
             }
+            return true;
+            }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BloquearCampos(false);
+            modoEdicion = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
+            CmbCliente.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvCitas.CurrentRow != null)
+            if (idSeleccionado == 0)
             {
-                DataGridViewRow fila = dgvCitas.CurrentRow;
-
-                idCitaSeleccionada = Convert.ToInt32(fila.Cells["Id"].Value);
-
-                CmbCliente.SelectedItem = fila.Cells["Cliente"].Value.ToString();
-                TxtTelefono.Text = fila.Cells["Telefono"].Value.ToString();
-                CmbServicio.SelectedItem = fila.Cells["Servicio"].Value.ToString();
-                CmbEspecialista.SelectedItem = fila.Cells["Especialista"].Value.ToString();
-                DtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
-
-                TxtHora.Text = fila.Cells["Hora"].Value.ToString();
-                TxtHora.ForeColor = Color.Black;
-
-                string duracion = fila.Cells["Duracion"].Value.ToString();
-                TxtDuracion.Text = string.IsNullOrEmpty(duracion) ? PLACEHOLDER_DURACION : duracion;
-                TxtDuracion.ForeColor = string.IsNullOrEmpty(duracion) ? Color.Gray : Color.Black;
-
-                string notas = fila.Cells["Notas"].Value.ToString();
-                TxtNotas.Text = string.IsNullOrEmpty(notas) ? PLACEHOLDER_NOTAS : notas;
-                TxtNotas.ForeColor = string.IsNullOrEmpty(notas) ? Color.Gray : Color.Black;
-
-                CmbEstado.SelectedItem = fila.Cells["Estado"].Value.ToString();
-
-                TxtPrecio.Text = Convert.ToDecimal(fila.Cells["Precio"].Value).ToString("F2");
-                TxtPrecio.ForeColor = Color.Black;
+                MessageBox.Show("Selecciona una cita en la tabla primero.",
+                                "Sin selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else
+            BloquearCampos(false);
+            modoEdicion = true;
+            BtnGuardar.Enabled = true;
+            CmbCliente.Focus();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos()) return;
+
+            try
             {
-                MessageBox.Show("Seleccione una fila de la lista.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ClaseCitas cita = ObtenerCitaDelFormulario();
+
+                if (modoEdicion)
+                    comp.Modificar(cita);
+                else
+                    comp.Guardar(cita);
+
+                MessageBox.Show("Cita guardada correctamente.",
+                                "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarDatos();
+                LimpiarCampos();
+                BloquearCampos(true);
+                BtnGuardar.Enabled = false;
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // BOTÓN ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvCitas.CurrentRow != null)
-            {
-                var confirmacion = MessageBox.Show("¿Desea eliminar este registro?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirmacion == DialogResult.Yes)
+            if (idSeleccionado == 0)
                 {
-                    int idEliminar = Convert.ToInt32(dgvCitas.CurrentRow.Cells["Id"].Value);
+                MessageBox.Show("Selecciona una cita en la tabla primero.",
+                                "Sin selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-                    // Llamamos al método Eliminar pasándole el ID
-                    if (claseCita.Eliminar(idEliminar, out string mensaje))
+            if (MessageBox.Show("¿Estás seguro de que deseas eliminar esta cita?",
+                                "Confirmar eliminación",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                try
                     {
-                        MessageBox.Show("Registro eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarFormulario();
-                        RefrescarGrid();
+                    comp.Eliminar(idSeleccionado);
+                    MessageBox.Show("Cita eliminada correctamente.",
+                                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    LimpiarCampos();
+                    BloquearCampos(true);
+                    ActualizarBotones(false);
                     }
-                    else
+                catch (Exception ex)
                     {
-                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                    MessageBox.Show("Error al eliminar: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-            else
-        {
-                MessageBox.Show("Seleccione la fila que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            RefrescarGrid(txtBuscar.Text.Trim());
+            string texto = txtBuscar.Text.Trim();
+
+            DataTable resultado = string.IsNullOrEmpty(texto)
+                ? comp.Mostrar()
+                : comp.Buscar(texto);
+
+            if (resultado.Rows.Count == 0)
+                MessageBox.Show("No se encontraron citas coincidentes.",
+                                "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarDatos(resultado);
             }
-        #endregion
 
-        private void LimpiarFormulario()
+        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
             {
-            CmbCliente.SelectedIndex = -1;
-            CmbServicio.SelectedIndex = -1;
-            CmbEspecialista.SelectedIndex = -1;
-            CmbEstado.SelectedIndex = -1;
-            TxtTelefono.Clear();
-            DtpFecha.Value = DateTime.Now;
+            if (e.RowIndex < 0) return;
 
-            ConfigurarPlaceholders();
-            idCitaSeleccionada = 0; // Vuelve a modo de inserción limpia
+            DataGridViewRow fila = dgvCitas.Rows[e.RowIndex];
+
+            idSeleccionado = Convert.ToInt32(fila.Cells["IdCita"].Value);
+
+            CmbCliente.SelectedValue = fila.Cells["IdCliente"].Value;
+            TxtTelefono.Text = fila.Cells["Telefono"].Value?.ToString() ?? "";
+            CmbServicio.SelectedValue = fila.Cells["IdServicio"].Value;
+            CmbEspecialista.SelectedValue = fila.Cells["IdEspecialista"].Value;
+            DtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+
+            TxtHora.Text = fila.Cells["Hora"].Value?.ToString() ?? "";
+            TxtHora.ForeColor = Color.Black;
+
+            TxtDuracion.Text = fila.Cells["Duracion"].Value?.ToString() ?? "";
+            TxtDuracion.ForeColor = Color.Black;
+
+            TxtPrecio.Text = fila.Cells["Precio"].Value?.ToString() ?? "";
+            TxtPrecio.ForeColor = Color.Black;
+
+            TxtNotas.Text = fila.Cells["Notas"].Value?.ToString() ?? "";
+            TxtNotas.ForeColor = Color.Black;
+
+            CmbEstado.SelectedItem = fila.Cells["EstadoCita"].Value?.ToString();
+
+            BloquearCampos(true);
+            ActualizarBotones(true);
+            BtnGuardar.Enabled = false;
+        }
+        private void LlenarComboBox(ComboBox combo, DataTable datos, string columnaMostrar, string columnaValor)
+        {
+            combo.DataSource = datos;
+            combo.DisplayMember = columnaMostrar; // Lo que el usuario VE en la pantalla (ej. Nombre)
+            combo.ValueMember = columnaValor;     // El ID real que se guardará en la base de datos (ej. IdCliente)
+            combo.SelectedIndex = -1;             // Que aparezca vacío al inicio
         }
 
+
+        private void txtHora_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtHora, PLACEHOLDER_HORA);
+        private void txtHora_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtHora, PLACEHOLDER_HORA);
+
+        private void txtDuracion_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
+        private void txtDuracion_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
+
+        private void txtPrecio_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
+        private void txtPrecio_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
         
+        private void txtNotas_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
+        private void txtNotas_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
+
+       
     }
 }

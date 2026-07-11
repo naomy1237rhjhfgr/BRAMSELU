@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Management;
+using System.Data;
 
 namespace BRAMSELU
 {
@@ -21,8 +16,6 @@ namespace BRAMSELU
         private string _notas;
         private string _estado;
         private decimal _precio;
-        private Conexion _conexion;
-
 
         /// <summary>
         /// Constructor por defecto
@@ -38,9 +31,8 @@ namespace BRAMSELU
             _hora = string.Empty;
             _duracion = string.Empty;
             _notas = string.Empty;
-            _estado = "Pendiente, Confirmada, Completada, Cancelada";
+            _estado = "Pendiente";
             _precio = 0;
-            _conexion = new Conexion();
         }
 
         /// <summary>
@@ -58,58 +50,23 @@ namespace BRAMSELU
             _duracion = duracion;
             _notas = notas;
             _estado = estado;
-            _precio = (decimal)precio;
-            _conexion = new Conexion();
+            _precio = precio;
         }
 
         public int ID { get { return _id; } set { _id = value; } }
         public string Cliente { get { return _cliente; } set { _cliente = value; } }
+
         public string Telefono { get { return _telefono; } set { _telefono = value; } }
         public string Servicio { get { return _servicio; } set { _servicio = value; } }
         public string Especialista { get { return _especialista; } set { _especialista = value; } }
+
         public DateTime Fecha { get { return _fecha; } set { _fecha = value; } }
         public string Hora { get { return _hora; } set { _hora = value; } }
         public string Duracion { get { return _duracion; } set { _duracion = value; } }
         public string Notas { get { return _notas; } set { _notas = value; } }
+
         public string Estado { get { return _estado; } set { _estado = value; } }
-        public decimal Precio { get { return (decimal)_precio; } set { _precio = value; } }
 
-        public DataTable ListarCitas(string filtro = "")
-        {
-            return datosDAL.ObtenerCitas(filtro);
-        }
-
-        public string Guardar()
-        {
-            if (string.IsNullOrEmpty(_cliente)) return "Debe seleccionar un cliente.";
-            if (string.IsNullOrEmpty(_servicio)) return "Debe seleccionar un tipo de servicio.";
-            if (string.IsNullOrEmpty(_telefono) || _telefono.Length < 9) return "El teléfono debe contar con 8 dígitos válidos (XXXX-XXXX).";
-            if (_precio < 0) return "El precio asignado no puede ser un valor negativo.";
-        
-            bool exito;
-            if (_id == 0) 
-        {
-                exito = datosDAL.Nuevo(this);
-                }
-            else 
-                {
-                exito = datosDAL.Editar(this);
-                }
-
-            return exito ? "OK" : "Error de ejecución en la Base de Datos.";
-                }
-
-        public bool Eliminar(int id, out string mensaje)
-            {
-            if (id <= 0)
-            {
-                mensaje = "ID no válido.";
-                return false;
-            }
-
-            bool exito = datosDAL.Eliminar(id);
-            mensaje = exito ? "OK" : "No se logró eliminar el registro solicitado.";
-            return exito;
-        }
+        public decimal Precio { get { return _precio; } set { _precio = value; } }
     }
 }
