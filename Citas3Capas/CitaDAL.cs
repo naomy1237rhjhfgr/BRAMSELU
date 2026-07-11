@@ -41,7 +41,6 @@ namespace BRAMSELU
             {
                 using (SqlCommand cmd = new SqlCommand(query, conexion.Abrir()))
                 {
-                    // Convertimos a entero para que coincida con el tipo INT de la Base de Datos
                     cmd.Parameters.AddWithValue("@IdCliente", Convert.ToInt32(cita.Cliente));
                     cmd.Parameters.AddWithValue("@Telefono", cita.Telefono ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@IdServicio", Convert.ToInt32(cita.Servicio));
@@ -75,7 +74,6 @@ namespace BRAMSELU
                 using (SqlCommand cmd = new SqlCommand(query, conexion.Abrir()))
                 {
                     cmd.Parameters.AddWithValue("@IdCita", cita.ID);
-                    // Convertimos a entero para que coincida con el tipo INT de la Base de Datos
                     cmd.Parameters.AddWithValue("@IdCliente", Convert.ToInt32(cita.Cliente));
                     cmd.Parameters.AddWithValue("@Telefono", cita.Telefono ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@IdServicio", Convert.ToInt32(cita.Servicio));
