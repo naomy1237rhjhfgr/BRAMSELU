@@ -13,7 +13,24 @@ namespace BRAMSELU
         public DataTable Mostrar()
         {
             DataTable tabla = new DataTable();
-            string query = "SELECT IdCita, IdCliente, Telefono, IdServicio, IdEspecialista, Fecha, Hora, Duracion, Notas, EstadoCita, Precio FROM Citas";
+
+            string query = @"
+                SELECT 
+                    C.IdCita,
+                    C.IdCliente,
+                    CL.Nombre AS Cliente,
+                    C.Telefono,
+                    C.IdServicio,
+                    C.IdEspecialista,
+                    C.Fecha,
+                    C.Hora,
+                    C.Duracion,
+                    C.Notas,
+                    C.EstadoCita,
+                    C.Precio
+                FROM Citas C
+                INNER JOIN Clientes CL 
+                ON C.IdCliente = CL.IdCliente";
 
             try
             {
@@ -29,6 +46,7 @@ namespace BRAMSELU
             {
                 conexion.Cerrar();
             }
+
             return tabla;
         }
 

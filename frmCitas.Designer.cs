@@ -52,6 +52,15 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.dgvCitas = new System.Windows.Forms.DataGridView();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSeparador = new System.Windows.Forms.Panel();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -61,9 +70,7 @@
             this.LblPrecio = new System.Windows.Forms.Label();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
-            this.TxtCita = new System.Windows.Forms.TextBox();
             this.LblIdCita = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +101,7 @@
             this.LblHora.AutoSize = true;
             this.LblHora.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblHora.Location = new System.Drawing.Point(528, 571);
+            this.LblHora.Location = new System.Drawing.Point(60, 570);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(47, 21);
             this.LblHora.TabIndex = 42;
@@ -105,7 +112,7 @@
             this.LblFecha.AutoSize = true;
             this.LblFecha.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblFecha.Location = new System.Drawing.Point(58, 570);
+            this.LblFecha.Location = new System.Drawing.Point(60, 534);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(53, 21);
             this.LblFecha.TabIndex = 40;
@@ -116,7 +123,7 @@
             this.LblServicio.AutoSize = true;
             this.LblServicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblServicio.Location = new System.Drawing.Point(58, 538);
+            this.LblServicio.Location = new System.Drawing.Point(58, 500);
             this.LblServicio.Name = "LblServicio";
             this.LblServicio.Size = new System.Drawing.Size(68, 21);
             this.LblServicio.TabIndex = 38;
@@ -127,7 +134,7 @@
             this.LblCliente.AutoSize = true;
             this.LblCliente.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblCliente.Location = new System.Drawing.Point(58, 503);
+            this.LblCliente.Location = new System.Drawing.Point(58, 465);
             this.LblCliente.Name = "LblCliente";
             this.LblCliente.Size = new System.Drawing.Size(61, 21);
             this.LblCliente.TabIndex = 36;
@@ -159,7 +166,7 @@
             // 
             this.CmbCliente.FormattingEnabled = true;
             this.CmbCliente.ItemHeight = 16;
-            this.CmbCliente.Location = new System.Drawing.Point(158, 501);
+            this.CmbCliente.Location = new System.Drawing.Point(158, 463);
             this.CmbCliente.Name = "CmbCliente";
             this.CmbCliente.Size = new System.Drawing.Size(340, 24);
             this.CmbCliente.TabIndex = 52;
@@ -167,7 +174,7 @@
             // CmbServicio
             // 
             this.CmbServicio.FormattingEnabled = true;
-            this.CmbServicio.Location = new System.Drawing.Point(158, 539);
+            this.CmbServicio.Location = new System.Drawing.Point(158, 501);
             this.CmbServicio.Name = "CmbServicio";
             this.CmbServicio.Size = new System.Drawing.Size(340, 24);
             this.CmbServicio.TabIndex = 53;
@@ -193,7 +200,7 @@
             // 
             // DtpFecha
             // 
-            this.DtpFecha.Location = new System.Drawing.Point(158, 569);
+            this.DtpFecha.Location = new System.Drawing.Point(158, 535);
             this.DtpFecha.Name = "DtpFecha";
             this.DtpFecha.Size = new System.Drawing.Size(340, 22);
             this.DtpFecha.TabIndex = 56;
@@ -330,6 +337,16 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCitas.ColumnHeadersHeight = 36;
+            this.dgvCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cliente,
+            this.Telefono,
+            this.Servicio,
+            this.Especialidad,
+            this.Fecha,
+            this.Duracion,
+            this.Hora,
+            this.Estado,
+            this.Precio});
             this.dgvCitas.Location = new System.Drawing.Point(58, 136);
             this.dgvCitas.MultiSelect = false;
             this.dgvCitas.Name = "dgvCitas";
@@ -337,8 +354,80 @@
             this.dgvCitas.RowHeadersVisible = false;
             this.dgvCitas.RowHeadersWidth = 62;
             this.dgvCitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCitas.Size = new System.Drawing.Size(900, 270);
+            this.dgvCitas.Size = new System.Drawing.Size(910, 270);
             this.dgvCitas.TabIndex = 75;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 125;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 125;
+            // 
+            // Servicio
+            // 
+            this.Servicio.HeaderText = "Servicio";
+            this.Servicio.MinimumWidth = 6;
+            this.Servicio.Name = "Servicio";
+            this.Servicio.ReadOnly = true;
+            this.Servicio.Width = 125;
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.MinimumWidth = 6;
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 125;
+            // 
+            // Duracion
+            // 
+            this.Duracion.HeaderText = "Duración";
+            this.Duracion.MinimumWidth = 6;
+            this.Duracion.Name = "Duracion";
+            this.Duracion.ReadOnly = true;
+            this.Duracion.Width = 125;
+            // 
+            // Hora
+            // 
+            this.Hora.HeaderText = "Hora";
+            this.Hora.MinimumWidth = 6;
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            this.Hora.Width = 125;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado Cita";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 125;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 125;
             // 
             // pnlSeparador
             // 
@@ -379,11 +468,13 @@
             // 
             // TxtHora
             // 
-            this.TxtHora.Location = new System.Drawing.Point(628, 571);
+            this.TxtHora.Location = new System.Drawing.Point(158, 571);
             this.TxtHora.Multiline = true;
             this.TxtHora.Name = "TxtHora";
             this.TxtHora.Size = new System.Drawing.Size(340, 30);
             this.TxtHora.TabIndex = 91;
+            this.TxtHora.Enter += new System.EventHandler(this.txtHora_Enter);
+            this.TxtHora.Leave += new System.EventHandler(this.txtHora_Leave);
             // 
             // LblEstado
             // 
@@ -423,14 +514,6 @@
             this.TxtTelefono.Size = new System.Drawing.Size(340, 30);
             this.TxtTelefono.TabIndex = 93;
             // 
-            // TxtCita
-            // 
-            this.TxtCita.Location = new System.Drawing.Point(158, 463);
-            this.TxtCita.Multiline = true;
-            this.TxtCita.Name = "TxtCita";
-            this.TxtCita.Size = new System.Drawing.Size(340, 30);
-            this.TxtCita.TabIndex = 96;
-            // 
             // LblIdCita
             // 
             this.LblIdCita.AutoSize = true;
@@ -441,26 +524,13 @@
             this.LblIdCita.Size = new System.Drawing.Size(0, 21);
             this.LblIdCita.TabIndex = 95;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.label2.Location = new System.Drawing.Point(58, 466);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 21);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "ID Cita:";
-            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1084, 872);
-            this.Controls.Add(this.TxtCita);
             this.Controls.Add(this.LblIdCita);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtTelefono);
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.TxtHora);
@@ -537,8 +607,15 @@
         private System.Windows.Forms.Label LblEstado;
         private System.Windows.Forms.TextBox TxtPrecio;
         private System.Windows.Forms.TextBox TxtTelefono;
-        private System.Windows.Forms.TextBox TxtCita;
         private System.Windows.Forms.Label LblIdCita;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }

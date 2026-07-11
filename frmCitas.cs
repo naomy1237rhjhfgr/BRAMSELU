@@ -303,9 +303,9 @@ namespace BRAMSELU
         private void LlenarComboBox(ComboBox combo, DataTable datos, string columnaMostrar, string columnaValor)
         {
             combo.DataSource = datos;
-            combo.DisplayMember = columnaMostrar; // Lo que el usuario VE en la pantalla (ej. Nombre)
-            combo.ValueMember = columnaValor;     // El ID real que se guardará en la base de datos (ej. IdCliente)
-            combo.SelectedIndex = -1;             // Que aparezca vacío al inicio
+            combo.DisplayMember = columnaMostrar; 
+            combo.ValueMember = columnaValor;     
+            combo.SelectedIndex = -1;             
         }
 
 
