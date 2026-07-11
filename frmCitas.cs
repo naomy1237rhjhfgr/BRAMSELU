@@ -47,8 +47,7 @@ namespace BRAMSELU
                 ClienteDatos clienteDAL = new ClienteDatos();
                 LlenarComboBox(CmbCliente, clienteDAL.MostrarClientes(), "Nombre", "IdCliente");
 
-                //Servicio servicioDAL = new Servicio();
-                //LlenarComboBox(CmbServicio, servicioDAL.Mostrar(), "NombreServicio", "IdServicio");
+              
 
                 Empleadocomp empleadoDAL = new Empleadocomp();
                 LlenarComboBox(CmbEspecialista, empleadoDAL.Mostrar(), "Nombre", "IdEmpleado");

@@ -2,115 +2,244 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace BRAMSELU
 {
     internal class Empleadocomp
     {
-        Conexion conexion = new Conexion();
+        private int _idEmpleado;
+        private string _nombre;
+        private string _apellido;
+        private string _identidad;
+        private string _telefono;
+        private string _direccion;
+        private string _correo;
+        private string _usuario;
+        private string _contrasena;
+        private string _tipoUsuario;
 
-        public void Guardar(Empleado emp)
+        private Conexion _conexion;
+
+
+        public Empleadocomp()
         {
-            string consulta = @"INSERT INTO Empleados
-            (Nombre, Apellido, Identidad, Telefono, Direccion, Correo, Usuario, Contrasena, TipoUsuario)
-            VALUES
-            (@Nombre, @Apellido, @Identidad, @Telefono, @Direccion, @Correo, @Usuario, @Contrasena, @TipoUsuario)";
+            _idEmpleado = 0;
+            _nombre = "";
+            _apellido = "";
+            _identidad = "";
+            _telefono = "";
+            _direccion = "";
+            _correo = "";
+            _usuario = "";
+            _contrasena = "";
+            _tipoUsuario = "Empleado";
 
-            SqlCommand cmd = new SqlCommand(consulta, conexion.Abrir());
-
-            cmd.Parameters.AddWithValue("@Nombre", emp.Nombre);
-            cmd.Parameters.AddWithValue("@Apellido", emp.Apellido);
-            cmd.Parameters.AddWithValue("@Identidad", emp.Identidad);
-            cmd.Parameters.AddWithValue("@Telefono", emp.Telefono);
-            cmd.Parameters.AddWithValue("@Direccion", emp.Direccion);
-            cmd.Parameters.AddWithValue("@Correo", emp.Correo);
-            cmd.Parameters.AddWithValue("@Usuario", emp.Usuario);
-            cmd.Parameters.AddWithValue("@Contrasena", emp.Contrasena);
-            cmd.Parameters.AddWithValue("@TipoUsuario", emp.TipoUsuario);
-
-            cmd.ExecuteNonQuery();
-            conexion.Cerrar();
+            _conexion = new Conexion();
         }
 
-        public void Modificar(Empleado emp)
+
+
+        public int IdEmpleado
         {
-            string consulta = @"UPDATE Empleados SET
-            Nombre=@Nombre,
-            Apellido=@Apellido,
-            Identidad=@Identidad,
-            Telefono=@Telefono,
-            Direccion=@Direccion,
-            Correo=@Correo,
-            Usuario=@Usuario,
-            Contrasena=@Contrasena,
-            TipoUsuario=@TipoUsuario
-            WHERE IdEmpleado=@IdEmpleado";
-
-            SqlCommand cmd = new SqlCommand(consulta, conexion.Abrir());
-
-            cmd.Parameters.AddWithValue("@IdEmpleado", emp.IdEmpleado);
-            cmd.Parameters.AddWithValue("@Nombre", emp.Nombre);
-            cmd.Parameters.AddWithValue("@Apellido", emp.Apellido);
-            cmd.Parameters.AddWithValue("@Identidad", emp.Identidad);
-            cmd.Parameters.AddWithValue("@Telefono", emp.Telefono);
-            cmd.Parameters.AddWithValue("@Direccion", emp.Direccion);
-            cmd.Parameters.AddWithValue("@Correo", emp.Correo);
-            cmd.Parameters.AddWithValue("@Usuario", emp.Usuario);
-            cmd.Parameters.AddWithValue("@Contrasena", emp.Contrasena);
-            cmd.Parameters.AddWithValue("@TipoUsuario", emp.TipoUsuario);
-
-            cmd.ExecuteNonQuery();
-            conexion.Cerrar();
+            get { return _idEmpleado; }
+            set { _idEmpleado = value; }
         }
 
-        public void Eliminar(int id)
+        public string Nombre
         {
-            string consulta = "DELETE FROM Empleados WHERE IdEmpleado=@IdEmpleado";
-
-            SqlCommand cmd = new SqlCommand(consulta, conexion.Abrir());
-
-            cmd.Parameters.AddWithValue("@IdEmpleado", id);
-
-            cmd.ExecuteNonQuery();
-            conexion.Cerrar();
+            get { return _nombre; }
+            set { _nombre = value; }
         }
+
+        public string Apellido
+        {
+            get { return _apellido; }
+            set { _apellido = value; }
+        }
+
+        public string Identidad
+        {
+            get { return _identidad; }
+            set { _identidad = value; }
+        }
+
+        public string Telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
+        }
+
+        public string Direccion
+        {
+            get { return _direccion; }
+            set { _direccion = value; }
+        }
+
+        public string Correo
+        {
+            get { return _correo; }
+            set { _correo = value; }
+        }
+
+        public string Usuario
+        {
+            get { return _usuario; }
+            set { _usuario = value; }
+        }
+
+        public string Contrasena
+        {
+            get { return _contrasena; }
+            set { _contrasena = value; }
+        }
+
+        public string TipoUsuario
+        {
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
+        }
+
+
+
+        private bool Validar()
+        {
+            if (_nombre == "")
+                return false;
+
+            if (_apellido == "")
+                return false;
+
+            if (_identidad == "")
+                return false;
+
+            if (_telefono == "")
+                return false;
+
+            if (_usuario == "")
+                return false;
+
+            if (_contrasena == "")
+                return false;
+
+
+            return true;
+        }
+
+
+
+        public bool Guardar()
+        {
+            if (Validar())
+            {
+                string SQL = $"INSERT INTO Empleados(Nombre,Apellido,Identidad,Telefono,Direccion,Correo,Usuario,Contrasena,TipoUsuario) VALUES('{_nombre}','{_apellido}','{_identidad}','{_telefono}','{_direccion}','{_correo}','{_usuario}','{_contrasena}','{_tipoUsuario}')";
+
+                _conexion.EjecutarSQL(SQL);
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        public bool Actualizar()
+        {
+            if (Validar())
+            {
+                string SQL = $"UPDATE Empleados SET Nombre='{_nombre}',Apellido='{_apellido}',Identidad='{_identidad}',Telefono='{_telefono}',Direccion='{_direccion}',Correo='{_correo}',Usuario='{_usuario}',Contrasena='{_contrasena}',TipoUsuario='{_tipoUsuario}' WHERE IdEmpleado={_idEmpleado}";
+
+                _conexion.EjecutarSQL(SQL);
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        public bool Eliminar()
+        {
+            string SQL = $"DELETE FROM Empleados WHERE IdEmpleado={_idEmpleado}";
+
+            _conexion.EjecutarSQL(SQL);
+
+            return true;
+        }
+
+
+
+        public List<Empleado> Listar()
+        {
+            string SQL = "SELECT * FROM Empleados";
+
+            return _conexion.EjecutarConsultaVarios(SQL);
+        }
+
+
+
+        public bool BuscarPorIdentidad(string identidad)
+        {
+
+            string SQL = $"SELECT * FROM Empleados WHERE Identidad='{identidad}'";
+
+
+            SqlDataReader reader = _conexion.EjecutarConsultaUno(SQL);
+
+
+            if (reader != null)
+            {
+
+                _idEmpleado = reader.GetInt32(0);
+                _nombre = reader.GetString(1);
+                _apellido = reader.GetString(2);
+                _identidad = reader.GetString(3);
+                _telefono = reader.GetString(4);
+                _direccion = reader.GetString(5);
+                _correo = reader.GetString(6);
+                _usuario = reader.GetString(7);
+                _contrasena = reader.GetString(8);
+                _tipoUsuario = reader.GetString(9);
+
+
+                reader.Close();
+
+                return true;
+            }
+
+
+            return false;
+        }
+
+
 
         public DataTable Mostrar()
         {
             DataTable tabla = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT * FROM Empleados",
-                conexion.Abrir());
+            try
+            {
 
-            da.Fill(tabla);
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT * FROM Empleados",
+                    _conexion.Abrir());
 
-            conexion.Cerrar();
 
-            return tabla;
-        }
+                da.Fill(tabla);
 
-        public DataTable Buscar(string nombre)
-        {
-            DataTable tabla = new DataTable();
+                _conexion.Cerrar();
 
-            string consulta = "SELECT * FROM Empleados WHERE Identidad LIKE @Identidad";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            SqlCommand cmd = new SqlCommand(consulta, conexion.Abrir());
-
-            cmd.Parameters.AddWithValue("@Identidad", "%" + nombre + "%");
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-            da.Fill(tabla);
-
-            conexion.Cerrar();
 
             return tabla;
         }
+
     }
 }

@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAcento = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -46,7 +47,9 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtTipoUsuario = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAcento
@@ -189,14 +192,14 @@
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 62;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatos.Size = new System.Drawing.Size(924, 255);
+            this.dgvDatos.Size = new System.Drawing.Size(924, 134);
             this.dgvDatos.TabIndex = 9;
-            this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
             // pnlSeparador
             // 
             this.pnlSeparador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
-            this.pnlSeparador.Location = new System.Drawing.Point(28, 378);
+            this.pnlSeparador.Location = new System.Drawing.Point(34, 276);
             this.pnlSeparador.Name = "pnlSeparador";
             this.pnlSeparador.Size = new System.Drawing.Size(924, 1);
             this.pnlSeparador.TabIndex = 10;
@@ -206,7 +209,7 @@
             this.lblSeccion.AutoSize = true;
             this.lblSeccion.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblSeccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblSeccion.Location = new System.Drawing.Point(28, 390);
+            this.lblSeccion.Location = new System.Drawing.Point(34, 288);
             this.lblSeccion.Name = "lblSeccion";
             this.lblSeccion.Size = new System.Drawing.Size(188, 25);
             this.lblSeccion.TabIndex = 11;
@@ -217,7 +220,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblNombre.Location = new System.Drawing.Point(28, 422);
+            this.lblNombre.Location = new System.Drawing.Point(34, 320);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(85, 25);
             this.lblNombre.TabIndex = 12;
@@ -228,7 +231,7 @@
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblApellido.Location = new System.Drawing.Point(28, 462);
+            this.lblApellido.Location = new System.Drawing.Point(34, 360);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(86, 25);
             this.lblApellido.TabIndex = 14;
@@ -239,7 +242,7 @@
             this.lblIdentidad.AutoSize = true;
             this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblIdentidad.Location = new System.Drawing.Point(28, 502);
+            this.lblIdentidad.Location = new System.Drawing.Point(34, 400);
             this.lblIdentidad.Name = "lblIdentidad";
             this.lblIdentidad.Size = new System.Drawing.Size(96, 25);
             this.lblIdentidad.TabIndex = 16;
@@ -250,7 +253,7 @@
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblTelefono.Location = new System.Drawing.Point(28, 542);
+            this.lblTelefono.Location = new System.Drawing.Point(34, 440);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(88, 25);
             this.lblTelefono.TabIndex = 18;
@@ -261,7 +264,7 @@
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblDireccion.Location = new System.Drawing.Point(28, 582);
+            this.lblDireccion.Location = new System.Drawing.Point(34, 480);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(96, 25);
             this.lblDireccion.TabIndex = 20;
@@ -272,7 +275,7 @@
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblCorreo.Location = new System.Drawing.Point(525, 422);
+            this.lblCorreo.Location = new System.Drawing.Point(531, 320);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(74, 25);
             this.lblCorreo.TabIndex = 22;
@@ -283,7 +286,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblUsuario.Location = new System.Drawing.Point(518, 462);
+            this.lblUsuario.Location = new System.Drawing.Point(524, 360);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(81, 25);
             this.lblUsuario.TabIndex = 24;
@@ -294,7 +297,7 @@
             this.lblContrasena.AutoSize = true;
             this.lblContrasena.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblContrasena.Location = new System.Drawing.Point(490, 502);
+            this.lblContrasena.Location = new System.Drawing.Point(496, 400);
             this.lblContrasena.Name = "lblContrasena";
             this.lblContrasena.Size = new System.Drawing.Size(112, 25);
             this.lblContrasena.TabIndex = 26;
@@ -305,7 +308,7 @@
             this.lblTipoUsuario.AutoSize = true;
             this.lblTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblTipoUsuario.Location = new System.Drawing.Point(476, 547);
+            this.lblTipoUsuario.Location = new System.Drawing.Point(482, 445);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(123, 25);
             this.lblTipoUsuario.TabIndex = 28;
@@ -315,7 +318,7 @@
             // 
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombre.Location = new System.Drawing.Point(130, 418);
+            this.txtNombre.Location = new System.Drawing.Point(136, 316);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(290, 34);
             this.txtNombre.TabIndex = 13;
@@ -324,7 +327,7 @@
             // 
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtApellido.Location = new System.Drawing.Point(130, 458);
+            this.txtApellido.Location = new System.Drawing.Point(136, 356);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(290, 34);
             this.txtApellido.TabIndex = 15;
@@ -333,7 +336,7 @@
             // 
             this.txtIdentidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdentidad.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtIdentidad.Location = new System.Drawing.Point(130, 498);
+            this.txtIdentidad.Location = new System.Drawing.Point(136, 396);
             this.txtIdentidad.Name = "txtIdentidad";
             this.txtIdentidad.Size = new System.Drawing.Size(290, 34);
             this.txtIdentidad.TabIndex = 17;
@@ -342,7 +345,7 @@
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtTelefono.Location = new System.Drawing.Point(130, 538);
+            this.txtTelefono.Location = new System.Drawing.Point(136, 436);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(290, 34);
             this.txtTelefono.TabIndex = 19;
@@ -351,7 +354,7 @@
             // 
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDireccion.Location = new System.Drawing.Point(130, 578);
+            this.txtDireccion.Location = new System.Drawing.Point(136, 476);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(290, 34);
             this.txtDireccion.TabIndex = 21;
@@ -360,7 +363,7 @@
             // 
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCorreo.Location = new System.Drawing.Point(605, 418);
+            this.txtCorreo.Location = new System.Drawing.Point(611, 316);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(290, 34);
             this.txtCorreo.TabIndex = 23;
@@ -369,7 +372,7 @@
             // 
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtUsuario.Location = new System.Drawing.Point(605, 458);
+            this.txtUsuario.Location = new System.Drawing.Point(611, 356);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(290, 34);
             this.txtUsuario.TabIndex = 25;
@@ -378,7 +381,7 @@
             // 
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContrasena.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtContrasena.Location = new System.Drawing.Point(605, 502);
+            this.txtContrasena.Location = new System.Drawing.Point(611, 400);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '●';
             this.txtContrasena.Size = new System.Drawing.Size(265, 34);
@@ -388,10 +391,14 @@
             // 
             this.txtTipoUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtTipoUsuario.Location = new System.Drawing.Point(605, 542);
+            this.txtTipoUsuario.Location = new System.Drawing.Point(611, 440);
             this.txtTipoUsuario.Name = "txtTipoUsuario";
             this.txtTipoUsuario.Size = new System.Drawing.Size(250, 34);
             this.txtTipoUsuario.TabIndex = 29;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmEmpleados
             // 
@@ -436,6 +443,7 @@
             this.Text = "BRAMSELU - Control de Empleados";
             this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +481,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtTipoUsuario;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
