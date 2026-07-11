@@ -16,141 +16,272 @@ namespace BRAMSELU
     {
         private ClienteDatos clienteDatos = new ClienteDatos();
         private Cliente cliente;
+        private bool esNuevo = false;
+        private string idOriginal = "";
+
         public frmClientes()
         {
             InitializeComponent();
             CargarClientes();
+
+            txtidcliente.Mask = "0000-0000-00000";
+            txttelefonocliente.Mask = "0000-0000";
+
+            EstadoCampos(false);
         }
 
         private void CargarClientes()
         {
+            dataGridViewclientes.DataSource = null;
             dataGridViewclientes.DataSource = clienteDatos.MostrarClientes();
 
-            dataGridViewclientes.Columns["IdCliente"].HeaderText = "ID";
-            dataGridViewclientes.Columns["Nombre"].HeaderText = "NOMBRE";
-            dataGridViewclientes.Columns["Telefono"].HeaderText = "TELEFONO";
-            dataGridViewclientes.Columns["Correo"].HeaderText = "CORREO";
-            dataGridViewclientes.Columns["Direccion"].HeaderText = "DIRECCION";
-            dataGridViewclientes.Columns["TipoPiel"].HeaderText = "TIPO DE PIEL";
+            if (dataGridViewclientes.Columns["IdCliente"] != null)
+            {
+                dataGridViewclientes.Columns["IdCliente"].HeaderText = "ID";
+                dataGridViewclientes.Columns["Nombre"].HeaderText = "NOMBRE";
+                dataGridViewclientes.Columns["Telefono"].HeaderText = "TELEFONO";
+                dataGridViewclientes.Columns["Correo"].HeaderText = "CORREO";
+                dataGridViewclientes.Columns["Direccion"].HeaderText = "DIRECCION";
+                dataGridViewclientes.Columns["TipoPiel"].HeaderText = "TIPO DE PIEL";
+            }
+        }
+
+        private void EstadoCampos(bool habilitado)
+        {
+            txtidcliente.Enabled = habilitado;
+            txtnombrecliente.Enabled = habilitado;
+            txttelefonocliente.Enabled = habilitado;
+            txtcorreocliente.Enabled = habilitado;
+            txtdireccioncliente.Enabled = habilitado;
+            Cmbpiel.Enabled = habilitado;
         }
 
         private void LimpiarCampos()
         {
-            txtidcliente.Clear();
+            errorProvider1.Clear();
+
+            txtidcliente.Text = "";
             txtnombrecliente.Clear();
-            txttelefonocliente.Clear();
+            txttelefonocliente.Text = "";
             txtcorreocliente.Clear();
             txtdireccioncliente.Clear();
-            txttipopielcliente.Clear();
+            Cmbpiel.SelectedIndex = -1;
+            idOriginal = "";
+        }
 
+        private bool ValidarFormulario()
+        {
+            errorProvider1.Clear();
+            bool valido = true;
+
+            if (txtidcliente.Text.Replace("-", "").Trim() == "")
+            {
+                errorProvider1.SetError(txtidcliente, "La identidad es obligatoria.");
+                valido = false;
+            }
+            else if (txtidcliente.Text.Length < 15)
+            {
+                errorProvider1.SetError(txtidcliente, "Formato incompleto: 0000-0000-00000.");
+                valido = false;
+            }
+
+            if (txtnombrecliente.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtnombrecliente, "El nombre es obligatorio.");
+                valido = false;
+            }
+
+            if (txttelefonocliente.Text.Replace("-", "").Trim() == "")
+            {
+                errorProvider1.SetError(txttelefonocliente, "El teléfono es obligatorio.");
+                valido = false;
+            }
+            else if (txttelefonocliente.Text.Length < 9)
+            {
+                errorProvider1.SetError(txttelefonocliente, "Formato incompleto: 9999-9999.");
+                valido = false;
+            }
+
+            if (txtcorreocliente.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtcorreocliente, "El correo es obligatorio.");
+                valido = false;
+            }
+            else if (!Regex.IsMatch(txtcorreocliente.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                errorProvider1.SetError(txtcorreocliente, "Ingrese un correo electrónico válido.");
+                valido = false;
+            }
+
+            if (txtdireccioncliente.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtdireccioncliente, "La dirección es obligatoria.");
+                valido = false;
+            }
+
+            if (Cmbpiel.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Cmbpiel.Text))
+            {
+                errorProvider1.SetError(Cmbpiel, "Debe seleccionar un tipo de piel.");
+                valido = false;
+            }
+
+            return valido;
+        }
+
+        private void Btnnuevo_Click_1(object sender, EventArgs e)
+        {
+            esNuevo = true;
+            LimpiarCampos();
+            EstadoCampos(true);
             txtidcliente.Focus();
-        }
-
-        private void btnguardarcliente_Click(object sender, EventArgs e)
-        {
-
-           
-
-            if (txtidcliente.Text.Trim() == "" ||
-                txtnombrecliente.Text.Trim() == "" ||
-                txttelefonocliente.Text.Trim() == "" ||
-                txtcorreocliente.Text.Trim() == "" ||
-                txtdireccioncliente.Text.Trim() == "" ||
-                txttipopielcliente.Text.Trim() == "")
-            {
-                MessageBox.Show("Debe completar todos los campos");
-                return;
-            }
-
-            if (txtidcliente.Text.Length != 13)
-            {
-                MessageBox.Show("El numero de identidad debe contener 13 digitos.");
-                txtidcliente.Focus();
-                return; 
-            }
-
-            if (!Regex.IsMatch(txtcorreocliente.Text,
-                 @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Ingrese un correo electrónico válido.");
-                txtcorreocliente.Focus();
-                return;
-            }
-
-            try
-            {
-                cliente = new Cliente(
-                txtidcliente.Text,
-                txtnombrecliente.Text,
-                txttelefonocliente.Text,
-                txtcorreocliente.Text,
-                txtdireccioncliente.Text,
-                txttipopielcliente.Text
-                );
-
-                clienteDatos.GuardarCliente(cliente);
-                CargarClientes();
-
-                MessageBox.Show("Cliente guardado correctamente");
-
-                LimpiarCampos();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-
-        }
-
-        private void dataGridViewclientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0)
-            {
-                txtidcliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["IdCliente"].Value.ToString();
-                txtnombrecliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                txttelefonocliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
-                txtcorreocliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-                txtdireccioncliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
-                txttipopielcliente.Text = dataGridViewclientes.Rows[e.RowIndex].Cells["TipoPiel"].Value.ToString();
-            }
-
-                    
-            
+            bttneditarclientes.Text = "Editar";
         }
 
         private void bttneditarclientes_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(idOriginal) || txtidcliente.Text.Replace("-", "").Trim() == "")
+            {
+                MessageBox.Show("Seleccione primero un cliente de la lista para poder editarlo.");
+                return;
+            }
+
+            if (txtnombrecliente.Enabled == false)
+            {
+                esNuevo = false;
+                EstadoCampos(true);
+                txtidcliente.Focus();
+                bttneditarclientes.Text = "Actualizar";
+            }
+            else
+            {
+                if (!ValidarFormulario())
+                    return;
+
+                try
+                {
+                    cliente = new Cliente(
+                        txtidcliente.Text,
+                        txtnombrecliente.Text,
+                        txttelefonocliente.Text,
+                        txtcorreocliente.Text,
+                        txtdireccioncliente.Text,
+                        Cmbpiel.Text.Trim()
+                    );
+
+                    clienteDatos.EditarCliente(cliente, idOriginal);
+                    MessageBox.Show("Cliente modificado correctamente");
+
+                    CargarClientes();
+                    LimpiarCampos();
+                    EstadoCampos(false);
+                    bttneditarclientes.Text = "Editar";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnguardarcliente_Click(object sender, EventArgs e)
+        {
+            if (!ValidarFormulario())
+            {
+                return;
+            }
+
             try
             {
                 cliente = new Cliente(
-
                     txtidcliente.Text,
                     txtnombrecliente.Text,
                     txttelefonocliente.Text,
                     txtcorreocliente.Text,
                     txtdireccioncliente.Text,
-                    txttipopielcliente.Text
+                    Cmbpiel.Text.Trim()
                 );
 
-                clienteDatos.EditarCliente(cliente);
+                if (esNuevo)
+                {
+                    clienteDatos.GuardarCliente(cliente);
+                    MessageBox.Show("Cliente guardado correctamente");
+                }
+                else
+                {
+                    clienteDatos.EditarCliente(cliente, idOriginal);
+                    MessageBox.Show("Cliente modificado correctamente");
+                }
+
                 CargarClientes();
                 LimpiarCampos();
-
-                MessageBox.Show("Cliente editado correctamente");
+                EstadoCampos(false);
+                bttneditarclientes.Text = "Editar";
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
+        private void MapearFilaAFormulario(int rowIndex)
+        {
+            if (rowIndex >= 0)
+            {
+                errorProvider1.Clear();
+                esNuevo = false;
+                EstadoCampos(false);
+                bttneditarclientes.Text = "Editar";
+
+                DataGridViewRow fila = dataGridViewclientes.Rows[rowIndex];
+
+                idOriginal = fila.Cells["IdCliente"].Value?.ToString() ?? "";
+                txtidcliente.Text = idOriginal;
+                txtnombrecliente.Text = fila.Cells["Nombre"].Value?.ToString() ?? "";
+                txttelefonocliente.Text = fila.Cells["Telefono"].Value?.ToString() ?? "";
+                txtcorreocliente.Text = fila.Cells["Correo"].Value?.ToString() ?? "";
+                txtdireccioncliente.Text = fila.Cells["Direccion"].Value?.ToString() ?? "";
+
+                string tipoPielDb = fila.Cells["TipoPiel"].Value?.ToString()?.Trim() ?? "";
+                int index = Cmbpiel.FindStringExact(tipoPielDb);
+                if (index != -1)
+                {
+                    Cmbpiel.SelectedIndex = index;
+                }
+                else
+                {
+                    Cmbpiel.Text = tipoPielDb;
+                }
+            }
+        }
+
+        private void dataGridViewclientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MapearFilaAFormulario(e.RowIndex);
+        }
+
+        private void dataGridViewclientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            MapearFilaAFormulario(e.RowIndex);
+        }
+
         private void bttneliminarclientes_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(idOriginal) || txtidcliente.Text.Replace("-", "").Trim() == "")
+            {
+                MessageBox.Show("Seleccione un cliente de la lista para eliminar.");
+                return;
+            }
+
             try
             {
-                if (MessageBox.Show("Estas seguro de eliminar este cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+                if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    clienteDatos.ElimiarCliente(txtidcliente.Text);
+                    clienteDatos.ElimiarCliente(idOriginal);
 
                     CargarClientes();
                     LimpiarCampos();
+                    EstadoCampos(false);
+                    bttneditarclientes.Text = "Editar";
 
                     MessageBox.Show("Cliente eliminado correctamente");
                 }
@@ -178,22 +309,13 @@ namespace BRAMSELU
             }
         }
 
-        private void txtidcliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void frmClientes_Load(object sender, EventArgs e)
         {
-            if(!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
+
         }
 
-        private void txttelefonocliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back) 
-            {
-                e.Handled = true;
-            }
-        }
+       
+
+        
     }
-
-
 }

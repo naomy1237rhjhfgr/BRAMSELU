@@ -21,7 +21,6 @@ namespace BRAMSELU
 
         private Conexion _conexion;
 
-
         public Empleadocomp()
         {
             _idEmpleado = 0;
@@ -33,12 +32,10 @@ namespace BRAMSELU
             _correo = "";
             _usuario = "";
             _contrasena = "";
-            _tipoUsuario = "Empleado";
+            _tipoUsuario = "";
 
             _conexion = new Conexion();
         }
-
-
 
         public int IdEmpleado
         {
@@ -100,8 +97,6 @@ namespace BRAMSELU
             set { _tipoUsuario = value; }
         }
 
-
-
         private bool Validar()
         {
             if (_nombre == "")
@@ -122,11 +117,11 @@ namespace BRAMSELU
             if (_contrasena == "")
                 return false;
 
+            if (_tipoUsuario != "Administrador" && _tipoUsuario != "Empleado")
+                return false;
 
             return true;
         }
-
-
 
         public bool Guardar()
         {
@@ -142,8 +137,6 @@ namespace BRAMSELU
             return false;
         }
 
-
-
         public bool Actualizar()
         {
             if (Validar())
@@ -158,8 +151,6 @@ namespace BRAMSELU
             return false;
         }
 
-
-
         public bool Eliminar()
         {
             string SQL = $"DELETE FROM Empleados WHERE IdEmpleado={_idEmpleado}";
@@ -169,8 +160,6 @@ namespace BRAMSELU
             return true;
         }
 
-
-
         public List<Empleado> Listar()
         {
             string SQL = "SELECT * FROM Empleados";
@@ -178,20 +167,14 @@ namespace BRAMSELU
             return _conexion.EjecutarConsultaVarios(SQL);
         }
 
-
-
         public bool BuscarPorIdentidad(string identidad)
         {
-
             string SQL = $"SELECT * FROM Empleados WHERE Identidad='{identidad}'";
-
 
             SqlDataReader reader = _conexion.EjecutarConsultaUno(SQL);
 
-
             if (reader != null)
             {
-
                 _idEmpleado = reader.GetInt32(0);
                 _nombre = reader.GetString(1);
                 _apellido = reader.GetString(2);
@@ -203,17 +186,13 @@ namespace BRAMSELU
                 _contrasena = reader.GetString(8);
                 _tipoUsuario = reader.GetString(9);
 
-
                 reader.Close();
 
                 return true;
             }
 
-
             return false;
         }
-
-
 
         public DataTable Mostrar()
         {
@@ -221,25 +200,20 @@ namespace BRAMSELU
 
             try
             {
-
                 SqlDataAdapter da = new SqlDataAdapter(
                     "SELECT * FROM Empleados",
                     _conexion.Abrir());
 
-
                 da.Fill(tabla);
 
                 _conexion.Cerrar();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-
             return tabla;
         }
-
     }
 }

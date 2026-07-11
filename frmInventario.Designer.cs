@@ -17,7 +17,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAcento = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -36,13 +36,13 @@
             this.lblStock = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblImagen = new System.Windows.Forms.Label();
             this.picImagen = new System.Windows.Forms.PictureBox();
             this.btnCargarImagen = new System.Windows.Forms.Button();
+            this.CmbCa = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             this.SuspendLayout();
@@ -155,14 +155,14 @@
             // 
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatos.ColumnHeadersHeight = 36;
             this.dgvDatos.Location = new System.Drawing.Point(30, 115);
             this.dgvDatos.MultiSelect = false;
@@ -268,22 +268,13 @@
             this.txtMarca.Size = new System.Drawing.Size(230, 34);
             this.txtMarca.TabIndex = 14;
             // 
-            // txtCategoria
-            // 
-            this.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCategoria.Location = new System.Drawing.Point(129, 360);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(340, 34);
-            this.txtCategoria.TabIndex = 16;
-            // 
             // txtPrecio
             // 
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecio.Location = new System.Drawing.Point(599, 360);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(140, 34);
+            this.txtPrecio.Size = new System.Drawing.Size(230, 34);
             this.txtPrecio.TabIndex = 18;
             // 
             // txtStock
@@ -292,7 +283,7 @@
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStock.Location = new System.Drawing.Point(129, 398);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(140, 34);
+            this.txtStock.Size = new System.Drawing.Size(340, 34);
             this.txtStock.TabIndex = 20;
             // 
             // btnBuscar
@@ -341,7 +332,7 @@
             this.btnCargarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnCargarImagen.ForeColor = System.Drawing.Color.White;
-            this.btnCargarImagen.Location = new System.Drawing.Point(765, 402);
+            this.btnCargarImagen.Location = new System.Drawing.Point(798, 418);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(150, 34);
             this.btnCargarImagen.TabIndex = 24;
@@ -349,12 +340,38 @@
             this.btnCargarImagen.UseVisualStyleBackColor = false;
             this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
             // 
+            // CmbCa
+            // 
+            this.CmbCa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCa.FormattingEnabled = true;
+            this.CmbCa.Items.AddRange(new object[] {
+            "Limpiadores",
+            "Exfoliantes",
+            "Tónicos",
+            "Esencias",
+            "Sérums y Ampollas",
+            "Mascarillas",
+            "Contorno de Ojos",
+            "Hidratantes",
+            "Protector Solar",
+            "Tratamientos",
+            "Cuidado de Labios",
+            "Maquillaje Coreano",
+            "Cuidado Corporal",
+            "Cuidado Capilar",
+            "Accesorios"});
+            this.CmbCa.Location = new System.Drawing.Point(129, 361);
+            this.CmbCa.Name = "CmbCa";
+            this.CmbCa.Size = new System.Drawing.Size(340, 33);
+            this.CmbCa.TabIndex = 25;
+            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(960, 720);
+            this.Controls.Add(this.CmbCa);
             this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.picImagen);
             this.Controls.Add(this.lblImagen);
@@ -375,7 +392,6 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.lblCategoria);
-            this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblStock);
@@ -415,7 +431,6 @@
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Button btnBuscar;
@@ -423,5 +438,6 @@
         private System.Windows.Forms.Label lblImagen;
         private System.Windows.Forms.PictureBox picImagen;
         private System.Windows.Forms.Button btnCargarImagen;
+        private System.Windows.Forms.ComboBox CmbCa;
     }
 }

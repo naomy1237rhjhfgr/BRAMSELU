@@ -69,7 +69,7 @@ namespace BRAMSELU
 
             txtNombre.Enabled = h;
             txtMarca.Enabled = h;
-            txtCategoria.Enabled = h;
+            CmbCa.Enabled = h;
             txtPrecio.Enabled = h;
             txtStock.Enabled = h;
 
@@ -80,7 +80,7 @@ namespace BRAMSELU
         {
             txtNombre.Clear();
             txtMarca.Clear();
-            txtCategoria.Clear();
+            CmbCa.SelectedIndex = -1;
             txtPrecio.Clear();
             txtStock.Clear();
 
@@ -106,10 +106,10 @@ namespace BRAMSELU
                 return false;
             }
 
-            if (txtCategoria.Text.Trim() == "")
+            if (CmbCa.SelectedIndex == -1)
             {
-                MessageBox.Show("Ingrese la categoría");
-                txtCategoria.Focus();
+                MessageBox.Show("Seleccione una categoría");
+                CmbCa.Focus();
                 return false;
             }
 
@@ -188,7 +188,7 @@ namespace BRAMSELU
 
             txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
             txtMarca.Text = fila.Cells["Marca"].Value.ToString();
-            txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
+            CmbCa.Text = fila.Cells["Categoria"].Value.ToString();
             txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
             txtStock.Text = fila.Cells["Stock"].Value.ToString();
 
@@ -238,7 +238,7 @@ namespace BRAMSELU
                 inv.IdProducto = idSeleccionado;
                 inv.NombreProducto = txtNombre.Text;
                 inv.Marca = txtMarca.Text;
-                inv.Categoria = txtCategoria.Text;
+                inv.Categoria = CmbCa.Text;
                 inv.Precio = Convert.ToDecimal(txtPrecio.Text);
                 inv.Stock = Convert.ToInt32(txtStock.Text);
                 inv.Imagen = imagenSeleccionada;
@@ -290,7 +290,7 @@ namespace BRAMSELU
                 inv.IdProducto = idSeleccionado;
                 inv.NombreProducto = txtNombre.Text;
                 inv.Marca = txtMarca.Text;
-                inv.Categoria = txtCategoria.Text;
+                inv.Categoria = CmbCa.Text;
                 inv.Precio = Convert.ToDecimal(txtPrecio.Text);
                 inv.Stock = Convert.ToInt32(txtStock.Text);
                 inv.Imagen = imagenSeleccionada;
@@ -367,7 +367,7 @@ namespace BRAMSELU
                 {
                     txtNombre.Text = inv.NombreProducto;
                     txtMarca.Text = inv.Marca;
-                    txtCategoria.Text = inv.Categoria;
+                    CmbCa.Text = inv.Categoria;
                     txtPrecio.Text = inv.Precio.ToString();
                     txtStock.Text = inv.Stock.ToString();
 

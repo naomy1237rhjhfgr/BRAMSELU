@@ -81,8 +81,25 @@ namespace BRAMSELU
             if (_marca == "")
                 return false;
 
-            if (_categoria == "")
+            // Validación rigurosa de los items del ComboBox
+            if (_categoria != "Limpiadores" &&
+                _categoria != "Exfoliantes" &&
+                _categoria != "Tónicos" &&
+                _categoria != "Esencias" &&
+                _categoria != "Sérums y Ampollas" &&
+                _categoria != "Mascarillas" &&
+                _categoria != "Contorno de Ojos" &&
+                _categoria != "Hidratantes" &&
+                _categoria != "Protector Solar" &&
+                _categoria != "Tratamientos" &&
+                _categoria != "Cuidado de Labios" &&
+                _categoria != "Maquillaje Coreano" &&
+                _categoria != "Cuidado Corporal" &&
+                _categoria != "Cuidado Capilar" &&
+                _categoria != "Accesorios")
+            {
                 return false;
+            }
 
             if (_precio <= 0)
                 return false;

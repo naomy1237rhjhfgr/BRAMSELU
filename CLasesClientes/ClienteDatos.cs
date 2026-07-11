@@ -11,119 +11,151 @@ namespace BRAMSELU.CLasesClientes
     public class ClienteDatos
     {
         private Conexion conexion = new Conexion();
-        private SqlCommand comando = new SqlCommand();
+
+        private void ValidarTipoPiel(string tipoPiel)
+        {
+            if (string.IsNullOrEmpty(tipoPiel))
+            {
+                throw new Exception("El tipo de piel no puede estar vacío.");
+            }
+
+            string limpio = tipoPiel.Trim();
+
+            if (limpio != "Piel Normal" &&
+                limpio != "Piel Seca" &&
+                limpio != "Piel Grasa" &&
+                limpio != "Piel Mixta" &&
+                limpio != "Piel Sensible" &&
+                limpio != "Piel Deshidratada" &&
+                limpio != "Piel Madura" &&
+                limpio != "Piel Acneica" &&
+                limpio != "Piel Reactiva" &&
+                limpio != "Todo Tipo de Piel")
+            {
+                throw new Exception($"El tipo de piel '{limpio}' seleccionado no es válido.");
+            }
+        }
 
         public void GuardarCliente(Cliente cliente)
         {
-            comando.Parameters.Clear();
+            ValidarTipoPiel(cliente.TipoPiel);
 
-            comando.Connection = conexion.Abrir();
-
-            comando.CommandText = "INSERT INTO Clientes ( IdCliente, Nombre, Telefono, Correo, Direccion, TipoPiel ) VALUES ( @IdCliente, @Nombre, @Telefono, @Correo, @Direccion, @TipoPiel ) "; 
-            
-            comando.Parameters.AddWithValue("@IdCliente", cliente.Id);
-
-            comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-
-            comando.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-
-            comando.Parameters.AddWithValue("@Correo", cliente.Correo);
-
-            comando.Parameters.AddWithValue("@Direccion", cliente.Direccion);
-
-            comando.Parameters.AddWithValue("@TipoPiel", cliente.TipoPiel);
-
-            try
+            using (SqlCommand comando = new SqlCommand())
             {
-                comando.ExecuteNonQuery();
-            }
-            catch (SqlException)
-            {
-                throw new Exception("Ya existe un cliente con este ID.");
-            }
-            finally
-            {
-                conexion.Cerrar();
-            }
+                comando.Connection = conexion.Abrir();
+                comando.CommandText = $"INSERT INTO Clientes ( [IdCliente], [Nombre], [Telefono], [Correo], [Direccion], [TipoPiel] ) VALUES ( '{cliente.Id}', '{cliente.Nombre}', '{cliente.Telefono}', '{cliente.Correo}', '{cliente.Direccion}', '{cliente.TipoPiel}' )";
 
-           
+                try
+                {
+                    comando.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 2627 || ex.Number == 2601)
+                    {
+                        throw new Exception("Ya existe un cliente con este ID.");
+                    }
+                    else
+                    {
+                        throw new Exception($"Error de Base de Datos: {ex.Message}");
+                    }
+                }
+                finally
+                {
+                    conexion.Cerrar();
+                }
+            }
         }
 
         public DataTable MostrarClientes()
         {
             DataTable tabla = new DataTable();
-            comando.Parameters.Clear();
-            comando.Connection = conexion.Abrir();
-            comando.CommandText = "SELECT * FROM Clientes";
 
-            SqlDataAdapter adaptador = new
-                SqlDataAdapter(comando);
-            adaptador.Fill(tabla);
+            using (SqlCommand comando = new SqlCommand())
+            {
+                comando.Connection = conexion.Abrir();
+                comando.CommandText = "SELECT * FROM Clientes";
+
+                using (SqlDataAdapter adaptador = new SqlDataAdapter(comando))
+                {
+                    adaptador.Fill(tabla);
+                }
+            }
 
             conexion.Cerrar();
-
             return tabla;
-
         }
 
-        public void EditarCliente(Cliente cliente)
+        public void EditarCliente(Cliente cliente, string idOriginal)
         {
-            comando.Parameters.Clear();
-            comando.Connection = conexion.Abrir();
+            ValidarTipoPiel(cliente.TipoPiel);
 
-            comando.CommandText = @"UPDATE Clientes
-                               SET Nombre = @Nombre,
-                               Telefono = @Telefono,
-                               Correo = @Correo,
-                               Direccion = @Direccion,
-                               TipoPiel = @TipoPiel
-                               WHERE IdCliente = @IdCliente";
+            using (SqlCommand comando = new SqlCommand())
+            {
+                comando.Connection = conexion.Abrir();
+                comando.CommandText = $"UPDATE Clientes SET [IdCliente] = '{cliente.Id}', [Nombre] = '{cliente.Nombre}', [Telefono] = '{cliente.Telefono}', [Correo] = '{cliente.Correo}', [Direccion] = '{cliente.Direccion}', [TipoPiel] = '{cliente.TipoPiel}' WHERE [IdCliente] = '{idOriginal}'";
 
-            comando.Parameters.AddWithValue("@IdCliente", cliente.Id);
-            comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-            comando.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-            comando.Parameters.AddWithValue("@Correo", cliente.Correo);
-            comando.Parameters.AddWithValue("@Direccion", cliente.Direccion);
-            comando.Parameters.AddWithValue("@TipoPiel", cliente.TipoPiel);
-
-            comando.ExecuteNonQuery();
-            conexion.Cerrar();
+                try
+                {
+                    comando.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 2627 || ex.Number == 2601)
+                    {
+                        throw new Exception("El nuevo ID asignado ya le pertenece a otro cliente.");
+                    }
+                    else
+                    {
+                        throw new Exception($"Error al modificar en la Base de Datos: {ex.Message}");
+                    }
+                }
+                finally
+                {
+                    conexion.Cerrar();
+                }
+            }
         }
 
         public void ElimiarCliente(string idCliente)
         {
-            comando.Parameters.Clear();
-            comando.Connection = conexion.Abrir();
+            using (SqlCommand comando = new SqlCommand())
+            {
+                comando.Connection = conexion.Abrir();
+                comando.CommandText = $"DELETE FROM Clientes WHERE [IdCliente] = '{idCliente}'";
 
-            comando.CommandText = "DELETE FROM Clientes WHERE IdCliente = @IdCliente";
-
-            comando.Parameters.AddWithValue("@IdCliente", idCliente);
-
-            comando.ExecuteNonQuery();
-            conexion.Cerrar();
+                try
+                {
+                    comando.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    throw new Exception($"Error al eliminar en la Base de Datos: {ex.Message}");
+                }
+                finally
+                {
+                    conexion.Cerrar();
+                }
+            }
         }
 
         public DataTable BuscarCliente(string buscar)
         {
             DataTable tabla = new DataTable();
 
-            comando.Parameters.Clear();
-            comando.Connection = conexion.Abrir();
+            using (SqlCommand comando = new SqlCommand())
+            {
+                comando.Connection = conexion.Abrir();
+                comando.CommandText = $"SELECT * FROM Clientes WHERE [IdCliente] LIKE '%{buscar}%' OR [Nombre] LIKE '%{buscar}%'";
 
-            comando.CommandText = @"SELECT * FROM Clientes WHERE IdCliente LIKE @Buscar OR Nombre LIKE @Buscar";
-
-            comando.Parameters.AddWithValue("@Buscar", "%" + buscar + "%");
-
-            SqlDataAdapter adaptador = new SqlDataAdapter(comando);
-            adaptador.Fill(tabla);
+                using (SqlDataAdapter adaptador = new SqlDataAdapter(comando))
+                {
+                    adaptador.Fill(tabla);
+                }
+            }
 
             conexion.Cerrar();
-
             return tabla;
         }
-
     }
-
-    
-    
 }

@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelbuscar = new System.Windows.Forms.Label();
             this.dataGridViewclientes = new System.Windows.Forms.DataGridView();
-            this.bttnguardarclientes = new System.Windows.Forms.Button();
+            this.Btnnuevo = new System.Windows.Forms.Button();
             this.bttneditarclientes = new System.Windows.Forms.Button();
             this.bttneliminarclientes = new System.Windows.Forms.Button();
             this.btnguardarcliente = new System.Windows.Forms.Button();
@@ -38,19 +39,21 @@
             this.txtbuscarcliente = new System.Windows.Forms.TextBox();
             this.btnbuscarclientes = new System.Windows.Forms.Button();
             this.lbldatosclientes = new System.Windows.Forms.Label();
-            this.lblidcliente = new System.Windows.Forms.Label();
-            this.txtidcliente = new System.Windows.Forms.TextBox();
             this.labelnombrecliente = new System.Windows.Forms.Label();
             this.txtnombrecliente = new System.Windows.Forms.TextBox();
             this.labeltelefonocliente = new System.Windows.Forms.Label();
-            this.txttelefonocliente = new System.Windows.Forms.TextBox();
             this.labelcorreroclientle = new System.Windows.Forms.Label();
             this.txtcorreocliente = new System.Windows.Forms.TextBox();
             this.labeldireecioncliente = new System.Windows.Forms.Label();
             this.txtdireccioncliente = new System.Windows.Forms.TextBox();
             this.labeltipopielcliente = new System.Windows.Forms.Label();
-            this.txttipopielcliente = new System.Windows.Forms.TextBox();
+            this.txtidcliente = new System.Windows.Forms.MaskedTextBox();
+            this.lblIdentidad = new System.Windows.Forms.Label();
+            this.txttelefonocliente = new System.Windows.Forms.MaskedTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Cmbpiel = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewclientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelbuscar
@@ -77,23 +80,24 @@
             this.dataGridViewclientes.RowTemplate.Height = 24;
             this.dataGridViewclientes.Size = new System.Drawing.Size(1034, 183);
             this.dataGridViewclientes.TabIndex = 7;
-            this.dataGridViewclientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewclientes_CellClick);
+            this.dataGridViewclientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewclientes_CellContentClick_1);
             // 
-            // bttnguardarclientes
+            // Btnnuevo
             // 
-            this.bttnguardarclientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            this.bttnguardarclientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bttnguardarclientes.FlatAppearance.BorderSize = 0;
-            this.bttnguardarclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnguardarclientes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.bttnguardarclientes.ForeColor = System.Drawing.Color.White;
-            this.bttnguardarclientes.Location = new System.Drawing.Point(468, 70);
-            this.bttnguardarclientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bttnguardarclientes.Name = "bttnguardarclientes";
-            this.bttnguardarclientes.Size = new System.Drawing.Size(124, 40);
-            this.bttnguardarclientes.TabIndex = 8;
-            this.bttnguardarclientes.Text = "Nuevo";
-            this.bttnguardarclientes.UseVisualStyleBackColor = false;
+            this.Btnnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.Btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnnuevo.FlatAppearance.BorderSize = 0;
+            this.Btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btnnuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.Btnnuevo.ForeColor = System.Drawing.Color.White;
+            this.Btnnuevo.Location = new System.Drawing.Point(468, 70);
+            this.Btnnuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btnnuevo.Name = "Btnnuevo";
+            this.Btnnuevo.Size = new System.Drawing.Size(124, 40);
+            this.Btnnuevo.TabIndex = 8;
+            this.Btnnuevo.Text = "Nuevo";
+            this.Btnnuevo.UseVisualStyleBackColor = false;
+            this.Btnnuevo.Click += new System.EventHandler(this.Btnnuevo_Click_1);
             // 
             // bttneditarclientes
             // 
@@ -196,28 +200,6 @@
             this.lbldatosclientes.TabIndex = 23;
             this.lbldatosclientes.Text = "Datos del Cliente";
             // 
-            // lblidcliente
-            // 
-            this.lblidcliente.AutoSize = true;
-            this.lblidcliente.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblidcliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblidcliente.Location = new System.Drawing.Point(45, 379);
-            this.lblidcliente.Name = "lblidcliente";
-            this.lblidcliente.Size = new System.Drawing.Size(34, 25);
-            this.lblidcliente.TabIndex = 24;
-            this.lblidcliente.Text = "ID:";
-            // 
-            // txtidcliente
-            // 
-            this.txtidcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtidcliente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtidcliente.Location = new System.Drawing.Point(100, 374);
-            this.txtidcliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtidcliente.Name = "txtidcliente";
-            this.txtidcliente.Size = new System.Drawing.Size(382, 34);
-            this.txtidcliente.TabIndex = 25;
-            this.txtidcliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidcliente_KeyPress);
-            // 
             // labelnombrecliente
             // 
             this.labelnombrecliente.AutoSize = true;
@@ -249,17 +231,6 @@
             this.labeltelefonocliente.Size = new System.Drawing.Size(88, 25);
             this.labeltelefonocliente.TabIndex = 28;
             this.labeltelefonocliente.Text = "Telefono:";
-            // 
-            // txttelefonocliente
-            // 
-            this.txttelefonocliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txttelefonocliente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txttelefonocliente.Location = new System.Drawing.Point(106, 486);
-            this.txttelefonocliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txttelefonocliente.Name = "txttelefonocliente";
-            this.txttelefonocliente.Size = new System.Drawing.Size(194, 34);
-            this.txttelefonocliente.TabIndex = 29;
-            this.txttelefonocliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefonocliente_KeyPress);
             // 
             // labelcorreroclientle
             // 
@@ -314,15 +285,54 @@
             this.labeltipopielcliente.TabIndex = 34;
             this.labeltipopielcliente.Text = "Tipo de Piel:";
             // 
-            // txttipopielcliente
+            // txtidcliente
             // 
-            this.txttipopielcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txttipopielcliente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txttipopielcliente.Location = new System.Drawing.Point(727, 495);
-            this.txttipopielcliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txttipopielcliente.Name = "txttipopielcliente";
-            this.txttipopielcliente.Size = new System.Drawing.Size(376, 34);
-            this.txttipopielcliente.TabIndex = 35;
+            this.txtidcliente.Location = new System.Drawing.Point(100, 377);
+            this.txtidcliente.Name = "txtidcliente";
+            this.txtidcliente.Size = new System.Drawing.Size(382, 26);
+            this.txtidcliente.TabIndex = 37;
+            // 
+            // lblIdentidad
+            // 
+            this.lblIdentidad.AutoSize = true;
+            this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblIdentidad.Location = new System.Drawing.Point(-2, 381);
+            this.lblIdentidad.Name = "lblIdentidad";
+            this.lblIdentidad.Size = new System.Drawing.Size(96, 25);
+            this.lblIdentidad.TabIndex = 36;
+            this.lblIdentidad.Text = "Identidad:";
+            // 
+            // txttelefonocliente
+            // 
+            this.txttelefonocliente.Location = new System.Drawing.Point(100, 490);
+            this.txttelefonocliente.Name = "txttelefonocliente";
+            this.txttelefonocliente.Size = new System.Drawing.Size(382, 26);
+            this.txttelefonocliente.TabIndex = 38;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // Cmbpiel
+            // 
+            this.Cmbpiel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cmbpiel.FormattingEnabled = true;
+            this.Cmbpiel.Items.AddRange(new object[] {
+            "Piel Normal",
+            "Piel Seca",
+            "Piel Grasa",
+            "Piel Mixta",
+            "Piel Sensible",
+            "Piel Deshidratada",
+            "Piel Madura",
+            "Piel Acneica",
+            "Piel Reactiva",
+            "Todo Tipo de Piel"});
+            this.Cmbpiel.Location = new System.Drawing.Point(727, 488);
+            this.Cmbpiel.Name = "Cmbpiel";
+            this.Cmbpiel.Size = new System.Drawing.Size(382, 28);
+            this.Cmbpiel.TabIndex = 39;
             // 
             // frmClientes
             // 
@@ -330,18 +340,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1326, 760);
-            this.Controls.Add(this.txttipopielcliente);
+            this.Controls.Add(this.Cmbpiel);
+            this.Controls.Add(this.txttelefonocliente);
+            this.Controls.Add(this.txtidcliente);
+            this.Controls.Add(this.lblIdentidad);
             this.Controls.Add(this.labeltipopielcliente);
             this.Controls.Add(this.txtdireccioncliente);
             this.Controls.Add(this.labeldireecioncliente);
             this.Controls.Add(this.txtcorreocliente);
             this.Controls.Add(this.labelcorreroclientle);
-            this.Controls.Add(this.txttelefonocliente);
             this.Controls.Add(this.labeltelefonocliente);
             this.Controls.Add(this.txtnombrecliente);
             this.Controls.Add(this.labelnombrecliente);
-            this.Controls.Add(this.txtidcliente);
-            this.Controls.Add(this.lblidcliente);
             this.Controls.Add(this.lbldatosclientes);
             this.Controls.Add(this.btnbuscarclientes);
             this.Controls.Add(this.txtbuscarcliente);
@@ -349,13 +359,15 @@
             this.Controls.Add(this.btnguardarcliente);
             this.Controls.Add(this.bttneliminarclientes);
             this.Controls.Add(this.bttneditarclientes);
-            this.Controls.Add(this.bttnguardarclientes);
+            this.Controls.Add(this.Btnnuevo);
             this.Controls.Add(this.dataGridViewclientes);
             this.Controls.Add(this.labelbuscar);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewclientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,7 +376,7 @@
         #endregion
         private System.Windows.Forms.Label labelbuscar;
         private System.Windows.Forms.DataGridView dataGridViewclientes;
-        private System.Windows.Forms.Button bttnguardarclientes;
+        private System.Windows.Forms.Button Btnnuevo;
         private System.Windows.Forms.Button bttneditarclientes;
         private System.Windows.Forms.Button bttneliminarclientes;
         private System.Windows.Forms.Button btnguardarcliente;
@@ -372,17 +384,18 @@
         private System.Windows.Forms.TextBox txtbuscarcliente;
         private System.Windows.Forms.Button btnbuscarclientes;
         private System.Windows.Forms.Label lbldatosclientes;
-        private System.Windows.Forms.Label lblidcliente;
-        private System.Windows.Forms.TextBox txtidcliente;
         private System.Windows.Forms.Label labelnombrecliente;
         private System.Windows.Forms.TextBox txtnombrecliente;
         private System.Windows.Forms.Label labeltelefonocliente;
-        private System.Windows.Forms.TextBox txttelefonocliente;
         private System.Windows.Forms.Label labelcorreroclientle;
         private System.Windows.Forms.TextBox txtcorreocliente;
         private System.Windows.Forms.Label labeldireecioncliente;
         private System.Windows.Forms.TextBox txtdireccioncliente;
         private System.Windows.Forms.Label labeltipopielcliente;
-        private System.Windows.Forms.TextBox txttipopielcliente;
+        private System.Windows.Forms.MaskedTextBox txtidcliente;
+        private System.Windows.Forms.Label lblIdentidad;
+        private System.Windows.Forms.MaskedTextBox txttelefonocliente;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox Cmbpiel;
     }
 }
