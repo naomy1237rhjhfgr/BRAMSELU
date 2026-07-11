@@ -48,6 +48,7 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtTipoUsuario = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbtu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -384,7 +385,7 @@
             this.txtContrasena.Location = new System.Drawing.Point(611, 400);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '●';
-            this.txtContrasena.Size = new System.Drawing.Size(265, 34);
+            this.txtContrasena.Size = new System.Drawing.Size(290, 34);
             this.txtContrasena.TabIndex = 27;
             // 
             // txtTipoUsuario
@@ -393,12 +394,23 @@
             this.txtTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTipoUsuario.Location = new System.Drawing.Point(611, 440);
             this.txtTipoUsuario.Name = "txtTipoUsuario";
-            this.txtTipoUsuario.Size = new System.Drawing.Size(250, 34);
+            this.txtTipoUsuario.Size = new System.Drawing.Size(290, 34);
             this.txtTipoUsuario.TabIndex = 29;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // cmbtu
+            // 
+            this.cmbtu.FormattingEnabled = true;
+            this.cmbtu.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.cmbtu.Location = new System.Drawing.Point(611, 489);
+            this.cmbtu.Name = "cmbtu";
+            this.cmbtu.Size = new System.Drawing.Size(290, 33);
+            this.cmbtu.TabIndex = 30;
             // 
             // FrmEmpleados
             // 
@@ -406,6 +418,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(980, 630);
+            this.Controls.Add(this.cmbtu);
             this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblBuscar);
@@ -482,5 +495,6 @@
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtTipoUsuario;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox cmbtu;
     }
 }

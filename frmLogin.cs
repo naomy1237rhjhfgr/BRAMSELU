@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace BRAMSELU
 {
     public partial class frmLogin : Form
     {
-        private Conexion conexion = new Conexion();
+        private ClaseLogin loginServicio = new ClaseLogin();
 
         public frmLogin()
         {
@@ -23,74 +21,45 @@ namespace BRAMSELU
                 return;
             }
 
-            try
+            loginServicio.Autenticar(txtUsuario.Text, txtContrasena.Text);
+
+            if (loginServicio.Exito)
             {
-                string query = @"SELECT Nombre, Apellido, TipoUsuario, Estado
-                                 FROM Empleados
-                                 WHERE Usuario = @usuario AND Contrasena = @contrasena";
+                bool esAdministrador = loginServicio.TipoUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase);
+                bool esEmpleado = loginServicio.TipoUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
 
-                using (SqlCommand cmd = new SqlCommand(query, conexion.Abrir()))
+                if (!esAdministrador && !esEmpleado)
                 {
-                    cmd.Parameters.AddWithValue("@usuario", txtUsuario.Text.Trim());
-                    cmd.Parameters.AddWithValue("@contrasena", txtContrasena.Text.Trim());
+                    MessageBox.Show("El tipo de usuario no es válido. Contacte al administrador.",
+                        "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            bool activo = Convert.ToBoolean(reader["Estado"]);
+                MessageBox.Show($"¡Bienvenido {loginServicio.NombreCompleto}! ({loginServicio.TipoUsuario})", "Inicio de Sesión Exitoso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            if (!activo)
-                            {
-                                reader.Close();
-                                conexion.Cerrar();
-
-                                MessageBox.Show("Este usuario está inactivo. Contacte al administrador.",
-                                    "Usuario inactivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-
-                            string nombreCompleto = reader["Nombre"].ToString() + " " + reader["Apellido"].ToString();
-                            string tipoUsuario = reader["TipoUsuario"].ToString().Trim();
-
-                            reader.Close();
-                            conexion.Cerrar();
-
-                         
-                            bool esAdministrador = tipoUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase);
-                            bool esEmpleado = tipoUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
-
-                            if (!esAdministrador && !esEmpleado)
-                            {
-                                MessageBox.Show("El tipo de usuario no es válido. Contacte al administrador.",
-                                    "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
-
-                            MessageBox.Show($"¡Bienvenido {nombreCompleto}! ({tipoUsuario})", "Inicio de Sesión Exitoso",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, tipoUsuario);
-                            menu.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Autenticación",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                frmMenuPrincipal menu = new frmMenuPrincipal(loginServicio.NombreCompleto, loginServicio.TipoUsuario);
+                menu.Show();
+                this.Hide();
+            }
+            else
+            {
+                if (!loginServicio.Activo)
+                {
+                    MessageBox.Show(loginServicio.Mensaje, "Usuario inactivo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(loginServicio.Mensaje, "Error de Autenticación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conexion.Cerrar();
-            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
