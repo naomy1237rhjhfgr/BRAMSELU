@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Web.Management;
 
 namespace BRAMSELU
@@ -39,7 +38,7 @@ namespace BRAMSELU
             _hora = string.Empty;
             _duracion = string.Empty;
             _notas = string.Empty;
-            _estado = "Activo";
+            _estado = "Pendiente, Confirmada, Completada, Cancelada";
             _precio = 0;
             _conexion = new Conexion();
         }
@@ -75,113 +74,42 @@ namespace BRAMSELU
         public string Estado { get { return _estado; } set { _estado = value; } }
         public decimal Precio { get { return (decimal)_precio; } set { _precio = value; } }
 
-        public override string ToString()
+        public DataTable ListarCitas(string filtro = "")
         {
-            return $"Id: {_id} Cliente: {_cliente} Servicio: {_servicio} Fecha: {_fecha.ToShortDateString()}";
+            return datosDAL.ObtenerCitas(filtro);
         }
 
-        private bool Validar()
+        public string Guardar()
         {
-            if (_cliente == string.Empty) return false;
-            if (_servicio == string.Empty) return false;
-            if (_especialista == string.Empty) return false;
-            if (_estado == string.Empty) return false;
-            if (_precio < 0) return false;
-            return true;
-        }
+            if (string.IsNullOrEmpty(_cliente)) return "Debe seleccionar un cliente.";
+            if (string.IsNullOrEmpty(_servicio)) return "Debe seleccionar un tipo de servicio.";
+            if (string.IsNullOrEmpty(_telefono) || _telefono.Length < 9) return "El teléfono debe contar con 8 dígitos válidos (XXXX-XXXX).";
+            if (_precio < 0) return "El precio asignado no puede ser un valor negativo.";
         
-        public bool Guardar()
+            bool exito;
+            if (_id == 0) 
         {
-            if (!Validar())
-            {
-                string strFecha = _fecha.ToString("yyyy-MM-dd");
-                string strHora = _hora;
-                string strPrecio = _precio.ToString().Replace(',', '.');
+                exito = datosDAL.Nuevo(this);
+                }
+            else 
+                {
+                exito = datosDAL.Editar(this);
+                }
 
-                string SQL = $"insert into citas (cliente, telefono, servicio, especialista, fecha, hora, duracion, notas, estado, precio) " +
-                             $"values('{_cliente}', '{_telefono}', '{_servicio}', '{_especialista}', '{strFecha}', '{strHora}', '{_duracion}', '{_notas}', '{_estado}', {strPrecio})";
+            return exito ? "OK" : "Error de ejecución en la Base de Datos.";
+                }
 
-                try
-                {
-                    SqlConnection cnAbierta = _conexion.Abrir();
-                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
-                    comando.ExecuteNonQuery();
-                    return true;
-                }
-                catch (Exception ex) 
-                {
-                    throw new Exception("Error al guardar la cita: " + ex.Message);
-                }
-                finally
-                {
-                    _conexion.Cerrar();
-                }
-            }
-            else
+        public bool Eliminar(int id, out string mensaje)
             {
+            if (id <= 0)
+            {
+                mensaje = "ID no válido.";
                 return false;
             }
-        }
 
-        public bool Modificar()
-        {
-            if (!Validar() && _id > 0)
-            {
-                string strFecha = _fecha.ToString("yyyy-MM-dd");
-                string strHora = _hora;
-                string strPrecio = _precio.ToString().Replace(',', '.');
-
-                string SQL = $"update citas set cliente='{_cliente}', telefono='{_telefono}', servicio='{_servicio}', " +
-                             $"especialista='{_especialista}', fecha='{strFecha}', hora='{strHora}', duracion='{_duracion}', " +
-                             $"notas='{_notas}', estado='{_estado}', precio={strPrecio} where id={_id}";
-
-                try
-                {
-                    SqlConnection cnAbierta = _conexion.Abrir();
-                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
-                    comando.ExecuteNonQuery();
-                    return true;
-                }
-                catch (Exception ex) 
-                {
-                    throw new Exception("Error al guardar la cita: " + ex.Message);
-                }
-                finally
-                {
-                    _conexion.Cerrar();
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool Eliminar()
-        {
-            if (_id > 0)
-            {
-                string SQL = $"delete from citas where id={_id}";
-                try
-                {
-                    SqlConnection cnAbierta = _conexion.Abrir();
-                    SqlCommand comando = new SqlCommand(SQL, cnAbierta);
-                    comando.ExecuteNonQuery();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error al guardar la cita: " + ex.Message);
-                }
-                finally
-                {
-                    _conexion.Cerrar();
-                }
-            }
-            else
-            {
-                return false;
-            }
+            bool exito = datosDAL.Eliminar(id);
+            mensaje = exito ? "OK" : "No se logró eliminar el registro solicitado.";
+            return exito;
         }
     }
 }
