@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAMSELU.CLasesClientes;
 
 namespace BRAMSELU
 {
     public partial class frmCitas : Form
     {
         CitaDAL comp = new CitaDAL();
+
         int idSeleccionado = 0;
         bool modoEdicion = false;
 
@@ -42,20 +44,20 @@ namespace BRAMSELU
 
             try
             {
-                Cliente clienteDAL = new Cliente();
-                LlenarComboBox(CmbCliente, clienteDAL.Mostrar(), "Nombre", "IdCliente");
+                ClienteDatos clienteDAL = new ClienteDatos();
+                LlenarComboBox(CmbCliente, clienteDAL.MostrarClientes(), "Nombre", "IdCliente");
 
-                Servicio servicioDAL = new Servicio();
-                LlenarComboBox(CmbServicio, servicioDAL.Mostrar(), "NombreServicio", "IdServicio");
+                //Servicio servicioDAL = new Servicio();
+                //LlenarComboBox(CmbServicio, servicioDAL.Mostrar(), "NombreServicio", "IdServicio");
 
-                Empleado empleadoDAL = new Empleado();
+                Empleadocomp empleadoDAL = new Empleadocomp();
                 LlenarComboBox(CmbEspecialista, empleadoDAL.Mostrar(), "Nombre", "IdEmpleado");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar las listas de selección: " + ex.Message,
                                 "Error de inicialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            }
         }
 
         private void CargarDatos(DataTable tabla = null)
@@ -64,7 +66,7 @@ namespace BRAMSELU
         }
 
         private void BloquearCampos(bool bloquear)
-            {
+        {
             bool h = !bloquear;
             CmbCliente.Enabled = h;
             TxtTelefono.Enabled = h;
@@ -76,7 +78,7 @@ namespace BRAMSELU
             TxtPrecio.Enabled = h;
             TxtNotas.Enabled = h;
             CmbEstado.Enabled = h;
-            }
+        }
 
         private void ActualizarBotones(bool conRegistro)
         {
@@ -86,20 +88,20 @@ namespace BRAMSELU
         }
 
         private void InicializarPlaceholders()
-            {
+        {
             ConfigurarPlaceholder(TxtHora, PLACEHOLDER_HORA);
             ConfigurarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
             ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
             ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
-            }
+        }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder)
-            {
+        {
             if (string.IsNullOrWhiteSpace(txt.Text) || txt.Text == placeholder)
             {
                 txt.Text = placeholder;
                 txt.ForeColor = Color.Gray;
-        }
+            }
         }
 
         private void QuitarPlaceholder(TextBox txt, string placeholder)
@@ -108,7 +110,7 @@ namespace BRAMSELU
             {
                 txt.Text = "";
                 txt.ForeColor = Color.Black;
-        }
+            }
         }
 
         private void LimpiarCampos()
@@ -162,7 +164,7 @@ namespace BRAMSELU
                 return false;
             }
             return true;
-            }
+        }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -222,7 +224,7 @@ namespace BRAMSELU
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == 0)
-                {
+            {
                 MessageBox.Show("Selecciona una cita en la tabla primero.",
                                 "Sin selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -234,7 +236,7 @@ namespace BRAMSELU
                                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 try
-                    {
+                {
                     comp.Eliminar(idSeleccionado);
                     MessageBox.Show("Cita eliminada correctamente.",
                                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,13 +244,13 @@ namespace BRAMSELU
                     LimpiarCampos();
                     BloquearCampos(true);
                     ActualizarBotones(false);
-                    }
+                }
                 catch (Exception ex)
-                    {
+                {
                     MessageBox.Show("Error al eliminar: " + ex.Message,
                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        }
+                }
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -264,10 +266,10 @@ namespace BRAMSELU
                                 "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CargarDatos(resultado);
-            }
+        }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
-            {
+        {
             if (e.RowIndex < 0) return;
 
             DataGridViewRow fila = dgvCitas.Rows[e.RowIndex];
@@ -315,7 +317,7 @@ namespace BRAMSELU
 
         private void txtPrecio_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
         private void txtPrecio_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
-        
+
         private void txtNotas_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
         private void txtNotas_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
 
