@@ -14,10 +14,11 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"INSERT INTO Inventario" +
-                $"(NombreProducto, Marca, Categoria, Precio, Stock, Imagen) " +
+            string SQL = $"INSERT INTO Productos " +
+                $"(NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) " +
                 $"VALUES('{inv.NombreProducto}', '{inv.Marca}', " +
-                $"'{inv.Categoria}', {inv.Precio}, {inv.Stock}, {imagenSQL})";
+                $"'{inv.Categoria}', {inv.Precio}, {inv.Stock}, " +
+                $"GETDATE(), {imagenSQL})";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -26,7 +27,7 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"UPDATE Inventario SET " +
+            string SQL = $"UPDATE Productos SET " +
                 $"NombreProducto='{inv.NombreProducto}', " +
                 $"Marca='{inv.Marca}', " +
                 $"Categoria='{inv.Categoria}', " +
@@ -41,7 +42,7 @@ namespace BRAMSELU.DAL
         public bool Eliminar(int idProducto)
         {
             string SQL =
-                $"DELETE FROM Inventario WHERE IdProducto={idProducto}";
+                $"DELETE FROM Productos WHERE IdProducto={idProducto}";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -50,7 +51,7 @@ namespace BRAMSELU.DAL
         {
             List<Inventario> lista = new List<Inventario>();
 
-            string SQL = "SELECT * FROM Inventario";
+            string SQL = "SELECT * FROM Productos";
 
             SqlDataReader reader =
                 _conexion.EjecutarConsulta(SQL);
@@ -67,9 +68,10 @@ namespace BRAMSELU.DAL
                         Categoria = reader.GetString(3),
                         Precio = reader.GetDecimal(4),
                         Stock = reader.GetInt32(5),
-                        Imagen = reader.IsDBNull(6)
+
+                        Imagen = reader.IsDBNull(7)
                             ? null
-                            : (byte[])reader[6]
+                            : (byte[])reader[7]
                     };
 
                     lista.Add(inv);
@@ -83,7 +85,7 @@ namespace BRAMSELU.DAL
 
         public DataTable Mostrar()
         {
-            string SQL = "SELECT * FROM Inventario";
+            string SQL = "SELECT * FROM Productos";
 
             return _conexion.EjecutarConsultaDataTable(SQL);
         }
@@ -93,7 +95,7 @@ namespace BRAMSELU.DAL
             List<Inventario> lista = new List<Inventario>();
 
             string SQL =
-                $"SELECT * FROM Inventario " +
+                $"SELECT * FROM Productos " +
                 $"WHERE NombreProducto LIKE '%{criterio}%' " +
                 $"OR Marca LIKE '%{criterio}%' " +
                 $"OR Categoria LIKE '%{criterio}%'";
@@ -113,9 +115,10 @@ namespace BRAMSELU.DAL
                         Categoria = reader.GetString(3),
                         Precio = reader.GetDecimal(4),
                         Stock = reader.GetInt32(5),
-                        Imagen = reader.IsDBNull(6)
+
+                        Imagen = reader.IsDBNull(7)
                             ? null
-                            : (byte[])reader[6]
+                            : (byte[])reader[7]
                     };
 
                     lista.Add(inv);
@@ -132,9 +135,8 @@ namespace BRAMSELU.DAL
             if (imagen == null)
                 return "NULL";
 
-            return "0x" + BitConverter
-                .ToString(imagen)
-                .Replace("-", "");
+            return "0x" +
+                BitConverter.ToString(imagen).Replace("-", "");
         }
     }
 }
