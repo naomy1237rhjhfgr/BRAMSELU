@@ -7,7 +7,7 @@ namespace BRAMSELU
     {
         private string nombreUsuario;
         private string rolUsuario;
-      
+
         private Form formActivo = null;
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
@@ -21,28 +21,34 @@ namespace BRAMSELU
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
             lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
-            //lblFecha.Text = DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy",
-                //new System.Globalization.CultureInfo("es-ES"));
+
+     
+            if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
+            {
+                btnEmpleados.Visible = false;
+                btnReportes.Visible = false;
+
+             
+                if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
+                {
+                    pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
+                }
+            }
         }
 
-       
         private void AbrirFormEnPanel(Form formHijo)
         {
-            
             if (formActivo != null)
             {
                 formActivo.Close();
             }
 
-           
             formActivo = formHijo;
 
-           
             formHijo.TopLevel = false;
-            formHijo.FormBorderStyle = FormBorderStyle.None; 
-            formHijo.Dock = DockStyle.Fill;                  
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill;
 
-           
             pnlContenido.Controls.Add(formHijo);
             pnlContenido.Tag = formHijo;
             formHijo.BringToFront();
@@ -84,6 +90,11 @@ namespace BRAMSELU
             AbrirFormEnPanel(new frmReportes());
         }
 
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmEmpleados());
+        }
+
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             var confirmar = MessageBox.Show(
@@ -100,18 +111,21 @@ namespace BRAMSELU
             }
         }
 
-        private void btnEmpleados_Click(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel(new FrmEmpleados());
-        }
-
         private void btnPanel_Click(object sender, EventArgs e)
         {
             if (formActivo != null)
             {
                 formActivo.Close();
             }
+
+            
+            if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
+            {
+                if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
+                {
+                    pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
+                }
+            }
         }
-         
     }
 }

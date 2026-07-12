@@ -27,36 +27,25 @@ namespace BRAMSELU
 
         private void CargarDatos()
         {
-            MostrarEnGrid(inv.MostrarProductos());
+            dgvDatos.DataSource = null;
+            dgvDatos.DataSource = inv.Mostrar();
         }
 
-        
         private void MostrarEnGrid(DataTable dt)
         {
-            dgvDatos.RowTemplate.Height = 60;
             dgvDatos.DataSource = dt;
 
             if (dgvDatos.Columns.Contains("Imagen"))
             {
-                int index = dgvDatos.Columns["Imagen"].Index;
-                dgvDatos.Columns.Remove("Imagen");
-
-                DataGridViewImageColumn colImagen = new DataGridViewImageColumn();
-                colImagen.Name = "Imagen";
-                colImagen.DataPropertyName = "Imagen";
-                colImagen.HeaderText = "Imagen";
-                colImagen.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                colImagen.Width = 90;
-
-                dgvDatos.Columns.Insert(index, colImagen);
+                dgvDatos.Columns["Imagen"].Visible = false;
             }
 
-          
             if (dgvDatos.Columns.Contains("FechaRegistro"))
+            {
                 dgvDatos.Columns["FechaRegistro"].Visible = false;
+            }
         }
 
-        
         private void dgvDatos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvDatos.Columns[e.ColumnIndex].Name != "Imagen")
@@ -80,7 +69,7 @@ namespace BRAMSELU
 
             txtNombre.Enabled = h;
             txtMarca.Enabled = h;
-            txtCategoria.Enabled = h;
+            CmbCa.Enabled = h;
             txtPrecio.Enabled = h;
             txtStock.Enabled = h;
 
@@ -91,7 +80,7 @@ namespace BRAMSELU
         {
             txtNombre.Clear();
             txtMarca.Clear();
-            txtCategoria.Clear();
+            CmbCa.SelectedIndex = -1;
             txtPrecio.Clear();
             txtStock.Clear();
 
@@ -117,10 +106,10 @@ namespace BRAMSELU
                 return false;
             }
 
-            if (txtCategoria.Text.Trim() == "")
+            if (CmbCa.SelectedIndex == -1)
             {
-                MessageBox.Show("Ingrese la categoría");
-                txtCategoria.Focus();
+                MessageBox.Show("Seleccione una categoría");
+                CmbCa.Focus();
                 return false;
             }
 
@@ -164,7 +153,6 @@ namespace BRAMSELU
             return true;
         }
 
-   
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar))
@@ -179,7 +167,6 @@ namespace BRAMSELU
             e.Handled = true;
         }
 
-      
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar))
@@ -201,7 +188,7 @@ namespace BRAMSELU
 
             txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
             txtMarca.Text = fila.Cells["Marca"].Value.ToString();
-            txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
+            CmbCa.Text = fila.Cells["Categoria"].Value.ToString();
             txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
             txtStock.Text = fila.Cells["Stock"].Value.ToString();
 
@@ -219,6 +206,7 @@ namespace BRAMSELU
             }
 
             BloquearCampos(true);
+            btnEditar.Text = "Editar";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -232,12 +220,38 @@ namespace BRAMSELU
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Seleccione un producto");
+                MessageBox.Show("Por favor, seleccione un producto de la lista primero.");
                 return;
             }
 
-            BloquearCampos(false);
-            txtNombre.Focus();
+            if (txtNombre.Enabled == false)
+            {
+                BloquearCampos(false);
+                txtNombre.Focus();
+                btnEditar.Text = "Actualizar";
+            }
+            else
+            {
+                if (!ValidarCampos())
+                    return;
+
+                inv.IdProducto = idSeleccionado;
+                inv.NombreProducto = txtNombre.Text;
+                inv.Marca = txtMarca.Text;
+                inv.Categoria = CmbCa.Text;
+                inv.Precio = Convert.ToDecimal(txtPrecio.Text);
+                inv.Stock = Convert.ToInt32(txtStock.Text);
+                inv.Imagen = imagenSeleccionada;
+
+                if (inv.Actualizar())
+                {
+                    MessageBox.Show("Producto modificado con éxito");
+                    CargarDatos();
+                    Limpiar();
+                    BloquearCampos(true);
+                    btnEditar.Text = "Editar";
+                }
+            }
         }
 
         private void btnCargarImagen_Click(object sender, EventArgs e)
@@ -253,9 +267,7 @@ namespace BRAMSELU
                     {
                         using (Image imagenOriginal = Image.FromFile(ofd.FileName))
                         {
-                        
                             Image copia = new Bitmap(imagenOriginal);
-
                             picImagen.Image = copia;
                             imagenSeleccionada = imgHelper.ImagenABytes(copia);
                         }
@@ -275,33 +287,23 @@ namespace BRAMSELU
 
             try
             {
-                decimal precio = Convert.ToDecimal(txtPrecio.Text);
-                int stock = Convert.ToInt32(txtStock.Text);
+                inv.IdProducto = idSeleccionado;
+                inv.NombreProducto = txtNombre.Text;
+                inv.Marca = txtMarca.Text;
+                inv.Categoria = CmbCa.Text;
+                inv.Precio = Convert.ToDecimal(txtPrecio.Text);
+                inv.Stock = Convert.ToInt32(txtStock.Text);
+                inv.Imagen = imagenSeleccionada;
 
                 if (idSeleccionado == 0)
                 {
-                    inv.InsertarProducto(
-                        txtNombre.Text,
-                        txtMarca.Text,
-                        txtCategoria.Text,
-                        precio,
-                        stock,
-                        imagenSeleccionada);
-
-                    MessageBox.Show("Producto guardado");
+                    if (inv.Guardar())
+                        MessageBox.Show("Producto guardado");
                 }
                 else
                 {
-                    inv.EditarProducto(
-                        idSeleccionado,
-                        txtNombre.Text,
-                        txtMarca.Text,
-                        txtCategoria.Text,
-                        precio,
-                        stock,
-                        imagenSeleccionada);
-
-                    MessageBox.Show("Producto actualizado");
+                    if (inv.Actualizar())
+                        MessageBox.Show("Producto actualizado");
                 }
 
                 CargarDatos();
@@ -332,13 +334,15 @@ namespace BRAMSELU
             {
                 try
                 {
-                    inv.EliminarProducto(idSeleccionado);
+                    inv.IdProducto = idSeleccionado;
 
-                    MessageBox.Show("Producto eliminado");
-
-                    CargarDatos();
-                    Limpiar();
-                    BloquearCampos(true);
+                    if (inv.Eliminar())
+                    {
+                        MessageBox.Show("Producto eliminado");
+                        CargarDatos();
+                        Limpiar();
+                        BloquearCampos(true);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -359,15 +363,27 @@ namespace BRAMSELU
 
             if (int.TryParse(txtBuscar.Text, out id))
             {
-                DataTable dt = inv.BuscarPorId(id);
+                if (inv.BuscarPorId(id))
+                {
+                    txtNombre.Text = inv.NombreProducto;
+                    txtMarca.Text = inv.Marca;
+                    CmbCa.Text = inv.Categoria;
+                    txtPrecio.Text = inv.Precio.ToString();
+                    txtStock.Text = inv.Stock.ToString();
 
-                if (dt.Rows.Count == 0)
+                    imagenSeleccionada = inv.Imagen;
+
+                    if (imagenSeleccionada != null)
+                        picImagen.Image = imgHelper.BytesAImagen(imagenSeleccionada);
+                    else
+                        picImagen.Image = null;
+
+                    idSeleccionado = inv.IdProducto;
+                }
+                else
                 {
                     MessageBox.Show("No se encontró el producto");
-                    return;
                 }
-
-                MostrarEnGrid(dt);
             }
             else
             {

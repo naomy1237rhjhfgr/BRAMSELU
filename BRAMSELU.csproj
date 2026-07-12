@@ -72,12 +72,14 @@
   <ItemGroup>
     <Compile Include="Citas3Capas\CitaDAL.cs" />
     <Compile Include="ClaseCitas.cs" />
+    <Compile Include="ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
     <Compile Include="ClasesProducto\ClaseProducto.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Empleado.cs" />
-    <Compile Include="Empleadocomp.cs" />
+    <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
