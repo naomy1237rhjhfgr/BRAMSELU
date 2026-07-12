@@ -182,7 +182,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BRAMSELU ";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+       
             this.pnlCard.ResumeLayout(false);
             this.pnlCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using BRAMSELU.BLL;
+using System.Data;
 
 namespace BRAMSELU
 {
     public partial class frmLogin : Form
     {
-        private ClaseLogin loginServicio = new ClaseLogin();
+        private LoginBLL loginBLL = new LoginBLL();
 
         public frmLogin()
         {
@@ -14,52 +16,29 @@ namespace BRAMSELU
 
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasena.Text))
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text) || string.IsNullOrWhiteSpace(txtContrasena.Text))
             {
-                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            loginServicio.Autenticar(txtUsuario.Text, txtContrasena.Text);
+            DataRow resultado = loginBLL.ValidarLogin(txtUsuario.Text, txtContrasena.Text);
 
-            if (loginServicio.Exito)
+            if (resultado != null)
             {
-                bool esAdministrador = loginServicio.TipoUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase);
-                bool esEmpleado = loginServicio.TipoUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
+                string nombreCompleto = $"{resultado["Nombre"]} {resultado["Apellido"]}";
+                string tipoUsuario = resultado["TipoUsuario"].ToString().Trim();
 
-                if (!esAdministrador && !esEmpleado)
-                {
-                    MessageBox.Show("El tipo de usuario no es válido. Contacte al administrador.",
-                        "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                MessageBox.Show($"¡Bienvenido {nombreCompleto}! ({tipoUsuario})", "Inicio de Sesión Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show($"¡Bienvenido {loginServicio.NombreCompleto}! ({loginServicio.TipoUsuario})", "Inicio de Sesión Exitoso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                frmMenuPrincipal menu = new frmMenuPrincipal(loginServicio.NombreCompleto, loginServicio.TipoUsuario);
+                frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, tipoUsuario);
                 menu.Show();
                 this.Hide();
             }
             else
             {
-                if (!loginServicio.Activo)
-                {
-                    MessageBox.Show(loginServicio.Mensaje, "Usuario inactivo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show(loginServicio.Mensaje, "Error de Autenticación",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(loginBLL.Mensaje, "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
