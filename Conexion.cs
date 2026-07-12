@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,83 +8,131 @@ namespace BRAMSELU
 {
     internal class Conexion
     {
+        private string _nombreDB;
+        private string _server;
+        private string _cadenaConexion;
         private SqlConnection conexion;
-        private string _cadenaConexion = "Server=localhost;Database=BRAMSELU;Integrated Security=True;TrustServerCertificate=True;";
 
-        public SqlDataReader EjecutarConsulta(string SQL, params SqlParameter[] parametros)
+
+        public Conexion()
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(_cadenaConexion);
-                SqlCommand cmd = new SqlCommand(SQL, con);
+            _nombreDB = "BRAMSELU";
+            _server = "localhost";
 
-                if (parametros != null) cmd.Parameters.AddRange(parametros);
+            _cadenaConexion = $"Server={_server};Database={_nombreDB};Integrated Security=True;TrustServerCertificate=True;";
 
-                con.Open();
-
-                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en consulta: " + ex.Message);
-                return null;
-            }
+            conexion = new SqlConnection(_cadenaConexion);
         }
 
-        public SqlDataReader EjecutarConsultaUno(string SQL, params SqlParameter[] parametros)
+
+        public void Conectar()
         {
             try
             {
-                SqlConnection con = new SqlConnection(_cadenaConexion);
-                SqlCommand cmd = new SqlCommand(SQL, con);
-
-                if (parametros != null)
-                    cmd.Parameters.AddRange(parametros);
-
-                con.Open();
-
-                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                if (reader.Read())
-                    return reader;
-
-                reader.Close();
-                return null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en consulta: " + ex.Message);
-                return null;
-            }
-        }
-
-        public bool EjecutarSQL(string SQL, params SqlParameter[] parametros)
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(_cadenaConexion))
+                if (conexion.State == ConnectionState.Closed)
                 {
-                    SqlCommand cmd = new SqlCommand(SQL, con);
-                    if (parametros != null) cmd.Parameters.AddRange(parametros);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    return true;
+                    conexion.Open();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public bool EjecutarSQL(string SQL)
+        {
+            Conectar();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(SQL, conexion);
+
+                cmd.ExecuteNonQuery();
+
+                Cerrar();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
 
-        public SqlConnection Abrir()
+
+        public SqlDataReader EjecutarConsultaUno(string SQL)
         {
-            if (conexion == null)
+            Conectar();
+
+            try
             {
-                conexion = new SqlConnection(_cadenaConexion);
+                SqlCommand cmd = new SqlCommand(SQL, conexion);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return reader;
+                }
+                else
+                {
+                    reader.Close();
+                    Cerrar();
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
+        public SqlDataReader EjecutarConsulta(string SQL)
+        {
+            Conectar();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(SQL, conexion);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                return reader;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
+        public DataTable EjecutarConsultaDataTable(string SQL)
+        {
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(SQL, conexion);
+
+                da.Fill(tabla);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
+            return tabla;
+        }
+
+
+        public SqlConnection Abrir()
+        {
             if (conexion.State == ConnectionState.Closed)
             {
                 conexion.Open();
@@ -92,36 +141,13 @@ namespace BRAMSELU
             return conexion;
         }
 
+
         public void Cerrar()
         {
-            if (conexion != null)
+            if (conexion.State == ConnectionState.Open)
             {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
+                conexion.Close();
             }
-        }
-
-        public DataTable EjecutarConsultaDataTable(string SQL)
-        {
-            DataTable tabla = new DataTable();
-
-            using (SqlConnection con = new SqlConnection(_cadenaConexion))
-            {
-                try
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(SQL, con);
-                    con.Open();
-                    da.Fill(tabla);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error en la consulta de datos: " + ex.Message);
-                }
-            }
-
-            return tabla;
         }
     }
 }

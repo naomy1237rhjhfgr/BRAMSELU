@@ -12,22 +12,22 @@ namespace BRAMSELU.BLL
 
         private bool ValidarReglas(Empleado emp)
         {
-            if (emp.Nombre == "")
+            if (emp.Nombre == string.Empty)
                 return false;
 
-            if (emp.Apellido == "")
+            if (emp.Apellido == string.Empty)
                 return false;
 
-            if (emp.Identidad == "")
+            if (emp.Identidad == string.Empty)
                 return false;
 
-            if (emp.Telefono == "")
+            if (emp.Telefono == string.Empty)
                 return false;
 
-            if (emp.Usuario == "")
+            if (emp.Usuario == string.Empty)
                 return false;
 
-            if (emp.Contrasena == "")
+            if (emp.Contrasena == string.Empty)
                 return false;
 
             if (emp.TipoUsuario != "Administrador" && emp.TipoUsuario != "Empleado")
@@ -36,21 +36,38 @@ namespace BRAMSELU.BLL
             return true;
         }
 
+        public bool ExisteIdentidad(string identidad, int idEmpleado)
+        {
+            return _empleadoDAL.VerificarIdentidad(identidad, idEmpleado) > 0;
+        }
+
         public bool GuardarEmpleado(Empleado emp)
         {
-            if (!ValidarReglas(emp)) return false;
+            if (ExisteIdentidad(emp.Identidad, 0))
+                return false;
+
+            if (!ValidarReglas(emp))
+                return false;
+
             return _empleadoDAL.Guardar(emp);
         }
 
         public bool ActualizarEmpleado(Empleado emp)
         {
-            if (emp.IdEmpleado <= 0 || !ValidarReglas(emp)) return false;
+            if (ExisteIdentidad(emp.Identidad, emp.IdEmpleado))
+                return false;
+
+            if (emp.IdEmpleado <= 0 || !ValidarReglas(emp))
+                return false;
+
             return _empleadoDAL.Actualizar(emp);
         }
 
         public bool EliminarEmpleado(int idEmpleado)
         {
-            if (idEmpleado <= 0) return false;
+            if (idEmpleado <= 0)
+                return false;
+
             return _empleadoDAL.Eliminar(idEmpleado);
         }
 
@@ -58,10 +75,11 @@ namespace BRAMSELU.BLL
         {
             return _empleadoDAL.Listar();
         }
-
         public List<Empleado> BuscarEmpleado(string criterio)
         {
-            if (criterio == "") return _empleadoDAL.Listar();
+            if (string.IsNullOrWhiteSpace(criterio))
+                return _empleadoDAL.Listar();
+
             return _empleadoDAL.BuscarPorTexto(criterio);
         }
     }

@@ -28,6 +28,13 @@ namespace BRAMSELU.DAL
             return _conexion.EjecutarSQL(SQL);
         }
 
+        public int VerificarIdentidad(string identidad, int idEmpleado)
+        {
+            string SQL = $"SELECT COUNT(*) FROM Empleados WHERE Identidad = '{identidad}' AND IdEmpleado <> {idEmpleado}";
+            DataTable dt = _conexion.EjecutarConsultaDataTable(SQL);
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
+
         public List<Empleado> Listar()
         {
             List<Empleado> lista = new List<Empleado>();
@@ -56,11 +63,6 @@ namespace BRAMSELU.DAL
                 reader.Close();
             }
             return lista;
-        }
-        public DataTable Mostrar()
-        {
-            string SQL = "SELECT * FROM Empleados";
-            return _conexion.EjecutarConsultaDataTable(SQL);
         }
 
         public List<Empleado> BuscarPorTexto(string criterio)
