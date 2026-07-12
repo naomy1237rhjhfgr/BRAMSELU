@@ -1,22 +1,27 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using BRAMSELU.Entidades;
+using BRAMSELU.BLL;
 using BRAMSELU.ClasesProducto;
 
 namespace BRAMSELU
 {
     public partial class frmInventario : Form
     {
-        Inventario inv = new Inventario();
-        ImagenProducto imgHelper = new ImagenProducto();
+        private InventarioBLL inventarioBLL;
+        private ImagenProducto imgHelper;
 
-        int idSeleccionado = 0;
-        byte[] imagenSeleccionada = null;
+        private int idSeleccionado = 0;
+        private byte[] imagenSeleccionada = null;
 
         public frmInventario()
         {
             InitializeComponent();
+
+            inventarioBLL = new InventarioBLL();
+            imgHelper = new ImagenProducto();
         }
 
         private void frmInventario_Load(object sender, EventArgs e)
@@ -28,40 +33,17 @@ namespace BRAMSELU
         private void CargarDatos()
         {
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource = inv.Mostrar();
+            dgvDatos.DataSource =
+                inventarioBLL.ObtenerProductos();
+
+            OcultarImagen();
         }
 
-        private void MostrarEnGrid(DataTable dt)
+        private void OcultarImagen()
         {
-            dgvDatos.DataSource = dt;
-
             if (dgvDatos.Columns.Contains("Imagen"))
-            {
                 dgvDatos.Columns["Imagen"].Visible = false;
             }
-
-            if (dgvDatos.Columns.Contains("FechaRegistro"))
-            {
-                dgvDatos.Columns["FechaRegistro"].Visible = false;
-            }
-        }
-
-        private void dgvDatos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvDatos.Columns[e.ColumnIndex].Name != "Imagen")
-                return;
-
-            if (e.Value == null || e.Value == DBNull.Value)
-                return;
-
-            byte[] datos = e.Value as byte[];
-
-            if (datos != null && datos.Length > 0)
-            {
-                e.Value = imgHelper.BytesAImagen(datos);
-                e.FormattingApplied = true;
-            }
-        }
 
         private void BloquearCampos(bool bloquear)
         {
@@ -72,7 +54,6 @@ namespace BRAMSELU
             CmbCa.Enabled = h;
             txtPrecio.Enabled = h;
             txtStock.Enabled = h;
-
             btnCargarImagen.Enabled = h;
         }
 
@@ -90,123 +71,35 @@ namespace BRAMSELU
             idSeleccionado = 0;
         }
 
-        private bool ValidarCampos()
+        private bool Validar()
         {
+            errorProvider1.Clear();
+
             if (txtNombre.Text.Trim() == "")
-            {
-                MessageBox.Show("Ingrese el nombre");
-                txtNombre.Focus();
                 return false;
-            }
 
             if (txtMarca.Text.Trim() == "")
-            {
-                MessageBox.Show("Ingrese la marca");
-                txtMarca.Focus();
                 return false;
-            }
 
             if (CmbCa.SelectedIndex == -1)
-            {
-                MessageBox.Show("Seleccione una categoría");
-                CmbCa.Focus();
                 return false;
-            }
 
-            if (txtPrecio.Text.Trim() == "")
-            {
-                MessageBox.Show("Ingrese el precio");
-                txtPrecio.Focus();
-                return false;
-            }
+            decimal precio;
 
-            decimal precioValidado;
-            if (!decimal.TryParse(txtPrecio.Text.Trim(), out precioValidado) || precioValidado <= 0)
-            {
-                MessageBox.Show("Ingrese un precio válido, mayor a 0");
-                txtPrecio.Focus();
+            if (!decimal.TryParse(txtPrecio.Text, out precio)
+                || precio <= 0)
                 return false;
-            }
 
-            if (txtStock.Text.Trim() == "")
-            {
-                MessageBox.Show("Ingrese el stock");
-                txtStock.Focus();
-                return false;
-            }
+            int stock;
 
-            int stockValidado;
-            if (!int.TryParse(txtStock.Text.Trim(), out stockValidado) || stockValidado < 0)
-            {
-                MessageBox.Show("Ingrese un stock válido (0 o mayor)");
-                txtStock.Focus();
+            if (!int.TryParse(txtStock.Text, out stock)
+                || stock < 0)
                 return false;
-            }
 
             if (imagenSeleccionada == null)
-            {
-                MessageBox.Show("Debe cargar una imagen del producto");
-                btnCargarImagen.Focus();
                 return false;
-            }
 
             return true;
-        }
-
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == '.' && !txtPrecio.Text.Contains("."))
-                return;
-
-            e.Handled = true;
-        }
-
-        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsDigit(e.KeyChar))
-                return;
-
-            e.Handled = true;
-        }
-
-        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
-
-            idSeleccionado = Convert.ToInt32(fila.Cells["IdProducto"].Value);
-
-            txtNombre.Text = fila.Cells["NombreProducto"].Value.ToString();
-            txtMarca.Text = fila.Cells["Marca"].Value.ToString();
-            CmbCa.Text = fila.Cells["Categoria"].Value.ToString();
-            txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
-            txtStock.Text = fila.Cells["Stock"].Value.ToString();
-
-            object valorImagen = fila.Cells["Imagen"].Value;
-
-            if (valorImagen != null && valorImagen != DBNull.Value)
-            {
-                imagenSeleccionada = (byte[])valorImagen;
-                picImagen.Image = imgHelper.BytesAImagen(imagenSeleccionada);
-            }
-            else
-            {
-                imagenSeleccionada = null;
-                picImagen.Image = null;
-            }
-
-            BloquearCampos(true);
-            btnEditar.Text = "Editar";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -216,179 +109,173 @@ namespace BRAMSELU
             txtNombre.Focus();
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!Validar())
+                return;
+
+            Inventario inv = new Inventario
+        {
+                IdProducto = idSeleccionado,
+                NombreProducto = txtNombre.Text,
+                Marca = txtMarca.Text,
+                Categoria = CmbCa.Text,
+                Precio = Convert.ToDecimal(txtPrecio.Text),
+                Stock = Convert.ToInt32(txtStock.Text),
+                Imagen = imagenSeleccionada
+            };
+
+            if (idSeleccionado == 0)
+            {
+                if (inventarioBLL.GuardarProducto(inv))
+                    MessageBox.Show("Producto guardado");
+            }
+            else
+            {
+                if (inventarioBLL.ActualizarProducto(inv))
+                    MessageBox.Show("Producto actualizado");
+            }
+
+            CargarDatos();
+            Limpiar();
+            BloquearCampos(true);
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == 0)
-            {
-                MessageBox.Show("Por favor, seleccione un producto de la lista primero.");
                 return;
-            }
 
             if (txtNombre.Enabled == false)
             {
                 BloquearCampos(false);
-                txtNombre.Focus();
                 btnEditar.Text = "Actualizar";
             }
             else
             {
-                if (!ValidarCampos())
-                    return;
-
-                inv.IdProducto = idSeleccionado;
-                inv.NombreProducto = txtNombre.Text;
-                inv.Marca = txtMarca.Text;
-                inv.Categoria = CmbCa.Text;
-                inv.Precio = Convert.ToDecimal(txtPrecio.Text);
-                inv.Stock = Convert.ToInt32(txtStock.Text);
-                inv.Imagen = imagenSeleccionada;
-
-                if (inv.Actualizar())
-                {
-                    MessageBox.Show("Producto modificado con éxito");
-                    CargarDatos();
-                    Limpiar();
-                    BloquearCampos(true);
+                btnGuardar_Click(sender, e);
                     btnEditar.Text = "Editar";
                 }
             }
-        }
-
-        private void btnCargarImagen_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-                ofd.Title = "Seleccione una imagen del producto";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        using (Image imagenOriginal = Image.FromFile(ofd.FileName))
-                        {
-                            Image copia = new Bitmap(imagenOriginal);
-                            picImagen.Image = copia;
-                            imagenSeleccionada = imgHelper.ImagenABytes(copia);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se pudo cargar la imagen: " + ex.Message);
-                    }
-                }
-            }
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            if (!ValidarCampos())
-                return;
-
-            try
-            {
-                inv.IdProducto = idSeleccionado;
-                inv.NombreProducto = txtNombre.Text;
-                inv.Marca = txtMarca.Text;
-                inv.Categoria = CmbCa.Text;
-                inv.Precio = Convert.ToDecimal(txtPrecio.Text);
-                inv.Stock = Convert.ToInt32(txtStock.Text);
-                inv.Imagen = imagenSeleccionada;
-
-                if (idSeleccionado == 0)
-                {
-                    if (inv.Guardar())
-                        MessageBox.Show("Producto guardado");
-                }
-                else
-                {
-                    if (inv.Actualizar())
-                        MessageBox.Show("Producto actualizado");
-                }
-
-                CargarDatos();
-                Limpiar();
-                BloquearCampos(true);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado == 0)
+            if (idSeleccionado != 0 &&
+                inventarioBLL.EliminarProducto(idSeleccionado))
             {
-                MessageBox.Show("Seleccione un producto");
-                return;
-            }
+                MessageBox.Show("Producto eliminado");
 
-            DialogResult r = MessageBox.Show(
-                "¿Desea eliminar este producto?",
-                "Eliminar",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (r == DialogResult.Yes)
-            {
-                try
-                {
-                    inv.IdProducto = idSeleccionado;
-
-                    if (inv.Eliminar())
-                    {
-                        MessageBox.Show("Producto eliminado");
-                        CargarDatos();
-                        Limpiar();
-                        BloquearCampos(true);
+                CargarDatos();
+                Limpiar();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
+                    {
+            dgvDatos.DataSource =
+                inventarioBLL.BuscarProducto(txtBuscar.Text);
+
+            OcultarImagen();
+        }
+
+        private void dgvDatos_CellClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
-            if (txtBuscar.Text.Trim() == "")
-            {
-                CargarDatos();
+            if (e.RowIndex < 0)
                 return;
-            }
 
-            int id;
+            DataGridViewRow fila =
+                dgvDatos.Rows[e.RowIndex];
 
-            if (int.TryParse(txtBuscar.Text, out id))
-            {
-                if (inv.BuscarPorId(id))
-                {
-                    txtNombre.Text = inv.NombreProducto;
-                    txtMarca.Text = inv.Marca;
-                    CmbCa.Text = inv.Categoria;
-                    txtPrecio.Text = inv.Precio.ToString();
-                    txtStock.Text = inv.Stock.ToString();
+            idSeleccionado =
+                Convert.ToInt32(fila.Cells[0].Value);
 
-                    imagenSeleccionada = inv.Imagen;
+            txtNombre.Text =
+                fila.Cells[1].Value.ToString();
 
-                    if (imagenSeleccionada != null)
-                        picImagen.Image = imgHelper.BytesAImagen(imagenSeleccionada);
-                    else
-                        picImagen.Image = null;
+            txtMarca.Text =
+                fila.Cells[2].Value.ToString();
 
-                    idSeleccionado = inv.IdProducto;
-                }
+            CmbCa.Text =
+                fila.Cells[3].Value.ToString();
+
+            txtPrecio.Text =
+                fila.Cells[4].Value.ToString();
+
+            txtStock.Text =
+                fila.Cells[5].Value.ToString();
+
+            Inventario inv =
+                (Inventario)fila.DataBoundItem;
+
+            imagenSeleccionada = inv.Imagen;
+
+            if (imagenSeleccionada != null)
+                picImagen.Image =
+                    imgHelper.BytesAImagen(imagenSeleccionada);
                 else
+                picImagen.Image = null;
+
+                BloquearCampos(true);
+            btnEditar.Text = "Editar";
+            }
+
+        private void btnCargarImagen_Click(
+            object sender,
+            EventArgs e)
+        {
+            using (OpenFileDialog ofd =
+                   new OpenFileDialog())
+            {
+                ofd.Filter =
+                    "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                    using (Image imagenOriginal =
+                           Image.FromFile(ofd.FileName))
                 {
-                    MessageBox.Show("No se encontró el producto");
+                        Image copia =
+                            new Bitmap(imagenOriginal);
+
+                        picImagen.Image = copia;
+
+                        imagenSeleccionada =
+                            imgHelper.ImagenABytes(copia);
+                    }
+                }
                 }
             }
-            else
-            {
-                MessageBox.Show("Ingrese un ID válido");
+
+        private void txtPrecio_KeyPress(
+            object sender,
+            KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.' &&
+                !txtPrecio.Text.Contains("."))
+                return;
+
+            e.Handled = true;
             }
+
+        private void txtStock_KeyPress(
+            object sender,
+            KeyPressEventArgs e)
+                {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            e.Handled = true;
         }
     }
 }

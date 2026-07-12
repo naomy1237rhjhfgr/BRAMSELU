@@ -1,13 +1,6 @@
-﻿using BRAMSELU.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-
-namespace BRAMSELU
+﻿namespace BRAMSELU.Entidades
 {
-    internal class Inventario
+    public class Inventario
     {
         private int _idProducto;
         private string _nombreProducto;
@@ -16,8 +9,6 @@ namespace BRAMSELU
         private decimal _precio;
         private int _stock;
         private byte[] _imagen;
-
-        private Conexion _conexion;
 
         public Inventario()
         {
@@ -28,8 +19,6 @@ namespace BRAMSELU
             _precio = 0;
             _stock = 0;
             _imagen = null;
-
-            _conexion = new Conexion();
         }
 
         public int IdProducto

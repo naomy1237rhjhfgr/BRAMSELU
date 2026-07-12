@@ -1,4 +1,3 @@
-﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -14,7 +13,6 @@ namespace BRAMSELU.ClasesProducto
 
             using (MemoryStream ms = new MemoryStream())
             {
-                
                 imagen.Save(ms, ImageFormat.Png);
 
                 return ms.ToArray();
@@ -26,9 +24,13 @@ namespace BRAMSELU.ClasesProducto
             if (datos == null || datos.Length == 0)
                 return null;
 
-            MemoryStream ms = new MemoryStream(datos);
-
-            return Image.FromStream(ms);
+            using (MemoryStream ms = new MemoryStream(datos))
+            {
+                using (Image imagen = Image.FromStream(ms))
+                {
+                    return new Bitmap(imagen);
+                }
+            }
         }
     }
 }
