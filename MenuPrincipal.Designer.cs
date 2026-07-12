@@ -345,7 +345,7 @@
             this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(1198, 145);
+            this.PanelHeader.Size = new System.Drawing.Size(1236, 145);
             this.PanelHeader.TabIndex = 8;
             // 
             // label26
@@ -378,7 +378,7 @@
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(316, 0);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1198, 756);
+            this.pnlContenido.Size = new System.Drawing.Size(1236, 756);
             this.pnlContenido.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -394,7 +394,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 145);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1198, 611);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1236, 611);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // panel1
@@ -841,7 +841,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1514, 756);
+            this.ClientSize = new System.Drawing.Size(1552, 756);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
