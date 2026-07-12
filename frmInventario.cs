@@ -74,30 +74,63 @@ namespace BRAMSELU
         private bool Validar()
         {
             errorProvider1.Clear();
+            bool valido = true;
 
             if (txtNombre.Text.Trim() == "")
-                return false;
+            {
+                errorProvider1.SetError(txtNombre, "Ingrese el nombre del producto");
+                valido = false;
+            }
+            else if (!SoloLetras(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "El nombre solo debe contener letras");
+                valido = false;
+            }
 
             if (txtMarca.Text.Trim() == "")
-                return false;
+            {
+                errorProvider1.SetError(txtMarca, "Ingrese la marca");
+                valido = false;
+            }
 
             if (CmbCa.SelectedIndex == -1)
-                return false;
+            {
+                errorProvider1.SetError(CmbCa, "Seleccione una categoría");
+                valido = false;
+            }
 
             decimal precio;
 
-            if (!decimal.TryParse(txtPrecio.Text, out precio)
-                || precio <= 0)
-                return false;
+            if (!decimal.TryParse(txtPrecio.Text, out precio) || precio <= 0)
+            {
+                errorProvider1.SetError(txtPrecio, "Ingrese un precio válido mayor a 0");
+                valido = false;
+            }
 
             int stock;
 
-            if (!int.TryParse(txtStock.Text, out stock)
-                || stock < 0)
-                return false;
+            if (!int.TryParse(txtStock.Text, out stock) || stock < 0)
+            {
+                errorProvider1.SetError(txtStock, "Ingrese una cantidad válida");
+                valido = false;
+            }
 
             if (imagenSeleccionada == null)
+            {
+                errorProvider1.SetError(picImagen, "Seleccione una imagen");
+                valido = false;
+            }
+
+            return valido;
+        }
+
+        private bool SoloLetras(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (!char.IsLetter(c) && c != ' ')
                 return false;
+            }
 
             return true;
         }
