@@ -58,19 +58,77 @@ namespace BRAMSELU
             txtContrasena.Clear();
             cmbTipoUsuario.SelectedIndex = -1;
             idSeleccionado = 0;
+            errorProvider1.Clear();
         }
 
         private bool Validar()
         {
             errorProvider1.Clear();
-            if (txtNombre.Text.Trim() == "" || !SoloLetras(txtNombre.Text)) return false;
-            if (txtApellido.Text.Trim() == "" || !SoloLetras(txtApellido.Text)) return false;
-            if (txtIdentidad.Text.Replace("-", "").Trim() == "" || txtIdentidad.Text.Length < 15) return false;
-            if (txtTelefono.Text.Replace("-", "").Trim() == "" || txtTelefono.Text.Length < 9) return false;
-            if (txtCorreo.Text.Trim() != "" && !txtCorreo.Text.Contains("@")) return false;
-            if (txtUsuario.Text.Trim() == "") return false;
-            if (txtContrasena.Text.Trim() == "") return false;
-            if (cmbTipoUsuario.SelectedIndex == -1) return false;
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "Escriba el nombre");
+                return false;
+            }
+            if (!SoloLetras(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "El nombre solo debe contener letras");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                errorProvider1.SetError(txtApellido, "Escriba el apellido");
+                return false;
+            }
+            if (!SoloLetras(txtApellido.Text))
+            {
+                errorProvider1.SetError(txtApellido, "El apellido solo debe contener letras");
+                return false;
+            }
+
+            if (txtIdentidad.Text.Replace("-", "").Trim().Length < 13)
+            {
+                errorProvider1.SetError(txtIdentidad, "Ingrese una identidad válida");
+                return false;
+            }
+
+            if (empleadoBLL.ExisteIdentidad(txtIdentidad.Text, idSeleccionado))
+            {
+                errorProvider1.SetError(txtIdentidad, "Esta identidad ya está registrada");
+                return false;
+            }
+
+            if (txtTelefono.Text.Replace("-", "").Trim().Length < 8)
+            {
+                errorProvider1.SetError(txtTelefono, "Ingrese un teléfono válido");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text) || !txtCorreo.Text.Contains("@"))
+            {
+                errorProvider1.SetError(txtCorreo, "Ingrese un correo válido");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                errorProvider1.SetError(txtUsuario, "El usuario es obligatorio");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtContrasena.Text))
+            {
+                errorProvider1.SetError(txtContrasena, "La contraseña es obligatoria");
+                return false;
+            }
+
+            if (cmbTipoUsuario.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(cmbTipoUsuario, "Seleccione un tipo de usuario");
+                return false;
+            }
+
             return true;
         }
 
