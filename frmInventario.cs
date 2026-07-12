@@ -19,7 +19,6 @@ namespace BRAMSELU
         public frmInventario()
         {
             InitializeComponent();
-
             inventarioBLL = new InventarioBLL();
             imgHelper = new ImagenProducto();
         }
@@ -33,9 +32,7 @@ namespace BRAMSELU
         private void CargarDatos()
         {
             dgvDatos.DataSource = null;
-            dgvDatos.DataSource =
-                inventarioBLL.ObtenerProductos();
-
+            dgvDatos.DataSource = inventarioBLL.ObtenerProductos();
             OcultarImagen();
         }
 
@@ -48,7 +45,6 @@ namespace BRAMSELU
         private void BloquearCampos(bool bloquear)
         {
             bool h = !bloquear;
-
             txtNombre.Enabled = h;
             txtMarca.Enabled = h;
             CmbCa.Enabled = h;
@@ -59,15 +55,14 @@ namespace BRAMSELU
 
         private void Limpiar()
         {
+            errorProvider1.Clear();
             txtNombre.Clear();
             txtMarca.Clear();
             CmbCa.SelectedIndex = -1;
             txtPrecio.Clear();
             txtStock.Clear();
-
             picImagen.Image = null;
             imagenSeleccionada = null;
-
             idSeleccionado = 0;
         }
 
@@ -99,7 +94,11 @@ namespace BRAMSELU
                 valido = false;
             }
 
-            decimal precio;
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio <= 0)
+            {
+                errorProvider1.SetError(txtPrecio, "Ingrese un precio válido");
+                valido = false;
+            }
 
             if (!decimal.TryParse(txtPrecio.Text, out precio) || precio <= 0)
             {
@@ -132,7 +131,7 @@ namespace BRAMSELU
                     return false;
             }
 
-            return true;
+            return valido;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -144,8 +143,7 @@ namespace BRAMSELU
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!Validar())
-                return;
+            if (!Validar()) return;
 
             Inventario inv = new Inventario
             {
@@ -160,13 +158,11 @@ namespace BRAMSELU
 
             if (idSeleccionado == 0)
             {
-                if (inventarioBLL.GuardarProducto(inv))
-                    MessageBox.Show("Producto guardado");
+                if (inventarioBLL.GuardarProducto(inv)) MessageBox.Show("Producto guardado");
             }
             else
             {
-                if (inventarioBLL.ActualizarProducto(inv))
-                    MessageBox.Show("Producto actualizado");
+                if (inventarioBLL.ActualizarProducto(inv)) MessageBox.Show("Producto actualizado");
             }
 
             CargarDatos();
@@ -176,10 +172,9 @@ namespace BRAMSELU
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado == 0)
-                return;
+            if (idSeleccionado == 0) return;
 
-            if (txtNombre.Enabled == false)
+            if (!txtNombre.Enabled)
             {
                 BloquearCampos(false);
                 btnEditar.Text = "Actualizar";
@@ -193,11 +188,9 @@ namespace BRAMSELU
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado != 0 &&
-                inventarioBLL.EliminarProducto(idSeleccionado))
+            if (idSeleccionado != 0 && inventarioBLL.EliminarProducto(idSeleccionado))
             {
                 MessageBox.Show("Producto eliminado");
-
                 CargarDatos();
                 Limpiar();
             }
@@ -205,109 +198,59 @@ namespace BRAMSELU
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            dgvDatos.DataSource =
-                inventarioBLL.BuscarProducto(txtBuscar.Text);
-
+            dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text);
             OcultarImagen();
         }
 
-        private void dgvDatos_CellClick(
-            object sender,
-            DataGridViewCellEventArgs e)
+        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
+            if (e.RowIndex < 0) return;
 
-            DataGridViewRow fila =
-                dgvDatos.Rows[e.RowIndex];
+            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
+            idSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
+            txtNombre.Text = fila.Cells[1].Value.ToString();
+            txtMarca.Text = fila.Cells[2].Value.ToString();
+            CmbCa.Text = fila.Cells[3].Value.ToString();
+            txtPrecio.Text = fila.Cells[4].Value.ToString();
+            txtStock.Text = fila.Cells[5].Value.ToString();
 
-            idSeleccionado =
-                Convert.ToInt32(fila.Cells[0].Value);
-
-            txtNombre.Text =
-                fila.Cells[1].Value.ToString();
-
-            txtMarca.Text =
-                fila.Cells[2].Value.ToString();
-
-            CmbCa.Text =
-                fila.Cells[3].Value.ToString();
-
-            txtPrecio.Text =
-                fila.Cells[4].Value.ToString();
-
-            txtStock.Text =
-                fila.Cells[5].Value.ToString();
-
-            Inventario inv =
-                (Inventario)fila.DataBoundItem;
-
+            Inventario inv = (Inventario)fila.DataBoundItem;
             imagenSeleccionada = inv.Imagen;
-
-            if (imagenSeleccionada != null)
-                picImagen.Image =
-                    imgHelper.BytesAImagen(imagenSeleccionada);
-            else
-                picImagen.Image = null;
+            picImagen.Image = imagenSeleccionada != null ? imgHelper.BytesAImagen(imagenSeleccionada) : null;
 
             BloquearCampos(true);
             btnEditar.Text = "Editar";
         }
 
-        private void btnCargarImagen_Click(
-            object sender,
-            EventArgs e)
+        private void btnCargarImagen_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd =
-                   new OpenFileDialog())
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter =
-                    "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    using (Image imagenOriginal =
-                           Image.FromFile(ofd.FileName))
+                    using (Image img = Image.FromFile(ofd.FileName))
                     {
-                        Image copia =
-                            new Bitmap(imagenOriginal);
-
+                        Image copia = new Bitmap(img);
                         picImagen.Image = copia;
-
-                        imagenSeleccionada =
-                            imgHelper.ImagenABytes(copia);
+                        imagenSeleccionada = imgHelper.ImagenABytes(copia);
                     }
                 }
             }
         }
 
-        private void txtPrecio_KeyPress(
-            object sender,
-            KeyPressEventArgs e)
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == '.' &&
-                !txtPrecio.Text.Contains("."))
-                return;
-
+            if (char.IsControl(e.KeyChar)) return;
+            if (char.IsDigit(e.KeyChar)) return;
+            if (e.KeyChar == '.' && !txtPrecio.Text.Contains(".")) return;
             e.Handled = true;
         }
 
-        private void txtStock_KeyPress(
-            object sender,
-            KeyPressEventArgs e)
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsDigit(e.KeyChar))
-                return;
-
+            if (char.IsControl(e.KeyChar)) return;
+            if (char.IsDigit(e.KeyChar)) return;
             e.Handled = true;
         }
     }
