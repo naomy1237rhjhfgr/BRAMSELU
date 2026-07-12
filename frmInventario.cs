@@ -129,7 +129,7 @@ namespace BRAMSELU
             foreach (char c in texto)
             {
                 if (!char.IsLetter(c) && c != ' ')
-                return false;
+                    return false;
             }
 
             return true;
