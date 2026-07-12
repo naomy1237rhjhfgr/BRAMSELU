@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BRAMSELU.CLasesClientes;
+using BRAMSELU.BLL;
+using BRAMSELU.Entidades;
 
 namespace BRAMSELU
 {
@@ -47,10 +49,22 @@ namespace BRAMSELU
                 ClienteDatos clienteDAL = new ClienteDatos();
                 LlenarComboBox(CmbCliente, clienteDAL.MostrarClientes(), "Nombre", "IdCliente");
 
-              
 
-                Empleadocomp empleadoDAL = new Empleadocomp();
-                LlenarComboBox(CmbEspecialista, empleadoDAL.Mostrar(), "Nombre", "IdEmpleado");
+                EmpleadoBLL empleadoBLL = new EmpleadoBLL();
+
+                List<Empleado> empleados = empleadoBLL.ObtenerEmpleados();
+
+                DataTable tablaEmpleados = new DataTable();
+
+                tablaEmpleados.Columns.Add("IdEmpleado");
+                tablaEmpleados.Columns.Add("Nombre");
+
+                foreach (Empleado emp in empleados)
+                {
+                    tablaEmpleados.Rows.Add(emp.IdEmpleado, emp.Nombre);
+                }
+
+                LlenarComboBox(CmbEspecialista, tablaEmpleados, "Nombre", "IdEmpleado");
             }
             catch (Exception ex)
             {

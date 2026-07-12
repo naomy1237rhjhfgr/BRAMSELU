@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -153,9 +154,26 @@ namespace BRAMSELU
 
         public List<Empleado> Listar()
         {
-            string SQL = "SELECT * FROM Productos";
+            List<Empleado> lista = new List<Empleado>();
 
-            return _conexion.EjecutarConsultaVarios(SQL);
+            string SQL = "SELECT * FROM Empleados";
+
+            SqlDataReader dr = _conexion.EjecutarConsulta(SQL);
+
+            while (dr.Read())
+            {
+                Empleado emp = new Empleado();
+
+                emp.IdEmpleado = Convert.ToInt32(dr["IdEmpleado"]);
+                emp.Nombre = dr["Nombre"].ToString();
+                emp.Apellido = dr["Apellido"].ToString();
+
+                lista.Add(emp);
+            }
+
+            dr.Close();
+
+            return lista;
         }
 
         public bool BuscarPorId(int id)

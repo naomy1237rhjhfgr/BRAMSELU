@@ -1,81 +1,92 @@
 ﻿using System;
 
-namespace BRAMSELU
+namespace BRAMSELU.Entidades
 {
-    internal class Empleado
+    public class Empleado
     {
-       
-        private int idEmpleado;
-        private string nombre;
-        private string apellido;
-        private string identidad;
-        private string telefono;
-        private string direccion;
-        private string correo;
-        private string usuario;
-        private string contrasena;
-        private string tipoUsuario;
+        private int _idEmpleado;
+        private string _nombre;
+        private string _apellido;
+        private string _identidad;
+        private string _telefono;
+        private string _direccion;
+        private string _correo;
+        private string _usuario;
+        private string _contrasena;
+        private string _tipoUsuario;
 
-       
+        public Empleado()
+        {
+            _idEmpleado = 0;
+            _nombre = "";
+            _apellido = "";
+            _identidad = "";
+            _telefono = "";
+            _direccion = "";
+            _correo = "";
+            _usuario = "";
+            _contrasena = "";
+            _tipoUsuario = "";
+        }
 
         public int IdEmpleado
         {
-            get { return idEmpleado; }
-            set { idEmpleado = value; }
+            get { return _idEmpleado; }
+            set { _idEmpleado = value; }
         }
 
         public string Nombre
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
         public string Apellido
         {
-            get { return apellido; }
-            set { apellido = value; }
+            get { return _apellido; }
+            set { _apellido = value; }
         }
 
         public string Identidad
         {
-            get { return identidad; }
-            set { identidad = value; }
+            get { return _identidad; }
+            set { _identidad = value; }
         }
 
         public string Telefono
         {
-            get { return telefono; }
-            set { telefono = value; }
+            get { return _telefono; }
+            set { _telefono = value; }
         }
 
         public string Direccion
         {
-            get { return direccion; }
-            set { direccion = value; }
+            get { return _direccion; }
+            set { _direccion = value; }
         }
 
         public string Correo
         {
-            get { return correo; }
-            set { correo = value; }
+            get { return _correo; }
+            set { _correo = value; }
         }
 
         public string Usuario
         {
-            get { return usuario; }
-            set { usuario = value; }
+            get { return _usuario; }
+            set { _usuario = value; }
         }
 
         public string Contrasena
         {
-            get { return contrasena; }
-            set { contrasena = value; }
+            get { return _contrasena; }
+            set { _contrasena = value; }
         }
 
         public string TipoUsuario
         {
-            get { return tipoUsuario; }
-            set { tipoUsuario = value; }
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
         }
     }
 }

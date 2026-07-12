@@ -78,7 +78,8 @@
     <Compile Include="ClasesProducto\ClaseProducto.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Empleado.cs" />
-    <Compile Include="Empleadocomp.cs" />
+    <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
