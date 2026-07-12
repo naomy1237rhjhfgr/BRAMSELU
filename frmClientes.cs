@@ -18,6 +18,7 @@ namespace BRAMSELU
         private Cliente cliente;
         private bool esNuevo = false;
         private string idOriginal = "";
+        private string accion = "";
 
         public frmClientes()
         {
@@ -139,6 +140,8 @@ namespace BRAMSELU
 
         private void bttneditarclientes_Click(object sender, EventArgs e)
         {
+           
+
             if (string.IsNullOrEmpty(idOriginal) || txtidcliente.Text.Replace("-", "").Trim() == "")
             {
                 MessageBox.Show("Seleccione primero un cliente de la lista para poder editarlo.");
@@ -155,41 +158,57 @@ namespace BRAMSELU
             else
             {
                 if (!ValidarFormulario())
+                {
                     return;
-
-                try
-                {
-                    cliente = new Cliente(
-                        txtidcliente.Text,
-                        txtnombrecliente.Text,
-                        txttelefonocliente.Text,
-                        txtcorreocliente.Text,
-                        txtdireccioncliente.Text,
-                        Cmbpiel.Text.Trim()
-                    );
-
-                    clienteDatos.EditarCliente(cliente, idOriginal);
-                    MessageBox.Show("Cliente modificado correctamente");
-
-                    CargarClientes();
-                    LimpiarCampos();
-                    EstadoCampos(false);
-                    bttneditarclientes.Text = "Editar";
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+
+                iniciarbarra("editar");
+            }
+        }
+
+        public void EditarCliente()
+        {
+            try
+            {
+                cliente = new Cliente(
+                    txtidcliente.Text,
+                    txtnombrecliente.Text,
+                    txttelefonocliente.Text,
+                    txtcorreocliente.Text,
+                    txtdireccioncliente.Text,
+                    Cmbpiel.Text.Trim()
+                );
+
+                clienteDatos.EditarCliente(cliente, idOriginal);
+                MessageBox.Show("Cliente modificado correctamente");
+
+                CargarClientes();
+                LimpiarCampos();
+                EstadoCampos(false);
+                bttneditarclientes.Text = "Editar";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnguardarcliente_Click(object sender, EventArgs e)
         {
+
             if (!ValidarFormulario())
             {
                 return;
             }
 
+            iniciarbarra("guardar");
+
+            
+          
+        }
+
+        public void guardarcliente()
+        {
             try
             {
                 cliente = new Cliente(
@@ -221,6 +240,15 @@ namespace BRAMSELU
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        public void iniciarbarra(string accionElegida)
+        {
+            accion = accionElegida;
+            progressBarclientes.Value = 0;
+            progressBarclientes.Visible = true;
+            timer1.Start();
         }
 
         private void MapearFilaAFormulario(int rowIndex)
@@ -266,12 +294,19 @@ namespace BRAMSELU
 
         private void bttneliminarclientes_Click(object sender, EventArgs e)
         {
+           
+
             if (string.IsNullOrEmpty(idOriginal) || txtidcliente.Text.Replace("-", "").Trim() == "")
             {
                 MessageBox.Show("Seleccione un cliente de la lista para eliminar.");
                 return;
             }
+            iniciarbarra("eliminar");
 
+        }
+
+        public void EliminarCliente()
+        {
             try
             {
                 if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -294,19 +329,18 @@ namespace BRAMSELU
 
         private void btnbuscarclientes_Click(object sender, EventArgs e)
         {
+            iniciarbarra("buscar");
+
+        }
+
+        public void BuscarCliente()
+        {
             dataGridViewclientes.DataSource = clienteDatos.BuscarCliente(txtbuscarcliente.Text);
         }
 
         private void txtbuscarcliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtbuscarcliente.Text.Trim() == "")
-            {
-                CargarClientes();
-            }
-            else
-            {
-                dataGridViewclientes.DataSource = clienteDatos.BuscarCliente(txtbuscarcliente.Text);
-            }
+           
         }
 
         private void frmClientes_Load(object sender, EventArgs e)
@@ -314,8 +348,36 @@ namespace BRAMSELU
 
         }
 
-       
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBarclientes.Increment(5);
 
-        
+            if (progressBarclientes.Value >= 100)
+            {
+                timer1.Stop();
+                progressBarclientes.Visible = false;
+
+                switch (accion)
+                {
+                    case "guardar":
+                        guardarcliente();
+                        break;
+
+                    case "buscar":
+                        BuscarCliente();
+                        break;
+
+                    case "editar":
+                        EditarCliente();
+                        break;
+
+                    case "eliminar":
+                        EliminarCliente();
+                        break;
+
+                        
+                }
+            }
+        }
     }
 }
