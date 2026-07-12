@@ -43,7 +43,7 @@ namespace BRAMSELU
         {
             if (dgvDatos.Columns.Contains("Imagen"))
                 dgvDatos.Columns["Imagen"].Visible = false;
-            }
+        }
 
         private void BloquearCampos(bool bloquear)
         {
@@ -115,7 +115,7 @@ namespace BRAMSELU
                 return;
 
             Inventario inv = new Inventario
-        {
+            {
                 IdProducto = idSeleccionado,
                 NombreProducto = txtNombre.Text,
                 Marca = txtMarca.Text,
@@ -154,9 +154,9 @@ namespace BRAMSELU
             else
             {
                 btnGuardar_Click(sender, e);
-                    btnEditar.Text = "Editar";
-                }
+                btnEditar.Text = "Editar";
             }
+        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -167,11 +167,11 @@ namespace BRAMSELU
 
                 CargarDatos();
                 Limpiar();
-                        }
-                    }
+            }
+        }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
-                    {
+        {
             dgvDatos.DataSource =
                 inventarioBLL.BuscarProducto(txtBuscar.Text);
 
@@ -214,12 +214,12 @@ namespace BRAMSELU
             if (imagenSeleccionada != null)
                 picImagen.Image =
                     imgHelper.BytesAImagen(imagenSeleccionada);
-                else
+            else
                 picImagen.Image = null;
 
-                BloquearCampos(true);
+            BloquearCampos(true);
             btnEditar.Text = "Editar";
-            }
+        }
 
         private void btnCargarImagen_Click(
             object sender,
@@ -232,10 +232,10 @@ namespace BRAMSELU
                     "Imágenes (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
-            {
+                {
                     using (Image imagenOriginal =
                            Image.FromFile(ofd.FileName))
-                {
+                    {
                         Image copia =
                             new Bitmap(imagenOriginal);
 
@@ -245,8 +245,8 @@ namespace BRAMSELU
                             imgHelper.ImagenABytes(copia);
                     }
                 }
-                }
             }
+        }
 
         private void txtPrecio_KeyPress(
             object sender,
@@ -263,12 +263,12 @@ namespace BRAMSELU
                 return;
 
             e.Handled = true;
-            }
+        }
 
         private void txtStock_KeyPress(
             object sender,
             KeyPressEventArgs e)
-                {
+        {
             if (char.IsControl(e.KeyChar))
                 return;
 

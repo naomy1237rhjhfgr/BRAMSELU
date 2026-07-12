@@ -136,6 +136,8 @@
     </Compile>
     <Compile Include="ImagenProducto.cs" />
     <Compile Include="Inventario.cs" />
+    <Compile Include="InventarioBLL.cs" />
+    <Compile Include="InventarioDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MenuPrincipal.cs">

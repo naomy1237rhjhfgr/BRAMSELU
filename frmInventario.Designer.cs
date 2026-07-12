@@ -174,7 +174,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(900, 155);
             this.dgvDatos.TabIndex = 8;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
-            this.dgvDatos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDatos_CellFormatting);
+           
             // 
             // pnlSeparador
             // 
