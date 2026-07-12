@@ -81,7 +81,7 @@
             this.dataGridViewclientes.RowTemplate.Height = 24;
             this.dataGridViewclientes.Size = new System.Drawing.Size(919, 146);
             this.dataGridViewclientes.TabIndex = 7;
-            this.dataGridViewclientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewclientes_CellContentClick_1);
+        
             // 
             // Btnnuevo
             // 
@@ -166,7 +166,7 @@
             this.txtbuscarcliente.Name = "txtbuscarcliente";
             this.txtbuscarcliente.Size = new System.Drawing.Size(195, 30);
             this.txtbuscarcliente.TabIndex = 13;
-            this.txtbuscarcliente.TextChanged += new System.EventHandler(this.txtbuscarcliente_TextChanged);
+            
             // 
             // btnbuscarclientes
             // 
@@ -373,7 +373,7 @@
             this.Controls.Add(this.labelbuscar);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewclientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
