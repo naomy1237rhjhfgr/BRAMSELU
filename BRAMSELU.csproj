@@ -71,105 +71,105 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Citas3Capas\CitaDAL.cs" />
-    <Compile Include="ClaseCitas.cs" />
-    <Compile Include="ClaseLogin.cs" />
+    <Compile Include="Citas3Capas\ClaseCitas.cs" />
+    <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
     <Compile Include="CLasesClientes\ClienteNegocio.cs" />
-    <Compile Include="Conexion.cs" />
-    <Compile Include="Empleado.cs" />
-    <Compile Include="EmpleadoBLL.cs" />
-    <Compile Include="EmpleadoDAL.cs" />
-    <Compile Include="frmCategorias.cs">
+    <Compile Include="conexion\Conexion.cs" />
+    <Compile Include="empleados\Empleado.cs" />
+    <Compile Include="empleados\EmpleadoBLL.cs" />
+    <Compile Include="empleados\EmpleadoDAL.cs" />
+    <Compile Include="otrosfrns\frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategorias.Designer.cs">
+    <Compile Include="otrosfrns\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCitas.cs">
+    <Compile Include="otrosfrns\frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCitas.Designer.cs">
+    <Compile Include="otrosfrns\frmCitas.Designer.cs">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClientes.cs">
+    <Compile Include="CLasesClientes\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClientes.Designer.cs">
+    <Compile Include="CLasesClientes\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEmpleados.cs">
+    <Compile Include="empleados\FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEmpleados.Designer.cs">
+    <Compile Include="empleados\FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventario.cs">
+    <Compile Include="inventario\frmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventario.Designer.cs">
+    <Compile Include="inventario\frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportes.cs">
+    <Compile Include="otrosfrns\frmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportes.Designer.cs">
+    <Compile Include="otrosfrns\frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmServicios.cs">
+    <Compile Include="otrosfrns\frmServicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmServicios.Designer.cs">
+    <Compile Include="otrosfrns\frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentas.cs">
+    <Compile Include="otrosfrns\frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentas.Designer.cs">
+    <Compile Include="otrosfrns\frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImagenProducto.cs" />
-    <Compile Include="Inventario.cs" />
-    <Compile Include="InventarioBLL.cs" />
-    <Compile Include="InventarioDAL.cs" />
-    <Compile Include="LoginBLL.cs" />
-    <Compile Include="LoginDAL.cs" />
+    <Compile Include="inventario\ImagenProducto.cs" />
+    <Compile Include="inventario\Inventario.cs" />
+    <Compile Include="inventario\InventarioBLL.cs" />
+    <Compile Include="inventario\InventarioDAL.cs" />
+    <Compile Include="login\LoginBLL.cs" />
+    <Compile Include="login\LoginDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="menu\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
+    <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmCitas.resx">
+    <EmbeddedResource Include="otrosfrns\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClientes.resx">
+    <EmbeddedResource Include="CLasesClientes\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEmpleados.resx">
+    <EmbeddedResource Include="empleados\FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInventario.resx">
+    <EmbeddedResource Include="inventario\frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportes.resx">
+    <EmbeddedResource Include="otrosfrns\frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentas.resx">
+    <EmbeddedResource Include="otrosfrns\frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
+    <EmbeddedResource Include="menu\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

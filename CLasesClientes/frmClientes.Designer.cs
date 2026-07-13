@@ -181,6 +181,7 @@
             this.btnbuscarclientes.TabIndex = 22;
             this.btnbuscarclientes.Text = "Buscar";
             this.btnbuscarclientes.UseVisualStyleBackColor = false;
+           
             // 
             // lbldatosclientes
             // 
