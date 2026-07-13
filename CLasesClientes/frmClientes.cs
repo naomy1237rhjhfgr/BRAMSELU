@@ -47,6 +47,7 @@ namespace BRAMSELU
             txtdireccioncliente.Clear();
             Cmbpiel.SelectedIndex = -1;
             idOriginal = "";
+            bttneditarclientes.Text = "Editar";
         }
 
         private bool ValidarFormulario()
@@ -170,11 +171,11 @@ namespace BRAMSELU
             }
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        private void btnbuscarcliente_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                MessageBox.Show("Por favor, ingrese un criterio de búsqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingrese un nombre o criterio de búsqueda primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtBuscar.Focus();
                 return;
             }
@@ -202,6 +203,14 @@ namespace BRAMSELU
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                CargarClientes();
             }
         }
     }

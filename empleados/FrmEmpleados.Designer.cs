@@ -70,7 +70,7 @@
             this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblBuscar.Location = new System.Drawing.Point(12, 75);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(72, 25);
+            this.lblBuscar.Size = new System.Drawing.Size(59, 21);
             this.lblBuscar.TabIndex = 2;
             this.lblBuscar.Text = "Buscar:";
             // 
@@ -80,8 +80,9 @@
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtBuscar.Location = new System.Drawing.Point(95, 70);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(210, 34);
+            this.txtBuscar.Size = new System.Drawing.Size(210, 30);
             this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -97,6 +98,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnNuevo
             // 
@@ -199,7 +201,7 @@
             this.lblSeccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
             this.lblSeccion.Location = new System.Drawing.Point(34, 288);
             this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(188, 25);
+            this.lblSeccion.Size = new System.Drawing.Size(163, 21);
             this.lblSeccion.TabIndex = 11;
             this.lblSeccion.Text = "Datos del Empleado";
             // 
@@ -210,7 +212,7 @@
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblNombre.Location = new System.Drawing.Point(34, 320);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(85, 25);
+            this.lblNombre.Size = new System.Drawing.Size(71, 21);
             this.lblNombre.TabIndex = 12;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -221,7 +223,7 @@
             this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblApellido.Location = new System.Drawing.Point(34, 360);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(86, 25);
+            this.lblApellido.Size = new System.Drawing.Size(70, 21);
             this.lblApellido.TabIndex = 14;
             this.lblApellido.Text = "Apellido:";
             // 
@@ -232,7 +234,7 @@
             this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblIdentidad.Location = new System.Drawing.Point(34, 400);
             this.lblIdentidad.Name = "lblIdentidad";
-            this.lblIdentidad.Size = new System.Drawing.Size(96, 25);
+            this.lblIdentidad.Size = new System.Drawing.Size(78, 21);
             this.lblIdentidad.TabIndex = 16;
             this.lblIdentidad.Text = "Identidad:";
             // 
@@ -243,7 +245,7 @@
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblTelefono.Location = new System.Drawing.Point(34, 440);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(88, 25);
+            this.lblTelefono.Size = new System.Drawing.Size(71, 21);
             this.lblTelefono.TabIndex = 18;
             this.lblTelefono.Text = "Teléfono:";
             // 
@@ -254,7 +256,7 @@
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblDireccion.Location = new System.Drawing.Point(34, 480);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(96, 25);
+            this.lblDireccion.Size = new System.Drawing.Size(78, 21);
             this.lblDireccion.TabIndex = 20;
             this.lblDireccion.Text = "Dirección:";
             // 
@@ -265,7 +267,7 @@
             this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblCorreo.Location = new System.Drawing.Point(531, 320);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(74, 25);
+            this.lblCorreo.Size = new System.Drawing.Size(61, 21);
             this.lblCorreo.TabIndex = 22;
             this.lblCorreo.Text = "Correo:";
             // 
@@ -276,7 +278,7 @@
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblUsuario.Location = new System.Drawing.Point(524, 360);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(81, 25);
+            this.lblUsuario.Size = new System.Drawing.Size(67, 21);
             this.lblUsuario.TabIndex = 24;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -287,7 +289,7 @@
             this.lblContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblContrasena.Location = new System.Drawing.Point(496, 400);
             this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(112, 25);
+            this.lblContrasena.Size = new System.Drawing.Size(92, 21);
             this.lblContrasena.TabIndex = 26;
             this.lblContrasena.Text = "Contraseña:";
             // 
@@ -298,7 +300,7 @@
             this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblTipoUsuario.Location = new System.Drawing.Point(482, 445);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(123, 25);
+            this.lblTipoUsuario.Size = new System.Drawing.Size(101, 21);
             this.lblTipoUsuario.TabIndex = 28;
             this.lblTipoUsuario.Text = "Tipo Usuario:";
             // 
@@ -308,7 +310,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Location = new System.Drawing.Point(136, 316);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(290, 34);
+            this.txtNombre.Size = new System.Drawing.Size(290, 30);
             this.txtNombre.TabIndex = 13;
             // 
             // txtApellido
@@ -317,7 +319,7 @@
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtApellido.Location = new System.Drawing.Point(136, 356);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(290, 34);
+            this.txtApellido.Size = new System.Drawing.Size(290, 30);
             this.txtApellido.TabIndex = 15;
             // 
             // txtDireccion
@@ -326,7 +328,7 @@
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDireccion.Location = new System.Drawing.Point(136, 476);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(290, 34);
+            this.txtDireccion.Size = new System.Drawing.Size(290, 30);
             this.txtDireccion.TabIndex = 21;
             // 
             // txtCorreo
@@ -335,7 +337,7 @@
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCorreo.Location = new System.Drawing.Point(611, 316);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(290, 34);
+            this.txtCorreo.Size = new System.Drawing.Size(290, 30);
             this.txtCorreo.TabIndex = 23;
             // 
             // txtUsuario
@@ -344,7 +346,7 @@
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtUsuario.Location = new System.Drawing.Point(611, 356);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(290, 34);
+            this.txtUsuario.Size = new System.Drawing.Size(290, 30);
             this.txtUsuario.TabIndex = 25;
             // 
             // txtContrasena
@@ -354,7 +356,7 @@
             this.txtContrasena.Location = new System.Drawing.Point(611, 400);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '●';
-            this.txtContrasena.Size = new System.Drawing.Size(290, 34);
+            this.txtContrasena.Size = new System.Drawing.Size(290, 30);
             this.txtContrasena.TabIndex = 27;
             // 
             // errorProvider1
@@ -371,21 +373,21 @@
             "Empleado"});
             this.cmbTipoUsuario.Location = new System.Drawing.Point(611, 445);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(290, 33);
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(290, 29);
             this.cmbTipoUsuario.TabIndex = 30;
             // 
             // txtIdentidad
             // 
             this.txtIdentidad.Location = new System.Drawing.Point(136, 396);
             this.txtIdentidad.Name = "txtIdentidad";
-            this.txtIdentidad.Size = new System.Drawing.Size(290, 33);
+            this.txtIdentidad.Size = new System.Drawing.Size(290, 29);
             this.txtIdentidad.TabIndex = 31;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(136, 435);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(290, 33);
+            this.txtTelefono.Size = new System.Drawing.Size(290, 29);
             this.txtTelefono.TabIndex = 32;
             // 
             // lblTitulo
@@ -395,7 +397,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
             this.lblTitulo.Location = new System.Drawing.Point(28, 20);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(351, 45);
+            this.lblTitulo.Size = new System.Drawing.Size(300, 37);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Control de Empleados";
             // 
@@ -413,7 +415,7 @@
             // 
             // FrmEmpleados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(980, 630);

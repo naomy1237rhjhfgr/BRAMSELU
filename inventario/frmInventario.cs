@@ -184,7 +184,7 @@ namespace BRAMSELU
             }
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
@@ -194,6 +194,13 @@ namespace BRAMSELU
             }
 
             iniciarbarra("buscar");
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                CargarDatos();
+            }
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
