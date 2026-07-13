@@ -141,7 +141,7 @@ namespace BRAMSELU
                     return false;
             }
 
-            return valido;
+            return true;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
