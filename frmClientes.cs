@@ -93,7 +93,7 @@ namespace BRAMSELU
                         MessageBox.Show("Cliente eliminado correctamente");
                         break;
                     case "buscar":
-                        dataGridViewclientes.DataSource = clienteNegocio.BuscarClientes(txtbuscarcliente.Text);
+                        dataGridViewclientes.DataSource = clienteNegocio.BuscarClientes(txtBuscar.Text);
                         return;
                 }
                 CargarClientes();
