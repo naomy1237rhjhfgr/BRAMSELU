@@ -192,7 +192,7 @@ namespace BRAMSELU
             iniciarbarra("eliminar");
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
@@ -301,5 +301,7 @@ namespace BRAMSELU
                 }
             }
         }
+
+     
     }
 }
