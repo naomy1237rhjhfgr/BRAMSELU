@@ -41,8 +41,5 @@ namespace BRAMSELU
             get { return activo; }
             set { activo = value; }
         }
-
-       
-        }
     }
 }
