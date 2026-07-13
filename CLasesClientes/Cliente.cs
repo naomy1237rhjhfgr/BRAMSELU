@@ -61,5 +61,14 @@ namespace BRAMSELU.Entidades
             get { return _tipoPiel; }
             set { _tipoPiel = value; }
         }
+        public Cliente(string id, string nombre, string telefono, string correo, string direccion, string tipoPiel)
+        {
+            Id = id;
+            Nombre = nombre;
+            Telefono = telefono;
+            Correo = correo;
+            Direccion = direccion;
+            TipoPiel = tipoPiel;
+        }
     }
 }

@@ -85,7 +85,7 @@ namespace BRAMSELU
                         MessageBox.Show("Cliente guardado correctamente");
                         break;
                     case "editar":
-                        clienteNegocio.ActualizarCliente(cliente, idOriginal);
+                        clienteNegocio.ActualizarCliente(Cliente, idOriginal);
                         MessageBox.Show("Cliente modificado correctamente");
                         break;
                     case "eliminar":
