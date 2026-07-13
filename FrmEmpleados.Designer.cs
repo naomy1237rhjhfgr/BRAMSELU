@@ -163,7 +163,6 @@
             // 
             // dgvDatos
             // 
-            this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
@@ -177,7 +176,6 @@
             this.dgvDatos.Location = new System.Drawing.Point(28, 121);
             this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 62;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

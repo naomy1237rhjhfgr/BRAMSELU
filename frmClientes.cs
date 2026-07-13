@@ -166,5 +166,13 @@ namespace BRAMSELU
                 Cmbpiel.Text = fila.Cells[5].Value.ToString();
             }
         }
+
+        private void txtnombrecliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
