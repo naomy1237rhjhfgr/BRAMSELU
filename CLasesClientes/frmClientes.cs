@@ -147,7 +147,7 @@ namespace BRAMSELU
             if (!string.IsNullOrEmpty(idOriginal)) iniciarbarra("eliminar");
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        private void btnbuscarclientes_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtbuscarcliente.Text))
             {
@@ -186,5 +186,7 @@ namespace BRAMSELU
         {
 
         }
+
+       
     }
 }
