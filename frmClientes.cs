@@ -2,13 +2,14 @@
 using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using BRAMSELU.Entidades;
 
 namespace BRAMSELU
 {
     public partial class frmClientes : Form
     {
         private ClienteNegocio clienteNegocio = new ClienteNegocio();
-        private Cliente cliente;
+        private Cliente Cliente;
         private string idOriginal = "";
         private string accion = "";
 
@@ -75,12 +76,12 @@ namespace BRAMSELU
         {
             try
             {
-                cliente = new Cliente(txtidcliente.Text, txtnombrecliente.Text, txttelefonocliente.Text, txtcorreocliente.Text, txtdireccioncliente.Text, Cmbpiel.Text.Trim());
+                Cliente = new Cliente(txtidcliente.Text, txtnombrecliente.Text, txttelefonocliente.Text, txtcorreocliente.Text, txtdireccioncliente.Text, Cmbpiel.Text.Trim());
 
                 switch (accion)
                 {
                     case "guardar":
-                        clienteNegocio.InsertarCliente(cliente);
+                        clienteNegocio.InsertarCliente(Cliente);
                         MessageBox.Show("Cliente guardado correctamente");
                         break;
                     case "editar":

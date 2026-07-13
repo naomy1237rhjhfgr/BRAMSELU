@@ -1,6 +1,7 @@
-﻿using System;
+﻿using BRAMSELU.CLasesClientes;
+using BRAMSELU.Entidades; 
+using System;
 using System.Data;
-using BRAMSELU.CLasesClientes;
 
 namespace BRAMSELU.Negocio
 {
