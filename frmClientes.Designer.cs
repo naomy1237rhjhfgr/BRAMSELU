@@ -74,12 +74,12 @@
             this.dataGridViewclientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewclientes.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewclientes.Location = new System.Drawing.Point(11, 94);
+            this.dataGridViewclientes.Location = new System.Drawing.Point(12, 112);
             this.dataGridViewclientes.Name = "dataGridViewclientes";
             this.dataGridViewclientes.RowHeadersVisible = false;
             this.dataGridViewclientes.RowHeadersWidth = 51;
             this.dataGridViewclientes.RowTemplate.Height = 24;
-            this.dataGridViewclientes.Size = new System.Drawing.Size(919, 146);
+            this.dataGridViewclientes.Size = new System.Drawing.Size(975, 146);
             this.dataGridViewclientes.TabIndex = 7;
             this.dataGridViewclientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewclientes_CellClick);
             // 
@@ -91,7 +91,7 @@
             this.Btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btnnuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.Btnnuevo.ForeColor = System.Drawing.Color.White;
-            this.Btnnuevo.Location = new System.Drawing.Point(416, 56);
+            this.Btnnuevo.Location = new System.Drawing.Point(476, 56);
             this.Btnnuevo.Name = "Btnnuevo";
             this.Btnnuevo.Size = new System.Drawing.Size(110, 32);
             this.Btnnuevo.TabIndex = 8;
@@ -107,7 +107,7 @@
             this.bttneditarclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttneditarclientes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttneditarclientes.ForeColor = System.Drawing.Color.White;
-            this.bttneditarclientes.Location = new System.Drawing.Point(551, 56);
+            this.bttneditarclientes.Location = new System.Drawing.Point(611, 56);
             this.bttneditarclientes.Name = "bttneditarclientes";
             this.bttneditarclientes.Size = new System.Drawing.Size(110, 32);
             this.bttneditarclientes.TabIndex = 9;
@@ -123,7 +123,7 @@
             this.bttneliminarclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttneliminarclientes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttneliminarclientes.ForeColor = System.Drawing.Color.White;
-            this.bttneliminarclientes.Location = new System.Drawing.Point(684, 56);
+            this.bttneliminarclientes.Location = new System.Drawing.Point(744, 56);
             this.bttneliminarclientes.Name = "bttneliminarclientes";
             this.bttneliminarclientes.Size = new System.Drawing.Size(110, 32);
             this.bttneliminarclientes.TabIndex = 10;
@@ -139,7 +139,7 @@
             this.btnguardarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardarcliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnguardarcliente.ForeColor = System.Drawing.Color.White;
-            this.btnguardarcliente.Location = new System.Drawing.Point(817, 56);
+            this.btnguardarcliente.Location = new System.Drawing.Point(877, 56);
             this.btnguardarcliente.Name = "btnguardarcliente";
             this.btnguardarcliente.Size = new System.Drawing.Size(110, 32);
             this.btnguardarcliente.TabIndex = 11;
@@ -164,7 +164,7 @@
             this.txtbuscarcliente.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtbuscarcliente.Location = new System.Drawing.Point(89, 56);
             this.txtbuscarcliente.Name = "txtbuscarcliente";
-            this.txtbuscarcliente.Size = new System.Drawing.Size(195, 30);
+            this.txtbuscarcliente.Size = new System.Drawing.Size(214, 30);
             this.txtbuscarcliente.TabIndex = 13;
             // 
             // btnbuscarclientes
@@ -175,9 +175,9 @@
             this.btnbuscarclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscarclientes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnbuscarclientes.ForeColor = System.Drawing.Color.White;
-            this.btnbuscarclientes.Location = new System.Drawing.Point(306, 52);
+            this.btnbuscarclientes.Location = new System.Drawing.Point(338, 55);
             this.btnbuscarclientes.Name = "btnbuscarclientes";
-            this.btnbuscarclientes.Size = new System.Drawing.Size(100, 34);
+            this.btnbuscarclientes.Size = new System.Drawing.Size(110, 33);
             this.btnbuscarclientes.TabIndex = 22;
             this.btnbuscarclientes.Text = "Buscar";
             this.btnbuscarclientes.UseVisualStyleBackColor = false;

@@ -12,7 +12,19 @@ namespace BRAMSELU.DAL
 
         public bool Guardar(Empleado emp)
         {
-            string SQL = $"INSERT INTO Empleados(Nombre, Apellido, Identidad, Telefono, Direccion, Correo, Usuario, Contrasena, TipoUsuario) VALUES('{emp.Nombre}', '{emp.Apellido}', '{emp.Identidad}', '{emp.Telefono}', '{emp.Direccion}', '{emp.Correo}', '{emp.Usuario}', '{emp.Contrasena}', '{emp.TipoUsuario}')";
+            string SQL = "INSERT INTO Empleados " +
+                "(IdEmpleado, Nombre, Apellido, Identidad, Telefono, Direccion, Correo, Usuario, Contrasena, TipoUsuario, FechaRegistro) " +
+                "SELECT ISNULL(MAX(IdEmpleado), 0) + 1, " +
+                $"'{emp.Nombre}', " +
+                $"'{emp.Apellido}', " +
+                $"'{emp.Identidad}', " +
+                $"'{emp.Telefono}', " +
+                $"'{emp.Direccion}', " +
+                $"'{emp.Correo}', " +
+                $"'{emp.Usuario}', " +
+                $"'{emp.Contrasena}', " +
+                $"'{emp.TipoUsuario}', " +
+                "GETDATE() FROM Empleados";
             return _conexion.EjecutarSQL(SQL);
         }
 

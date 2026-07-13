@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BRAMSELU.BLL;
+using BRAMSELU.ClasesProducto;
+using BRAMSELU.DAL;
+using BRAMSELU.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using BRAMSELU.Entidades;
-using BRAMSELU.BLL;
-using BRAMSELU.ClasesProducto;
 
 namespace BRAMSELU
 {
@@ -174,7 +175,8 @@ namespace BRAMSELU
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text);
+            InventarioDAL inventario = new InventarioDAL();
+            dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text.Trim());
             OcultarImagen();
         }
 

@@ -14,11 +14,17 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"INSERT INTO Productos " +
-                $"(NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) " +
-                $"VALUES('{inv.NombreProducto}', '{inv.Marca}', " +
-                $"'{inv.Categoria}', {inv.Precio}, {inv.Stock}, " +
-                $"GETDATE(), {imagenSQL})";
+            string SQL = "INSERT INTO Productos " +
+                "(IdProducto, NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) " +
+                "SELECT ISNULL(MAX(IdProducto), 0) + 1, " +
+                $"'{inv.NombreProducto}', " +
+                $"'{inv.Marca}', " +
+                $"'{inv.Categoria}', " +
+                $"{inv.Precio.ToString(System.Globalization.CultureInfo.InvariantCulture)}, " +
+                $"{inv.Stock}, " +
+                "GETDATE(), " +
+                $"{imagenSQL} FROM Productos";
+
 
             return _conexion.EjecutarSQL(SQL);
         }
