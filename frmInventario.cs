@@ -149,7 +149,11 @@ namespace BRAMSELU
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado == 0) return;
+            if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Por favor, seleccione un producto de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (!txtNombre.Enabled)
             {
@@ -163,16 +167,21 @@ namespace BRAMSELU
 
                 iniciarbarra("guardar");
                 btnEditar.Text = "Editar";
-
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Por favor, seleccione el producto que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-
-            iniciarbarra("eliminar");
+            }
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                iniciarbarra("eliminar");
+            }
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)

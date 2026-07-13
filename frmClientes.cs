@@ -138,13 +138,36 @@ namespace BRAMSELU
 
         private void bttneditarclientes_Click(object sender, EventArgs e)
         {
-            if (!txtnombrecliente.Enabled) { EstadoCampos(true); bttneditarclientes.Text = "Actualizar"; }
-            else if (ValidarFormulario()) iniciarbarra("editar");
+            if (string.IsNullOrEmpty(idOriginal))
+            {
+                MessageBox.Show("Por favor, seleccione un cliente de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!txtnombrecliente.Enabled)
+            {
+                EstadoCampos(true);
+                bttneditarclientes.Text = "Actualizar";
+            }
+            else if (ValidarFormulario())
+            {
+                iniciarbarra("editar");
+                bttneditarclientes.Text = "Editar"; 
+            }
         }
 
         private void bttneliminarclientes_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(idOriginal)) iniciarbarra("eliminar");
+            if (string.IsNullOrEmpty(idOriginal))
+            {
+                MessageBox.Show("Por favor, seleccione el cliente que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar a este cliente?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                iniciarbarra("eliminar");
+            }
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)

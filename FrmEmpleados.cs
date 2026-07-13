@@ -168,7 +168,12 @@ namespace BRAMSELU
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado == 0) return;
+            if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (txtNombre.Enabled == false)
             {
                 BloquearCampos(false);
@@ -187,9 +192,15 @@ namespace BRAMSELU
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Por favor, seleccione el empleado que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-
-            iniciarbarra("eliminar");
+            }
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                iniciarbarra("eliminar");
+            }
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
