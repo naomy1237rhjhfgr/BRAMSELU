@@ -147,8 +147,15 @@ namespace BRAMSELU
             if (!string.IsNullOrEmpty(idOriginal)) iniciarbarra("eliminar");
         }
 
-        private void btnbuscarclientes_Click(object sender, EventArgs e)
+        private void btnBuscar_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un criterio de búsqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBuscar.Focus();
+                return;
+            }
+
             iniciarbarra("buscar");
         }
 
