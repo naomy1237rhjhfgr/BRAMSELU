@@ -172,6 +172,7 @@
             this.txtbuscarcliente.Name = "txtbuscarcliente";
             this.txtbuscarcliente.Size = new System.Drawing.Size(219, 34);
             this.txtbuscarcliente.TabIndex = 13;
+            this.txtbuscarcliente.TextChanged += new System.EventHandler(this.txtbuscarcliente_TextChanged);
             // 
             // btnbuscarclientes
             // 
@@ -188,7 +189,6 @@
             this.btnbuscarclientes.TabIndex = 22;
             this.btnbuscarclientes.Text = "Buscar";
             this.btnbuscarclientes.UseVisualStyleBackColor = false;
-           
             // 
             // lbldatosclientes
             // 

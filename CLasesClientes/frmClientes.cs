@@ -181,5 +181,10 @@ namespace BRAMSELU
                 e.Handled = true;
             }
         }
+
+        private void txtbuscarcliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
