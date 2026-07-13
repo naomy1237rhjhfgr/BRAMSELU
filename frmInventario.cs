@@ -71,26 +71,21 @@ namespace BRAMSELU
             errorProvider1.Clear();
             bool valido = true;
 
-            if (txtNombre.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                errorProvider1.SetError(txtNombre, "Ingrese el nombre del producto");
-                valido = false;
-            }
-            else if (!SoloLetras(txtNombre.Text))
-            {
-                errorProvider1.SetError(txtNombre, "El nombre solo debe contener letras");
+                errorProvider1.SetError(txtNombre, "El nombre es obligatorio");
                 valido = false;
             }
 
-            if (txtMarca.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtMarca.Text))
             {
-                errorProvider1.SetError(txtMarca, "Ingrese la marca");
+                errorProvider1.SetError(txtMarca, "La marca es obligatoria");
                 valido = false;
             }
 
             if (CmbCa.SelectedIndex == -1)
             {
-                errorProvider1.SetError(CmbCa, "Seleccione una categoría");
+                errorProvider1.SetError(CmbCa, "Debe seleccionar una categoría");
                 valido = false;
             }
 
@@ -100,35 +95,16 @@ namespace BRAMSELU
                 valido = false;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out precio) || precio <= 0)
+            if (!int.TryParse(txtStock.Text, out int stock) || stock < 0)
             {
-                errorProvider1.SetError(txtPrecio, "Ingrese un precio válido mayor a 0");
-                valido = false;
-            }
-
-            int stock;
-
-            if (!int.TryParse(txtStock.Text, out stock) || stock < 0)
-            {
-                errorProvider1.SetError(txtStock, "Ingrese una cantidad válida");
+                errorProvider1.SetError(txtStock, "Ingrese un stock válido");
                 valido = false;
             }
 
             if (imagenSeleccionada == null)
             {
-                errorProvider1.SetError(picImagen, "Seleccione una imagen");
+                errorProvider1.SetError(btnCargarImagen, "Debe cargar una imagen");
                 valido = false;
-            }
-
-            return valido;
-        }
-
-        private bool SoloLetras(string texto)
-        {
-            foreach (char c in texto)
-            {
-                if (!char.IsLetter(c) && c != ' ')
-                    return false;
             }
 
             return valido;
