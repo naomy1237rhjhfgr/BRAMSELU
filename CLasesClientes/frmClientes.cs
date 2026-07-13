@@ -173,7 +173,7 @@ namespace BRAMSELU
 
         private void btnbuscarcliente_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            if (string.IsNullOrWhiteSpace(txtbuscarcliente.Text))
             {
                 MessageBox.Show("Por favor, ingrese un nombre o criterio de búsqueda primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtBuscar.Focus();

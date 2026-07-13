@@ -93,9 +93,10 @@ namespace BRAMSELU.DAL
                         Nombre = reader.GetString(1),
                         Apellido = reader.GetString(2),
                         Identidad = reader.GetString(3),
-                        Telefono = reader.GetString(4),
-                        Direccion = reader.GetString(5),
-                        Correo = reader.GetString(6),
+                        Telefono = reader.IsDBNull(4) ? "" : reader.GetString(4),
+                        Direccion = reader.IsDBNull(5) ? "" : reader.GetString(5),
+                        Correo = reader.IsDBNull(6) ? "" : reader.GetString(6),
+                       
                         Usuario = reader.GetString(7),
                         Contrasena = reader.GetString(8),
                         TipoUsuario = reader.GetString(9)
