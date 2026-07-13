@@ -11,6 +11,7 @@ namespace BRAMSELU
     {
         private EmpleadoBLL empleadoBLL;
         private int idSeleccionado = 0;
+        private string accion = "";
 
         public FrmEmpleados()
         {
@@ -59,6 +60,15 @@ namespace BRAMSELU
             cmbTipoUsuario.SelectedIndex = -1;
             idSeleccionado = 0;
             errorProvider1.Clear();
+            btnEditar.Text = "Editar";
+        }
+
+        private void iniciarbarra(string accionElegida)
+        {
+            accion = accionElegida;
+            progressBarempleados.Value = 0;
+            progressBarempleados.Visible = true;
+            timer1.Start();
         }
 
         private bool Validar()
@@ -152,6 +162,69 @@ namespace BRAMSELU
         {
             if (!Validar()) return;
 
+            iniciarbarra("guardar");
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == 0) return;
+            if (txtNombre.Enabled == false)
+            {
+                BloquearCampos(false);
+                btnEditar.Text = "Actualizar";
+            }
+            else
+            {
+                if (!Validar())
+                    return;
+
+                iniciarbarra("guardar");
+                btnEditar.Text = "Editar";
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == 0)
+                return;
+
+            iniciarbarra("eliminar");
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            iniciarbarra("buscar");
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+            Limpiar();
+            BloquearCampos(true);
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
+            idSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
+            txtNombre.Text = fila.Cells[1].Value.ToString();
+            txtApellido.Text = fila.Cells[2].Value.ToString();
+            txtIdentidad.Text = fila.Cells[3].Value.ToString();
+            txtTelefono.Text = fila.Cells[4].Value.ToString();
+            txtDireccion.Text = fila.Cells[5].Value.ToString();
+            txtCorreo.Text = fila.Cells[6].Value.ToString();
+            txtUsuario.Text = fila.Cells[7].Value.ToString();
+            txtContrasena.Text = fila.Cells[8].Value.ToString();
+            cmbTipoUsuario.Text = fila.Cells[9].Value.ToString();
+
+            BloquearCampos(true);
+            btnEditar.Text = "Editar";
+        }
+
+        private void GuardarEmpleado()
+        {
             Empleado emp = new Empleado
             {
                 IdEmpleado = idSeleccionado,
@@ -177,57 +250,49 @@ namespace BRAMSELU
             CargarDatos();
             Limpiar();
             BloquearCampos(true);
+
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BuscarEmpleado()
         {
-            if (idSeleccionado == 0) return;
-            if (txtNombre.Enabled == false)
-            {
-                BloquearCampos(false);
-                btnEditar.Text = "Actualizar";
-            }
-            else
-            {
-                btnGuardar_Click(sender, e);
-                btnEditar.Text = "Editar";
-            }
+            dgvDatos.DataSource = empleadoBLL.BuscarEmpleado(txtBuscar.Text);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void EliminarEmpleado()
         {
             if (idSeleccionado != 0 && empleadoBLL.EliminarEmpleado(idSeleccionado))
             {
                 MessageBox.Show("Empleado eliminado");
                 CargarDatos();
                 Limpiar();
+                BloquearCampos(true);
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = empleadoBLL.BuscarEmpleado(txtBuscar.Text);
-        }
+            progressBarempleados.Increment(5);
 
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
+            if (progressBarempleados.Value >= 100)
+            {
+                timer1.Stop();
+                progressBarempleados.Visible = false;
 
-        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-            DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
-            idSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
-            txtNombre.Text = fila.Cells[1].Value.ToString();
-            txtApellido.Text = fila.Cells[2].Value.ToString();
-            txtIdentidad.Text = fila.Cells[3].Value.ToString();
-            txtTelefono.Text = fila.Cells[4].Value.ToString();
-            txtDireccion.Text = fila.Cells[5].Value.ToString();
-            txtCorreo.Text = fila.Cells[6].Value.ToString();
-            txtUsuario.Text = fila.Cells[7].Value.ToString();
-            txtContrasena.Text = fila.Cells[8].Value.ToString();
-            cmbTipoUsuario.Text = fila.Cells[9].Value.ToString();
+                switch (accion)
+                {
+                    case "guardar":
+                        GuardarEmpleado();
+                        break;
+
+                    case "buscar":
+                        BuscarEmpleado();
+                        break;
+
+                    case "eliminar":
+                        EliminarEmpleado();
+                        break;
+                }
+            }
         }
     }
 }
