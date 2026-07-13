@@ -14,11 +14,7 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"INSERT INTO Productos " +
-                $"(NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) " +
-                $"VALUES('{inv.NombreProducto}', '{inv.Marca}', " +
-                $"'{inv.Categoria}', {inv.Precio}, {inv.Stock}, " +
-                $"GETDATE(), {imagenSQL})";
+            string SQL = $"INSERT INTO Productos (NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) VALUES('{inv.NombreProducto}', '{inv.Marca}', '{inv.Categoria}', {inv.Precio}, {inv.Stock}, GETDATE(), {imagenSQL})";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -27,22 +23,14 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"UPDATE Productos SET " +
-                $"NombreProducto='{inv.NombreProducto}', " +
-                $"Marca='{inv.Marca}', " +
-                $"Categoria='{inv.Categoria}', " +
-                $"Precio={inv.Precio}, " +
-                $"Stock={inv.Stock}, " +
-                $"Imagen={imagenSQL} " +
-                $"WHERE IdProducto={inv.IdProducto}";
+            string SQL = $"UPDATE Productos SET NombreProducto='{inv.NombreProducto}', Marca='{inv.Marca}', Categoria='{inv.Categoria}', Precio={inv.Precio}, Stock={inv.Stock}, Imagen={imagenSQL} WHERE IdProducto={inv.IdProducto}";
 
             return _conexion.EjecutarSQL(SQL);
         }
 
         public bool Eliminar(int idProducto)
         {
-            string SQL =
-                $"DELETE FROM Productos WHERE IdProducto={idProducto}";
+            string SQL = $"DELETE FROM Productos WHERE IdProducto={idProducto}";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -53,8 +41,7 @@ namespace BRAMSELU.DAL
 
             string SQL = "SELECT * FROM Productos";
 
-            SqlDataReader reader =
-                _conexion.EjecutarConsulta(SQL);
+            SqlDataReader reader = _conexion.EjecutarConsulta(SQL);
 
             if (reader != null)
             {
@@ -94,14 +81,9 @@ namespace BRAMSELU.DAL
         {
             List<Inventario> lista = new List<Inventario>();
 
-            string SQL =
-                $"SELECT * FROM Productos " +
-                $"WHERE NombreProducto LIKE '%{criterio}%' " +
-                $"OR Marca LIKE '%{criterio}%' " +
-                $"OR Categoria LIKE '%{criterio}%'";
+            string SQL = $"SELECT * FROM Productos WHERE NombreProducto='{criterio}' OR Marca='{criterio}' OR Categoria='{criterio}'";
 
-            SqlDataReader reader =
-                _conexion.EjecutarConsulta(SQL);
+            SqlDataReader reader = _conexion.EjecutarConsulta(SQL);
 
             if (reader != null)
             {
@@ -135,8 +117,7 @@ namespace BRAMSELU.DAL
             if (imagen == null)
                 return "NULL";
 
-            return "0x" +
-                BitConverter.ToString(imagen).Replace("-", "");
+            return $"0x{BitConverter.ToString(imagen).Replace("-", "")}";
         }
     }
 }
