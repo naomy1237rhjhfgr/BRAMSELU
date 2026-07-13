@@ -16,6 +16,7 @@ namespace BRAMSELU
 
         private int idSeleccionado = 0;
         private byte[] imagenSeleccionada = null;
+        private string accion = "";
 
         public frmInventario()
         {
@@ -65,6 +66,15 @@ namespace BRAMSELU
             picImagen.Image = null;
             imagenSeleccionada = null;
             idSeleccionado = 0;
+            btnEditar.Text = "Editar";
+        }
+
+        private void iniciarbarra(string accionElegida)
+        {
+            accion = accionElegida;
+            progressBarInventario.Value = 0;
+            progressBarInventario.Visible = true;
+            timer1.Start();
         }
 
         private bool Validar()
@@ -122,29 +132,8 @@ namespace BRAMSELU
         {
             if (!Validar()) return;
 
-            Inventario inv = new Inventario
-            {
-                IdProducto = idSeleccionado,
-                NombreProducto = txtNombre.Text,
-                Marca = txtMarca.Text,
-                Categoria = CmbCa.Text,
-                Precio = Convert.ToDecimal(txtPrecio.Text),
-                Stock = Convert.ToInt32(txtStock.Text),
-                Imagen = imagenSeleccionada
-            };
+            iniciarbarra("guardar");
 
-            if (idSeleccionado == 0)
-            {
-                if (inventarioBLL.GuardarProducto(inv)) MessageBox.Show("Producto guardado");
-            }
-            else
-            {
-                if (inventarioBLL.ActualizarProducto(inv)) MessageBox.Show("Producto actualizado");
-            }
-
-            CargarDatos();
-            Limpiar();
-            BloquearCampos(true);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -158,26 +147,26 @@ namespace BRAMSELU
             }
             else
             {
-                btnGuardar_Click(sender, e);
+                if (!Validar())
+                    return;
+
+                iniciarbarra("guardar");
                 btnEditar.Text = "Editar";
+
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idSeleccionado != 0 && inventarioBLL.EliminarProducto(idSeleccionado))
-            {
-                MessageBox.Show("Producto eliminado");
-                CargarDatos();
-                Limpiar();
-            }
+            if (idSeleccionado == 0)
+                return;
+
+            iniciarbarra("eliminar");
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            InventarioDAL inventario = new InventarioDAL();
-            dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text.Trim());
-            OcultarImagen();
+            iniciarbarra("buscar");
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -230,6 +219,79 @@ namespace BRAMSELU
             if (char.IsControl(e.KeyChar)) return;
             if (char.IsDigit(e.KeyChar)) return;
             e.Handled = true;
+        }
+
+        private void GuardarProducto()
+        {
+            Inventario inv = new Inventario
+            {
+                IdProducto = idSeleccionado,
+                NombreProducto = txtNombre.Text,
+                Marca = txtMarca.Text,
+                Categoria = CmbCa.Text,
+                Precio = Convert.ToDecimal(txtPrecio.Text),
+                Stock = Convert.ToInt32(txtStock.Text),
+                Imagen = imagenSeleccionada
+            };
+
+            if (idSeleccionado == 0)
+            {
+                if (inventarioBLL.GuardarProducto(inv)) MessageBox.Show("Producto guardado");
+            }
+            else
+            {
+                if (inventarioBLL.ActualizarProducto(inv)) MessageBox.Show("Producto actualizado");
+            }
+
+            CargarDatos();
+            Limpiar();
+            BloquearCampos(true);
+
+        }
+
+        private void BuscarProducto()
+        {
+            dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text);
+            OcultarImagen();
+
+        }
+
+        private void EliminarProducto()
+        {
+            if (idSeleccionado != 0 && inventarioBLL.EliminarProducto(idSeleccionado))
+            {
+                MessageBox.Show("Producto eliminado");
+                CargarDatos();
+                Limpiar();
+                BloquearCampos(true);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBarInventario.Increment(5);
+
+            if (progressBarInventario.Value >= 100)
+            {
+                timer1.Stop();
+                progressBarInventario.Visible = false;
+
+                switch (accion)
+                {
+                    case "guardar":
+                        GuardarProducto();
+                        break;
+
+                    case "buscar":
+                        BuscarProducto();
+                        break;
+
+                    case "eliminar":
+                        EliminarProducto();
+                        break;
+                }
+            }
+
         }
     }
 }
