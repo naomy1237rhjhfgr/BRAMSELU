@@ -121,6 +121,17 @@ namespace BRAMSELU
             return valido;
         }
 
+        private bool SoloLetras(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                    return false;
+            }
+
+            return true;
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -166,6 +177,13 @@ namespace BRAMSELU
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un criterio de búsqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBuscar.Focus();
+                return;
+            }
+
             iniciarbarra("buscar");
         }
 

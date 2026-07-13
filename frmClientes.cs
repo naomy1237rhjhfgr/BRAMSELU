@@ -2,13 +2,14 @@
 using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using BRAMSELU.Entidades;
 
 namespace BRAMSELU
 {
     public partial class frmClientes : Form
     {
         private ClienteNegocio clienteNegocio = new ClienteNegocio();
-        private Cliente cliente;
+        private Cliente Cliente;
         private string idOriginal = "";
         private string accion = "";
 
@@ -75,16 +76,16 @@ namespace BRAMSELU
         {
             try
             {
-                cliente = new Cliente(txtidcliente.Text, txtnombrecliente.Text, txttelefonocliente.Text, txtcorreocliente.Text, txtdireccioncliente.Text, Cmbpiel.Text.Trim());
+                Cliente = new Cliente(txtidcliente.Text, txtnombrecliente.Text, txttelefonocliente.Text, txtcorreocliente.Text, txtdireccioncliente.Text, Cmbpiel.Text.Trim());
 
                 switch (accion)
                 {
                     case "guardar":
-                        clienteNegocio.InsertarCliente(cliente);
+                        clienteNegocio.InsertarCliente(Cliente);
                         MessageBox.Show("Cliente guardado correctamente");
                         break;
                     case "editar":
-                        clienteNegocio.ActualizarCliente(cliente, idOriginal);
+                        clienteNegocio.ActualizarCliente(Cliente, idOriginal);
                         MessageBox.Show("Cliente modificado correctamente");
                         break;
                     case "eliminar":
@@ -163,6 +164,14 @@ namespace BRAMSELU
                 txtcorreocliente.Text = fila.Cells[3].Value.ToString();
                 txtdireccioncliente.Text = fila.Cells[4].Value.ToString();
                 Cmbpiel.Text = fila.Cells[5].Value.ToString();
+            }
+        }
+
+        private void txtnombrecliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
