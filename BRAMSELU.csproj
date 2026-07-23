@@ -70,6 +70,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categorias\Categoria.cs" />
+    <Compile Include="Categorias\CategoriaBLL.cs" />
+    <Compile Include="Categorias\CategoriaDatos.cs" />
     <Compile Include="Citas3Capas\CitaDAL.cs" />
     <Compile Include="Citas3Capas\ClaseCitas.cs" />
     <Compile Include="login\ClaseLogin.cs" />
@@ -80,10 +83,10 @@
     <Compile Include="empleados\Empleado.cs" />
     <Compile Include="empleados\EmpleadoBLL.cs" />
     <Compile Include="empleados\EmpleadoDAL.cs" />
-    <Compile Include="otrosfrns\frmCategorias.cs">
+    <Compile Include="Categorias\frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otrosfrns\frmCategorias.Designer.cs">
+    <Compile Include="Categorias\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="otrosfrns\frmCitas.cs">
@@ -148,6 +151,9 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Categorias\frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="otrosfrns\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
