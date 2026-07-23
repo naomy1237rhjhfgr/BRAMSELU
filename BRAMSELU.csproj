@@ -89,6 +89,13 @@
     <Compile Include="Categorias\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes\frmMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes\frmMensaje.Designer.cs">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes\GestorMensajes.cs" />
     <Compile Include="otrosfrns\frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,9 @@
     <EmbeddedResource Include="Categorias\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes\frmMensaje.resx">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="otrosfrns\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +197,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU
 {
@@ -62,21 +63,21 @@ namespace BRAMSELU
 
             if (string.IsNullOrWhiteSpace(categoria.NombreCategoria))
             {
-                MessageBox.Show("Ingrese el nombre de la categoría.");
+                GestorMensajes.Advertencia("Ingrese el nombre de la categoria");
                 txtnombrecategoria.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(categoria.Descripcion))
             {
-                MessageBox.Show("Ingrese la descripción.");
+                GestorMensajes.Advertencia("Ingrese la descripción.");
                 txtdescripcion.Focus();
                 return;
             }
 
             if (categoriaBLL.ExisteCategoria(categoria.NombreCategoria, categoria.IdCategoria))
             {
-                MessageBox.Show("Ya existe una categoría con ese nombre.");
+                GestorMensajes.Advertencia("Ya existe una categoría con ese nombre.");
                 txtnombrecategoria.Focus();
                 return;
             }
@@ -85,14 +86,14 @@ namespace BRAMSELU
             {
                 if (categoriaBLL.ActualizarCategoria(categoria))
                 {
-                    MessageBox.Show("Categoría actualizada correctamente.");
+                    GestorMensajes.Exito("Categoría actualizada correctamente.");
                 }
             }
             else
             {
                 if (categoriaBLL.GuardarCategoria(categoria))
                 {
-                    MessageBox.Show("Categoría guardada correctamente.");
+                    GestorMensajes.Exito("Categoría guardada correctamente.");
                 }
             }
 
@@ -130,7 +131,7 @@ namespace BRAMSELU
                 {
                     if (categoriaBLL.EliminarCategoria(id))
                     {
-                        MessageBox.Show("Categoría eliminada correctamente.");
+                        GestorMensajes.Exito("Categoría eliminada correctamente.");
                         CargarCategorias();
                         LimpiarCampos();
                     }
