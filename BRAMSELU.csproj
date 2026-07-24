@@ -67,6 +67,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categorias\Categoria.cs" />
+    <Compile Include="Categorias\CategoriaBLL.cs" />
+    <Compile Include="Categorias\CategoriaDatos.cs" />
     <Compile Include="Citas3Capas\CitaDAL.cs" />
     <Compile Include="Citas3Capas\ClaseCitas.cs" />
     <Compile Include="login\ClaseLogin.cs" />
@@ -77,12 +80,19 @@
     <Compile Include="empleados\Empleado.cs" />
     <Compile Include="empleados\EmpleadoBLL.cs" />
     <Compile Include="empleados\EmpleadoDAL.cs" />
-    <Compile Include="otrosfrns\frmCategorias.cs">
+    <Compile Include="Categorias\frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otrosfrns\frmCategorias.Designer.cs">
+    <Compile Include="Categorias\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes\frmMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes\frmMensaje.Designer.cs">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes\GestorMensajes.cs" />
     <Compile Include="otrosfrns\frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +155,12 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Categorias\frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes\frmMensaje.resx">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="otrosfrns\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +194,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

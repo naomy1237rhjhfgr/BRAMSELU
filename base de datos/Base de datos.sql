@@ -14,18 +14,20 @@ CREATE TABLE dbo.Clientes (
 );
 
 CREATE TABLE dbo.Empleados (
-    IdEmpleado int IDENTITY(1,1) PRIMARY KEY,
-    Nombre varchar(100) NOT NULL,
-    Apellido varchar(100) NOT NULL,
-    Identidad varchar(20) NOT NULL,
-    Telefono varchar(20) NULL,
-    Direccion varchar(200) NULL,
-    Correo varchar(100) NULL,
-    Usuario varchar(50) NOT NULL,
-    Contrasena varchar(100) NOT NULL,
-    TipoUsuario varchar(20) NOT NULL,
-    FechaRegistro datetime DEFAULT GETDATE()
+    IdEmpleado INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Apellido VARCHAR(100) NOT NULL,
+    Identidad VARCHAR(20) NOT NULL,
+    Telefono VARCHAR(20) NULL,
+    Direccion VARCHAR(200) NULL,
+    Correo VARCHAR(100) NULL,
+    Usuario VARCHAR(50) NOT NULL,
+    Contrasena VARCHAR(100) NOT NULL,
+    TipoUsuario VARCHAR(20) NOT NULL,
+    FechaRegistro DATETIME NOT NULL DEFAULT GETDATE(),
+    Estado BIT NOT NULL DEFAULT 1
 );
+GO
 
 CREATE TABLE dbo.Productos (
     IdProducto int IDENTITY(1,1) PRIMARY KEY,
