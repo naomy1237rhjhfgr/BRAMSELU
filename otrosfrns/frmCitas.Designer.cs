@@ -270,7 +270,7 @@
             this.BtnNuevo.ForeColor = System.Drawing.Color.White;
             this.BtnNuevo.Location = new System.Drawing.Point(372, 83);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(100, 32);
+            this.BtnNuevo.Size = new System.Drawing.Size(100, 34);
             this.BtnNuevo.TabIndex = 70;
             this.BtnNuevo.Text = "Nuevo";
             this.BtnNuevo.UseVisualStyleBackColor = false;
@@ -286,7 +286,7 @@
             this.BtnEditar.ForeColor = System.Drawing.Color.White;
             this.BtnEditar.Location = new System.Drawing.Point(482, 83);
             this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(100, 32);
+            this.BtnEditar.Size = new System.Drawing.Size(100, 34);
             this.BtnEditar.TabIndex = 71;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
