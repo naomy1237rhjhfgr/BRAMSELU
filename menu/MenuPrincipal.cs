@@ -20,7 +20,7 @@ namespace BRAMSELU
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
-            lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
+            //lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
 
      
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
