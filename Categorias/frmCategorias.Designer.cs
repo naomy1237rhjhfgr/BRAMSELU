@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblcategorias = new System.Windows.Forms.Label();
-            this.progressBarclientes = new System.Windows.Forms.ProgressBar();
+            this.progressBarcategorias = new System.Windows.Forms.ProgressBar();
             this.txtidcategoria = new System.Windows.Forms.MaskedTextBox();
             this.lblidcategoria = new System.Windows.Forms.Label();
             this.labeldescripcion = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.dataGridViewcategoria = new System.Windows.Forms.DataGridView();
             this.labelbuscarcategoria = new System.Windows.Forms.Label();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,13 +61,13 @@
             this.lblcategorias.TabIndex = 13;
             this.lblcategorias.Text = "Categorias";
             // 
-            // progressBarclientes
+            // progressBarcategorias
             // 
-            this.progressBarclientes.Location = new System.Drawing.Point(27, 561);
-            this.progressBarclientes.Name = "progressBarclientes";
-            this.progressBarclientes.Size = new System.Drawing.Size(129, 23);
-            this.progressBarclientes.TabIndex = 62;
-            this.progressBarclientes.Visible = false;
+            this.progressBarcategorias.Location = new System.Drawing.Point(27, 561);
+            this.progressBarcategorias.Name = "progressBarcategorias";
+            this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
+            this.progressBarcategorias.TabIndex = 62;
+            this.progressBarcategorias.Visible = false;
             // 
             // txtidcategoria
             // 
@@ -152,6 +154,7 @@
             this.txtBuscarcategoria.Name = "txtBuscarcategoria";
             this.txtBuscarcategoria.Size = new System.Drawing.Size(195, 30);
             this.txtBuscarcategoria.TabIndex = 47;
+            this.txtBuscarcategoria.TextChanged += new System.EventHandler(this.txtBuscarcategoria_TextChanged);
             // 
             // btnguardarcategoria
             // 
@@ -223,12 +226,15 @@
             this.dataGridViewcategoria.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewcategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewcategoria.Location = new System.Drawing.Point(19, 121);
+            this.dataGridViewcategoria.MultiSelect = false;
             this.dataGridViewcategoria.Name = "dataGridViewcategoria";
             this.dataGridViewcategoria.RowHeadersVisible = false;
             this.dataGridViewcategoria.RowHeadersWidth = 51;
             this.dataGridViewcategoria.RowTemplate.Height = 24;
+            this.dataGridViewcategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewcategoria.Size = new System.Drawing.Size(919, 146);
             this.dataGridViewcategoria.TabIndex = 42;
+            this.dataGridViewcategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewcategoria_CellClick);
             // 
             // labelbuscarcategoria
             // 
@@ -249,6 +255,10 @@
             this.txtdescripcion.Size = new System.Drawing.Size(438, 90);
             this.txtdescripcion.TabIndex = 63;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -256,7 +266,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(979, 612);
             this.Controls.Add(this.txtdescripcion);
-            this.Controls.Add(this.progressBarclientes);
+            this.Controls.Add(this.progressBarcategorias);
             this.Controls.Add(this.txtidcategoria);
             this.Controls.Add(this.lblidcategoria);
             this.Controls.Add(this.labeldescripcion);
@@ -284,7 +294,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblcategorias;
-        private System.Windows.Forms.ProgressBar progressBarclientes;
+        private System.Windows.Forms.ProgressBar progressBarcategorias;
         private System.Windows.Forms.MaskedTextBox txtidcategoria;
         private System.Windows.Forms.Label lblidcategoria;
         private System.Windows.Forms.Label labeldescripcion;
@@ -300,5 +310,6 @@
         private System.Windows.Forms.DataGridView dataGridViewcategoria;
         private System.Windows.Forms.Label labelbuscarcategoria;
         private System.Windows.Forms.TextBox txtdescripcion;
+        private System.Windows.Forms.Timer timer1;
     }
 }

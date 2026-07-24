@@ -46,7 +46,10 @@ namespace BRAMSELU.Categorias
 
         public DataTable BuscarCategoria(string nombre)
         {
-            string sql = $"SELECT * FROM Categorias WHERE NombreCategoria LIKE '%{nombre}%'";
+            string sql = $"SELECT * FROM Categorias " +
+             $"WHERE NombreCategoria LIKE '%{nombre}%' " +
+             $"OR Descripcion LIKE '%{nombre}%' " +
+             $"OR CAST(IdCategoria AS VARCHAR) LIKE '%{nombre}%'";
 
             return conexion.EjecutarConsultaDataTable(sql);
         }

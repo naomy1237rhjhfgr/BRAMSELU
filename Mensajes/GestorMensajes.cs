@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BRAMSELU.Mensajes
 {
@@ -39,6 +40,12 @@ namespace BRAMSELU.Mensajes
         public static void Informacion(string mensaje)
         {
             Mostrar(mensaje, TipoMensaje.Informacion);
+        }
+
+        public static DialogResult Confirmacion(string mensaje)
+        {
+            FrmConfirmacion frm = new FrmConfirmacion(mensaje);
+            return frm.ShowDialog();
         }
     }
 }

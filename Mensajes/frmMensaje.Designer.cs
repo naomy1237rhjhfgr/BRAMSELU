@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelsuperior = new System.Windows.Forms.Panel();
-            this.lblMensaje = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.bttnAceptar = new System.Windows.Forms.Button();
             this.panelsuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -43,17 +43,8 @@
             this.panelsuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsuperior.Location = new System.Drawing.Point(0, 0);
             this.panelsuperior.Name = "panelsuperior";
-            this.panelsuperior.Size = new System.Drawing.Size(432, 75);
+            this.panelsuperior.Size = new System.Drawing.Size(462, 75);
             this.panelsuperior.TabIndex = 0;
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(76, 21);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(328, 28);
-            this.lblMensaje.TabIndex = 0;
-            this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -63,6 +54,15 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(76, 21);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(328, 28);
+            this.lblMensaje.TabIndex = 0;
+            this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bttnAceptar
             // 
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 133);
+            this.ClientSize = new System.Drawing.Size(462, 133);
             this.Controls.Add(this.bttnAceptar);
             this.Controls.Add(this.panelsuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
