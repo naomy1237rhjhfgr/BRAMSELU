@@ -127,5 +127,10 @@ namespace BRAMSELU
                 }
             }
         }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
