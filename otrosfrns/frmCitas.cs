@@ -82,14 +82,14 @@ namespace BRAMSELU
         {
             bool h = !bloquear;
             CmbCliente.Enabled = h;
-            TxtTelefono.Enabled = h;
+            
             CmbServicio.Enabled = h;
             CmbEspecialista.Enabled = h;
             DtpFecha.Enabled = h;
             TxtHora.Enabled = h;
-            TxtDuracion.Enabled = h;
+       
             TxtPrecio.Enabled = h;
-            TxtNotas.Enabled = h;
+            
             CmbEstado.Enabled = h;
         }
 
@@ -103,9 +103,9 @@ namespace BRAMSELU
         private void InicializarPlaceholders()
         {
             ConfigurarPlaceholder(TxtHora, PLACEHOLDER_HORA);
-            ConfigurarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
+            
             ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
-            ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
+           
         }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder)
@@ -129,7 +129,7 @@ namespace BRAMSELU
         private void LimpiarCampos()
         {
             CmbCliente.SelectedIndex = -1;
-            TxtTelefono.Clear();
+            
             CmbServicio.SelectedIndex = -1;
             CmbEspecialista.SelectedIndex = -1;
             DtpFecha.Value = DateTime.Now;
@@ -142,8 +142,8 @@ namespace BRAMSELU
         private ClaseCitas ObtenerCitaDelFormulario()
         {
             string hora = TxtHora.Text == PLACEHOLDER_HORA ? "" : TxtHora.Text.Trim();
-            string duracion = TxtDuracion.Text == PLACEHOLDER_DURACION ? "" : TxtDuracion.Text.Trim();
-            string notas = TxtNotas.Text == PLACEHOLDER_NOTAS ? "" : TxtNotas.Text.Trim();
+           
+           
             string precioTexto = TxtPrecio.Text == PLACEHOLDER_PRECIO ? "0" : TxtPrecio.Text.Trim();
 
             decimal.TryParse(precioTexto, out decimal precio);
@@ -152,13 +152,13 @@ namespace BRAMSELU
             {
                 ID = idSeleccionado,
                 Cliente = CmbCliente.SelectedValue?.ToString() ?? "",
-                Telefono = TxtTelefono.Text.Trim(),
+               
                 Servicio = CmbServicio.SelectedValue?.ToString() ?? "",
                 Especialista = CmbEspecialista.SelectedValue?.ToString() ?? "",
                 Fecha = DtpFecha.Value,
                 Hora = hora,
-                Duracion = duracion,
-                Notas = notas,
+                
+                
                 Estado = CmbEstado.SelectedItem?.ToString() ?? "Pendiente",
                 Precio = precio
             };
@@ -290,7 +290,7 @@ namespace BRAMSELU
             idSeleccionado = Convert.ToInt32(fila.Cells["IdCita"].Value);
 
             CmbCliente.SelectedValue = fila.Cells["IdCliente"].Value;
-            TxtTelefono.Text = fila.Cells["Telefono"].Value?.ToString() ?? "";
+           
             CmbServicio.SelectedValue = fila.Cells["IdServicio"].Value;
             CmbEspecialista.SelectedValue = fila.Cells["IdEspecialista"].Value;
             DtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
@@ -298,14 +298,12 @@ namespace BRAMSELU
             TxtHora.Text = fila.Cells["Hora"].Value?.ToString() ?? "";
             TxtHora.ForeColor = Color.Black;
 
-            TxtDuracion.Text = fila.Cells["Duracion"].Value?.ToString() ?? "";
-            TxtDuracion.ForeColor = Color.Black;
+          
 
             TxtPrecio.Text = fila.Cells["Precio"].Value?.ToString() ?? "";
             TxtPrecio.ForeColor = Color.Black;
 
-            TxtNotas.Text = fila.Cells["Notas"].Value?.ToString() ?? "";
-            TxtNotas.ForeColor = Color.Black;
+       
 
             CmbEstado.SelectedItem = fila.Cells["EstadoCita"].Value?.ToString();
 
@@ -325,14 +323,14 @@ namespace BRAMSELU
         private void txtHora_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtHora, PLACEHOLDER_HORA);
         private void txtHora_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtHora, PLACEHOLDER_HORA);
 
-        private void txtDuracion_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
-        private void txtDuracion_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtDuracion, PLACEHOLDER_DURACION);
+
+
 
         private void txtPrecio_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
         private void txtPrecio_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtPrecio, PLACEHOLDER_PRECIO);
 
-        private void txtNotas_Enter(object sender, EventArgs e) => QuitarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
-        private void txtNotas_Leave(object sender, EventArgs e) => ConfigurarPlaceholder(TxtNotas, PLACEHOLDER_NOTAS);
+    
+      
 
        
     }

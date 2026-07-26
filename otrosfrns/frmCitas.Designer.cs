@@ -28,21 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblEspecialista = new System.Windows.Forms.Label();
-            this.LblTelefono = new System.Windows.Forms.Label();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblServicio = new System.Windows.Forms.Label();
             this.LblCliente = new System.Windows.Forms.Label();
             this.lblTituloCitas = new System.Windows.Forms.Label();
-            this.LblDuracion = new System.Windows.Forms.Label();
             this.CmbCliente = new System.Windows.Forms.ComboBox();
             this.CmbServicio = new System.Windows.Forms.ComboBox();
-            this.LblNotas = new System.Windows.Forms.Label();
             this.CmbEspecialista = new System.Windows.Forms.ComboBox();
             this.DtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.TxtNotas = new System.Windows.Forms.TextBox();
             this.CmbEstado = new System.Windows.Forms.ComboBox();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -64,12 +60,10 @@
             this.pnlSeparador = new System.Windows.Forms.Panel();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.TxtDuracion = new System.Windows.Forms.TextBox();
             this.TxtHora = new System.Windows.Forms.TextBox();
             this.LblEstado = new System.Windows.Forms.Label();
             this.LblPrecio = new System.Windows.Forms.Label();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
-            this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.LblIdCita = new System.Windows.Forms.Label();
             this.pnlAcento = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).BeginInit();
@@ -85,17 +79,6 @@
             this.LblEspecialista.Size = new System.Drawing.Size(92, 21);
             this.LblEspecialista.TabIndex = 46;
             this.LblEspecialista.Text = "Especialista:";
-            // 
-            // LblTelefono
-            // 
-            this.LblTelefono.AutoSize = true;
-            this.LblTelefono.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.LblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblTelefono.Location = new System.Drawing.Point(525, 462);
-            this.LblTelefono.Name = "LblTelefono";
-            this.LblTelefono.Size = new System.Drawing.Size(71, 21);
-            this.LblTelefono.TabIndex = 44;
-            this.LblTelefono.Text = "Teléfono:";
             // 
             // LblHora
             // 
@@ -152,17 +135,6 @@
             this.lblTituloCitas.TabIndex = 48;
             this.lblTituloCitas.Text = "Control de Citas";
             // 
-            // LblDuracion
-            // 
-            this.LblDuracion.AutoSize = true;
-            this.LblDuracion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.LblDuracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblDuracion.Location = new System.Drawing.Point(525, 535);
-            this.LblDuracion.Name = "LblDuracion";
-            this.LblDuracion.Size = new System.Drawing.Size(76, 21);
-            this.LblDuracion.TabIndex = 51;
-            this.LblDuracion.Text = "Duración:";
-            // 
             // CmbCliente
             // 
             this.CmbCliente.FormattingEnabled = true;
@@ -180,17 +152,6 @@
             this.CmbServicio.Size = new System.Drawing.Size(340, 24);
             this.CmbServicio.TabIndex = 53;
             // 
-            // LblNotas
-            // 
-            this.LblNotas.AutoSize = true;
-            this.LblNotas.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.LblNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblNotas.Location = new System.Drawing.Point(58, 607);
-            this.LblNotas.Name = "LblNotas";
-            this.LblNotas.Size = new System.Drawing.Size(54, 21);
-            this.LblNotas.TabIndex = 54;
-            this.LblNotas.Text = "Notas:";
-            // 
             // CmbEspecialista
             // 
             this.CmbEspecialista.FormattingEnabled = true;
@@ -207,19 +168,11 @@
             this.DtpFecha.TabIndex = 56;
             this.DtpFecha.Value = new System.DateTime(2026, 6, 28, 21, 56, 45, 0);
             // 
-            // TxtNotas
-            // 
-            this.TxtNotas.Location = new System.Drawing.Point(62, 642);
-            this.TxtNotas.Multiline = true;
-            this.TxtNotas.Name = "TxtNotas";
-            this.TxtNotas.Size = new System.Drawing.Size(910, 119);
-            this.TxtNotas.TabIndex = 58;
-            // 
             // CmbEstado
             // 
             this.CmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbEstado.FormattingEnabled = true;
-            this.CmbEstado.Location = new System.Drawing.Point(212, 781);
+            this.CmbEstado.Location = new System.Drawing.Point(661, 463);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(307, 24);
             this.CmbEstado.TabIndex = 62;
@@ -330,14 +283,14 @@
             // 
             this.dgvCitas.AllowUserToAddRows = false;
             this.dgvCitas.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCitas.ColumnHeadersHeight = 36;
             this.dgvCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
@@ -349,14 +302,14 @@
             this.Hora,
             this.Estado,
             this.Precio});
-            this.dgvCitas.Location = new System.Drawing.Point(58, 136);
+            this.dgvCitas.Location = new System.Drawing.Point(67, 136);
             this.dgvCitas.MultiSelect = false;
             this.dgvCitas.Name = "dgvCitas";
             this.dgvCitas.ReadOnly = true;
             this.dgvCitas.RowHeadersVisible = false;
             this.dgvCitas.RowHeadersWidth = 62;
             this.dgvCitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCitas.Size = new System.Drawing.Size(900, 165);
+            this.dgvCitas.Size = new System.Drawing.Size(1045, 250);
             this.dgvCitas.TabIndex = 75;
             // 
             // Cliente
@@ -460,14 +413,6 @@
             this.lblMarca.Size = new System.Drawing.Size(0, 21);
             this.lblMarca.TabIndex = 80;
             // 
-            // TxtDuracion
-            // 
-            this.TxtDuracion.Location = new System.Drawing.Point(628, 535);
-            this.TxtDuracion.Multiline = true;
-            this.TxtDuracion.Name = "TxtDuracion";
-            this.TxtDuracion.Size = new System.Drawing.Size(340, 30);
-            this.TxtDuracion.TabIndex = 90;
-            // 
             // TxtHora
             // 
             this.TxtHora.Location = new System.Drawing.Point(158, 571);
@@ -483,7 +428,7 @@
             this.LblEstado.AutoSize = true;
             this.LblEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblEstado.Location = new System.Drawing.Point(58, 780);
+            this.LblEstado.Location = new System.Drawing.Point(525, 462);
             this.LblEstado.Name = "LblEstado";
             this.LblEstado.Size = new System.Drawing.Size(127, 21);
             this.LblEstado.TabIndex = 59;
@@ -494,7 +439,7 @@
             this.LblPrecio.AutoSize = true;
             this.LblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.LblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.LblPrecio.Location = new System.Drawing.Point(525, 779);
+            this.LblPrecio.Location = new System.Drawing.Point(538, 536);
             this.LblPrecio.Name = "LblPrecio";
             this.LblPrecio.Size = new System.Drawing.Size(56, 21);
             this.LblPrecio.TabIndex = 60;
@@ -502,19 +447,11 @@
             // 
             // TxtPrecio
             // 
-            this.TxtPrecio.Location = new System.Drawing.Point(628, 780);
+            this.TxtPrecio.Location = new System.Drawing.Point(637, 537);
             this.TxtPrecio.Multiline = true;
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(340, 30);
             this.TxtPrecio.TabIndex = 92;
-            // 
-            // TxtTelefono
-            // 
-            this.TxtTelefono.Location = new System.Drawing.Point(628, 460);
-            this.TxtTelefono.Multiline = true;
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(340, 30);
-            this.TxtTelefono.TabIndex = 93;
             // 
             // LblIdCita
             // 
@@ -532,7 +469,7 @@
             this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAcento.Location = new System.Drawing.Point(0, 0);
             this.pnlAcento.Name = "pnlAcento";
-            this.pnlAcento.Size = new System.Drawing.Size(1084, 6);
+            this.pnlAcento.Size = new System.Drawing.Size(1182, 6);
             this.pnlAcento.TabIndex = 96;
             // 
             // frmCitas
@@ -540,13 +477,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1084, 872);
+            this.ClientSize = new System.Drawing.Size(1182, 872);
             this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.LblIdCita);
-            this.Controls.Add(this.TxtTelefono);
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.TxtHora);
-            this.Controls.Add(this.TxtDuracion);
             this.Controls.Add(this.dgvCitas);
             this.Controls.Add(this.pnlSeparador);
             this.Controls.Add(this.lblSeccion);
@@ -561,16 +496,12 @@
             this.Controls.Add(this.CmbEstado);
             this.Controls.Add(this.LblPrecio);
             this.Controls.Add(this.LblEstado);
-            this.Controls.Add(this.TxtNotas);
             this.Controls.Add(this.DtpFecha);
             this.Controls.Add(this.CmbEspecialista);
-            this.Controls.Add(this.LblNotas);
             this.Controls.Add(this.CmbServicio);
             this.Controls.Add(this.CmbCliente);
-            this.Controls.Add(this.LblDuracion);
             this.Controls.Add(this.lblTituloCitas);
             this.Controls.Add(this.LblEspecialista);
-            this.Controls.Add(this.LblTelefono);
             this.Controls.Add(this.LblHora);
             this.Controls.Add(this.LblFecha);
             this.Controls.Add(this.LblServicio);
@@ -588,19 +519,15 @@
 
         #endregion
         private System.Windows.Forms.Label LblEspecialista;
-        private System.Windows.Forms.Label LblTelefono;
         private System.Windows.Forms.Label LblHora;
         private System.Windows.Forms.Label LblFecha;
         private System.Windows.Forms.Label LblServicio;
         private System.Windows.Forms.Label LblCliente;
         private System.Windows.Forms.Label lblTituloCitas;
-        private System.Windows.Forms.Label LblDuracion;
         private System.Windows.Forms.ComboBox CmbCliente;
         private System.Windows.Forms.ComboBox CmbServicio;
-        private System.Windows.Forms.Label LblNotas;
         private System.Windows.Forms.ComboBox CmbEspecialista;
         private System.Windows.Forms.DateTimePicker DtpFecha;
-        private System.Windows.Forms.TextBox TxtNotas;
         private System.Windows.Forms.ComboBox CmbEstado;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Label lblBuscar;
@@ -613,12 +540,10 @@
         private System.Windows.Forms.Panel pnlSeparador;
         private System.Windows.Forms.Label lblSeccion;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.TextBox TxtDuracion;
         private System.Windows.Forms.TextBox TxtHora;
         private System.Windows.Forms.Label LblPrecio;
         private System.Windows.Forms.Label LblEstado;
         private System.Windows.Forms.TextBox TxtPrecio;
-        private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.Label LblIdCita;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
