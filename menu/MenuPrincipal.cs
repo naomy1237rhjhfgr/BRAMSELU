@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Ventas;
+using System;
 using System.Windows.Forms;
 
 namespace BRAMSELU
@@ -82,7 +83,7 @@ namespace BRAMSELU
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //AbrirFormEnPanel(new frmVentas());
+            AbrirFormEnPanel(new FrmVentas());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -130,7 +131,19 @@ namespace BRAMSELU
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
 
+
+            if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
+            {
+                if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
+                {
+                    pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
+                }
+            }
         }
     }
 }
