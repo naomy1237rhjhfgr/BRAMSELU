@@ -1,6 +1,6 @@
 ﻿namespace BRAMSELU
 {
-    partial class Frmventas
+    partial class frmVentas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmVentas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Frmventas";
+            this.ClientSize = new System.Drawing.Size(964, 451);
+            this.Name = "frmVentas";
+            this.Text = "frmVentas";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
