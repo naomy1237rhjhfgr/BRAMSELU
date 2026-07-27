@@ -14,7 +14,7 @@ namespace BRAMSELU.Categorias
 
         public DataTable ObtenerCategorias()
         {
-            string sql = " SELECT * FROM Categorias";
+            string sql = "SELECT * FROM Categorias";
 
             return conexion.EjecutarConsultaDataTable(sql);
         }

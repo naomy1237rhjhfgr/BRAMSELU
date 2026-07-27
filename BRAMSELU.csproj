@@ -72,12 +72,6 @@
     <Compile Include="Categorias\CategoriaDatos.cs" />
     <Compile Include="Citas3Capas\CitaDAL.cs" />
     <Compile Include="Citas3Capas\ClaseCitas.cs" />
-    <Compile Include="ventas\Frmventas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventas\Frmventas.Designer.cs">
-      <DependentUpon>Frmventas.cs</DependentUpon>
-    </Compile>
     <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
@@ -147,6 +141,10 @@
     <Compile Include="otrosfrns\frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="otrosfrns\frmVentas.cs" />
+    <Compile Include="otrosfrns\frmVentas.Designer.cs">
+      <DependentUpon>frmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="inventario\ImagenProducto.cs" />
     <Compile Include="inventario\Inventario.cs" />
     <Compile Include="inventario\InventarioBLL.cs" />
@@ -161,9 +159,6 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventas\ventas.cs" />
-    <Compile Include="ventas\ventasbl.cs" />
-    <Compile Include="ventas\ventasdall.cs" />
     <EmbeddedResource Include="Categorias\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="otrosfrns\frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="otrosfrns\frmVentas.resx">
+      <DependentUpon>frmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
