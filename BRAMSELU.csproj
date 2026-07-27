@@ -70,8 +70,6 @@
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
-    <Compile Include="Citas3Capas\CitaDAL.cs" />
-    <Compile Include="Citas3Capas\ClaseCitas.cs" />
     <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
@@ -155,9 +153,6 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventas\ventas.cs" />
-    <Compile Include="ventas\ventasbl.cs" />
-    <Compile Include="ventas\ventasdall.cs" />
     <EmbeddedResource Include="Categorias\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ventas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
