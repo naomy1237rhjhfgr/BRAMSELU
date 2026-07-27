@@ -70,8 +70,9 @@
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
-    <Compile Include="Citas3Capas\CitaDAL.cs" />
-    <Compile Include="Citas3Capas\ClaseCitas.cs" />
+    <Compile Include="Citas\CitaBLL.cs" />
+    <Compile Include="Citas\CitaDAL.cs" />
+    <Compile Include="Citas\Citas.cs" />
     <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
@@ -99,10 +100,10 @@
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Mensajes\GestorMensajes.cs" />
-    <Compile Include="otrosfrns\frmCitas.cs">
+    <Compile Include="Citas\frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otrosfrns\frmCitas.Designer.cs">
+    <Compile Include="Citas\frmCitas.Designer.cs">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </Compile>
     <Compile Include="CLasesClientes\frmClientes.cs">
@@ -170,7 +171,7 @@
     <EmbeddedResource Include="Mensajes\frmMensaje.resx">
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="otrosfrns\frmCitas.resx">
+    <EmbeddedResource Include="Citas\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CLasesClientes\frmClientes.resx">
