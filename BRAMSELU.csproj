@@ -99,10 +99,10 @@
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Mensajes\GestorMensajes.cs" />
-    <Compile Include="otrosfrns\frmCitas.cs">
+    <Compile Include="Citas\frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otrosfrns\frmCitas.Designer.cs">
+    <Compile Include="Citas\frmCitas.Designer.cs">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </Compile>
     <Compile Include="CLasesClientes\frmClientes.cs">
@@ -168,7 +168,7 @@
     <EmbeddedResource Include="Mensajes\frmMensaje.resx">
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="otrosfrns\frmCitas.resx">
+    <EmbeddedResource Include="Citas\frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CLasesClientes\frmClientes.resx">

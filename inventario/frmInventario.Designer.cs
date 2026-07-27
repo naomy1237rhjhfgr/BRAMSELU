@@ -18,7 +18,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAcento = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -159,14 +159,14 @@
             // dgvDatos
             // 
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatos.ColumnHeadersHeight = 36;
             this.dgvDatos.Location = new System.Drawing.Point(67, 125);
             this.dgvDatos.MultiSelect = false;
@@ -247,38 +247,38 @@
             // txtNombre
             // 
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombre.Location = new System.Drawing.Point(197, 448);
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(197, 443);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(348, 30);
+            this.txtNombre.Size = new System.Drawing.Size(348, 34);
             this.txtNombre.TabIndex = 12;
             // 
             // txtMarca
             // 
             this.txtMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtMarca.Location = new System.Drawing.Point(765, 448);
+            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.Location = new System.Drawing.Point(765, 443);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(348, 30);
+            this.txtMarca.Size = new System.Drawing.Size(348, 34);
             this.txtMarca.TabIndex = 14;
             // 
             // txtPrecio
             // 
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPrecio.Location = new System.Drawing.Point(765, 486);
+            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(764, 481);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(348, 30);
+            this.txtPrecio.Size = new System.Drawing.Size(348, 34);
             this.txtPrecio.TabIndex = 18;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtStock
             // 
             this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStock.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtStock.Location = new System.Drawing.Point(197, 524);
+            this.txtStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(197, 519);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(348, 30);
+            this.txtStock.Size = new System.Drawing.Size(348, 34);
             this.txtStock.TabIndex = 20;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
@@ -312,7 +312,7 @@
             // picImagen
             // 
             this.picImagen.BackColor = System.Drawing.Color.White;
-            this.picImagen.Location = new System.Drawing.Point(765, 524);
+            this.picImagen.Location = new System.Drawing.Point(764, 521);
             this.picImagen.Name = "picImagen";
             this.picImagen.Size = new System.Drawing.Size(158, 73);
             this.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -327,7 +327,7 @@
             this.btnCargarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnCargarImagen.ForeColor = System.Drawing.Color.White;
-            this.btnCargarImagen.Location = new System.Drawing.Point(962, 524);
+            this.btnCargarImagen.Location = new System.Drawing.Point(962, 520);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(150, 34);
             this.btnCargarImagen.TabIndex = 24;
@@ -338,6 +338,7 @@
             // CmbCa
             // 
             this.CmbCa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbCa.FormattingEnabled = true;
             this.CmbCa.Items.AddRange(new object[] {
             "Limpiadores",
@@ -355,9 +356,9 @@
             "Cuidado Corporal",
             "Cuidado Capilar",
             "Accesorios"});
-            this.CmbCa.Location = new System.Drawing.Point(197, 486);
+            this.CmbCa.Location = new System.Drawing.Point(197, 480);
             this.CmbCa.Name = "CmbCa";
-            this.CmbCa.Size = new System.Drawing.Size(348, 29);
+            this.CmbCa.Size = new System.Drawing.Size(348, 36);
             this.CmbCa.TabIndex = 25;
             // 
             // errorProvider1

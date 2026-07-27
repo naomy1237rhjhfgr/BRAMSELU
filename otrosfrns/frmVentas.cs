@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BRAMSELU
 {
-    public partial class Frmventas : Form
+    public partial class frmVentas : Form
     {
-        public Frmventas()
+        public frmVentas()
         {
             InitializeComponent();
         }
