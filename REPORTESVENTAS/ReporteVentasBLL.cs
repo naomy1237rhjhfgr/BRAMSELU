@@ -1,5 +1,4 @@
-﻿using BRAMSELU.REPORTESVENTAS;
-using System;
+﻿using System;
 using System.Data;
 
 namespace BRAMSELU.Ventas
