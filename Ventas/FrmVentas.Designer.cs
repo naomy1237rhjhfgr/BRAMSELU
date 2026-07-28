@@ -78,7 +78,7 @@
             this.lblTotal.ForeColor = System.Drawing.Color.Green;
             this.lblTotal.Location = new System.Drawing.Point(380, 360);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(106, 29);
+            this.lblTotal.Size = new System.Drawing.Size(90, 29);
             this.lblTotal.TabIndex = 4;
             this.lblTotal.Text = "L. 0.00";
             // 
@@ -108,7 +108,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.Size = new System.Drawing.Size(135, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Seleccione Producto:";
             // 
@@ -127,7 +127,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(210, 360);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 25);
+            this.label3.Size = new System.Drawing.Size(149, 25);
             this.label3.TabIndex = 9;
             this.label3.Text = "Total a Pagar:";
             // 
@@ -137,14 +137,13 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(30, 410);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 20);
+            this.label4.Size = new System.Drawing.Size(162, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Efectivo Recibido:";
             // 
-            // Frmventas
+            // FrmVentas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(560, 470);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -164,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.ComboBox cmbProductos;

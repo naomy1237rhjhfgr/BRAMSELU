@@ -36,7 +36,6 @@
             // 
             // lblEstado
             // 
-            this.lblEstado.AutoSize = false;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstado.Location = new System.Drawing.Point(30, 20);
             this.lblEstado.Name = "lblEstado";
@@ -50,7 +49,7 @@
             this.lblInfoCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfoCaja.Location = new System.Drawing.Point(30, 55);
             this.lblInfoCaja.Name = "lblInfoCaja";
-            this.lblInfoCaja.Size = new System.Drawing.Size(295, 20);
+            this.lblInfoCaja.Size = new System.Drawing.Size(301, 20);
             this.lblInfoCaja.TabIndex = 1;
             this.lblInfoCaja.Text = "Debe abrir caja para operar el sistema.";
             // 
@@ -93,7 +92,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 18);
+            this.label1.Size = new System.Drawing.Size(143, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto Inicial (Base):";
             // 
@@ -136,7 +135,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 18);
+            this.label2.Size = new System.Drawing.Size(170, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Efectivo Contado Físico:";
             // 
@@ -158,14 +157,13 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(30, 222);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(236, 20);
+            this.label3.Size = new System.Drawing.Size(265, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Transacciones del Día (Ventas):";
             // 
             // FrmCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(480, 580);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvVentasDelDia);
