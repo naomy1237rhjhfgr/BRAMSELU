@@ -177,6 +177,8 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="reportescompras\ReporteComprasBLL.cs" />
+    <Compile Include="reportescompras\ReporteComprasDAL.cs" />
     <Compile Include="REPORTESVENTAS\FrmReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +247,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="REPORTESVENTAS\FrmReporteVentas.resx">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
