@@ -90,7 +90,7 @@ namespace BRAMSELU
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmReportes());
+            AbrirFormEnPanel(new FrmReporteVentas());
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
