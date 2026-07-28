@@ -1,4 +1,6 @@
-﻿using BRAMSELU.Ventas;
+﻿using BRAMSELU.Caja;
+using BRAMSELU.Compra;
+using BRAMSELU.Ventas;
 using System;
 using System.Windows.Forms;
 
@@ -144,6 +146,17 @@ namespace BRAMSELU
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
             }
+        }
+
+        private void BtnCaja_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmCaja());
+        }
+
+        private void BtnCompras_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormEnPanel(new FrmCompra());
         }
     }
 }
