@@ -67,6 +67,15 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caja\CajaBLL.cs" />
+    <Compile Include="Caja\CajaDAL.cs" />
+    <Compile Include="Caja\CajaED.cs" />
+    <Compile Include="Caja\FrmCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\FrmCaja.Designer.cs">
+      <DependentUpon>FrmCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
