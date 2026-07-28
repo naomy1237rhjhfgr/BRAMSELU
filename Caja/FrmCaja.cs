@@ -18,6 +18,9 @@ namespace BRAMSELU.Caja
         public FrmCaja()
         {
             InitializeComponent();
+
+            this.txtMontoInicial.KeyPress += new KeyPressEventHandler(this.txtMontoInicial_KeyPress);
+            this.txtMontoFinal.KeyPress += new KeyPressEventHandler(this.txtMontoFinal_KeyPress);
         }
 
         private void FrmCaja_Load(object sender, EventArgs e)
@@ -131,6 +134,45 @@ namespace BRAMSELU.Caja
                 MessageBox.Show("Error al cerrar la caja: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
 
+        private void txtMontoInicial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txt.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontoInicial_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMontoFinal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txt.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontoFinal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

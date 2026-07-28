@@ -37,23 +37,23 @@
             this.cmbProductos.FormattingEnabled = true;
             this.cmbProductos.Location = new System.Drawing.Point(30, 45);
             this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(250, 24);
+            this.cmbProductos.Size = new System.Drawing.Size(250, 28);
             this.cmbProductos.TabIndex = 0;
             // 
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(300, 45);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 22);
+            this.txtCantidad.Size = new System.Drawing.Size(100, 26);
             this.txtCantidad.TabIndex = 1;
             // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(420, 40);
+            this.btnAgregar.Location = new System.Drawing.Point(406, 36);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(110, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(142, 44);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar al Carrito";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@
             this.lblTotal.ForeColor = System.Drawing.Color.Green;
             this.lblTotal.Location = new System.Drawing.Point(380, 360);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(90, 29);
+            this.lblTotal.Size = new System.Drawing.Size(108, 32);
             this.lblTotal.TabIndex = 4;
             this.lblTotal.Text = "L. 0.00";
             // 
@@ -87,8 +87,9 @@
             this.txtEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEfectivo.Location = new System.Drawing.Point(180, 405);
             this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(150, 30);
+            this.txtEfectivo.Size = new System.Drawing.Size(150, 35);
             this.txtEfectivo.TabIndex = 5;
+            this.txtEfectivo.TextChanged += new System.EventHandler(this.txtEfectivo_TextChanged);
             // 
             // btnCobrar
             // 
@@ -108,7 +109,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 16);
+            this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Seleccione Producto:";
             // 
@@ -117,7 +118,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(300, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Cantidad:";
             // 
@@ -127,7 +128,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(210, 360);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 25);
+            this.label3.Size = new System.Drawing.Size(177, 29);
             this.label3.TabIndex = 9;
             this.label3.Text = "Total a Pagar:";
             // 
@@ -135,9 +136,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 410);
+            this.label4.Location = new System.Drawing.Point(-11, 411);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.Size = new System.Drawing.Size(185, 25);
             this.label4.TabIndex = 10;
             this.label4.Text = "Efectivo Recibido:";
             // 

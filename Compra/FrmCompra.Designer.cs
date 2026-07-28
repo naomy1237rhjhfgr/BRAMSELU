@@ -63,9 +63,11 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(14, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(760, 110);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(855, 138);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestión de Compras y Proveedores";
@@ -77,18 +79,19 @@
             this.cmbProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbProveedores.ForeColor = System.Drawing.Color.White;
             this.cmbProveedores.FormattingEnabled = true;
-            this.cmbProveedores.Location = new System.Drawing.Point(95, 27);
+            this.cmbProveedores.Location = new System.Drawing.Point(107, 34);
+            this.cmbProveedores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbProveedores.Name = "cmbProveedores";
-            this.cmbProveedores.Size = new System.Drawing.Size(300, 28);
+            this.cmbProveedores.Size = new System.Drawing.Size(337, 33);
             this.cmbProveedores.TabIndex = 1;
             // 
             // labelProveedor
             // 
             this.labelProveedor.AutoSize = true;
             this.labelProveedor.ForeColor = System.Drawing.Color.White;
-            this.labelProveedor.Location = new System.Drawing.Point(15, 30);
+            this.labelProveedor.Location = new System.Drawing.Point(17, 38);
             this.labelProveedor.Name = "labelProveedor";
-            this.labelProveedor.Size = new System.Drawing.Size(85, 20);
+            this.labelProveedor.Size = new System.Drawing.Size(106, 25);
             this.labelProveedor.TabIndex = 0;
             this.labelProveedor.Text = "Proveedor:";
             // 
@@ -98,9 +101,10 @@
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(585, 64);
+            this.btnAgregar.Location = new System.Drawing.Point(658, 80);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(155, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(174, 38);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar al Carrito";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -111,18 +115,21 @@
             this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecio.ForeColor = System.Drawing.Color.White;
-            this.txtPrecio.Location = new System.Drawing.Point(480, 69);
+            this.txtPrecio.Location = new System.Drawing.Point(540, 86);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(85, 27);
+            this.txtPrecio.Size = new System.Drawing.Size(95, 31);
             this.txtPrecio.TabIndex = 4;
+    
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(425, 72);
+            this.label3.Location = new System.Drawing.Point(478, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Precio:";
             // 
@@ -131,18 +138,21 @@
             this.txtCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCantidad.ForeColor = System.Drawing.Color.White;
-            this.txtCantidad.Location = new System.Drawing.Point(345, 69);
+            this.txtCantidad.Location = new System.Drawing.Point(388, 86);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(70, 27);
+            this.txtCantidad.Size = new System.Drawing.Size(78, 31);
             this.txtCantidad.TabIndex = 3;
+         
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(275, 72);
+            this.label2.Location = new System.Drawing.Point(309, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(93, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cantidad:";
             // 
@@ -153,18 +163,19 @@
             this.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbProductos.ForeColor = System.Drawing.Color.White;
             this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(85, 69);
+            this.cmbProductos.Location = new System.Drawing.Point(96, 86);
+            this.cmbProductos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(180, 28);
+            this.cmbProductos.Size = new System.Drawing.Size(202, 33);
             this.cmbProductos.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 72);
+            this.label1.Location = new System.Drawing.Point(17, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 20);
+            this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Producto:";
             // 
@@ -187,7 +198,8 @@
             this.dgvDetalle.ColumnHeadersHeight = 35;
             this.dgvDetalle.EnableHeadersVisualStyles = false;
             this.dgvDetalle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.dgvDetalle.Location = new System.Drawing.Point(12, 135);
+            this.dgvDetalle.Location = new System.Drawing.Point(14, 169);
+            this.dgvDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
             this.dgvDetalle.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -209,7 +221,7 @@
             this.dgvDetalle.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalle.RowTemplate.Height = 28;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(760, 240);
+            this.dgvDetalle.Size = new System.Drawing.Size(855, 300);
             this.dgvDetalle.TabIndex = 1;
             // 
             // lblTotal
@@ -217,9 +229,9 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.lblTotal.Location = new System.Drawing.Point(623, 390);
+            this.lblTotal.Location = new System.Drawing.Point(701, 488);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(83, 32);
+            this.lblTotal.Size = new System.Drawing.Size(103, 38);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "L. 0.00";
             // 
@@ -228,9 +240,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(495, 396);
+            this.label4.Location = new System.Drawing.Point(557, 495);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 23);
+            this.label4.Size = new System.Drawing.Size(128, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "TOTAL GRL:";
             // 
@@ -241,9 +253,10 @@
             this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizar.Location = new System.Drawing.Point(12, 390);
+            this.btnFinalizar.Location = new System.Drawing.Point(14, 488);
+            this.btnFinalizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(160, 40);
+            this.btnFinalizar.Size = new System.Drawing.Size(180, 50);
             this.btnFinalizar.TabIndex = 4;
             this.btnFinalizar.Text = "Finalizar Compra";
             this.btnFinalizar.UseVisualStyleBackColor = false;
@@ -251,15 +264,16 @@
             // 
             // FrmCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.ClientSize = new System.Drawing.Size(882, 562);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dgvDetalle);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Compras y Proveedores";
@@ -269,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
