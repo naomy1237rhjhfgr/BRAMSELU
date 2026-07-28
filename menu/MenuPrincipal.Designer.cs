@@ -110,7 +110,7 @@
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(356, 1055);
+            this.pnlSidebar.Size = new System.Drawing.Size(356, 1050);
             this.pnlSidebar.TabIndex = 0;
             // 
             // BtnCompras
@@ -344,7 +344,7 @@
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.lblUsuarioActivo.Location = new System.Drawing.Point(37, 106);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(67, 12);
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
@@ -376,7 +376,7 @@
             this.pnlContenido.Location = new System.Drawing.Point(356, 0);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1390, 1055);
+            this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
             this.pnlContenido.TabIndex = 1;
             // 
             // label13
@@ -386,7 +386,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
             this.label13.Location = new System.Drawing.Point(13, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(362, 45);
+            this.label13.Size = new System.Drawing.Size(432, 54);
             this.label13.TabIndex = 10;
             this.label13.Text = "Bienvenido a Bramselú";
             // 
@@ -429,7 +429,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(66, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 50);
+            this.label1.Size = new System.Drawing.Size(257, 61);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dashboard";
             // 
@@ -497,7 +497,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(8, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(159, 28);
+            this.label11.Size = new System.Drawing.Size(188, 32);
             this.label11.TabIndex = 4;
             this.label11.Text = "Ingresos del Día";
             // 
@@ -508,7 +508,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(3, 41);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 59);
+            this.label12.Size = new System.Drawing.Size(90, 70);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -543,7 +543,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(8, 101);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 28);
+            this.label9.Size = new System.Drawing.Size(169, 32);
             this.label9.TabIndex = 4;
             this.label9.Text = "Ventas del Día";
             // 
@@ -554,7 +554,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(3, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 59);
+            this.label10.Size = new System.Drawing.Size(90, 70);
             this.label10.TabIndex = 3;
             this.label10.Text = "50";
             // 
@@ -599,7 +599,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 28);
+            this.label7.Size = new System.Drawing.Size(214, 32);
             this.label7.TabIndex = 4;
             this.label7.Text = "Categorías Activas";
             // 
@@ -610,7 +610,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 40);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 59);
+            this.label8.Size = new System.Drawing.Size(90, 70);
             this.label8.TabIndex = 3;
             this.label8.Text = "50";
             // 
@@ -645,7 +645,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 28);
+            this.label5.Size = new System.Drawing.Size(275, 32);
             this.label5.TabIndex = 4;
             this.label5.Text = "Productos en Inventario";
             // 
@@ -656,7 +656,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(3, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 59);
+            this.label6.Size = new System.Drawing.Size(120, 70);
             this.label6.TabIndex = 3;
             this.label6.Text = "250";
             // 
@@ -691,7 +691,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(8, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 28);
+            this.label3.Size = new System.Drawing.Size(150, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Citas del Día";
             // 
@@ -702,7 +702,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 59);
+            this.label4.Size = new System.Drawing.Size(90, 70);
             this.label4.TabIndex = 3;
             this.label4.Text = "08";
             // 
@@ -737,7 +737,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 28);
+            this.label2.Size = new System.Drawing.Size(233, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Clientes Registrados";
             // 
@@ -748,7 +748,7 @@
             this.LblCLientes.ForeColor = System.Drawing.Color.White;
             this.LblCLientes.Location = new System.Drawing.Point(3, 40);
             this.LblCLientes.Name = "LblCLientes";
-            this.LblCLientes.Size = new System.Drawing.Size(75, 59);
+            this.LblCLientes.Size = new System.Drawing.Size(90, 70);
             this.LblCLientes.TabIndex = 1;
             this.LblCLientes.Text = "50";
             // 
@@ -765,9 +765,9 @@
             // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1746, 1055);
+            this.ClientSize = new System.Drawing.Size(1746, 1050);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);

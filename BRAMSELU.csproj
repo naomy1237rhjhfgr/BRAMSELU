@@ -177,6 +177,15 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="REPORTESVENTAS\FrmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REPORTESVENTAS\FrmReporteVentas.Designer.cs">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTESVENTAS\ReporteVentas.cs" />
+    <Compile Include="REPORTESVENTAS\ReporteVentasBLL.cs" />
+    <Compile Include="REPORTESVENTAS\ReporteVentasDAL.cs" />
     <Compile Include="Ventas\FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
