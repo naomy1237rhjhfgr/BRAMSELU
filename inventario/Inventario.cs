@@ -5,6 +5,7 @@
         private int _idProducto;
         private string _nombreProducto;
         private string _marca;
+        private int _Idcategoria;
         private string _categoria;
         private decimal _precio;
         private int _stock;
@@ -15,6 +16,7 @@
             _idProducto = 0;
             _nombreProducto = "";
             _marca = "";
+            _Idcategoria = 0;
             _categoria = "";
             _precio = 0;
             _stock = 0;
@@ -37,6 +39,12 @@
         {
             get { return _marca; }
             set { _marca = value; }
+        }
+
+        public int IdCategoria
+        {
+            get { return _Idcategoria; }
+            set { _Idcategoria = value; }
         }
 
         public string Categoria

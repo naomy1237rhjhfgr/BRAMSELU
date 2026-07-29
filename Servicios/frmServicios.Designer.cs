@@ -1,0 +1,403 @@
+﻿namespace BRAMSELU
+{
+    partial class frmServicios
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtdescripcionservicio = new System.Windows.Forms.TextBox();
+            this.progressBarcategorias = new System.Windows.Forms.ProgressBar();
+            this.lblidservicio = new System.Windows.Forms.Label();
+            this.labeldescripcionservicio = new System.Windows.Forms.Label();
+            this.labelnombreservicio = new System.Windows.Forms.Label();
+            this.lbldatosservicio = new System.Windows.Forms.Label();
+            this.btnbuscarservicio = new System.Windows.Forms.Button();
+            this.txtBuscarservicio = new System.Windows.Forms.TextBox();
+            this.btnguardarservicio = new System.Windows.Forms.Button();
+            this.bttneliminarservicio = new System.Windows.Forms.Button();
+            this.bttneditarservicio = new System.Windows.Forms.Button();
+            this.Btnnuevoservicio = new System.Windows.Forms.Button();
+            this.dataGridViewservicio = new System.Windows.Forms.DataGridView();
+            this.labelbuscarservicio = new System.Windows.Forms.Label();
+            this.lblservicios = new System.Windows.Forms.Label();
+            this.lblprecioservicio = new System.Windows.Forms.Label();
+            this.lblduracion = new System.Windows.Forms.Label();
+            this.lblestado = new System.Windows.Forms.Label();
+            this.comboBoxestadoservicio = new System.Windows.Forms.ComboBox();
+            this.txtIdservicio = new System.Windows.Forms.TextBox();
+            this.txtnombreservicio = new System.Windows.Forms.TextBox();
+            this.txtprecioservicio = new System.Windows.Forms.TextBox();
+            this.txtduracionservicio = new System.Windows.Forms.TextBox();
+            this.L = new System.Windows.Forms.Label();
+            this.minutosahoras = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewservicio)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // txtdescripcionservicio
+            // 
+            this.txtdescripcionservicio.Location = new System.Drawing.Point(45, 434);
+            this.txtdescripcionservicio.Multiline = true;
+            this.txtdescripcionservicio.Name = "txtdescripcionservicio";
+            this.txtdescripcionservicio.Size = new System.Drawing.Size(438, 90);
+            this.txtdescripcionservicio.TabIndex = 80;
+            // 
+            // progressBarcategorias
+            // 
+            this.progressBarcategorias.Location = new System.Drawing.Point(32, 564);
+            this.progressBarcategorias.Name = "progressBarcategorias";
+            this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
+            this.progressBarcategorias.TabIndex = 79;
+            this.progressBarcategorias.Visible = false;
+            // 
+            // lblidservicio
+            // 
+            this.lblidservicio.AutoSize = true;
+            this.lblidservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblidservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblidservicio.Location = new System.Drawing.Point(28, 321);
+            this.lblidservicio.Name = "lblidservicio";
+            this.lblidservicio.Size = new System.Drawing.Size(84, 21);
+            this.lblidservicio.TabIndex = 77;
+            this.lblidservicio.Text = "ID Servicio";
+            // 
+            // labeldescripcionservicio
+            // 
+            this.labeldescripcionservicio.AutoSize = true;
+            this.labeldescripcionservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.labeldescripcionservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labeldescripcionservicio.Location = new System.Drawing.Point(28, 399);
+            this.labeldescripcionservicio.Name = "labeldescripcionservicio";
+            this.labeldescripcionservicio.Size = new System.Drawing.Size(94, 21);
+            this.labeldescripcionservicio.TabIndex = 76;
+            this.labeldescripcionservicio.Text = "Descripcion:";
+            // 
+            // labelnombreservicio
+            // 
+            this.labelnombreservicio.AutoSize = true;
+            this.labelnombreservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.labelnombreservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelnombreservicio.Location = new System.Drawing.Point(28, 358);
+            this.labelnombreservicio.Name = "labelnombreservicio";
+            this.labelnombreservicio.Size = new System.Drawing.Size(71, 21);
+            this.labelnombreservicio.TabIndex = 74;
+            this.labelnombreservicio.Text = "Nombre:";
+            // 
+            // lbldatosservicio
+            // 
+            this.lbldatosservicio.AutoSize = true;
+            this.lbldatosservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lbldatosservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.lbldatosservicio.Location = new System.Drawing.Point(28, 287);
+            this.lbldatosservicio.Name = "lbldatosservicio";
+            this.lbldatosservicio.Size = new System.Drawing.Size(148, 21);
+            this.lbldatosservicio.TabIndex = 73;
+            this.lbldatosservicio.Text = "Datos del Servicio";
+            // 
+            // btnbuscarservicio
+            // 
+            this.btnbuscarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(130)))), ((int)(((byte)(160)))));
+            this.btnbuscarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnbuscarservicio.FlatAppearance.BorderSize = 0;
+            this.btnbuscarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbuscarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnbuscarservicio.ForeColor = System.Drawing.Color.White;
+            this.btnbuscarservicio.Location = new System.Drawing.Point(311, 73);
+            this.btnbuscarservicio.Name = "btnbuscarservicio";
+            this.btnbuscarservicio.Size = new System.Drawing.Size(100, 32);
+            this.btnbuscarservicio.TabIndex = 72;
+            this.btnbuscarservicio.Text = "Buscar";
+            this.btnbuscarservicio.UseVisualStyleBackColor = false;
+            // 
+            // txtBuscarservicio
+            // 
+            this.txtBuscarservicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarservicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtBuscarservicio.Location = new System.Drawing.Point(94, 73);
+            this.txtBuscarservicio.Name = "txtBuscarservicio";
+            this.txtBuscarservicio.Size = new System.Drawing.Size(195, 30);
+            this.txtBuscarservicio.TabIndex = 71;
+            // 
+            // btnguardarservicio
+            // 
+            this.btnguardarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            this.btnguardarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnguardarservicio.FlatAppearance.BorderSize = 0;
+            this.btnguardarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnguardarservicio.ForeColor = System.Drawing.Color.White;
+            this.btnguardarservicio.Location = new System.Drawing.Point(785, 73);
+            this.btnguardarservicio.Name = "btnguardarservicio";
+            this.btnguardarservicio.Size = new System.Drawing.Size(100, 32);
+            this.btnguardarservicio.TabIndex = 70;
+            this.btnguardarservicio.Text = "Guardar";
+            this.btnguardarservicio.UseVisualStyleBackColor = false;
+            // 
+            // bttneliminarservicio
+            // 
+            this.bttneliminarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(90)))), ((int)(((byte)(80)))));
+            this.bttneliminarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttneliminarservicio.FlatAppearance.BorderSize = 0;
+            this.bttneliminarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttneliminarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneliminarservicio.ForeColor = System.Drawing.Color.White;
+            this.bttneliminarservicio.Location = new System.Drawing.Point(670, 73);
+            this.bttneliminarservicio.Name = "bttneliminarservicio";
+            this.bttneliminarservicio.Size = new System.Drawing.Size(100, 32);
+            this.bttneliminarservicio.TabIndex = 69;
+            this.bttneliminarservicio.Text = "Eliminar";
+            this.bttneliminarservicio.UseVisualStyleBackColor = false;
+            // 
+            // bttneditarservicio
+            // 
+            this.bttneditarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.bttneditarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttneditarservicio.FlatAppearance.BorderSize = 0;
+            this.bttneditarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttneditarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneditarservicio.ForeColor = System.Drawing.Color.White;
+            this.bttneditarservicio.Location = new System.Drawing.Point(553, 73);
+            this.bttneditarservicio.Name = "bttneditarservicio";
+            this.bttneditarservicio.Size = new System.Drawing.Size(100, 32);
+            this.bttneditarservicio.TabIndex = 68;
+            this.bttneditarservicio.Text = "Editar";
+            this.bttneditarservicio.UseVisualStyleBackColor = false;
+            // 
+            // Btnnuevoservicio
+            // 
+            this.Btnnuevoservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.Btnnuevoservicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnnuevoservicio.FlatAppearance.BorderSize = 0;
+            this.Btnnuevoservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btnnuevoservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.Btnnuevoservicio.ForeColor = System.Drawing.Color.White;
+            this.Btnnuevoservicio.Location = new System.Drawing.Point(426, 73);
+            this.Btnnuevoservicio.Name = "Btnnuevoservicio";
+            this.Btnnuevoservicio.Size = new System.Drawing.Size(110, 32);
+            this.Btnnuevoservicio.TabIndex = 67;
+            this.Btnnuevoservicio.Text = "Nuevo";
+            this.Btnnuevoservicio.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewservicio
+            // 
+            this.dataGridViewservicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewservicio.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewservicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewservicio.Location = new System.Drawing.Point(24, 124);
+            this.dataGridViewservicio.MultiSelect = false;
+            this.dataGridViewservicio.Name = "dataGridViewservicio";
+            this.dataGridViewservicio.RowHeadersVisible = false;
+            this.dataGridViewservicio.RowHeadersWidth = 51;
+            this.dataGridViewservicio.RowTemplate.Height = 24;
+            this.dataGridViewservicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewservicio.Size = new System.Drawing.Size(919, 146);
+            this.dataGridViewservicio.TabIndex = 66;
+            // 
+            // labelbuscarservicio
+            // 
+            this.labelbuscarservicio.AutoSize = true;
+            this.labelbuscarservicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelbuscarservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelbuscarservicio.Location = new System.Drawing.Point(20, 77);
+            this.labelbuscarservicio.Name = "labelbuscarservicio";
+            this.labelbuscarservicio.Size = new System.Drawing.Size(68, 20);
+            this.labelbuscarservicio.TabIndex = 65;
+            this.labelbuscarservicio.Text = "Buscar:";
+            // 
+            // lblservicios
+            // 
+            this.lblservicios.AutoSize = true;
+            this.lblservicios.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblservicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.lblservicios.Location = new System.Drawing.Point(17, 12);
+            this.lblservicios.Name = "lblservicios";
+            this.lblservicios.Size = new System.Drawing.Size(132, 37);
+            this.lblservicios.TabIndex = 64;
+            this.lblservicios.Text = "Servicios";
+            // 
+            // lblprecioservicio
+            // 
+            this.lblprecioservicio.AutoSize = true;
+            this.lblprecioservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblprecioservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblprecioservicio.Location = new System.Drawing.Point(597, 321);
+            this.lblprecioservicio.Name = "lblprecioservicio";
+            this.lblprecioservicio.Size = new System.Drawing.Size(56, 21);
+            this.lblprecioservicio.TabIndex = 81;
+            this.lblprecioservicio.Text = "Precio:";
+            // 
+            // lblduracion
+            // 
+            this.lblduracion.AutoSize = true;
+            this.lblduracion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblduracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblduracion.Location = new System.Drawing.Point(597, 358);
+            this.lblduracion.Name = "lblduracion";
+            this.lblduracion.Size = new System.Drawing.Size(76, 21);
+            this.lblduracion.TabIndex = 83;
+            this.lblduracion.Text = "Duracion:";
+            // 
+            // lblestado
+            // 
+            this.lblestado.AutoSize = true;
+            this.lblestado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblestado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblestado.Location = new System.Drawing.Point(597, 412);
+            this.lblestado.Name = "lblestado";
+            this.lblestado.Size = new System.Drawing.Size(59, 21);
+            this.lblestado.TabIndex = 86;
+            this.lblestado.Text = "Estado:";
+            // 
+            // comboBoxestadoservicio
+            // 
+            this.comboBoxestadoservicio.FormattingEnabled = true;
+            this.comboBoxestadoservicio.Items.AddRange(new object[] {
+            "Activo ",
+            "Inactivo"});
+            this.comboBoxestadoservicio.Location = new System.Drawing.Point(688, 413);
+            this.comboBoxestadoservicio.Name = "comboBoxestadoservicio";
+            this.comboBoxestadoservicio.Size = new System.Drawing.Size(144, 24);
+            this.comboBoxestadoservicio.TabIndex = 87;
+            // 
+            // txtIdservicio
+            // 
+            this.txtIdservicio.Location = new System.Drawing.Point(129, 322);
+            this.txtIdservicio.Name = "txtIdservicio";
+            this.txtIdservicio.Size = new System.Drawing.Size(136, 22);
+            this.txtIdservicio.TabIndex = 88;
+            // 
+            // txtnombreservicio
+            // 
+            this.txtnombreservicio.Location = new System.Drawing.Point(129, 359);
+            this.txtnombreservicio.Name = "txtnombreservicio";
+            this.txtnombreservicio.Size = new System.Drawing.Size(354, 22);
+            this.txtnombreservicio.TabIndex = 89;
+            // 
+            // txtprecioservicio
+            // 
+            this.txtprecioservicio.Location = new System.Drawing.Point(688, 322);
+            this.txtprecioservicio.Name = "txtprecioservicio";
+            this.txtprecioservicio.Size = new System.Drawing.Size(144, 22);
+            this.txtprecioservicio.TabIndex = 90;
+            // 
+            // txtduracionservicio
+            // 
+            this.txtduracionservicio.Location = new System.Drawing.Point(688, 359);
+            this.txtduracionservicio.Name = "txtduracionservicio";
+            this.txtduracionservicio.Size = new System.Drawing.Size(144, 22);
+            this.txtduracionservicio.TabIndex = 91;
+            // 
+            // L
+            // 
+            this.L.AutoSize = true;
+            this.L.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.L.Location = new System.Drawing.Point(666, 323);
+            this.L.Name = "L";
+            this.L.Size = new System.Drawing.Size(21, 21);
+            this.L.TabIndex = 92;
+            this.L.Text = "L.";
+            // 
+            // minutosahoras
+            // 
+            this.minutosahoras.BackColor = System.Drawing.Color.Transparent;
+            this.minutosahoras.ForeColor = System.Drawing.Color.DimGray;
+            this.minutosahoras.Location = new System.Drawing.Point(688, 384);
+            this.minutosahoras.Name = "minutosahoras";
+            this.minutosahoras.Size = new System.Drawing.Size(144, 17);
+            this.minutosahoras.TabIndex = 93;
+            this.minutosahoras.Text = "1 hora 30 minutos";
+            // 
+            // frmServicios
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
+            this.ClientSize = new System.Drawing.Size(979, 612);
+            this.Controls.Add(this.minutosahoras);
+            this.Controls.Add(this.L);
+            this.Controls.Add(this.txtduracionservicio);
+            this.Controls.Add(this.txtprecioservicio);
+            this.Controls.Add(this.txtnombreservicio);
+            this.Controls.Add(this.txtIdservicio);
+            this.Controls.Add(this.comboBoxestadoservicio);
+            this.Controls.Add(this.lblestado);
+            this.Controls.Add(this.lblduracion);
+            this.Controls.Add(this.lblprecioservicio);
+            this.Controls.Add(this.txtdescripcionservicio);
+            this.Controls.Add(this.progressBarcategorias);
+            this.Controls.Add(this.lblidservicio);
+            this.Controls.Add(this.labeldescripcionservicio);
+            this.Controls.Add(this.labelnombreservicio);
+            this.Controls.Add(this.lbldatosservicio);
+            this.Controls.Add(this.btnbuscarservicio);
+            this.Controls.Add(this.txtBuscarservicio);
+            this.Controls.Add(this.btnguardarservicio);
+            this.Controls.Add(this.bttneliminarservicio);
+            this.Controls.Add(this.bttneditarservicio);
+            this.Controls.Add(this.Btnnuevoservicio);
+            this.Controls.Add(this.dataGridViewservicio);
+            this.Controls.Add(this.labelbuscarservicio);
+            this.Controls.Add(this.lblservicios);
+            this.Name = "frmServicios";
+            this.Text = "frmServicios";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewservicio)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtdescripcionservicio;
+        private System.Windows.Forms.ProgressBar progressBarcategorias;
+        private System.Windows.Forms.Label lblidservicio;
+        private System.Windows.Forms.Label labeldescripcionservicio;
+        private System.Windows.Forms.Label labelnombreservicio;
+        private System.Windows.Forms.Label lbldatosservicio;
+        private System.Windows.Forms.Button btnbuscarservicio;
+        private System.Windows.Forms.TextBox txtBuscarservicio;
+        private System.Windows.Forms.Button btnguardarservicio;
+        private System.Windows.Forms.Button bttneliminarservicio;
+        private System.Windows.Forms.Button bttneditarservicio;
+        private System.Windows.Forms.Button Btnnuevoservicio;
+        private System.Windows.Forms.DataGridView dataGridViewservicio;
+        private System.Windows.Forms.Label labelbuscarservicio;
+        private System.Windows.Forms.Label lblservicios;
+        private System.Windows.Forms.Label lblprecioservicio;
+        private System.Windows.Forms.Label lblduracion;
+        private System.Windows.Forms.Label lblestado;
+        private System.Windows.Forms.ComboBox comboBoxestadoservicio;
+        private System.Windows.Forms.TextBox txtIdservicio;
+        private System.Windows.Forms.TextBox txtnombreservicio;
+        private System.Windows.Forms.TextBox txtprecioservicio;
+        private System.Windows.Forms.TextBox txtduracionservicio;
+        private System.Windows.Forms.Label L;
+        private System.Windows.Forms.Label minutosahoras;
+    }
+}

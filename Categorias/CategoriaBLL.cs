@@ -41,6 +41,11 @@ namespace BRAMSELU.Categorias
             return categoriaDatos.ExisteCategoria(nombreCategoria, idCategoria);
         }
 
+        public DataTable ObtenerProductosPorCategoria(string categoria)
+        {
+            return categoriaDatos.ObtenerProductosPorCategoria(categoria);
+        }
+
 
     }
 }

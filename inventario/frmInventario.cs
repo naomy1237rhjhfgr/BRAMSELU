@@ -1,4 +1,5 @@
 ﻿using BRAMSELU.BLL;
+using BRAMSELU.Categorias;
 using BRAMSELU.ClasesProducto;
 using BRAMSELU.DAL;
 using BRAMSELU.Entidades;
@@ -14,6 +15,8 @@ namespace BRAMSELU
         private InventarioBLL inventarioBLL;
         private ImagenProducto imgHelper;
 
+        private CategoriaBLL categoriaBLL = new CategoriaBLL();
+
         private int idSeleccionado = 0;
         private byte[] imagenSeleccionada = null;
         private string accion = "";
@@ -27,6 +30,10 @@ namespace BRAMSELU
 
         private void frmInventario_Load(object sender, EventArgs e)
         {
+            CmbCa.DataSource = categoriaBLL.ObtenerCategorias();
+            CmbCa.DisplayMember = "NombreCategoria";
+            CmbCa.ValueMember = "IdCategoria";
+
             CargarDatos();
             BloquearCampos(true);
         }
@@ -35,6 +42,7 @@ namespace BRAMSELU
         {
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = inventarioBLL.ObtenerProductos();
+            dgvDatos.Columns["IdCategoria"].Visible = false;
             OcultarImagen();
         }
 
@@ -211,9 +219,9 @@ namespace BRAMSELU
             idSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
             txtNombre.Text = fila.Cells[1].Value.ToString();
             txtMarca.Text = fila.Cells[2].Value.ToString();
-            CmbCa.Text = fila.Cells[3].Value.ToString();
-            txtPrecio.Text = fila.Cells[4].Value.ToString();
-            txtStock.Text = fila.Cells[5].Value.ToString();
+            CmbCa.Text = fila.Cells[4].Value.ToString();
+            txtPrecio.Text = fila.Cells[5].Value.ToString();
+            txtStock.Text = fila.Cells[6].Value.ToString();
 
             Inventario inv = (Inventario)fila.DataBoundItem;
             imagenSeleccionada = inv.Imagen;
@@ -262,7 +270,7 @@ namespace BRAMSELU
                 IdProducto = idSeleccionado,
                 NombreProducto = txtNombre.Text,
                 Marca = txtMarca.Text,
-                Categoria = CmbCa.Text,
+                IdCategoria = Convert.ToInt32(CmbCa.SelectedValue),
                 Precio = Convert.ToDecimal(txtPrecio.Text),
                 Stock = Convert.ToInt32(txtStock.Text),
                 Imagen = imagenSeleccionada

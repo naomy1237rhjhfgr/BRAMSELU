@@ -14,7 +14,7 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"INSERT INTO Productos (NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen) VALUES('{inv.NombreProducto}', '{inv.Marca}', '{inv.Categoria}', {inv.Precio}, {inv.Stock}, GETDATE(), {imagenSQL})";
+            string SQL = $"INSERT INTO Productos (NombreProducto, Marca, IdCategoria, Precio, Stock, FechaRegistro, Imagen) VALUES('{inv.NombreProducto}', '{inv.Marca}', '{inv.IdCategoria}', {inv.Precio}, {inv.Stock}, GETDATE(), {imagenSQL})";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -23,7 +23,7 @@ namespace BRAMSELU.DAL
         {
             string imagenSQL = ConvertirImagenSQL(inv.Imagen);
 
-            string SQL = $"UPDATE Productos SET NombreProducto='{inv.NombreProducto}', Marca='{inv.Marca}', Categoria='{inv.Categoria}', Precio={inv.Precio}, Stock={inv.Stock}, Imagen={imagenSQL} WHERE IdProducto={inv.IdProducto}";
+            string SQL = $"UPDATE Productos SET NombreProducto='{inv.NombreProducto}', Marca='{inv.Marca}', IdCategoria='{inv.IdCategoria}', Precio={inv.Precio}, Stock={inv.Stock}, Imagen={imagenSQL} WHERE IdProducto={inv.IdProducto}";
 
             return _conexion.EjecutarSQL(SQL);
         }
@@ -39,7 +39,17 @@ namespace BRAMSELU.DAL
         {
             List<Inventario> lista = new List<Inventario>();
 
-            string SQL = "SELECT * FROM Productos";
+            string SQL = @"SELECT
+                p.IdProducto,
+                p.NombreProducto,
+                p.Marca,
+                c.NombreCategoria,
+                p.Precio,
+                p.Stock,
+                p.Imagen
+               FROM Productos p
+               INNER JOIN Categorias c
+                    ON p.IdCategoria = c.IdCategoria";
 
             SqlDataReader reader = _conexion.EjecutarConsulta(SQL);
 
@@ -56,9 +66,9 @@ namespace BRAMSELU.DAL
                         Precio = reader.GetDecimal(4),
                         Stock = reader.GetInt32(5),
 
-                        Imagen = reader.IsDBNull(7)
+                        Imagen = reader.IsDBNull(6)
                             ? null
-                            : (byte[])reader[7]
+                            : (byte[])reader[6]
                     };
 
                     lista.Add(inv);
@@ -94,7 +104,7 @@ namespace BRAMSELU.DAL
                         IdProducto = reader.GetInt32(0),
                         NombreProducto = reader.GetString(1),
                         Marca = reader.GetString(2),
-                        Categoria = reader.GetString(3),
+                        IdCategoria = reader.GetInt32(3),
                         Precio = reader.GetDecimal(4),
                         Stock = reader.GetInt32(5),
 

@@ -16,7 +16,7 @@ namespace BRAMSELU.BLL
             if (inv.Marca == "")
                 return false;
 
-            if (inv.Categoria == "")
+            if (inv.IdCategoria <= 0)
                 return false;
 
             if (inv.Precio <= 0)
