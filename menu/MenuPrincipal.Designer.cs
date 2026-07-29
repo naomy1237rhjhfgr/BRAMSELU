@@ -373,7 +373,7 @@
             this.pnlContenido.BackColor = System.Drawing.Color.White;
             this.pnlContenido.Controls.Add(this.label13);
             this.pnlContenido.Controls.Add(this.PanelContenido);
-            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContenido.Location = new System.Drawing.Point(356, 0);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlContenido.Name = "pnlContenido";

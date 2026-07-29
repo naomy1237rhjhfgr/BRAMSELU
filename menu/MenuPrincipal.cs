@@ -158,5 +158,7 @@ namespace BRAMSELU
 
             AbrirFormEnPanel(new FrmCompra());
         }
+
+        
     }
 }
