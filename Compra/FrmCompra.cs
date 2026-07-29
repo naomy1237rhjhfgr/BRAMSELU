@@ -18,6 +18,10 @@ namespace BRAMSELU.Compra
         public FrmCompra()
         {
             InitializeComponent();
+
+           
+            this.txtCantidad.KeyPress += new KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtPrecio.KeyPress += new KeyPressEventHandler(this.txtPrecio_KeyPress);
         }
 
         private void FrmCompra_Load(object sender, EventArgs e)
@@ -81,7 +85,6 @@ namespace BRAMSELU.Compra
             decimal precio = Convert.ToDecimal(txtPrecio.Text);
             decimal subtotal = cantidad * precio;
 
-            // Agregar registro a la tabla temporal del carrito
             dtCarrito.Rows.Add(idProducto, nombreProducto, cantidad, precio, subtotal);
 
             CalcularTotalGeneral();
@@ -136,7 +139,30 @@ namespace BRAMSELU.Compra
             txtPrecio.Clear();
             cmbProductos.Focus();
         }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+          
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txt.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
-
 }
-

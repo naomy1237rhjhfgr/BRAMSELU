@@ -180,6 +180,17 @@
     <Compile Include="Servicios\Servicio.cs" />
     <Compile Include="Servicios\ServicioBLL.cs" />
     <Compile Include="Servicios\ServicioDAL.cs" />
+    <Compile Include="reportescompras\ReporteComprasBLL.cs" />
+    <Compile Include="reportescompras\ReporteComprasDAL.cs" />
+    <Compile Include="REPORTESVENTAS\FrmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REPORTESVENTAS\FrmReporteVentas.Designer.cs">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTESVENTAS\ReporteVentas.cs" />
+    <Compile Include="REPORTESVENTAS\ReporteVentasBLL.cs" />
+    <Compile Include="REPORTESVENTAS\ReporteVentasDAL.cs" />
     <Compile Include="Ventas\FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,8 +200,14 @@
     <Compile Include="Ventas\VentaBLL.cs" />
     <Compile Include="Ventas\VentaDAL.cs" />
     <Compile Include="Ventas\VentaED.cs" />
+    <EmbeddedResource Include="Caja\FrmCaja.resx">
+      <DependentUpon>FrmCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Categorias\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes\FrmConfirmacion.resx">
       <DependentUpon>FrmConfirmacion.cs</DependentUpon>
@@ -235,6 +252,12 @@
     </Compile>
     <EmbeddedResource Include="Servicios\frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTESVENTAS\FrmReporteVentas.resx">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

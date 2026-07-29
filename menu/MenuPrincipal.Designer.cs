@@ -19,6 +19,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.BtnCompras = new System.Windows.Forms.Button();
+            this.BtnCaja = new System.Windows.Forms.Button();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.btnPanel = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
@@ -91,6 +93,8 @@
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
             this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlSidebar.Controls.Add(this.BtnCompras);
+            this.pnlSidebar.Controls.Add(this.BtnCaja);
             this.pnlSidebar.Controls.Add(this.BtnInicio);
             this.pnlSidebar.Controls.Add(this.btnPanel);
             this.pnlSidebar.Controls.Add(this.btnEmpleados);
@@ -106,8 +110,46 @@
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(356, 1055);
+            this.pnlSidebar.Size = new System.Drawing.Size(356, 1050);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // BtnCompras
+            // 
+            this.BtnCompras.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCompras.FlatAppearance.BorderSize = 0;
+            this.BtnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.BtnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCompras.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.BtnCompras.Location = new System.Drawing.Point(0, 346);
+            this.BtnCompras.Name = "BtnCompras";
+            this.BtnCompras.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.BtnCompras.Size = new System.Drawing.Size(356, 50);
+            this.BtnCompras.TabIndex = 14;
+            this.BtnCompras.Text = "🛒  Compras";
+            this.BtnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCompras.UseVisualStyleBackColor = false;
+            this.BtnCompras.Click += new System.EventHandler(this.BtnCompras_Click);
+            // 
+            // BtnCaja
+            // 
+            this.BtnCaja.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCaja.FlatAppearance.BorderSize = 0;
+            this.BtnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.BtnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCaja.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.BtnCaja.Location = new System.Drawing.Point(0, 177);
+            this.BtnCaja.Name = "BtnCaja";
+            this.BtnCaja.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.BtnCaja.Size = new System.Drawing.Size(356, 50);
+            this.BtnCaja.TabIndex = 13;
+            this.BtnCaja.Text = "🛒  Caja";
+            this.BtnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCaja.UseVisualStyleBackColor = false;
+            this.BtnCaja.Click += new System.EventHandler(this.BtnCaja_Click);
             // 
             // BtnInicio
             // 
@@ -118,10 +160,10 @@
             this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.BtnInicio.Location = new System.Drawing.Point(3, 169);
+            this.BtnInicio.Location = new System.Drawing.Point(0, 121);
             this.BtnInicio.Name = "BtnInicio";
             this.BtnInicio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.BtnInicio.Size = new System.Drawing.Size(356, 55);
+            this.BtnInicio.Size = new System.Drawing.Size(356, 50);
             this.BtnInicio.TabIndex = 12;
             this.BtnInicio.Text = "🚪  Inicio";
             this.BtnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -151,10 +193,10 @@
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleados.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 617);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 458);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnEmpleados.Size = new System.Drawing.Size(356, 55);
+            this.btnEmpleados.Size = new System.Drawing.Size(356, 50);
             this.btnEmpleados.TabIndex = 10;
             this.btnEmpleados.Text = "👤  Empleados";
             this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,10 +212,10 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 678);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 738);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(356, 55);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(356, 50);
             this.btnCerrarSesion.TabIndex = 9;
             this.btnCerrarSesion.Text = "🚪  Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,10 +231,10 @@
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnClientes.Location = new System.Drawing.Point(0, 556);
+            this.btnClientes.Location = new System.Drawing.Point(0, 402);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(356, 55);
+            this.btnClientes.Size = new System.Drawing.Size(356, 50);
             this.btnClientes.TabIndex = 2;
             this.btnClientes.Text = "👤  Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -208,10 +250,10 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnReportes.Location = new System.Drawing.Point(0, 501);
+            this.btnReportes.Location = new System.Drawing.Point(0, 570);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(356, 55);
+            this.btnReportes.Size = new System.Drawing.Size(356, 50);
             this.btnReportes.TabIndex = 8;
             this.btnReportes.Text = "📊  Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,10 +269,10 @@
             this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServicios.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnServicios.Location = new System.Drawing.Point(0, 446);
+            this.btnServicios.Location = new System.Drawing.Point(0, 682);
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnServicios.Size = new System.Drawing.Size(356, 55);
+            this.btnServicios.Size = new System.Drawing.Size(356, 50);
             this.btnServicios.TabIndex = 4;
             this.btnServicios.Text = "✨  Servicios";
             this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,10 +288,10 @@
             this.btnCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCitas.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCitas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnCitas.Location = new System.Drawing.Point(0, 391);
+            this.btnCitas.Location = new System.Drawing.Point(0, 289);
             this.btnCitas.Name = "btnCitas";
             this.btnCitas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCitas.Size = new System.Drawing.Size(356, 55);
+            this.btnCitas.Size = new System.Drawing.Size(356, 50);
             this.btnCitas.TabIndex = 3;
             this.btnCitas.Text = "📅  Citas";
             this.btnCitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,10 +307,10 @@
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnVentas.Location = new System.Drawing.Point(0, 336);
+            this.btnVentas.Location = new System.Drawing.Point(0, 626);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(356, 55);
+            this.btnVentas.Size = new System.Drawing.Size(356, 50);
             this.btnVentas.TabIndex = 7;
             this.btnVentas.Text = "🛒  Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,10 +326,10 @@
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnInventario.Location = new System.Drawing.Point(0, 281);
+            this.btnInventario.Location = new System.Drawing.Point(0, 514);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(356, 55);
+            this.btnInventario.Size = new System.Drawing.Size(356, 50);
             this.btnInventario.TabIndex = 5;
             this.btnInventario.Text = "📦  Inventario";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -300,9 +342,9 @@
             this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(37, 124);
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(37, 106);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(67, 12);
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
@@ -315,10 +357,10 @@
             this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategorias.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnCategorias.Location = new System.Drawing.Point(0, 221);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 233);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCategorias.Size = new System.Drawing.Size(356, 60);
+            this.btnCategorias.Size = new System.Drawing.Size(356, 50);
             this.btnCategorias.TabIndex = 6;
             this.btnCategorias.Text = "🏷️  Categorías";
             this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,7 +376,7 @@
             this.pnlContenido.Location = new System.Drawing.Point(356, 0);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1390, 1055);
+            this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
             this.pnlContenido.TabIndex = 1;
             // 
             // label13
@@ -344,7 +386,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
             this.label13.Location = new System.Drawing.Point(13, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(362, 45);
+            this.label13.Size = new System.Drawing.Size(432, 54);
             this.label13.TabIndex = 10;
             this.label13.Text = "Bienvenido a Bramselú";
             // 
@@ -387,7 +429,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(66, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 50);
+            this.label1.Size = new System.Drawing.Size(257, 61);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dashboard";
             // 
@@ -455,7 +497,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(8, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(159, 28);
+            this.label11.Size = new System.Drawing.Size(188, 32);
             this.label11.TabIndex = 4;
             this.label11.Text = "Ingresos del Día";
             // 
@@ -466,7 +508,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(3, 41);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 59);
+            this.label12.Size = new System.Drawing.Size(90, 70);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -501,7 +543,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(8, 101);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 28);
+            this.label9.Size = new System.Drawing.Size(169, 32);
             this.label9.TabIndex = 4;
             this.label9.Text = "Ventas del Día";
             // 
@@ -512,7 +554,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(3, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 59);
+            this.label10.Size = new System.Drawing.Size(90, 70);
             this.label10.TabIndex = 3;
             this.label10.Text = "50";
             // 
@@ -557,7 +599,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 28);
+            this.label7.Size = new System.Drawing.Size(214, 32);
             this.label7.TabIndex = 4;
             this.label7.Text = "Categorías Activas";
             // 
@@ -568,7 +610,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 40);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 59);
+            this.label8.Size = new System.Drawing.Size(90, 70);
             this.label8.TabIndex = 3;
             this.label8.Text = "50";
             // 
@@ -603,7 +645,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 28);
+            this.label5.Size = new System.Drawing.Size(275, 32);
             this.label5.TabIndex = 4;
             this.label5.Text = "Productos en Inventario";
             // 
@@ -614,7 +656,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(3, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 59);
+            this.label6.Size = new System.Drawing.Size(120, 70);
             this.label6.TabIndex = 3;
             this.label6.Text = "250";
             // 
@@ -649,7 +691,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(8, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 28);
+            this.label3.Size = new System.Drawing.Size(150, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Citas del Día";
             // 
@@ -660,7 +702,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 59);
+            this.label4.Size = new System.Drawing.Size(90, 70);
             this.label4.TabIndex = 3;
             this.label4.Text = "08";
             // 
@@ -695,7 +737,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 28);
+            this.label2.Size = new System.Drawing.Size(233, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Clientes Registrados";
             // 
@@ -706,7 +748,7 @@
             this.LblCLientes.ForeColor = System.Drawing.Color.White;
             this.LblCLientes.Location = new System.Drawing.Point(3, 40);
             this.LblCLientes.Name = "LblCLientes";
-            this.LblCLientes.Size = new System.Drawing.Size(75, 59);
+            this.LblCLientes.Size = new System.Drawing.Size(90, 70);
             this.LblCLientes.TabIndex = 1;
             this.LblCLientes.Text = "50";
             // 
@@ -723,9 +765,9 @@
             // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1746, 1055);
+            this.ClientSize = new System.Drawing.Size(1746, 1050);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
@@ -818,5 +860,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button BtnCaja;
+        private System.Windows.Forms.Button BtnCompras;
     }
 }

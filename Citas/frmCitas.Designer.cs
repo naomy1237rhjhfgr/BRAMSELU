@@ -157,6 +157,7 @@
             // dgvCitas
             // 
             this.dgvCitas.AllowUserToOrderColumns = true;
+            this.dgvCitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCitas.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
@@ -189,49 +190,42 @@
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.MinimumWidth = 6;
             this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 125;
             // 
             // Servicio
             // 
             this.Servicio.HeaderText = "Servicio";
             this.Servicio.MinimumWidth = 6;
             this.Servicio.Name = "Servicio";
-            this.Servicio.Width = 125;
             // 
             // Especialidad
             // 
             this.Especialidad.HeaderText = "Especialidad";
             this.Especialidad.MinimumWidth = 6;
             this.Especialidad.Name = "Especialidad";
-            this.Especialidad.Width = 125;
             // 
             // Fecha
             // 
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 125;
             // 
             // Hora
             // 
             this.Hora.HeaderText = "Hora";
             this.Hora.MinimumWidth = 6;
             this.Hora.Name = "Hora";
-            this.Hora.Width = 125;
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado Cita";
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
-            this.Estado.Width = 125;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.MinimumWidth = 6;
             this.Precio.Name = "Precio";
-            this.Precio.Width = 125;
             // 
             // lblSeccion
             // 
@@ -443,8 +437,7 @@
             // 
             // frmCitas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);
             this.Controls.Add(this.label1);

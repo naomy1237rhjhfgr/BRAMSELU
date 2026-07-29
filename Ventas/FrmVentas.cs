@@ -18,6 +18,9 @@ namespace BRAMSELU.Ventas
         public FrmVentas()
         {
             InitializeComponent();
+
+            this.txtCantidad.KeyPress += new KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtEfectivo.KeyPress += new KeyPressEventHandler(this.txtEfectivo_KeyPress);
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)
@@ -136,7 +139,7 @@ namespace BRAMSELU.Ventas
 
                 decimal cambio = efectivoRecibido - totalGeneral;
 
-                // Registrar venta en la base de datos y descontar stock automáticamente
+
                 bool resultado = objBLL.RegistrarVentaFisica(dtCarrito, totalGeneral, efectivoRecibido, cambio);
 
                 if (resultado)
@@ -147,13 +150,46 @@ namespace BRAMSELU.Ventas
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                     txtEfectivo.Clear();
-                    CargarProductos(); // Actualiza el combo con el stock reducido
+                    CargarProductos();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al procesar la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txt.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEfectivo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

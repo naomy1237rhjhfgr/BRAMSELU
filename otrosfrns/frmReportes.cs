@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace BRAMSELU
+
 {
+
     public partial class frmReportes : Form
+
     {
+
         public frmReportes()
+
         {
+
             InitializeComponent();
+
         }
+
     }
+
 }
