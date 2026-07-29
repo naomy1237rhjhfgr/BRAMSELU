@@ -53,17 +53,17 @@
             // lblcategorias
             // 
             this.lblcategorias.AutoSize = true;
-            this.lblcategorias.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblcategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblcategorias.Location = new System.Drawing.Point(12, 9);
+            this.lblcategorias.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.lblcategorias.Location = new System.Drawing.Point(67, 22);
             this.lblcategorias.Name = "lblcategorias";
-            this.lblcategorias.Size = new System.Drawing.Size(155, 37);
+            this.lblcategorias.Size = new System.Drawing.Size(325, 41);
             this.lblcategorias.TabIndex = 13;
-            this.lblcategorias.Text = "Categorias";
+            this.lblcategorias.Text = "Control de Categorías";
             // 
             // progressBarcategorias
             // 
-            this.progressBarcategorias.Location = new System.Drawing.Point(27, 561);
+            this.progressBarcategorias.Location = new System.Drawing.Point(67, 645);
             this.progressBarcategorias.Name = "progressBarcategorias";
             this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
             this.progressBarcategorias.TabIndex = 62;
@@ -71,7 +71,7 @@
             // 
             // txtidcategoria
             // 
-            this.txtidcategoria.Location = new System.Drawing.Point(138, 319);
+            this.txtidcategoria.Location = new System.Drawing.Point(272, 452);
             this.txtidcategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtidcategoria.Name = "txtidcategoria";
             this.txtidcategoria.Size = new System.Drawing.Size(340, 22);
@@ -80,22 +80,22 @@
             // lblidcategoria
             // 
             this.lblidcategoria.AutoSize = true;
-            this.lblidcategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblidcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidcategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblidcategoria.Location = new System.Drawing.Point(23, 318);
+            this.lblidcategoria.Location = new System.Drawing.Point(68, 443);
             this.lblidcategoria.Name = "lblidcategoria";
-            this.lblidcategoria.Size = new System.Drawing.Size(94, 21);
+            this.lblidcategoria.Size = new System.Drawing.Size(139, 31);
             this.lblidcategoria.TabIndex = 58;
             this.lblidcategoria.Text = "Id Categoria";
             // 
             // labeldescripcion
             // 
             this.labeldescripcion.AutoSize = true;
-            this.labeldescripcion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.labeldescripcion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeldescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labeldescripcion.Location = new System.Drawing.Point(23, 396);
+            this.labeldescripcion.Location = new System.Drawing.Point(68, 521);
             this.labeldescripcion.Name = "labeldescripcion";
-            this.labeldescripcion.Size = new System.Drawing.Size(94, 21);
+            this.labeldescripcion.Size = new System.Drawing.Size(139, 31);
             this.labeldescripcion.TabIndex = 52;
             this.labeldescripcion.Text = "Descripcion:";
             // 
@@ -103,7 +103,7 @@
             // 
             this.txtnombrecategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtnombrecategoria.Location = new System.Drawing.Point(138, 352);
+            this.txtnombrecategoria.Location = new System.Drawing.Point(272, 485);
             this.txtnombrecategoria.Name = "txtnombrecategoria";
             this.txtnombrecategoria.Size = new System.Drawing.Size(340, 30);
             this.txtnombrecategoria.TabIndex = 51;
@@ -111,36 +111,36 @@
             // labelnombrecategoria
             // 
             this.labelnombrecategoria.AutoSize = true;
-            this.labelnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.labelnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnombrecategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelnombrecategoria.Location = new System.Drawing.Point(23, 355);
+            this.labelnombrecategoria.Location = new System.Drawing.Point(68, 480);
             this.labelnombrecategoria.Name = "labelnombrecategoria";
-            this.labelnombrecategoria.Size = new System.Drawing.Size(71, 21);
+            this.labelnombrecategoria.Size = new System.Drawing.Size(103, 31);
             this.labelnombrecategoria.TabIndex = 50;
             this.labelnombrecategoria.Text = "Nombre:";
             // 
             // lbldatoscategoria
             // 
             this.lbldatoscategoria.AutoSize = true;
-            this.lbldatoscategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lbldatoscategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lbldatoscategoria.Location = new System.Drawing.Point(23, 284);
+            this.lbldatoscategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldatoscategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.lbldatoscategoria.Location = new System.Drawing.Point(67, 400);
             this.lbldatoscategoria.Name = "lbldatoscategoria";
-            this.lbldatoscategoria.Size = new System.Drawing.Size(173, 21);
+            this.lbldatoscategoria.Size = new System.Drawing.Size(242, 31);
             this.lbldatoscategoria.TabIndex = 49;
             this.lbldatoscategoria.Text = "Datos de la Categoria";
             // 
             // btnbuscarcategoria
             // 
-            this.btnbuscarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(130)))), ((int)(((byte)(160)))));
+            this.btnbuscarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnbuscarcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnbuscarcategoria.FlatAppearance.BorderSize = 0;
             this.btnbuscarcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnbuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbuscarcategoria.ForeColor = System.Drawing.Color.White;
-            this.btnbuscarcategoria.Location = new System.Drawing.Point(306, 70);
+            this.btnbuscarcategoria.Location = new System.Drawing.Point(529, 72);
             this.btnbuscarcategoria.Name = "btnbuscarcategoria";
-            this.btnbuscarcategoria.Size = new System.Drawing.Size(100, 32);
+            this.btnbuscarcategoria.Size = new System.Drawing.Size(112, 38);
             this.btnbuscarcategoria.TabIndex = 48;
             this.btnbuscarcategoria.Text = "Buscar";
             this.btnbuscarcategoria.UseVisualStyleBackColor = false;
@@ -149,24 +149,24 @@
             // txtBuscarcategoria
             // 
             this.txtBuscarcategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBuscarcategoria.Location = new System.Drawing.Point(89, 70);
+            this.txtBuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarcategoria.Location = new System.Drawing.Point(165, 72);
             this.txtBuscarcategoria.Name = "txtBuscarcategoria";
-            this.txtBuscarcategoria.Size = new System.Drawing.Size(195, 30);
+            this.txtBuscarcategoria.Size = new System.Drawing.Size(340, 38);
             this.txtBuscarcategoria.TabIndex = 47;
             this.txtBuscarcategoria.TextChanged += new System.EventHandler(this.txtBuscarcategoria_TextChanged);
             // 
             // btnguardarcategoria
             // 
-            this.btnguardarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            this.btnguardarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.btnguardarcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnguardarcategoria.FlatAppearance.BorderSize = 0;
             this.btnguardarcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardarcategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnguardarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardarcategoria.ForeColor = System.Drawing.Color.White;
-            this.btnguardarcategoria.Location = new System.Drawing.Point(780, 70);
+            this.btnguardarcategoria.Location = new System.Drawing.Point(1001, 72);
             this.btnguardarcategoria.Name = "btnguardarcategoria";
-            this.btnguardarcategoria.Size = new System.Drawing.Size(100, 32);
+            this.btnguardarcategoria.Size = new System.Drawing.Size(112, 38);
             this.btnguardarcategoria.TabIndex = 46;
             this.btnguardarcategoria.Text = "Guardar";
             this.btnguardarcategoria.UseVisualStyleBackColor = false;
@@ -174,15 +174,15 @@
             // 
             // bttneliminarcategoria
             // 
-            this.bttneliminarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(90)))), ((int)(((byte)(80)))));
+            this.bttneliminarcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
             this.bttneliminarcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttneliminarcategoria.FlatAppearance.BorderSize = 0;
             this.bttneliminarcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttneliminarcategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneliminarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttneliminarcategoria.ForeColor = System.Drawing.Color.White;
-            this.bttneliminarcategoria.Location = new System.Drawing.Point(665, 70);
+            this.bttneliminarcategoria.Location = new System.Drawing.Point(883, 72);
             this.bttneliminarcategoria.Name = "bttneliminarcategoria";
-            this.bttneliminarcategoria.Size = new System.Drawing.Size(100, 32);
+            this.bttneliminarcategoria.Size = new System.Drawing.Size(112, 38);
             this.bttneliminarcategoria.TabIndex = 45;
             this.bttneliminarcategoria.Text = "Eliminar";
             this.bttneliminarcategoria.UseVisualStyleBackColor = false;
@@ -194,11 +194,11 @@
             this.bttneditarcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttneditarcategoria.FlatAppearance.BorderSize = 0;
             this.bttneditarcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttneditarcategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneditarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttneditarcategoria.ForeColor = System.Drawing.Color.White;
-            this.bttneditarcategoria.Location = new System.Drawing.Point(548, 70);
+            this.bttneditarcategoria.Location = new System.Drawing.Point(765, 72);
             this.bttneditarcategoria.Name = "bttneditarcategoria";
-            this.bttneditarcategoria.Size = new System.Drawing.Size(100, 32);
+            this.bttneditarcategoria.Size = new System.Drawing.Size(112, 38);
             this.bttneditarcategoria.TabIndex = 44;
             this.bttneditarcategoria.Text = "Editar";
             this.bttneditarcategoria.UseVisualStyleBackColor = false;
@@ -206,15 +206,15 @@
             // 
             // Btnnuevocategoria
             // 
-            this.Btnnuevocategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.Btnnuevocategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
             this.Btnnuevocategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btnnuevocategoria.FlatAppearance.BorderSize = 0;
             this.Btnnuevocategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btnnuevocategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.Btnnuevocategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btnnuevocategoria.ForeColor = System.Drawing.Color.White;
-            this.Btnnuevocategoria.Location = new System.Drawing.Point(421, 70);
+            this.Btnnuevocategoria.Location = new System.Drawing.Point(647, 72);
             this.Btnnuevocategoria.Name = "Btnnuevocategoria";
-            this.Btnnuevocategoria.Size = new System.Drawing.Size(110, 32);
+            this.Btnnuevocategoria.Size = new System.Drawing.Size(112, 38);
             this.Btnnuevocategoria.TabIndex = 43;
             this.Btnnuevocategoria.Text = "Nuevo";
             this.Btnnuevocategoria.UseVisualStyleBackColor = false;
@@ -225,31 +225,32 @@
             this.dataGridViewcategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewcategoria.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewcategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewcategoria.Location = new System.Drawing.Point(19, 121);
+            this.dataGridViewcategoria.Location = new System.Drawing.Point(67, 125);
             this.dataGridViewcategoria.MultiSelect = false;
             this.dataGridViewcategoria.Name = "dataGridViewcategoria";
             this.dataGridViewcategoria.RowHeadersVisible = false;
             this.dataGridViewcategoria.RowHeadersWidth = 51;
             this.dataGridViewcategoria.RowTemplate.Height = 24;
             this.dataGridViewcategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewcategoria.Size = new System.Drawing.Size(919, 146);
+            this.dataGridViewcategoria.ShowEditingIcon = false;
+            this.dataGridViewcategoria.Size = new System.Drawing.Size(1045, 250);
             this.dataGridViewcategoria.TabIndex = 42;
             this.dataGridViewcategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewcategoria_CellClick);
             // 
             // labelbuscarcategoria
             // 
             this.labelbuscarcategoria.AutoSize = true;
-            this.labelbuscarcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelbuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelbuscarcategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelbuscarcategoria.Location = new System.Drawing.Point(15, 74);
+            this.labelbuscarcategoria.Location = new System.Drawing.Point(67, 72);
             this.labelbuscarcategoria.Name = "labelbuscarcategoria";
-            this.labelbuscarcategoria.Size = new System.Drawing.Size(68, 20);
+            this.labelbuscarcategoria.Size = new System.Drawing.Size(92, 31);
             this.labelbuscarcategoria.TabIndex = 41;
             this.labelbuscarcategoria.Text = "Buscar:";
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(40, 431);
+            this.txtdescripcion.Location = new System.Drawing.Point(272, 543);
             this.txtdescripcion.Multiline = true;
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(438, 90);
@@ -263,8 +264,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(979, 612);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1182, 720);
             this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.progressBarcategorias);
             this.Controls.Add(this.txtidcategoria);
