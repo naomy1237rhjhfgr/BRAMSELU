@@ -71,5 +71,23 @@ namespace BRAMSELU.Categorias
 
             return false;
         }
+
+        public DataTable ObtenerProductosPorCategoria(string categoria)
+        {
+            string sql = $@"
+        SELECT
+            p.IdProducto,
+            p.NombreProducto,
+            p.Marca,
+            p.Precio,
+            p.Stock
+        FROM Productos p
+        INNER JOIN Categorias c
+            ON p.IdCategoria = c.IdCategoria
+        WHERE c.NombreCategoria = '{categoria}'";
+
+            return conexion.EjecutarConsultaDataTable(sql);
+        }
+        
     }
 }

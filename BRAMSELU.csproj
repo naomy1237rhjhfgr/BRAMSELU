@@ -151,10 +151,10 @@
     <Compile Include="otrosfrns\frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="otrosfrns\frmServicios.cs">
+    <Compile Include="Servicios\frmServicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otrosfrns\frmServicios.Designer.cs">
+    <Compile Include="Servicios\frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
     <Compile Include="otrosfrns\frmVentas.cs">
@@ -177,6 +177,9 @@
     <Compile Include="menu\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\Servicio.cs" />
+    <Compile Include="Servicios\ServicioBLL.cs" />
+    <Compile Include="Servicios\ServicioDAL.cs" />
     <Compile Include="reportescompras\ReporteComprasBLL.cs" />
     <Compile Include="reportescompras\ReporteComprasDAL.cs" />
     <Compile Include="REPORTESVENTAS\FrmReporteVentas.cs">
@@ -247,6 +250,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Servicios\frmServicios.resx">
+      <DependentUpon>frmServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="REPORTESVENTAS\FrmReporteVentas.resx">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>

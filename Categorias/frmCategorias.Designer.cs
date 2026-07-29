@@ -47,7 +47,10 @@
             this.labelbuscarcategoria = new System.Windows.Forms.Label();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblproductoscategorias = new System.Windows.Forms.Label();
+            this.dataGridViewproCategorias = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewproCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // lblcategorias
@@ -63,7 +66,7 @@
             // 
             // progressBarcategorias
             // 
-            this.progressBarcategorias.Location = new System.Drawing.Point(67, 645);
+            this.progressBarcategorias.Location = new System.Drawing.Point(19, 808);
             this.progressBarcategorias.Name = "progressBarcategorias";
             this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
             this.progressBarcategorias.TabIndex = 62;
@@ -260,12 +263,41 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblproductoscategorias
+            // 
+            this.lblproductoscategorias.AutoSize = true;
+            this.lblproductoscategorias.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblproductoscategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
+            this.lblproductoscategorias.Location = new System.Drawing.Point(12, 536);
+            this.lblproductoscategorias.Name = "lblproductoscategorias";
+            this.lblproductoscategorias.Size = new System.Drawing.Size(382, 37);
+            this.lblproductoscategorias.TabIndex = 64;
+            this.lblproductoscategorias.Text = "Productos De Esta Categoria";
+            // 
+            // dataGridViewproCategorias
+            // 
+            this.dataGridViewproCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewproCategorias.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewproCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewproCategorias.Location = new System.Drawing.Point(19, 589);
+            this.dataGridViewproCategorias.MultiSelect = false;
+            this.dataGridViewproCategorias.Name = "dataGridViewproCategorias";
+            this.dataGridViewproCategorias.RowHeadersVisible = false;
+            this.dataGridViewproCategorias.RowHeadersWidth = 51;
+            this.dataGridViewproCategorias.RowTemplate.Height = 24;
+            this.dataGridViewproCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewproCategorias.Size = new System.Drawing.Size(919, 146);
+            this.dataGridViewproCategorias.TabIndex = 65;
+            // 
             // frmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1182, 720);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
+            this.ClientSize = new System.Drawing.Size(979, 892);
+            this.Controls.Add(this.dataGridViewproCategorias);
+            this.Controls.Add(this.lblproductoscategorias);
             this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.progressBarcategorias);
             this.Controls.Add(this.txtidcategoria);
@@ -287,6 +319,7 @@
             this.Text = "frmCategorias";
             this.Load += new System.EventHandler(this.frmCategorias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewproCategorias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +345,7 @@
         private System.Windows.Forms.Label labelbuscarcategoria;
         private System.Windows.Forms.TextBox txtdescripcion;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblproductoscategorias;
+        private System.Windows.Forms.DataGridView dataGridViewproCategorias;
     }
 }

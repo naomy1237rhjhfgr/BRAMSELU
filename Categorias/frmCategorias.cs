@@ -34,6 +34,14 @@ namespace BRAMSELU
             dataGridViewcategoria.DataSource = categoriaBLL.ObtenerCategorias();
         }
 
+        private void CargarProductosPorCategoria(string categoria)
+        {
+            dataGridViewproCategorias.DataSource =
+                categoriaBLL.ObtenerProductosPorCategoria(categoria);
+
+            dataGridViewproCategorias.ClearSelection();
+        }
+
         private void EstadoCampos(bool habilitado)
         {
             txtidcategoria.Enabled = false;
@@ -59,6 +67,8 @@ namespace BRAMSELU
         {
             CargarCategorias();
             dataGridViewcategoria.ClearSelection();
+
+            dataGridViewproCategorias.DataSource = null;
         }
 
         private void Btnnuevocategoria_Click(object sender, EventArgs e)
@@ -185,6 +195,9 @@ namespace BRAMSELU
                 txtidcategoria.Text = idCategoria.ToString();
                 txtnombrecategoria.Text = fila.Cells["NombreCategoria"].Value.ToString();
                 txtdescripcion.Text = fila.Cells["Descripcion"].Value.ToString();
+
+                string categoria = fila.Cells["NombreCategoria"].Value.ToString();
+                CargarProductosPorCategoria(categoria);
             }
         }
 
