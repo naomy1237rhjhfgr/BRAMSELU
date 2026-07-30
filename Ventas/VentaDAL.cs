@@ -15,7 +15,7 @@ namespace BRAMSELU.Ventas
 
         public DataTable ObtenerProductos()
         {
-            string query = "SELECT IdProducto, NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen FROM Productos WHERE Stock > 0";
+            string query = "SELECT " +
             return conexionObj.EjecutarConsultaDataTable(query);
         }
 

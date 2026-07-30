@@ -3,7 +3,6 @@ using BRAMSELU.Compra;
 using BRAMSELU.Ventas;
 using System;
 using System.Windows.Forms;
-
 namespace BRAMSELU
 {
     public partial class frmMenuPrincipal : Form
@@ -155,7 +154,6 @@ namespace BRAMSELU
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
-
             AbrirFormEnPanel(new FrmCompra());
         }
 
