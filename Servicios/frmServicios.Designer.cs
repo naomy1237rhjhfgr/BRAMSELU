@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txtdescripcionservicio = new System.Windows.Forms.TextBox();
-            this.progressBarcategorias = new System.Windows.Forms.ProgressBar();
+            this.progressBarservicio = new System.Windows.Forms.ProgressBar();
             this.lblidservicio = new System.Windows.Forms.Label();
             this.labeldescripcionservicio = new System.Windows.Forms.Label();
             this.labelnombreservicio = new System.Windows.Forms.Label();
@@ -58,6 +58,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewservicio)).BeginInit();
             this.SuspendLayout();
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // txtdescripcionservicio
             // 
             this.txtdescripcionservicio.Location = new System.Drawing.Point(45, 434);
@@ -66,13 +70,13 @@
             this.txtdescripcionservicio.Size = new System.Drawing.Size(438, 90);
             this.txtdescripcionservicio.TabIndex = 80;
             // 
-            // progressBarcategorias
+            // progressBarservicio
             // 
-            this.progressBarcategorias.Location = new System.Drawing.Point(32, 564);
-            this.progressBarcategorias.Name = "progressBarcategorias";
-            this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
-            this.progressBarcategorias.TabIndex = 79;
-            this.progressBarcategorias.Visible = false;
+            this.progressBarservicio.Location = new System.Drawing.Point(32, 564);
+            this.progressBarservicio.Name = "progressBarservicio";
+            this.progressBarservicio.Size = new System.Drawing.Size(129, 23);
+            this.progressBarservicio.TabIndex = 79;
+            this.progressBarservicio.Visible = false;
             // 
             // lblidservicio
             // 
@@ -132,6 +136,7 @@
             this.btnbuscarservicio.TabIndex = 72;
             this.btnbuscarservicio.Text = "Buscar";
             this.btnbuscarservicio.UseVisualStyleBackColor = false;
+            this.btnbuscarservicio.Click += new System.EventHandler(this.btnbuscarservicio_Click);
             // 
             // txtBuscarservicio
             // 
@@ -141,6 +146,7 @@
             this.txtBuscarservicio.Name = "txtBuscarservicio";
             this.txtBuscarservicio.Size = new System.Drawing.Size(195, 30);
             this.txtBuscarservicio.TabIndex = 71;
+            this.txtBuscarservicio.TextChanged += new System.EventHandler(this.txtBuscarservicio_TextChanged);
             // 
             // btnguardarservicio
             // 
@@ -156,6 +162,7 @@
             this.btnguardarservicio.TabIndex = 70;
             this.btnguardarservicio.Text = "Guardar";
             this.btnguardarservicio.UseVisualStyleBackColor = false;
+            this.btnguardarservicio.Click += new System.EventHandler(this.btnguardarservicio_Click);
             // 
             // bttneliminarservicio
             // 
@@ -171,6 +178,7 @@
             this.bttneliminarservicio.TabIndex = 69;
             this.bttneliminarservicio.Text = "Eliminar";
             this.bttneliminarservicio.UseVisualStyleBackColor = false;
+            this.bttneliminarservicio.Click += new System.EventHandler(this.bttneliminarservicio_Click);
             // 
             // bttneditarservicio
             // 
@@ -186,6 +194,7 @@
             this.bttneditarservicio.TabIndex = 68;
             this.bttneditarservicio.Text = "Editar";
             this.bttneditarservicio.UseVisualStyleBackColor = false;
+            this.bttneditarservicio.Click += new System.EventHandler(this.bttneditarservicio_Click);
             // 
             // Btnnuevoservicio
             // 
@@ -201,6 +210,7 @@
             this.Btnnuevoservicio.TabIndex = 67;
             this.Btnnuevoservicio.Text = "Nuevo";
             this.Btnnuevoservicio.UseVisualStyleBackColor = false;
+            this.Btnnuevoservicio.Click += new System.EventHandler(this.Btnnuevoservicio_Click);
             // 
             // dataGridViewservicio
             // 
@@ -216,6 +226,7 @@
             this.dataGridViewservicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewservicio.Size = new System.Drawing.Size(919, 146);
             this.dataGridViewservicio.TabIndex = 66;
+            this.dataGridViewservicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewservicio_CellClick);
             // 
             // labelbuscarservicio
             // 
@@ -255,7 +266,7 @@
             this.lblduracion.AutoSize = true;
             this.lblduracion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblduracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblduracion.Location = new System.Drawing.Point(597, 358);
+            this.lblduracion.Location = new System.Drawing.Point(597, 360);
             this.lblduracion.Name = "lblduracion";
             this.lblduracion.Size = new System.Drawing.Size(76, 21);
             this.lblduracion.TabIndex = 83;
@@ -285,14 +296,14 @@
             // 
             // txtIdservicio
             // 
-            this.txtIdservicio.Location = new System.Drawing.Point(129, 322);
+            this.txtIdservicio.Location = new System.Drawing.Point(118, 320);
             this.txtIdservicio.Name = "txtIdservicio";
             this.txtIdservicio.Size = new System.Drawing.Size(136, 22);
             this.txtIdservicio.TabIndex = 88;
             // 
             // txtnombreservicio
             // 
-            this.txtnombreservicio.Location = new System.Drawing.Point(129, 359);
+            this.txtnombreservicio.Location = new System.Drawing.Point(115, 357);
             this.txtnombreservicio.Name = "txtnombreservicio";
             this.txtnombreservicio.Size = new System.Drawing.Size(354, 22);
             this.txtnombreservicio.TabIndex = 89;
@@ -310,6 +321,7 @@
             this.txtduracionservicio.Name = "txtduracionservicio";
             this.txtduracionservicio.Size = new System.Drawing.Size(144, 22);
             this.txtduracionservicio.TabIndex = 91;
+            this.txtduracionservicio.TextChanged += new System.EventHandler(this.txtduracionservicio_TextChanged);
             // 
             // L
             // 
@@ -349,7 +361,7 @@
             this.Controls.Add(this.lblduracion);
             this.Controls.Add(this.lblprecioservicio);
             this.Controls.Add(this.txtdescripcionservicio);
-            this.Controls.Add(this.progressBarcategorias);
+            this.Controls.Add(this.progressBarservicio);
             this.Controls.Add(this.lblidservicio);
             this.Controls.Add(this.labeldescripcionservicio);
             this.Controls.Add(this.labelnombreservicio);
@@ -365,6 +377,7 @@
             this.Controls.Add(this.lblservicios);
             this.Name = "frmServicios";
             this.Text = "frmServicios";
+            this.Load += new System.EventHandler(this.frmServicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewservicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -375,7 +388,7 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox txtdescripcionservicio;
-        private System.Windows.Forms.ProgressBar progressBarcategorias;
+        private System.Windows.Forms.ProgressBar progressBarservicio;
         private System.Windows.Forms.Label lblidservicio;
         private System.Windows.Forms.Label labeldescripcionservicio;
         private System.Windows.Forms.Label labelnombreservicio;

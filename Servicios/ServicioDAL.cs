@@ -47,11 +47,9 @@ namespace BRAMSELU.Servicios
         public DataTable BuscarServicio(string dato)
         {
             string sql = $"SELECT * FROM Servicios " +
-                         $"WHERE NombreServicio LIKE '%{dato}%' " +
-                         $"OR Descripcion LIKE '%{dato}%' " +
-                         $"OR CAST(Precio AS VARCHAR) LIKE '%{dato}%' " +
-                         $"OR CAST(Duracion AS VARCHAR) LIKE '%{dato}%' " +
-                         $"OR CAST(IdServicio AS VARCHAR) LIKE '%{dato}%'";
+                  $"WHERE NombreServicio LIKE '%{dato}%' " +
+                  $"OR Descripcion LIKE '%{dato}%' " +
+                  $"OR CAST(IdServicio AS VARCHAR) LIKE '%{dato}%'";
 
             return conexion.EjecutarConsultaDataTable(sql);
         }
