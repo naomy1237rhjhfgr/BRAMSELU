@@ -57,7 +57,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblProductos = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,13 +65,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.LblCLientes = new System.Windows.Forms.Label();
+            this.lblClientesRegistrados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblEmpleados = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
@@ -644,7 +644,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(216)))), ((int)(((byte)(182)))));
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.lblProductos);
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(530, 8);
@@ -664,16 +664,16 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Productos en Inventario";
             // 
-            // label6
+            // lblProductos
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 59);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "250";
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductos.ForeColor = System.Drawing.Color.White;
+            this.lblProductos.Location = new System.Drawing.Point(3, 40);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(100, 59);
+            this.lblProductos.TabIndex = 3;
+            this.lblProductos.Text = "250";
             // 
             // pictureBox3
             // 
@@ -736,7 +736,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.LblCLientes);
+            this.panel1.Controls.Add(this.lblClientesRegistrados);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(8, 8);
@@ -756,16 +756,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Clientes Registrados";
             // 
-            // LblCLientes
+            // lblClientesRegistrados
             // 
-            this.LblCLientes.AutoSize = true;
-            this.LblCLientes.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCLientes.ForeColor = System.Drawing.Color.White;
-            this.LblCLientes.Location = new System.Drawing.Point(3, 40);
-            this.LblCLientes.Name = "LblCLientes";
-            this.LblCLientes.Size = new System.Drawing.Size(75, 59);
-            this.LblCLientes.TabIndex = 1;
-            this.LblCLientes.Text = "50";
+            this.lblClientesRegistrados.AutoSize = true;
+            this.lblClientesRegistrados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
+            this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
+            this.lblClientesRegistrados.Name = "lblClientesRegistrados";
+            this.lblClientesRegistrados.Size = new System.Drawing.Size(75, 59);
+            this.lblClientesRegistrados.TabIndex = 1;
+            this.lblClientesRegistrados.Text = "50";
             // 
             // pictureBox1
             // 
@@ -805,7 +805,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(105)))), ((int)(((byte)(188)))));
             this.panel9.Controls.Add(this.pictureBox8);
             this.panel9.Controls.Add(this.label16);
-            this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.lblEmpleados);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(8);
@@ -824,16 +824,16 @@
             this.label16.TabIndex = 8;
             this.label16.Text = "Ingresos del Día";
             // 
-            // label17
+            // lblEmpleados
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(3, 41);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 59);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "50";
+            this.lblEmpleados.AutoSize = true;
+            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleados.ForeColor = System.Drawing.Color.White;
+            this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
+            this.lblEmpleados.Name = "lblEmpleados";
+            this.lblEmpleados.Size = new System.Drawing.Size(75, 59);
+            this.lblEmpleados.TabIndex = 7;
+            this.lblEmpleados.Text = "50";
             // 
             // pictureBox8
             // 
@@ -935,7 +935,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label LblCLientes;
+        private System.Windows.Forms.Label lblClientesRegistrados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -944,7 +944,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
@@ -954,7 +954,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblEmpleados;
         private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

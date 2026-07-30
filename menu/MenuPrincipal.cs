@@ -14,17 +14,26 @@ namespace BRAMSELU
         private Form formActivo = null;
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
+        private Timer timerDashboard;
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {
             InitializeComponent();
+
             this.nombreUsuario = nombreUsuario;
             this.rolUsuario = rolUsuario;
+
+            timerDashboard = new Timer();
+            timerDashboard.Interval = 1000; // 1 segundo
+            timerDashboard.Tick += TimerDashboard_Tick;
+            timerDashboard.Start();
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
+
+            CargarEstadisticas();
 
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
@@ -116,8 +125,10 @@ namespace BRAMSELU
             if (formActivo != null)
             {
                 formActivo.Close();
+                formActivo = null;
             }
 
+            CargarEstadisticas();
 
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
@@ -133,8 +144,10 @@ namespace BRAMSELU
             if (formActivo != null)
             {
                 formActivo.Close();
+                formActivo = null;
             }
 
+            CargarEstadisticas();
 
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
@@ -159,6 +172,35 @@ namespace BRAMSELU
         private void pnlContenido_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void CargarEstadisticas()
+        {
+            try
+            {
+                int[] estadisticas = dashboardDAL.ObtenerEstadisticas();
+
+                lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
+                lblEmpleados.Text = estadisticas[1].ToString("D2");
+                lblProductos.Text = estadisticas[2].ToString("D2");
+                
+            }
+            catch (Exception ex)
+            {
+                timerDashboard?.Stop();
+
+                MessageBox.Show(
+                    "No se pudieron actualizar las estadísticas del panel.\n\n" +
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+        private void TimerDashboard_Tick(object sender, EventArgs e)
+        {
+            CargarEstadisticas();
         }
     }
 }

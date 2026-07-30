@@ -88,6 +88,7 @@
     <Compile Include="Compra\FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\DashboardDAL.cs" />
     <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
