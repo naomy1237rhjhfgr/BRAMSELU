@@ -47,14 +47,14 @@
             this.pnlContenedor.Controls.Add(this.button2);
             this.pnlContenedor.Location = new System.Drawing.Point(37, 32);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(914, 436);
+            this.pnlContenedor.Size = new System.Drawing.Size(1323, 537);
             this.pnlContenedor.TabIndex = 2;
             // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 491);
+            this.ClientSize = new System.Drawing.Size(1385, 581);
             this.Controls.Add(this.pnlContenedor);
             this.Name = "frmReportes";
             this.Text = "frmReportes";
