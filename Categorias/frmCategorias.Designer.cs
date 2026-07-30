@@ -66,7 +66,7 @@
             // 
             // progressBarcategorias
             // 
-            this.progressBarcategorias.Location = new System.Drawing.Point(19, 808);
+            this.progressBarcategorias.Location = new System.Drawing.Point(19, 755);
             this.progressBarcategorias.Name = "progressBarcategorias";
             this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
             this.progressBarcategorias.TabIndex = 62;
@@ -291,8 +291,7 @@
             // 
             // frmCategorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(979, 892);

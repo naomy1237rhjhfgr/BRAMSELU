@@ -15,11 +15,18 @@ namespace BRAMSELU.Mensajes
         public frmMensaje()
         {
             InitializeComponent();
+
+            lblMensaje.MaximumSize = new Size(300, 0);
+            lblMensaje.AutoSize = true;
         }
 
         public frmMensaje(string mensaje, TipoMensaje tipo)
         {
             InitializeComponent();
+
+            lblMensaje.MaximumSize = new Size(300, 0);
+            lblMensaje.AutoSize = true;
+
             lblMensaje.Text = mensaje;
 
             switch (tipo)

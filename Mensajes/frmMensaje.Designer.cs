@@ -58,9 +58,9 @@
             // lblMensaje
             // 
             this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(76, 21);
+            this.lblMensaje.Location = new System.Drawing.Point(76, 11);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(328, 28);
+            this.lblMensaje.Size = new System.Drawing.Size(328, 48);
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -72,7 +72,7 @@
             this.bttnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAceptar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttnAceptar.ForeColor = System.Drawing.Color.Transparent;
-            this.bttnAceptar.Location = new System.Drawing.Point(167, 89);
+            this.bttnAceptar.Location = new System.Drawing.Point(172, 89);
             this.bttnAceptar.Name = "bttnAceptar";
             this.bttnAceptar.Size = new System.Drawing.Size(100, 32);
             this.bttnAceptar.TabIndex = 47;
