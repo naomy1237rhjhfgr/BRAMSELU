@@ -335,5 +335,10 @@ namespace BRAMSELU
             }
 
         }
+
+        private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDatos.ClearSelection();
+        }
     }
 }

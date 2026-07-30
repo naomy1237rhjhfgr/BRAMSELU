@@ -177,6 +177,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(1045, 250);
             this.dgvDatos.TabIndex = 8;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
+            this.dgvDatos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDatos_DataBindingComplete);
             // 
             // lblSeccion
             // 
