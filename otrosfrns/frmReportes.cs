@@ -23,6 +23,10 @@ namespace BRAMSELU
 
         }
 
+        private void frmReportes_Load(object sender, EventArgs e)
+        {
+            // prueba
+        }
     }
 
 }
