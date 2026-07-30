@@ -13,6 +13,8 @@ namespace BRAMSELU
 
         private Form formActivo = null;
 
+        private DashboardDAL dashboardDAL = new DashboardDAL();
+
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {
             InitializeComponent();
@@ -23,14 +25,11 @@ namespace BRAMSELU
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
-            //lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
-
 
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
                 btnEmpleados.Visible = false;
                 btnReportes.Visible = false;
-
 
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
                 {
