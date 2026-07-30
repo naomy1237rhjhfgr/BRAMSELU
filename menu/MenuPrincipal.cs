@@ -1,5 +1,6 @@
 ﻿using BRAMSELU.Caja;
 using BRAMSELU.Compra;
+using BRAMSELU.Mensajes;
 using BRAMSELU.Ventas;
 using System;
 using System.Windows.Forms;
@@ -24,13 +25,13 @@ namespace BRAMSELU
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
             //lblBienvenida.Text = $"Hola, {nombreUsuario.Split(' ')[0]}";
 
-     
+
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
                 btnEmpleados.Visible = false;
                 btnReportes.Visible = false;
 
-             
+
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
                 {
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
@@ -99,13 +100,11 @@ namespace BRAMSELU
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            var confirmar = MessageBox.Show(
-                "¿Está seguro que desea cerrar sesión?",
-                "Cerrar sesión",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            FrmCerrarSesion cerrarSesion = new FrmCerrarSesion();
 
-            if (confirmar == DialogResult.Yes)
+            DialogResult resultado = cerrarSesion.ShowDialog();
+
+            if (resultado == DialogResult.Yes)
             {
                 frmLogin login = new frmLogin();
                 login.Show();
@@ -120,7 +119,7 @@ namespace BRAMSELU
                 formActivo.Close();
             }
 
-            
+
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
@@ -154,9 +153,13 @@ namespace BRAMSELU
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
+
             AbrirFormEnPanel(new FrmCompra());
         }
 
-        
+        private void pnlContenido_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

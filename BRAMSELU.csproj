@@ -102,6 +102,12 @@
     <Compile Include="Categorias\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes\FrmCerrarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes\FrmCerrarSesion.Designer.cs">
+      <DependentUpon>FrmCerrarSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajes\FrmConfirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes\FrmCerrarSesion.resx">
+      <DependentUpon>FrmCerrarSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes\FrmConfirmacion.resx">
       <DependentUpon>FrmConfirmacion.cs</DependentUpon>

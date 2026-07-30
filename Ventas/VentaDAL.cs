@@ -16,6 +16,18 @@ namespace BRAMSELU.Ventas
         public DataTable ObtenerProductos()
         {
             string query = "SELECT " +
+                           "P.IdProducto, " +
+                           "P.NombreProducto, " +
+                           "P.Marca, " +
+                           "C.NombreCategoria, " +
+                           "P.Precio, " +
+                           "P.Stock, " +
+                           "P.FechaRegistro, " +
+                           "P.Imagen " +
+                           "FROM Productos P " +
+                           "INNER JOIN Categorias C ON P.IdCategoria = C.IdCategoria " +
+                           "WHERE P.Stock > 0";
+
             return conexionObj.EjecutarConsultaDataTable(query);
         }
 
