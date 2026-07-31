@@ -89,6 +89,15 @@
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard\DashboardDAL.cs" />
+    <Compile Include="llamadoinventario\frmllamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="llamadoinventario\frmllamado.Designer.cs">
+      <DependentUpon>frmllamado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="llamadoinventario\llamadoinventario.cs" />
+    <Compile Include="llamadoinventario\llamadoinventarioBLL.cs" />
+    <Compile Include="llamadoinventario\llamadoinventarioDAL.cs" />
     <Compile Include="login\ClaseLogin.cs" />
     <Compile Include="CLasesClientes\Cliente.cs" />
     <Compile Include="CLasesClientes\ClienteDatos.cs" />
