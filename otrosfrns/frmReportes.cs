@@ -1,4 +1,5 @@
-﻿using BRAMSELU.reportestock;
+﻿using BRAMSELU.reportecaja;
+using BRAMSELU.reportestock;
 using BRAMSELU.Ventas;
 using System;
 using System.Windows.Forms;
@@ -65,6 +66,12 @@ namespace BRAMSELU
         {
             FrmReporteStockBajo frmstock = new FrmReporteStockBajo();
             AbrirFormularioEnPanel(frmstock);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmReporteCaja frmcaja = new FrmReporteCaja();
+            AbrirFormularioEnPanel(frmcaja);
         }
     }
 }
