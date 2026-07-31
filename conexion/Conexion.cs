@@ -115,6 +115,7 @@ namespace BRAMSELU
         public DataTable EjecutarConsultaDataTable(string SQL)
         {
             DataTable tabla = new DataTable();
+            Conectar();
 
             try
             {
@@ -125,6 +126,10 @@ namespace BRAMSELU
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Cerrar();
             }
 
             return tabla;

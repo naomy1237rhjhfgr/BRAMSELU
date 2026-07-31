@@ -15,19 +15,23 @@ namespace BRAMSELU.Compra
         private CompraBLL objBLL = new CompraBLL();
         private DataTable dtCarrito;
 
+        public int idProductoSeleccionado;
+        public string nombreProductoSeleccionado;
+        public decimal precioSeleccionado;
+
         public FrmCompra()
         {
             InitializeComponent();
 
-           
             this.txtCantidad.KeyPress += new KeyPressEventHandler(this.txtCantidad_KeyPress);
             this.txtPrecio.KeyPress += new KeyPressEventHandler(this.txtPrecio_KeyPress);
         }
 
-        private void FrmCompra_Load(object sender, EventArgs e)
+        private void FrmCompra_Load_1(object sender, EventArgs e)
         {
-            CargarComboProveedores();
-            CargarComboProductos();
+
+       
+        CargarComboProveedores();
             InicializarCarrito();
         }
 
@@ -35,27 +39,25 @@ namespace BRAMSELU.Compra
         {
             try
             {
-                cmbProveedores.DataSource = objBLL.ObtenerProveedores();
-                cmbProveedores.DisplayMember = "NombreEmpresa";
-                cmbProveedores.ValueMember = "IdProveedor";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar proveedores: " + ex.Message);
-            }
-        }
+                DataTable dtProveedores = objBLL.ObtenerProveedores();
 
-        private void CargarComboProductos()
-        {
-            try
-            {
-                cmbProductos.DataSource = objBLL.ObtenerProductos();
-                cmbProductos.DisplayMember = "Nombre";
-                cmbProductos.ValueMember = "IdProducto";
+                if (dtProveedores != null && dtProveedores.Rows.Count > 0)
+                {
+                    cmbProveedor.DataSource = null;
+                    cmbProveedor.Items.Clear();
+                    cmbProveedor.DataSource = dtProveedores;
+                    cmbProveedor.DisplayMember = "NombreEmpresa";
+                    cmbProveedor.ValueMember = "IdProveedor";
+                    cmbProveedor.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron proveedores registrados en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar productos: " + ex.Message);
+                MessageBox.Show("Error al cargar proveedores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -68,24 +70,35 @@ namespace BRAMSELU.Compra
             dtCarrito.Columns.Add("PrecioUnitario", typeof(decimal));
             dtCarrito.Columns.Add("Subtotal", typeof(decimal));
 
-            dgvDetalle.DataSource = dtCarrito;
+            dgvCarrito.DataSource = dtCarrito;
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
+            frmInventario inventarioForm = new frmInventario();
+            inventarioForm.modoSeleccion = true;
+            inventarioForm.ShowDialog();
+        }
+
+        private void btnAgregarAlCarrito_Click(object sender, EventArgs e)
+        {
+            if (idProductoSeleccionado == 0 || string.IsNullOrWhiteSpace(txtProducto.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un producto primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
             {
                 MessageBox.Show("Por favor, complete la cantidad y el precio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int idProducto = Convert.ToInt32(cmbProductos.SelectedValue);
-            string nombreProducto = cmbProductos.Text;
             int cantidad = Convert.ToInt32(txtCantidad.Text);
             decimal precio = Convert.ToDecimal(txtPrecio.Text);
             decimal subtotal = cantidad * precio;
 
-            dtCarrito.Rows.Add(idProducto, nombreProducto, cantidad, precio, subtotal);
+            dtCarrito.Rows.Add(idProductoSeleccionado, nombreProductoSeleccionado, cantidad, precio, subtotal);
 
             CalcularTotalGeneral();
             LimpiarCampos();
@@ -98,33 +111,48 @@ namespace BRAMSELU.Compra
             {
                 total += Convert.ToDecimal(row["Subtotal"]);
             }
-            lblTotal.Text = "L. " + total.ToString("N2");
+            lblTotalGrl.Text = "L. " + total.ToString("N2");
         }
 
-        private void btnFinalizar_Click(object sender, EventArgs e)
+        private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbProveedores.SelectedValue == null)
+                if (cmbProveedor.SelectedValue == null)
                 {
                     MessageBox.Show("Por favor, seleccione un proveedor.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                int idProveedor = Convert.ToInt32(cmbProveedores.SelectedValue);
+                if (dtCarrito.Rows.Count == 0)
+                {
+                    MessageBox.Show("El carrito está vacío.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int idProveedor = Convert.ToInt32(cmbProveedor.SelectedValue);
                 decimal totalGeneral = 0;
                 foreach (DataRow row in dtCarrito.Rows)
                 {
                     totalGeneral += Convert.ToDecimal(row["Subtotal"]);
                 }
 
-                bool respuesta = objBLL.InsertarCompra(dtCarrito, totalGeneral, idProveedor);
+                string nombreEmpleado = "UsuarioLogueado";
+
+                bool respuesta = objBLL.InsertarCompra(dtCarrito, totalGeneral, idProveedor, nombreEmpleado);
 
                 if (respuesta)
                 {
                     MessageBox.Show("¡Compra registrada correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dtCarrito.Clear();
-                    lblTotal.Text = "L. 0.00";
+                    lblTotalGrl.Text = "L. 0.00";
+                    idProductoSeleccionado = 0;
+                    nombreProductoSeleccionado = string.Empty;
+                    cmbProveedor.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo registrar la compra en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -135,14 +163,15 @@ namespace BRAMSELU.Compra
 
         private void LimpiarCampos()
         {
-            txtCantidad.Clear();
+            txtCantidad.Text = "1";
             txtPrecio.Clear();
-            cmbProductos.Focus();
+            txtProducto.Clear();
+            idProductoSeleccionado = 0;
+            nombreProductoSeleccionado = string.Empty;
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -153,7 +182,6 @@ namespace BRAMSELU.Compra
         {
             TextBox txt = sender as TextBox;
 
-          
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -164,5 +192,38 @@ namespace BRAMSELU.Compra
                 e.Handled = true;
             }
         }
+
+        public void CargarDatosProducto(int id, string nombre, decimal precio)
+        {
+            idProductoSeleccionado = id;
+            nombreProductoSeleccionado = nombre;
+            txtProducto.Text = nombre;
+            txtPrecio.Text = precio.ToString("0.00");
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        
     }
 }
