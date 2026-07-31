@@ -158,6 +158,15 @@
     <Compile Include="otrosfrns\frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Producto.cs" />
+    <Compile Include="Producto\ProductoBLL.cs" />
+    <Compile Include="Producto\ProductoDAL.cs" />
     <Compile Include="reportecaja\CajaReporteModelo.cs" />
     <Compile Include="reportecaja\FrmReporteCaja.cs">
       <SubType>Form</SubType>
