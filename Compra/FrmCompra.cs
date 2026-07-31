@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BRAMSELU.llamadoinventario.UI;
+using BRAMSELU.Mensajes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.Compra
 {
@@ -74,9 +75,19 @@ namespace BRAMSELU.Compra
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
-            frmInventario inventarioForm = new frmInventario();
-          
-            inventarioForm.ShowDialog();
+            frmllamado llamadoForm = new frmllamado();
+
+           
+            if (llamadoForm.ShowDialog() == DialogResult.OK || llamadoForm.ProductoIdSeleccionado > 0)
+            {
+               
+                int id = llamadoForm.ProductoIdSeleccionado;
+                string nombre = llamadoForm.NombreSeleccionado;
+                decimal precio = llamadoForm.PrecioSeleccionado;
+
+               
+                CargarDatosProducto(id, nombre, precio);
+            }
         }
 
         private void btnAgregarAlCarrito_Click(object sender, EventArgs e)

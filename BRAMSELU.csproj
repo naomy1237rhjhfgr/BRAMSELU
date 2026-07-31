@@ -258,6 +258,9 @@
     <EmbeddedResource Include="Compra\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="llamadoinventario\frmllamado.resx">
+      <DependentUpon>frmllamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mensajes\FrmCerrarSesion.resx">
       <DependentUpon>FrmCerrarSesion.cs</DependentUpon>
     </EmbeddedResource>

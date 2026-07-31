@@ -202,5 +202,10 @@ namespace BRAMSELU
         {
             CargarEstadisticas();
         }
+
+        private void pnlContenido_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -51,6 +53,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblEmpleados = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,12 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblClientesRegistrados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblEmpleados = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.PanelContenido.SuspendLayout();
@@ -86,6 +86,8 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
@@ -94,8 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -354,7 +354,7 @@
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.lblUsuarioActivo.Location = new System.Drawing.Point(37, 106);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(67, 12);
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
@@ -388,6 +388,7 @@
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
             this.pnlContenido.TabIndex = 1;
+            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint_1);
             // 
             // label13
             // 
@@ -396,7 +397,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
             this.label13.Location = new System.Drawing.Point(13, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(362, 45);
+            this.label13.Size = new System.Drawing.Size(432, 54);
             this.label13.TabIndex = 10;
             this.label13.Text = "Bienvenido a Bramselú";
             // 
@@ -439,7 +440,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(66, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 50);
+            this.label1.Size = new System.Drawing.Size(257, 61);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dashboard";
             // 
@@ -480,6 +481,28 @@
             this.panel8.Size = new System.Drawing.Size(245, 147);
             this.panel8.TabIndex = 3;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(8, 101);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(188, 32);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Ingresos del Día";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(3, 41);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 70);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "50";
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -511,7 +534,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(8, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(159, 28);
+            this.label11.Size = new System.Drawing.Size(188, 32);
             this.label11.TabIndex = 4;
             this.label11.Text = "Ingresos del Día";
             // 
@@ -522,7 +545,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(3, 41);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 59);
+            this.label12.Size = new System.Drawing.Size(90, 70);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -557,7 +580,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(8, 101);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 28);
+            this.label9.Size = new System.Drawing.Size(169, 32);
             this.label9.TabIndex = 4;
             this.label9.Text = "Ventas del Día";
             // 
@@ -568,7 +591,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(3, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 59);
+            this.label10.Size = new System.Drawing.Size(90, 70);
             this.label10.TabIndex = 3;
             this.label10.Text = "50";
             // 
@@ -594,6 +617,52 @@
             this.panel5.Size = new System.Drawing.Size(246, 147);
             this.panel5.TabIndex = 3;
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(105)))), ((int)(((byte)(188)))));
+            this.panel9.Controls.Add(this.pictureBox8);
+            this.panel9.Controls.Add(this.label16);
+            this.panel9.Controls.Add(this.lblEmpleados);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(8);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(246, 147);
+            this.panel9.TabIndex = 4;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(161, 17);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 9;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(8, 101);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(188, 32);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Ingresos del Día";
+            // 
+            // lblEmpleados
+            // 
+            this.lblEmpleados.AutoSize = true;
+            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleados.ForeColor = System.Drawing.Color.White;
+            this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
+            this.lblEmpleados.Name = "lblEmpleados";
+            this.lblEmpleados.Size = new System.Drawing.Size(90, 70);
+            this.lblEmpleados.TabIndex = 7;
+            this.lblEmpleados.Text = "50";
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
@@ -614,7 +683,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 28);
+            this.label7.Size = new System.Drawing.Size(214, 32);
             this.label7.TabIndex = 4;
             this.label7.Text = "Categorías Activas";
             // 
@@ -625,7 +694,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 40);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 59);
+            this.label8.Size = new System.Drawing.Size(90, 70);
             this.label8.TabIndex = 3;
             this.label8.Text = "50";
             // 
@@ -660,7 +729,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 28);
+            this.label5.Size = new System.Drawing.Size(275, 32);
             this.label5.TabIndex = 4;
             this.label5.Text = "Productos en Inventario";
             // 
@@ -671,7 +740,7 @@
             this.lblProductos.ForeColor = System.Drawing.Color.White;
             this.lblProductos.Location = new System.Drawing.Point(3, 40);
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(100, 59);
+            this.lblProductos.Size = new System.Drawing.Size(120, 70);
             this.lblProductos.TabIndex = 3;
             this.lblProductos.Text = "250";
             // 
@@ -706,7 +775,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(8, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 28);
+            this.label3.Size = new System.Drawing.Size(150, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Citas del Día";
             // 
@@ -717,7 +786,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 59);
+            this.label4.Size = new System.Drawing.Size(90, 70);
             this.label4.TabIndex = 3;
             this.label4.Text = "08";
             // 
@@ -752,7 +821,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 28);
+            this.label2.Size = new System.Drawing.Size(233, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Clientes Registrados";
             // 
@@ -763,7 +832,7 @@
             this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
             this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
             this.lblClientesRegistrados.Name = "lblClientesRegistrados";
-            this.lblClientesRegistrados.Size = new System.Drawing.Size(75, 59);
+            this.lblClientesRegistrados.Size = new System.Drawing.Size(90, 70);
             this.lblClientesRegistrados.TabIndex = 1;
             this.lblClientesRegistrados.Text = "50";
             // 
@@ -778,77 +847,9 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(8, 101);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(159, 28);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Ingresos del Día";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(3, 41);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 59);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "50";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(105)))), ((int)(((byte)(188)))));
-            this.panel9.Controls.Add(this.pictureBox8);
-            this.panel9.Controls.Add(this.label16);
-            this.panel9.Controls.Add(this.lblEmpleados);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(8);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(246, 147);
-            this.panel9.TabIndex = 4;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(8, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(159, 28);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Ingresos del Día";
-            // 
-            // lblEmpleados
-            // 
-            this.lblEmpleados.AutoSize = true;
-            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleados.ForeColor = System.Drawing.Color.White;
-            this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
-            this.lblEmpleados.Name = "lblEmpleados";
-            this.lblEmpleados.Size = new System.Drawing.Size(75, 59);
-            this.lblEmpleados.TabIndex = 7;
-            this.lblEmpleados.Text = "50";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(161, 17);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 9;
-            this.pictureBox8.TabStop = false;
-            // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1746, 1050);
             this.ControlBox = false;
@@ -880,6 +881,9 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -892,9 +896,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
