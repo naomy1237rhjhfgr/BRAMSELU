@@ -158,12 +158,30 @@
     <Compile Include="otrosfrns\frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="reportecaja\CajaReporteModelo.cs" />
+    <Compile Include="reportecaja\FrmReporteCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportecaja\FrmReporteCaja.Designer.cs">
+      <DependentUpon>FrmReporteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportecaja\ReporteCajaBLL.cs" />
+    <Compile Include="reportecaja\ReporteCajaDAL.cs" />
     <Compile Include="reportescompras\frmReporteCompras.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="reportescompras\frmReporteCompras.Designer.cs">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="reportestock\FrmReporteStockBajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportestock\FrmReporteStockBajo.Designer.cs">
+      <DependentUpon>FrmReporteStockBajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportestock\ReporteStockBLL.cs" />
+    <Compile Include="reportestock\ReporteStockDAL.cs" />
+    <Compile Include="reportestock\ReporteStockModelo.cs" />
     <Compile Include="Servicios\frmServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +284,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reportecaja\FrmReporteCaja.resx">
+      <DependentUpon>FrmReporteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportestock\FrmReporteStockBajo.resx">
+      <DependentUpon>FrmReporteStockBajo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicios\frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </EmbeddedResource>
