@@ -37,8 +37,14 @@ namespace BRAMSELU.Caja
             if (dtFecha.Rows.Count == 0) return 0;
             DateTime fechaApertura = Convert.ToDateTime(dtFecha.Rows[0]["FechaApertura"]);
 
-            // Sumar compras hechas desde la apertura de caja
-            string queryCompras = $"SELECT ISNULL(SUM(Total), 0) FROM Compras WHERE FechaCompra >= '{fechaApertura.ToString("yyyy-MM-dd HH:mm:ss")}'";
+        public decimal ObtenerTotalComprasDeCaja(int idCaja)
+        {
+            string queryFecha = $"SELECT FechaApertura FROM Cajas WHERE IdCaja = {idCaja}";
+            DataTable dtFecha = conexionObj.EjecutarConsultaDataTable(queryFecha);
+            if (dtFecha.Rows.Count == 0) return 0;
+            DateTime fechaApertura = Convert.ToDateTime(dtFecha.Rows[0]["FechaApertura"]);
+
+            string queryCompras = $"SELECT ISNULL(SUM(Total), 0) FROM Compras WHERE Fecha >= '{fechaApertura.ToString("yyyy-MM-dd HH:mm:ss")}'";
             DataTable dtCompras = conexionObj.EjecutarConsultaDataTable(queryCompras);
 
             if (dtCompras.Rows.Count > 0)
