@@ -72,7 +72,11 @@ namespace BRAMSELU.Caja
                     dgvVentasDelDia.DataSource = null;
                 }
 
-                // Limpiar etiquetas de resumen si las tienes diseñadas
+                if (dgvComprasDelDia != null)
+                {
+                    dgvComprasDelDia.DataSource = null;
+                }
+
                 if (lblTotalVentas != null) lblTotalVentas.Text = "L. 0.00";
                 if (lblTotalCompras != null) lblTotalCompras.Text = "L. 0.00";
                 if (lblEfectivoEsperado != null) lblEfectivoEsperado.Text = "L. 0.00";
@@ -83,27 +87,32 @@ namespace BRAMSELU.Caja
         {
             try
             {
-                // 1. Cargar la cuadrícula de ventas
                 DataTable dtVentas = objBLL.ObtenerVentasDeCajaActual(idCaja);
                 if (dgvVentasDelDia != null)
                 {
                     dgvVentasDelDia.DataSource = dtVentas;
                 }
 
-                // 2. Calcular el total acumulado de las ventas de la caja actual
                 totalVentasActual = 0;
                 foreach (DataRow row in dtVentas.Rows)
                 {
                     totalVentasActual += Convert.ToDecimal(row["Total"]);
                 }
 
-                // 3. Obtener el total de compras hechas durante este turno de caja
-                totalComprasActual = objBLL.ObtenerTotalComprasDeCaja(idCaja);
+                DataTable dtCompras = objBLL.ObtenerComprasDeCajaActual(idCaja);
+                if (dgvComprasDelDia != null)
+                {
+                    dgvComprasDelDia.DataSource = dtCompras;
+                }
 
-                // 4. Calcular el efectivo esperado en caja: (Monto Inicial + Ventas en Efectivo - Compras)
+                totalComprasActual = 0;
+                foreach (DataRow row in dtCompras.Rows)
+                {
+                    totalComprasActual += Convert.ToDecimal(row["Total"]);
+                }
+
                 decimal efectivoEsperado = (montoInicialActual + totalVentasActual) - totalComprasActual;
 
-                // 5. Mostrar los resultados en las etiquetas del diseño (asegúrate de tener estos nombres de Labels en tu form)
                 if (lblTotalVentas != null) lblTotalVentas.Text = "L. " + totalVentasActual.ToString("N2");
                 if (lblTotalCompras != null) lblTotalCompras.Text = "L. " + totalComprasActual.ToString("N2");
                 if (lblEfectivoEsperado != null) lblEfectivoEsperado.Text = "L. " + efectivoEsperado.ToString("N2");
@@ -125,9 +134,6 @@ namespace BRAMSELU.Caja
             try
             {
                 decimal montoInicial = Convert.ToDecimal(txtMontoInicial.Text);
-
-                // Aquí asignamos el usuario que se haya logueado en tu sistema (ejemplo genérico o usando una clase de sesión)
-                // Reemplaza "Administrador" por la variable real donde guardas el nombre de quien inició sesión.
                 string usuarioLogueado = "Administrador";
 
                 bool resultado = objBLL.AbrirCaja(montoInicial, usuarioLogueado);

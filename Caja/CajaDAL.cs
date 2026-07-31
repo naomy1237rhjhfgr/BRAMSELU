@@ -30,6 +30,20 @@ namespace BRAMSELU.Caja
             return conexionObj.EjecutarConsultaDataTable(query);
         }
 
+        // Método agregado para obtener las compras del turno actual
+        public DataTable ObtenerComprasDeCajaActual(int idCaja)
+        {
+            string queryFecha = $"SELECT FechaApertura FROM Cajas WHERE IdCaja = {idCaja}";
+            DataTable dtFecha = conexionObj.EjecutarConsultaDataTable(queryFecha);
+            if (dtFecha.Rows.Count == 0) return new DataTable();
+
+            DateTime fechaApertura = Convert.ToDateTime(dtFecha.Rows[0]["FechaApertura"]);
+            string fechaFormateada = fechaApertura.ToString("yyyy-MM-dd HH:mm:ss");
+
+            string queryCompras = $"SELECT IdCompra, Fecha, Total, IdProveedor FROM Compras WHERE Fecha >= '{fechaFormateada}'";
+            return conexionObj.EjecutarConsultaDataTable(queryCompras);
+        }
+
         public decimal ObtenerTotalComprasDeCaja(int idCaja)
         {
             string queryFecha = $"SELECT FechaApertura FROM Cajas WHERE IdCaja = {idCaja}";

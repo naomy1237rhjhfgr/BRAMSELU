@@ -15,10 +15,12 @@ namespace BRAMSELU.Caja
         {
             return objDAL.ObtenerCajaAbierta();
         }
+
         public decimal ObtenerTotalComprasDeCaja(int idCaja)
         {
             return objDAL.ObtenerTotalComprasDeCaja(idCaja);
         }
+
         public bool AbrirCaja(decimal montoInicial, string usuarioApertura)
         {
             return objDAL.AbrirCaja(montoInicial, usuarioApertura);
@@ -27,6 +29,12 @@ namespace BRAMSELU.Caja
         public DataTable ObtenerVentasDeCajaActual(int idCaja)
         {
             return objDAL.ObtenerVentasDeCajaActual(idCaja);
+        }
+
+       
+        public DataTable ObtenerComprasDeCajaActual(int idCaja)
+        {
+            return objDAL.ObtenerComprasDeCajaActual(idCaja);
         }
 
         public bool CerrarCaja(int idCaja, decimal montoFinal)
