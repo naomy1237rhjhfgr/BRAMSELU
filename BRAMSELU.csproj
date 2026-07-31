@@ -246,6 +246,7 @@
     <Compile Include="Ventas\FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\GeneradorFactura.cs" />
     <Compile Include="Ventas\VentaBLL.cs" />
     <Compile Include="Ventas\VentaDAL.cs" />
     <Compile Include="Ventas\VentaED.cs" />
