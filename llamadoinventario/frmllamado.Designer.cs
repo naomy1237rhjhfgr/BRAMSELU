@@ -1,4 +1,4 @@
-﻿namespace BRAMSELU.llamadoinventario
+﻿namespace BRAMSELU.llamadoinventario.UI
 {
     partial class frmllamado
     {
