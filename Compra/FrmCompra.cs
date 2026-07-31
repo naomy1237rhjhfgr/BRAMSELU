@@ -29,9 +29,11 @@ namespace BRAMSELU.Compra
             this.txtPrecio.KeyPress += new KeyPressEventHandler(this.txtPrecio_KeyPress);
         }
 
-        private void FrmCompra_Load_1(object sender, EventArgs e)
+        private void FrmCompra_Load(object sender, EventArgs e)
         {
-            CargarComboProveedores();
+
+      
+        CargarComboProveedores();
             InicializarCarrito();
         }
 
@@ -218,5 +220,7 @@ namespace BRAMSELU.Compra
         private void txtProducto_TextChanged(object sender, EventArgs e) { }
 
         private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e) { }
+
+       
     }
 }
