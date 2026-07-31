@@ -30,9 +30,8 @@ namespace BRAMSELU.Compra
 
         private void FrmCompra_Load_1(object sender, EventArgs e)
         {
-
-       
-        CargarComboProveedores();
+            CargarComboProveedores();
+            CargarComboProductos();
             InicializarCarrito();
         }
 
@@ -40,24 +39,6 @@ namespace BRAMSELU.Compra
         {
             try
             {
-                cmbProveedores.DataSource = objBLL.ObtenerProveedores();
-                cmbProveedores.DisplayMember = "NombreEmpresa";
-                cmbProveedores.ValueMember = "IdProveedor";
-            }
-            catch (Exception ex)
-            {
-                GestorMensajes.Error("Error al cargar proveedores: " + ex.Message);
-            }
-        }
-
-        private void CargarComboProductos()
-        {
-            try
-            {
-                cmbProductos.DataSource = objBLL.ObtenerProductos();
-                cmbProductos.DisplayMember = "Nombre";
-                cmbProductos.ValueMember = "IdProducto";
-            }
                 DataTable dtProveedores = objBLL.ObtenerProveedores();
 
                 if (dtProveedores != null && dtProveedores.Rows.Count > 0)
@@ -77,6 +58,19 @@ namespace BRAMSELU.Compra
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar proveedores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CargarComboProductos()
+        {
+            try
+            {
+                cmbProductos.DataSource = objBLL.ObtenerProductos();
+                cmbProductos.DisplayMember = "Nombre";
+                cmbProductos.ValueMember = "IdProducto";
+            }
+            catch (Exception ex)
+            {
                 GestorMensajes.Error("Error al cargar productos: " + ex.Message);
             }
         }
@@ -221,29 +215,12 @@ namespace BRAMSELU.Compra
             txtPrecio.Text = precio.ToString("0.00");
         }
 
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
+        private void txtPrecio_TextChanged(object sender, EventArgs e) { }
 
-        }
+        private void txtCantidad_TextChanged(object sender, EventArgs e) { }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
+        private void txtProducto_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void txtProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        
+        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }
