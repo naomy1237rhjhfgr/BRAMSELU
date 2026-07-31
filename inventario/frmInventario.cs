@@ -1,7 +1,6 @@
 ﻿using BRAMSELU.BLL;
 using BRAMSELU.Categorias;
 using BRAMSELU.ClasesProducto;
-using BRAMSELU.Compra;
 using BRAMSELU.DAL;
 using BRAMSELU.Entidades;
 using System;
@@ -15,8 +14,6 @@ namespace BRAMSELU
     {
         private InventarioBLL inventarioBLL;
         private ImagenProducto imgHelper;
-        
-        public bool modoSeleccion = false;
 
         private CategoriaBLL categoriaBLL = new CategoriaBLL();
 
@@ -30,6 +27,7 @@ namespace BRAMSELU
             inventarioBLL = new InventarioBLL();
             imgHelper = new ImagenProducto();
         }
+
         private void frmInventario_Load(object sender, EventArgs e)
         {
             CmbCa.DataSource = categoriaBLL.ObtenerCategorias();
@@ -38,51 +36,14 @@ namespace BRAMSELU
 
             CargarDatos();
             BloquearCampos(true);
-            CmbCa.DataSource = categoriaBLL.ObtenerCategorias();
-            CmbCa.DisplayMember = "NombreCategoria";
-            CmbCa.ValueMember = "IdCategoria";
-
-            CargarDatos();
-            BloquearCampos(true);
-
-            
-            if (modoSeleccion)
-            {
-                this.Text = "Seleccionar Producto para Compras";
-                btnAgregarCarrito.Visible = true; 
-            }
-            else
-            {
-                btnAgregarCarrito.Visible = false;
-            }
-        }
-        private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (modoSeleccion && e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
-                int idProducto = Convert.ToInt32(fila.Cells[0].Value);
-                string nombre = fila.Cells[1].Value.ToString();
-                decimal precio = Convert.ToDecimal(fila.Cells[5].Value);
-
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm is FrmCompra comprasForm)
-                    {
-                        comprasForm.CargarDatosProducto(idProducto, nombre, precio);
-                        break;
-                    }
-                }
-
-                this.Close();
-            }
         }
 
         private void CargarDatos()
         {
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = inventarioBLL.ObtenerProductos();
-            dgvDatos.Columns["IdCategoria"].Visible = false;
+            if (dgvDatos.Columns.Contains("IdCategoria"))
+                dgvDatos.Columns["IdCategoria"].Visible = false;
             OcultarImagen();
         }
 
@@ -192,7 +153,6 @@ namespace BRAMSELU
             if (!Validar()) return;
 
             iniciarbarra("guardar");
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -243,6 +203,7 @@ namespace BRAMSELU
 
             iniciarbarra("buscar");
         }
+
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
@@ -328,14 +289,12 @@ namespace BRAMSELU
             CargarDatos();
             Limpiar();
             BloquearCampos(true);
-
         }
 
         private void BuscarProducto()
         {
             dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text);
             OcultarImagen();
-
         }
 
         private void EliminarProducto()
@@ -373,38 +332,11 @@ namespace BRAMSELU
                         break;
                 }
             }
-
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDatos.ClearSelection();
-        }
-
-        private void btnAgregarCarrito_Click(object sender, EventArgs e)
-        {
-            if (dgvDatos.CurrentRow != null && dgvDatos.CurrentRow.Index >= 0)
-            {
-                DataGridViewRow fila = dgvDatos.CurrentRow;
-                int idProducto = Convert.ToInt32(fila.Cells[0].Value);
-                string nombre = fila.Cells[1].Value.ToString();
-                decimal precio = Convert.ToDecimal(fila.Cells[5].Value);
-
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm is FrmCompra comprasForm)
-                    {
-                        comprasForm.CargarDatosProducto(idProducto, nombre, precio);
-                        break;
-                    }
-                }
-
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un producto de la tabla.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
     }
 }

@@ -46,7 +46,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.progressBarInventario = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnAgregarCarrito = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -379,29 +378,12 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnAgregarCarrito
-            // 
-            this.btnAgregarCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnAgregarCarrito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarCarrito.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCarrito.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarCarrito.Location = new System.Drawing.Point(249, 577);
-            this.btnAgregarCarrito.Name = "btnAgregarCarrito";
-            this.btnAgregarCarrito.Size = new System.Drawing.Size(273, 48);
-            this.btnAgregarCarrito.TabIndex = 27;
-            this.btnAgregarCarrito.Text = "Agregar compra";
-            this.btnAgregarCarrito.UseVisualStyleBackColor = false;
-            this.btnAgregarCarrito.Click += new System.EventHandler(this.btnAgregarCarrito_Click);
-            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);
-            this.Controls.Add(this.btnAgregarCarrito);
             this.Controls.Add(this.progressBarInventario);
             this.Controls.Add(this.CmbCa);
             this.Controls.Add(this.btnCargarImagen);
@@ -472,6 +454,5 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ProgressBar progressBarInventario;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnAgregarCarrito;
     }
 }
