@@ -167,6 +167,15 @@
     </Compile>
     <Compile Include="reportecaja\ReporteCajaBLL.cs" />
     <Compile Include="reportecaja\ReporteCajaDAL.cs" />
+    <Compile Include="reporteproductos\FrmReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteproductos\FrmReporteProductosVendidos.Designer.cs">
+      <DependentUpon>FrmReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporteproductos\ReporteProductosVendidosBLL.cs" />
+    <Compile Include="reporteproductos\ReporteProductosVendidosDAL.cs" />
+    <Compile Include="reporteproductos\ReporteProductosVendidosModelo.cs" />
     <Compile Include="reportescompras\frmReporteCompras.cs">
       <SubType>Form</SubType>
     </Compile>
