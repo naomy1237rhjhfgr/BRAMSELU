@@ -42,7 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvComprasDelDia)).BeginInit();
             this.panelResumen.SuspendLayout();
             this.SuspendLayout();
-
             // 
             // lblEstado
             // 
@@ -53,7 +52,6 @@
             this.lblEstado.TabIndex = 0;
             this.lblEstado.Text = "Estado: CAJA CERRADA";
             this.lblEstado.Click += new System.EventHandler(this.lblEstado_Click);
-
             // 
             // lblInfoCaja
             // 
@@ -61,10 +59,9 @@
             this.lblInfoCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfoCaja.Location = new System.Drawing.Point(20, 45);
             this.lblInfoCaja.Name = "lblInfoCaja";
-            this.lblInfoCaja.Size = new System.Drawing.Size(287, 20);
+            this.lblInfoCaja.Size = new System.Drawing.Size(332, 24);
             this.lblInfoCaja.TabIndex = 1;
             this.lblInfoCaja.Text = "Debe abrir caja para operar el sistema.";
-
             // 
             // groupBox1
             // 
@@ -78,7 +75,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Apertura de Caja (Skincare)";
-
             // 
             // btnAbrirCaja
             // 
@@ -91,17 +87,15 @@
             this.btnAbrirCaja.Text = "Abrir Caja";
             this.btnAbrirCaja.UseVisualStyleBackColor = false;
             this.btnAbrirCaja.Click += new System.EventHandler(this.btnAbrirCaja_Click);
-
             // 
             // txtMontoInicial
             // 
             this.txtMontoInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoInicial.Location = new System.Drawing.Point(230, 38);
             this.txtMontoInicial.Name = "txtMontoInicial";
-            this.txtMontoInicial.Size = new System.Drawing.Size(320, 28);
+            this.txtMontoInicial.Size = new System.Drawing.Size(320, 32);
             this.txtMontoInicial.TabIndex = 1;
             this.txtMontoInicial.TextChanged += new System.EventHandler(this.txtMontoInicial_TextChanged);
-
             // 
             // label1
             // 
@@ -109,143 +103,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 18);
+            this.label1.Size = new System.Drawing.Size(172, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto Inicial (Base):";
-
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Transacciones del Día (Ventas):";
-
-            // 
-            // dgvVentasDelDia
-            // 
-            this.dgvVentasDelDia.AllowUserToAddRows = false;
-            this.dgvVentasDelDia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvVentasDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentasDelDia.Location = new System.Drawing.Point(20, 210);
-            this.dgvVentasDelDia.Name = "dgvVentasDelDia";
-            this.dgvVentasDelDia.RowHeadersWidth = 51;
-            this.dgvVentasDelDia.RowTemplate.Height = 24;
-            this.dgvVentasDelDia.Size = new System.Drawing.Size(760, 140);
-            this.dgvVentasDelDia.TabIndex = 4;
-
-            // 
-            // labelCompras
-            // 
-            this.labelCompras.AutoSize = true;
-            this.labelCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCompras.Location = new System.Drawing.Point(20, 360);
-            this.labelCompras.Name = "labelCompras";
-            this.labelCompras.Size = new System.Drawing.Size(250, 20);
-            this.labelCompras.TabIndex = 7;
-            this.labelCompras.Text = "Transacciones del Día (Compras):";
-
-            // 
-            // dgvComprasDelDia
-            // 
-            this.dgvComprasDelDia.AllowUserToAddRows = false;
-            this.dgvComprasDelDia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComprasDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComprasDelDia.Location = new System.Drawing.Point(20, 385);
-            this.dgvComprasDelDia.Name = "dgvComprasDelDia";
-            this.dgvComprasDelDia.RowHeadersWidth = 51;
-            this.dgvComprasDelDia.RowTemplate.Height = 24;
-            this.dgvComprasDelDia.Size = new System.Drawing.Size(760, 140);
-            this.dgvComprasDelDia.TabIndex = 8;
-
-            // 
-            // panelResumen
-            // 
-            this.panelResumen.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelResumen.Controls.Add(this.lblEfectivoEsperado);
-            this.panelResumen.Controls.Add(this.label7);
-            this.panelResumen.Controls.Add(this.lblTotalCompras);
-            this.panelResumen.Controls.Add(this.label5);
-            this.panelResumen.Controls.Add(this.lblTotalVentas);
-            this.panelResumen.Controls.Add(this.label4);
-            this.panelResumen.Location = new System.Drawing.Point(20, 535);
-            this.panelResumen.Name = "panelResumen";
-            this.panelResumen.Size = new System.Drawing.Size(760, 150);
-            this.panelResumen.TabIndex = 6;
-
-            // 
-            // lblEfectivoEsperado
-            // 
-            this.lblEfectivoEsperado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEfectivoEsperado.ForeColor = System.Drawing.Color.Navy;
-            this.lblEfectivoEsperado.Location = new System.Drawing.Point(500, 105);
-            this.lblEfectivoEsperado.Name = "lblEfectivoEsperado";
-            this.lblEfectivoEsperado.Size = new System.Drawing.Size(230, 25);
-            this.lblEfectivoEsperado.TabIndex = 5;
-            this.lblEfectivoEsperado.Text = "L. 0.00";
-            this.lblEfectivoEsperado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 108);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(256, 20);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Efectivo Esperado en Caja:";
-
-            // 
-            // lblTotalCompras
-            // 
-            this.lblTotalCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCompras.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblTotalCompras.Location = new System.Drawing.Point(500, 60);
-            this.lblTotalCompras.Name = "lblTotalCompras";
-            this.lblTotalCompras.Size = new System.Drawing.Size(230, 25);
-            this.lblTotalCompras.TabIndex = 3;
-            this.lblTotalCompras.Text = "L. 0.00";
-            this.lblTotalCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Total de Compras Turno (-):";
-
-            // 
-            // lblTotalVentas
-            // 
-            this.lblTotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalVentas.ForeColor = System.Drawing.Color.Green;
-            this.lblTotalVentas.Location = new System.Drawing.Point(500, 15);
-            this.lblTotalVentas.Name = "lblTotalVentas";
-            this.lblTotalVentas.Size = new System.Drawing.Size(230, 25);
-            this.lblTotalVentas.TabIndex = 1;
-            this.lblTotalVentas.Text = "L. 0.00";
-            this.lblTotalVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Total de Ventas Turno (+):";
-
             // 
             // groupBox2
             // 
@@ -253,13 +113,12 @@
             this.groupBox2.Controls.Add(this.txtMontoFinal);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(20, 700);
+            this.groupBox2.Location = new System.Drawing.Point(20, 521);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(760, 90);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cierre de Caja";
-
             // 
             // btnCerrarCaja
             // 
@@ -272,17 +131,15 @@
             this.btnCerrarCaja.Text = "Cerrar Caja";
             this.btnCerrarCaja.UseVisualStyleBackColor = false;
             this.btnCerrarCaja.Click += new System.EventHandler(this.btnCerrarCaja_Click);
-
             // 
             // txtMontoFinal
             // 
             this.txtMontoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoFinal.Location = new System.Drawing.Point(230, 38);
             this.txtMontoFinal.Name = "txtMontoFinal";
-            this.txtMontoFinal.Size = new System.Drawing.Size(320, 28);
+            this.txtMontoFinal.Size = new System.Drawing.Size(320, 32);
             this.txtMontoFinal.TabIndex = 1;
             this.txtMontoFinal.TextChanged += new System.EventHandler(this.txtMontoFinal_TextChanged);
-
             // 
             // label2
             // 
@@ -290,15 +147,136 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 18);
+            this.label2.Size = new System.Drawing.Size(204, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Efectivo Contado Físico:";
-
+            // 
+            // dgvVentasDelDia
+            // 
+            this.dgvVentasDelDia.AllowUserToAddRows = false;
+            this.dgvVentasDelDia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVentasDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentasDelDia.Location = new System.Drawing.Point(20, 210);
+            this.dgvVentasDelDia.Name = "dgvVentasDelDia";
+            this.dgvVentasDelDia.RowHeadersWidth = 51;
+            this.dgvVentasDelDia.RowTemplate.Height = 24;
+            this.dgvVentasDelDia.Size = new System.Drawing.Size(564, 140);
+            this.dgvVentasDelDia.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(308, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Transacciones del Día (Ventas):";
+            // 
+            // dgvComprasDelDia
+            // 
+            this.dgvComprasDelDia.AllowUserToAddRows = false;
+            this.dgvComprasDelDia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComprasDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComprasDelDia.Location = new System.Drawing.Point(595, 210);
+            this.dgvComprasDelDia.Name = "dgvComprasDelDia";
+            this.dgvComprasDelDia.RowHeadersWidth = 51;
+            this.dgvComprasDelDia.RowTemplate.Height = 24;
+            this.dgvComprasDelDia.Size = new System.Drawing.Size(514, 140);
+            this.dgvComprasDelDia.TabIndex = 8;
+            // 
+            // labelCompras
+            // 
+            this.labelCompras.AutoSize = true;
+            this.labelCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCompras.Location = new System.Drawing.Point(607, 183);
+            this.labelCompras.Name = "labelCompras";
+            this.labelCompras.Size = new System.Drawing.Size(327, 24);
+            this.labelCompras.TabIndex = 7;
+            this.labelCompras.Text = "Transacciones del Día (Compras):";
+            // 
+            // panelResumen
+            // 
+            this.panelResumen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelResumen.Controls.Add(this.lblEfectivoEsperado);
+            this.panelResumen.Controls.Add(this.label7);
+            this.panelResumen.Controls.Add(this.lblTotalCompras);
+            this.panelResumen.Controls.Add(this.label5);
+            this.panelResumen.Controls.Add(this.lblTotalVentas);
+            this.panelResumen.Controls.Add(this.label4);
+            this.panelResumen.Location = new System.Drawing.Point(20, 356);
+            this.panelResumen.Name = "panelResumen";
+            this.panelResumen.Size = new System.Drawing.Size(760, 150);
+            this.panelResumen.TabIndex = 6;
+            // 
+            // lblEfectivoEsperado
+            // 
+            this.lblEfectivoEsperado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEfectivoEsperado.ForeColor = System.Drawing.Color.Navy;
+            this.lblEfectivoEsperado.Location = new System.Drawing.Point(500, 105);
+            this.lblEfectivoEsperado.Name = "lblEfectivoEsperado";
+            this.lblEfectivoEsperado.Size = new System.Drawing.Size(230, 25);
+            this.lblEfectivoEsperado.TabIndex = 5;
+            this.lblEfectivoEsperado.Text = "L. 0.00";
+            this.lblEfectivoEsperado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(20, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(275, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Efectivo Esperado en Caja:";
+            // 
+            // lblTotalCompras
+            // 
+            this.lblTotalCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCompras.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblTotalCompras.Location = new System.Drawing.Point(500, 60);
+            this.lblTotalCompras.Name = "lblTotalCompras";
+            this.lblTotalCompras.Size = new System.Drawing.Size(230, 25);
+            this.lblTotalCompras.TabIndex = 3;
+            this.lblTotalCompras.Text = "L. 0.00";
+            this.lblTotalCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(20, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 24);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Total de Compras :";
+            // 
+            // lblTotalVentas
+            // 
+            this.lblTotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVentas.ForeColor = System.Drawing.Color.Green;
+            this.lblTotalVentas.Location = new System.Drawing.Point(500, 15);
+            this.lblTotalVentas.Name = "lblTotalVentas";
+            this.lblTotalVentas.Size = new System.Drawing.Size(230, 25);
+            this.lblTotalVentas.TabIndex = 1;
+            this.lblTotalVentas.Text = "L. 0.00";
+            this.lblTotalVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total de Ventas :";
             // 
             // FrmCaja
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 810);
+            this.ClientSize = new System.Drawing.Size(1429, 637);
             this.Controls.Add(this.dgvComprasDelDia);
             this.Controls.Add(this.labelCompras);
             this.Controls.Add(this.panelResumen);
@@ -322,6 +300,7 @@
             this.panelResumen.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblEstado;
