@@ -16,8 +16,7 @@ namespace BRAMSELU.reportestock
 
         private void FrmReporteStockBajo_Load(object sender, EventArgs e)
         {
-            // Valor predeterminado para el stock crítico
-            txtStockLimite.Text = "5";
+            txtStockLimite.Text = "5"; // O déjalo en blanco si prefieres que el usuario lo escriba
             CargarReporte();
         }
 
@@ -33,17 +32,6 @@ namespace BRAMSELU.reportestock
 
                 DataTable dt = objBLL.ObtenerProductosStockBajo(limite);
                 dgvStockBajo.DataSource = dt;
-
-                if (dt.Rows.Count > 0)
-                {
-                    lblMensajeAlerta.Text = $"¡Atención! Hay {dt.Rows.Count} productos con stock bajo o agotado.";
-                    lblMensajeAlerta.ForeColor = Color.Firebrick;
-                }
-                else
-                {
-                    lblMensajeAlerta.Text = "Excelente: No hay productos por debajo del límite de stock configurado.";
-                    lblMensajeAlerta.ForeColor = Color.Green;
-                }
             }
             catch (Exception ex)
             {
