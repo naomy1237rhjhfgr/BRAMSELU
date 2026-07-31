@@ -1,6 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using BRAMSELU.reportestock;
 using BRAMSELU.Ventas;
+using System;
+using System.Windows.Forms;
 
 namespace BRAMSELU
 {
@@ -58,6 +59,12 @@ namespace BRAMSELU
         {
             frmReporteCompras frmCompras = new frmReporteCompras();
             AbrirFormularioEnPanel(frmCompras);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmReporteStockBajo frmstock = new FrmReporteStockBajo();
+            AbrirFormularioEnPanel(frmstock);
         }
     }
 }
