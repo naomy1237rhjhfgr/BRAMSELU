@@ -296,6 +296,9 @@
     <EmbeddedResource Include="reportecaja\FrmReporteCaja.resx">
       <DependentUpon>FrmReporteCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reporteproductos\FrmReporteProductosVendidos.resx">
+      <DependentUpon>FrmReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportestock\FrmReporteStockBajo.resx">
       <DependentUpon>FrmReporteStockBajo.cs</DependentUpon>
     </EmbeddedResource>

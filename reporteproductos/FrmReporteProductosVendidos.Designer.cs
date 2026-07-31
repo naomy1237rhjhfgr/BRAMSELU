@@ -31,7 +31,7 @@
             this.label1.Location = new System.Drawing.Point(38, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 24);
+            this.label1.Size = new System.Drawing.Size(128, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mostrar Top:";
             // 
@@ -55,7 +55,7 @@
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(150, 46);
             this.btnConsultar.TabIndex = 2;
-            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.Text = "Generar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
