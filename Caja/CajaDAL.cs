@@ -29,13 +29,6 @@ namespace BRAMSELU.Caja
             string query = "SELECT IdVenta, FechaVenta, Total, EfectivoRecibido, Cambio FROM Ventas WHERE IdCaja = " + idCaja;
             return conexionObj.EjecutarConsultaDataTable(query);
         }
-        public decimal ObtenerTotalComprasDeCaja(int idCaja)
-        {
-            // Obtener la fecha de apertura
-            string queryFecha = $"SELECT FechaApertura FROM Cajas WHERE IdCaja = {idCaja}";
-            DataTable dtFecha = conexionObj.EjecutarConsultaDataTable(queryFecha);
-            if (dtFecha.Rows.Count == 0) return 0;
-            DateTime fechaApertura = Convert.ToDateTime(dtFecha.Rows[0]["FechaApertura"]);
 
         public decimal ObtenerTotalComprasDeCaja(int idCaja)
         {
@@ -52,9 +45,9 @@ namespace BRAMSELU.Caja
 
             return 0;
         }
+
         public bool CerrarCaja(int idCaja, decimal montoFinal)
         {
-          
             string queryFecha = $"SELECT FechaApertura FROM Cajas WHERE IdCaja = {idCaja}";
             DataTable dtFecha = conexionObj.EjecutarConsultaDataTable(queryFecha);
             if (dtFecha.Rows.Count == 0) return false;
@@ -64,12 +57,10 @@ namespace BRAMSELU.Caja
             DataTable dtVentas = conexionObj.EjecutarConsultaDataTable(querySumaVentas);
             decimal totalVentas = Convert.ToDecimal(dtVentas.Rows[0][0]);
 
-           
-            string querySumaCompras = $"SELECT ISNULL(SUM(Total), 0) FROM Compras WHERE FechaCompra >= '{fechaApertura.ToString("yyyy-MM-dd HH:mm:ss")}'";
+            string querySumaCompras = $"SELECT ISNULL(SUM(Total), 0) FROM Compras WHERE Fecha >= '{fechaApertura.ToString("yyyy-MM-dd HH:mm:ss")}'";
             DataTable dtCompras = conexionObj.EjecutarConsultaDataTable(querySumaCompras);
             decimal totalCompras = Convert.ToDecimal(dtCompras.Rows[0][0]);
 
-            
             string queryCierre = $"UPDATE Cajas SET " +
                                  $"FechaCierre = GETDATE(), " +
                                  $"TotalVentasEfectivo = {totalVentas}, " +
