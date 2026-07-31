@@ -13,7 +13,9 @@
             base.Dispose(disposing);
         }
 
-        #private void InitializeComponent()
+        #region Windows Form Designer generated code
+
+        private void InitializeComponent()
         {
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -30,11 +32,11 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            
+
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
-            
+
             // 
             // txtIdProducto
             // 
@@ -43,7 +45,7 @@
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(200, 20);
             this.txtIdProducto.TabIndex = 0;
-            
+
             // 
             // txtNombre
             // 
@@ -51,7 +53,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 1;
-            
+
             // 
             // txtMarca
             // 
@@ -59,7 +61,7 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(200, 20);
             this.txtMarca.TabIndex = 2;
-            
+
             // 
             // CmbCa
             // 
@@ -74,7 +76,7 @@
             this.CmbCa.Name = "CmbCa";
             this.CmbCa.Size = new System.Drawing.Size(200, 21);
             this.CmbCa.TabIndex = 3;
-            
+
             // 
             // txtPrecio
             // 
@@ -82,7 +84,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(200, 20);
             this.txtPrecio.TabIndex = 4;
-            
+
             // 
             // txtStock
             // 
@@ -90,7 +92,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(200, 20);
             this.txtStock.TabIndex = 5;
-            
+
             // 
             // dtpFechaRegistro
             // 
@@ -99,7 +101,7 @@
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaRegistro.TabIndex = 6;
-            
+
             // 
             // picImagen
             // 
@@ -110,7 +112,7 @@
             this.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picImagen.TabIndex = 7;
             this.picImagen.TabStop = false;
-            
+
             // 
             // btnCargarImagen
             // 
@@ -121,7 +123,7 @@
             this.btnCargarImagen.Text = "Seleccionar Imagen";
             this.btnCargarImagen.UseVisualStyleBackColor = true;
             this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
-            
+
             // 
             // txtBuscar
             // 
@@ -130,7 +132,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(450, 20);
             this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            
+
             // 
             // dgvDatos
             // 
@@ -144,7 +146,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(450, 435);
             this.dgvDatos.TabIndex = 10;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
-            
+
             // 
             // btnNuevo
             // 
@@ -155,7 +157,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            
+
             // 
             // btnGuardar
             // 
@@ -166,7 +168,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            
+
             // 
             // btnEliminar
             // 
@@ -177,7 +179,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            
+
             // 
             // btnLimpiar
             // 
@@ -188,7 +190,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            
+
             // 
             // frmProductos
             // 
