@@ -388,5 +388,55 @@ namespace BRAMSELU
                 minutosahoras.Visible = false;
             }
         }
+
+        private void txtnombreservicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsControl(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtprecioservicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.' && !txtprecioservicio.Text.Contains("."))
+                return;
+
+            e.Handled = true;
+        }
+
+        private void txtduracionservicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+        !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtdescripcionservicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) ||
+        char.IsControl(e.KeyChar) ||
+        char.IsWhiteSpace(e.KeyChar) ||
+        e.KeyChar == '.' ||
+        e.KeyChar == ',' ||
+        e.KeyChar == '(' ||
+        e.KeyChar == ')' ||
+        e.KeyChar == '-')
+            {
+                return;
+            }
+
+            e.Handled = true;  
+        }
     }
 }

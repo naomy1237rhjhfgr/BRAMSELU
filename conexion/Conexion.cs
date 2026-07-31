@@ -36,7 +36,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception("Error al conectar con la base de datos: " , ex);
             }
         }
 
@@ -57,8 +57,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return false;
+                throw new Exception("Error al ejecutar consulta SQL " , ex);
             }
         }
 
@@ -86,8 +85,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return null;
+                throw new Exception("Error al ejecutar la consulta. " , ex);
             }
         }
 
@@ -106,8 +104,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return null;
+                throw new Exception("Error al ejecutar la consulta. " , ex);
             }
         }
 
@@ -124,7 +121,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception("Error al ejecutar la consulta y obtener el DataTable. " , ex);
             }
 
             return tabla;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.Compra
 {
@@ -41,7 +42,7 @@ namespace BRAMSELU.Compra
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar proveedores: " + ex.Message);
+                GestorMensajes.Error("Error al cargar proveedores: " + ex.Message);
             }
         }
 
@@ -55,7 +56,7 @@ namespace BRAMSELU.Compra
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar productos: " + ex.Message);
+                GestorMensajes.Error("Error al cargar productos: " + ex.Message);
             }
         }
 
@@ -75,7 +76,7 @@ namespace BRAMSELU.Compra
         {
             if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
             {
-                MessageBox.Show("Por favor, complete la cantidad y el precio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor completa la cantidad y el precio");
                 return;
             }
 
@@ -107,7 +108,7 @@ namespace BRAMSELU.Compra
             {
                 if (cmbProveedores.SelectedValue == null)
                 {
-                    MessageBox.Show("Por favor, seleccione un proveedor.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("Por favor seleccione un proveedor");
                     return;
                 }
 
@@ -122,14 +123,14 @@ namespace BRAMSELU.Compra
 
                 if (respuesta)
                 {
-                    MessageBox.Show("¡Compra registrada correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GestorMensajes.Exito("¡Compra registrada correctamente!");
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al finalizar la compra: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al finalizar la compra: " + ex.Message);
             }
         }
 

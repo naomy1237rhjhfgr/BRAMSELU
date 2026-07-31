@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Mensajes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,7 +80,7 @@ namespace BRAMSELU.Caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar las transacciones del día: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al cargar las transacciones del dia: " + ex.Message);
             }
         }
 
@@ -87,7 +88,7 @@ namespace BRAMSELU.Caja
         {
             if (string.IsNullOrWhiteSpace(txtMontoInicial.Text))
             {
-                MessageBox.Show("Ingrese el monto inicial para abrir la caja.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Ingrese el monto inicial para abrir la caja");
                 return;
             }
 
@@ -98,14 +99,14 @@ namespace BRAMSELU.Caja
 
                 if (resultado)
                 {
-                    MessageBox.Show("¡Caja abierta con éxito! Ya puede realizar ventas.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GestorMensajes.Exito("¡Caja abierta con exito! Ya puede realizar ventas.");
                     txtMontoInicial.Clear();
                     VerificarEstadoCaja();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al abrir la caja: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al abrir caja: " + ex.Message);
             }
         }
 
@@ -113,7 +114,7 @@ namespace BRAMSELU.Caja
         {
             if (string.IsNullOrWhiteSpace(txtMontoFinal.Text))
             {
-                MessageBox.Show("Ingrese el efectivo total contado en caja.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Ingrese el efectivo total contado en caja");
                 return;
             }
 
@@ -124,14 +125,14 @@ namespace BRAMSELU.Caja
 
                 if (resultado)
                 {
-                    MessageBox.Show("¡Caja cerrada correctamente!", "Cierre de Caja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GestorMensajes.Error("¡Caja cerrada correctamente!");
                     txtMontoFinal.Clear();
                     VerificarEstadoCaja();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cerrar la caja: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al cerrar caja: " + ex.Message);
             }
         }
 

@@ -307,5 +307,20 @@ namespace BRAMSELU
                 dataGridViewcategoria.ClearSelection();
             }
         }
+
+        private void lblproductoscategorias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewproCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void progressBarcategorias_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

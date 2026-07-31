@@ -66,15 +66,16 @@
             // 
             // progressBarcategorias
             // 
-            this.progressBarcategorias.Location = new System.Drawing.Point(19, 755);
+            this.progressBarcategorias.Location = new System.Drawing.Point(67, 775);
             this.progressBarcategorias.Name = "progressBarcategorias";
             this.progressBarcategorias.Size = new System.Drawing.Size(129, 23);
             this.progressBarcategorias.TabIndex = 62;
             this.progressBarcategorias.Visible = false;
+            this.progressBarcategorias.Click += new System.EventHandler(this.progressBarcategorias_Click);
             // 
             // txtidcategoria
             // 
-            this.txtidcategoria.Location = new System.Drawing.Point(272, 452);
+            this.txtidcategoria.Location = new System.Drawing.Point(224, 452);
             this.txtidcategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtidcategoria.Name = "txtidcategoria";
             this.txtidcategoria.Size = new System.Drawing.Size(340, 22);
@@ -96,7 +97,7 @@
             this.labeldescripcion.AutoSize = true;
             this.labeldescripcion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeldescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labeldescripcion.Location = new System.Drawing.Point(68, 521);
+            this.labeldescripcion.Location = new System.Drawing.Point(601, 452);
             this.labeldescripcion.Name = "labeldescripcion";
             this.labeldescripcion.Size = new System.Drawing.Size(139, 31);
             this.labeldescripcion.TabIndex = 52;
@@ -106,7 +107,7 @@
             // 
             this.txtnombrecategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtnombrecategoria.Location = new System.Drawing.Point(272, 485);
+            this.txtnombrecategoria.Location = new System.Drawing.Point(224, 500);
             this.txtnombrecategoria.Name = "txtnombrecategoria";
             this.txtnombrecategoria.Size = new System.Drawing.Size(340, 30);
             this.txtnombrecategoria.TabIndex = 51;
@@ -116,7 +117,7 @@
             this.labelnombrecategoria.AutoSize = true;
             this.labelnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnombrecategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelnombrecategoria.Location = new System.Drawing.Point(68, 480);
+            this.labelnombrecategoria.Location = new System.Drawing.Point(68, 495);
             this.labelnombrecategoria.Name = "labelnombrecategoria";
             this.labelnombrecategoria.Size = new System.Drawing.Size(103, 31);
             this.labelnombrecategoria.TabIndex = 50;
@@ -253,10 +254,10 @@
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(272, 543);
+            this.txtdescripcion.Location = new System.Drawing.Point(746, 452);
             this.txtdescripcion.Multiline = true;
             this.txtdescripcion.Name = "txtdescripcion";
-            this.txtdescripcion.Size = new System.Drawing.Size(438, 90);
+            this.txtdescripcion.Size = new System.Drawing.Size(357, 78);
             this.txtdescripcion.TabIndex = 63;
             // 
             // timer1
@@ -268,33 +269,35 @@
             this.lblproductoscategorias.AutoSize = true;
             this.lblproductoscategorias.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblproductoscategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblproductoscategorias.Location = new System.Drawing.Point(12, 536);
+            this.lblproductoscategorias.Location = new System.Drawing.Point(60, 556);
             this.lblproductoscategorias.Name = "lblproductoscategorias";
             this.lblproductoscategorias.Size = new System.Drawing.Size(382, 37);
             this.lblproductoscategorias.TabIndex = 64;
             this.lblproductoscategorias.Text = "Productos De Esta Categoria";
+            this.lblproductoscategorias.Click += new System.EventHandler(this.lblproductoscategorias_Click);
             // 
             // dataGridViewproCategorias
             // 
             this.dataGridViewproCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewproCategorias.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewproCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewproCategorias.Location = new System.Drawing.Point(19, 589);
+            this.dataGridViewproCategorias.Location = new System.Drawing.Point(67, 609);
             this.dataGridViewproCategorias.MultiSelect = false;
             this.dataGridViewproCategorias.Name = "dataGridViewproCategorias";
             this.dataGridViewproCategorias.RowHeadersVisible = false;
             this.dataGridViewproCategorias.RowHeadersWidth = 51;
             this.dataGridViewproCategorias.RowTemplate.Height = 24;
             this.dataGridViewproCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewproCategorias.Size = new System.Drawing.Size(919, 146);
+            this.dataGridViewproCategorias.Size = new System.Drawing.Size(1046, 146);
             this.dataGridViewproCategorias.TabIndex = 65;
+            this.dataGridViewproCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewproCategorias_CellContentClick);
             // 
             // frmCategorias
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(979, 892);
+            this.ClientSize = new System.Drawing.Size(1182, 968);
             this.Controls.Add(this.dataGridViewproCategorias);
             this.Controls.Add(this.lblproductoscategorias);
             this.Controls.Add(this.txtdescripcion);

@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using BRAMSELU.Entidades;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU
 {
@@ -83,15 +84,15 @@ namespace BRAMSELU
                 {
                     case "guardar":
                         clienteNegocio.InsertarCliente(Cliente);
-                        MessageBox.Show("Cliente guardado correctamente");
+                        GestorMensajes.Exito("Cliente guardado correctamente.");
                         break;
                     case "editar":
                         clienteNegocio.ActualizarCliente(Cliente, idOriginal);
-                        MessageBox.Show("Cliente modificado correctamente");
+                        GestorMensajes.Exito("Cliente modificado correctamente");
                         break;
                     case "eliminar":
                         clienteNegocio.EliminarCliente(idOriginal);
-                        MessageBox.Show("Cliente eliminado correctamente");
+                        GestorMensajes.Exito("Cliente eliminado correctamente");
                         break;
                     case "buscar":
                         dataGridViewclientes.DataSource = clienteNegocio.BuscarClientes(txtBuscar.Text);
@@ -103,7 +104,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error(ex.Message);
             }
         }
 
@@ -141,7 +142,7 @@ namespace BRAMSELU
         {
             if (string.IsNullOrEmpty(idOriginal))
             {
-                MessageBox.Show("Por favor, seleccione un cliente de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor seleccione un cliente de la tabla primero");
                 return;
             }
 
@@ -161,11 +162,11 @@ namespace BRAMSELU
         {
             if (string.IsNullOrEmpty(idOriginal))
             {
-                MessageBox.Show("Por favor, seleccione el cliente que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor sleccione el cliente que desea eliminar");
                 return;
             }
-            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar a este cliente?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+             FrmConfirmacion confirmacion = new FrmConfirmacion("¿Estas seguro que deseas eliminar a este cliente?");
+            if (confirmacion.ShowDialog() == DialogResult.Yes)
             {
                 iniciarbarra("eliminar");
             }
@@ -175,7 +176,7 @@ namespace BRAMSELU
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                MessageBox.Show("Por favor, ingrese un nombre o criterio de búsqueda primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor ingrese un nombre o un criterio de busqueda primero");
                 txtBuscar.Focus();
                 return;
             }
