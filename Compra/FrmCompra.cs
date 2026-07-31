@@ -31,7 +31,6 @@ namespace BRAMSELU.Compra
         private void FrmCompra_Load_1(object sender, EventArgs e)
         {
             CargarComboProveedores();
-            CargarComboProductos();
             InicializarCarrito();
         }
 
@@ -58,20 +57,6 @@ namespace BRAMSELU.Compra
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar proveedores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void CargarComboProductos()
-        {
-            try
-            {
-                cmbProductos.DataSource = objBLL.ObtenerProductos();
-                cmbProductos.DisplayMember = "Nombre";
-                cmbProductos.ValueMember = "IdProducto";
-            }
-            catch (Exception ex)
-            {
-                GestorMensajes.Error("Error al cargar productos: " + ex.Message);
             }
         }
 
