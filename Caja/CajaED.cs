@@ -13,8 +13,9 @@ namespace BRAMSELU.Caja
         public System.DateTime? FechaCierre { get; set; }
         public decimal MontoInicial { get; set; }
         public decimal TotalVentasEfectivo { get; set; }
+        public decimal TotalCompras { get; set; }
         public decimal MontoFinal { get; set; }
         public string Estado { get; set; }
+        public string UsuarioApertura { get; set; }
     }
-
 }

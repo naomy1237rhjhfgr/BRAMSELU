@@ -1,46 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace BRAMSELU.Compra
 {
     public class CompraBLL
     {
-        private CompraDAL objDAL = new CompraDAL();
+        private CompraDALL objDALL = new CompraDALL();
 
-        public bool InsertarCompra(DataTable dtDetalle, decimal total, int idProveedor)
+        public bool InsertarCompra(DataTable dtDetalle, decimal totalGeneral, int idProveedor, string nombreEmpleado)
         {
-            if (idProveedor <= 0)
+            CompraED compra = new CompraED
             {
-                throw new Exception("Debe seleccionar un proveedor válido.");
-            }
+                Total = totalGeneral,
+                IdProveedor = idProveedor,
+                NombreEmpleado = nombreEmpleado
+            };
 
-            if (dtDetalle.Rows.Count == 0)
-            {
-                throw new Exception("Debe agregar al menos un producto a la compra.");
-            }
-
-            if (total <= 0)
-            {
-                throw new Exception("El total de la compra no es válido.");
-            }
-
-            return objDAL.RegistrarCompra(dtDetalle, total, idProveedor);
+            return objDALL.RegistrarCompra(compra, dtDetalle);
         }
-
-        public DataTable ObtenerProductos()
-        {
-            return objDAL.ListarProductos();
-        }
-
 
         public DataTable ObtenerProveedores()
         {
-            return objDAL.ListarProveedores();
+            return objDALL.ObtenerProveedores();
         }
     }
-
 }

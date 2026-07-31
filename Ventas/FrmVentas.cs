@@ -15,6 +15,11 @@ namespace BRAMSELU.Ventas
         private VentaBLL objBLL = new VentaBLL();
         private DataTable dtCarrito;
 
+        public int idProductoSeleccionado;
+        public string nombreProductoSeleccionado;
+        public decimal precioSeleccionado;
+        public int stockSeleccionado;
+
         public FrmVentas()
         {
             InitializeComponent();
@@ -25,22 +30,8 @@ namespace BRAMSELU.Ventas
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-            CargarProductos();
             InicializarCarrito();
-        }
-
-        private void CargarProductos()
-        {
-            try
-            {
-                cmbProductos.DataSource = objBLL.ObtenerProductos();
-                cmbProductos.DisplayMember = "NombreProducto";
-                cmbProductos.ValueMember = "IdProducto";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            txtCantidad.Text = "1";
         }
 
         private void InicializarCarrito()
@@ -55,8 +46,30 @@ namespace BRAMSELU.Ventas
             dgvCarrito.DataSource = dtCarrito;
         }
 
+        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
+        {
+            frmInventario inventarioForm = new frmInventario();
+            inventarioForm.modoSeleccion = true;
+            inventarioForm.ShowDialog();
+        }
+
+        public void CargarDatosProducto(int id, string nombre, decimal precio, int stock)
+        {
+            idProductoSeleccionado = id;
+            nombreProductoSeleccionado = nombre;
+            precioSeleccionado = precio;
+            stockSeleccionado = stock;
+            txtProducto.Text = nombre;
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (idProductoSeleccionado == 0 || string.IsNullOrWhiteSpace(txtProducto.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un producto primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
                 MessageBox.Show("Por favor, ingrese una cantidad.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,11 +78,6 @@ namespace BRAMSELU.Ventas
 
             try
             {
-                DataRowView filaSeleccionada = (DataRowView)cmbProductos.SelectedItem;
-                int idProducto = Convert.ToInt32(filaSeleccionada["IdProducto"]);
-                string nombre = filaSeleccionada["NombreProducto"].ToString();
-                decimal precio = Convert.ToDecimal(filaSeleccionada["Precio"]);
-                int stockActual = Convert.ToInt32(filaSeleccionada["Stock"]);
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
 
                 if (cantidad <= 0)
@@ -78,23 +86,32 @@ namespace BRAMSELU.Ventas
                     return;
                 }
 
-                if (cantidad > stockActual)
+                if (cantidad > stockSeleccionado)
                 {
-                    MessageBox.Show($"Stock insuficiente. Stock disponible: {stockActual}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Stock insuficiente. Stock disponible: {stockSeleccionado}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                decimal subtotal = cantidad * precio;
-                dtCarrito.Rows.Add(idProducto, nombre, cantidad, precio, subtotal);
+                decimal subtotal = cantidad * precioSeleccionado;
+                dtCarrito.Rows.Add(idProductoSeleccionado, nombreProductoSeleccionado, cantidad, precioSeleccionado, subtotal);
 
                 CalcularTotalGeneral();
-                txtCantidad.Clear();
-                cmbProductos.Focus();
+                LimpiarCamposProducto();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al agregar producto al carrito: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LimpiarCamposProducto()
+        {
+            txtCantidad.Text = "1";
+            txtProducto.Clear();
+            idProductoSeleccionado = 0;
+            nombreProductoSeleccionado = string.Empty;
+            precioSeleccionado = 0;
+            stockSeleccionado = 0;
         }
 
         private void CalcularTotalGeneral()
@@ -139,7 +156,6 @@ namespace BRAMSELU.Ventas
 
                 decimal cambio = efectivoRecibido - totalGeneral;
 
-
                 bool resultado = objBLL.RegistrarVentaFisica(dtCarrito, totalGeneral, efectivoRecibido, cambio);
 
                 if (resultado)
@@ -150,7 +166,7 @@ namespace BRAMSELU.Ventas
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                     txtEfectivo.Clear();
-                    CargarProductos();
+                    LimpiarCamposProducto();
                 }
             }
             catch (Exception ex)
@@ -165,11 +181,6 @@ namespace BRAMSELU.Ventas
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
@@ -187,9 +198,7 @@ namespace BRAMSELU.Ventas
             }
         }
 
-        private void txtEfectivo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void txtCantidad_TextChanged(object sender, EventArgs e) { }
+        private void txtEfectivo_TextChanged(object sender, EventArgs e) { }
     }
 }

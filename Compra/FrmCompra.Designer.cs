@@ -1,16 +1,13 @@
-﻿namespace BRAMSELU.Compra
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace BRAMSELU.Compra
 {
     partial class FrmCompra
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,287 +17,247 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbProveedores = new System.Windows.Forms.ComboBox();
-            this.labelProveedor = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cmbProveedor = new System.Windows.Forms.ComboBox();
+            this.lblProveedor = new System.Windows.Forms.Label();
+            this.btnSeleccionarProducto = new System.Windows.Forms.Button();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.txtProducto = new System.Windows.Forms.TextBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbProductos = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.btnAgregarAlCarrito = new System.Windows.Forms.Button();
+            this.dgvCarrito = new System.Windows.Forms.DataGridView();
+            this.btnFinalizarCompra = new System.Windows.Forms.Button();
+            this.lblTextoTotalGrl = new System.Windows.Forms.Label();
+            this.lblTotalGrl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            this.groupBox1.Controls.Add(this.cmbProveedores);
-            this.groupBox1.Controls.Add(this.labelProveedor);
-            this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.txtPrecio);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmbProveedor);
+            this.groupBox1.Controls.Add(this.lblProveedor);
+            this.groupBox1.Controls.Add(this.btnSeleccionarProducto);
+            this.groupBox1.Controls.Add(this.lblProducto);
+            this.groupBox1.Controls.Add(this.txtProducto);
+            this.groupBox1.Controls.Add(this.lblCantidad);
             this.groupBox1.Controls.Add(this.txtCantidad);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cmbProductos);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Controls.Add(this.lblPrecio);
+            this.groupBox1.Controls.Add(this.txtPrecio);
+            this.groupBox1.Controls.Add(this.btnAgregarAlCarrito);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(14, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(18, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(855, 138);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1140, 169);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestión de Compras y Proveedores";
             // 
-            // cmbProveedores
+            // cmbProveedor
             // 
-            this.cmbProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.cmbProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbProveedores.ForeColor = System.Drawing.Color.White;
-            this.cmbProveedores.FormattingEnabled = true;
-            this.cmbProveedores.Location = new System.Drawing.Point(107, 34);
-            this.cmbProveedores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbProveedores.Name = "cmbProveedores";
-            this.cmbProveedores.Size = new System.Drawing.Size(337, 33);
-            this.cmbProveedores.TabIndex = 1;
+            this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProveedor.FormattingEnabled = true;
+            this.cmbProveedor.Location = new System.Drawing.Point(120, 42);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(328, 28);
+            this.cmbProveedor.TabIndex = 1;
+            this.cmbProveedor.SelectedIndexChanged += new System.EventHandler(this.cmbProveedor_SelectedIndexChanged);
             // 
-            // labelProveedor
+            // lblProveedor
             // 
-            this.labelProveedor.AutoSize = true;
-            this.labelProveedor.ForeColor = System.Drawing.Color.White;
-            this.labelProveedor.Location = new System.Drawing.Point(17, 38);
-            this.labelProveedor.Name = "labelProveedor";
-            this.labelProveedor.Size = new System.Drawing.Size(106, 25);
-            this.labelProveedor.TabIndex = 0;
-            this.labelProveedor.Text = "Proveedor:";
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(22, 46);
+            this.lblProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(85, 20);
+            this.lblProveedor.TabIndex = 0;
+            this.lblProveedor.Text = "Proveedor:";
             // 
-            // btnAgregar
+            // btnSeleccionarProducto
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(658, 80);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(174, 38);
-            this.btnAgregar.TabIndex = 5;
-            this.btnAgregar.Text = "Agregar al Carrito";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnSeleccionarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnSeleccionarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnSeleccionarProducto.Location = new System.Drawing.Point(22, 100);
+            this.btnSeleccionarProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSeleccionarProducto.Name = "btnSeleccionarProducto";
+            this.btnSeleccionarProducto.Size = new System.Drawing.Size(195, 38);
+            this.btnSeleccionarProducto.TabIndex = 2;
+            this.btnSeleccionarProducto.Text = "Seleccionar Producto";
+            this.btnSeleccionarProducto.UseVisualStyleBackColor = false;
+            this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
             // 
-            // txtPrecio
+            // lblProducto
             // 
-            this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecio.ForeColor = System.Drawing.Color.White;
-            this.txtPrecio.Location = new System.Drawing.Point(540, 86);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(95, 31);
-            this.txtPrecio.TabIndex = 4;
-    
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Location = new System.Drawing.Point(232, 80);
+            this.lblProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(77, 20);
+            this.lblProducto.TabIndex = 3;
+            this.lblProducto.Text = "Producto:";
             // 
-            // label3
+            // txtProducto
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(478, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Precio:";
+            this.txtProducto.Location = new System.Drawing.Point(232, 105);
+            this.txtProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProducto.Name = "txtProducto";
+            this.txtProducto.ReadOnly = true;
+            this.txtProducto.Size = new System.Drawing.Size(268, 26);
+            this.txtProducto.TabIndex = 4;
+            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(518, 80);
+            this.lblCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(77, 20);
+            this.lblCantidad.TabIndex = 5;
+            this.lblCantidad.Text = "Cantidad:";
             // 
             // txtCantidad
             // 
-            this.txtCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCantidad.ForeColor = System.Drawing.Color.White;
-            this.txtCantidad.Location = new System.Drawing.Point(388, 86);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCantidad.Location = new System.Drawing.Point(518, 105);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(78, 31);
-            this.txtCantidad.TabIndex = 3;
-         
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtCantidad.Size = new System.Drawing.Size(103, 26);
+            this.txtCantidad.TabIndex = 6;
+            this.txtCantidad.Text = "1";
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
-            // label2
+            // lblPrecio
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(309, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Cantidad:";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(638, 80);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(57, 20);
+            this.lblPrecio.TabIndex = 7;
+            this.lblPrecio.Text = "Precio:";
             // 
-            // cmbProductos
+            // txtPrecio
             // 
-            this.cmbProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbProductos.ForeColor = System.Drawing.Color.White;
-            this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(96, 86);
-            this.cmbProductos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(202, 33);
-            this.cmbProductos.TabIndex = 2;
+            this.txtPrecio.Location = new System.Drawing.Point(638, 105);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
+            this.txtPrecio.Size = new System.Drawing.Size(118, 26);
+            this.txtPrecio.TabIndex = 8;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
-            // label1
+            // btnAgregarAlCarrito
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Producto:";
+            this.btnAgregarAlCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnAgregarAlCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarAlCarrito.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarAlCarrito.Location = new System.Drawing.Point(780, 100);
+            this.btnAgregarAlCarrito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAgregarAlCarrito.Name = "btnAgregarAlCarrito";
+            this.btnAgregarAlCarrito.Size = new System.Drawing.Size(165, 38);
+            this.btnAgregarAlCarrito.TabIndex = 9;
+            this.btnAgregarAlCarrito.Text = "Agregar al Carrito";
+            this.btnAgregarAlCarrito.UseVisualStyleBackColor = false;
+            this.btnAgregarAlCarrito.Click += new System.EventHandler(this.btnAgregarAlCarrito_Click);
             // 
-            // dgvDetalle
+            // dgvCarrito
             // 
-            this.dgvDetalle.AllowUserToAddRows = false;
-            this.dgvDetalle.AllowUserToDeleteRows = false;
-            this.dgvDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(30)))));
-            this.dgvDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDetalle.ColumnHeadersHeight = 35;
-            this.dgvDetalle.EnableHeadersVisualStyles = false;
-            this.dgvDetalle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
-            this.dgvDetalle.Location = new System.Drawing.Point(14, 169);
-            this.dgvDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
-            this.dgvDetalle.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetalle.RowHeadersVisible = false;
-            this.dgvDetalle.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDetalle.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDetalle.RowTemplate.Height = 28;
-            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(855, 300);
-            this.dgvDetalle.TabIndex = 1;
+            this.dgvCarrito.AllowUserToAddRows = false;
+            this.dgvCarrito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarrito.Location = new System.Drawing.Point(18, 212);
+            this.dgvCarrito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCarrito.Name = "dgvCarrito";
+            this.dgvCarrito.RowHeadersWidth = 62;
+            this.dgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarrito.Size = new System.Drawing.Size(1140, 385);
+            this.dgvCarrito.TabIndex = 1;
             // 
-            // lblTotal
+            // btnFinalizarCompra
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.lblTotal.Location = new System.Drawing.Point(701, 488);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(103, 38);
-            this.lblTotal.TabIndex = 0;
-            this.lblTotal.Text = "L. 0.00";
+            this.btnFinalizarCompra.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizarCompra.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(18, 623);
+            this.btnFinalizarCompra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFinalizarCompra.Name = "btnFinalizarCompra";
+            this.btnFinalizarCompra.Size = new System.Drawing.Size(210, 62);
+            this.btnFinalizarCompra.TabIndex = 2;
+            this.btnFinalizarCompra.Text = "Finalizar Compra";
+            this.btnFinalizarCompra.UseVisualStyleBackColor = false;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
             // 
-            // label4
+            // lblTextoTotalGrl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(557, 495);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 30);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "TOTAL GRL:";
+            this.lblTextoTotalGrl.AutoSize = true;
+            this.lblTextoTotalGrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoTotalGrl.ForeColor = System.Drawing.Color.White;
+            this.lblTextoTotalGrl.Location = new System.Drawing.Point(795, 638);
+            this.lblTextoTotalGrl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTextoTotalGrl.Name = "lblTextoTotalGrl";
+            this.lblTextoTotalGrl.Size = new System.Drawing.Size(162, 29);
+            this.lblTextoTotalGrl.TabIndex = 3;
+            this.lblTextoTotalGrl.Text = "TOTAL GRL:";
             // 
-            // btnFinalizar
+            // lblTotalGrl
             // 
-            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnFinalizar.FlatAppearance.BorderSize = 0;
-            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizar.Location = new System.Drawing.Point(14, 488);
-            this.btnFinalizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(180, 50);
-            this.btnFinalizar.TabIndex = 4;
-            this.btnFinalizar.Text = "Finalizar Compra";
-            this.btnFinalizar.UseVisualStyleBackColor = false;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            this.lblTotalGrl.AutoSize = true;
+            this.lblTotalGrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGrl.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblTotalGrl.Location = new System.Drawing.Point(975, 635);
+            this.lblTotalGrl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalGrl.Name = "lblTotalGrl";
+            this.lblTotalGrl.Size = new System.Drawing.Size(108, 32);
+            this.lblTotalGrl.TabIndex = 4;
+            this.lblTotalGrl.Text = "L. 0.00";
             // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(882, 562);
-            this.Controls.Add(this.btnFinalizar);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.dgvDetalle);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ClientSize = new System.Drawing.Size(1176, 709);
+            this.Controls.Add(this.lblTotalGrl);
+            this.Controls.Add(this.lblTextoTotalGrl);
+            this.Controls.Add(this.btnFinalizarCompra);
+            this.Controls.Add(this.dgvCarrito);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmCompra";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Compras y Proveedores";
-            this.Load += new System.EventHandler(this.FrmCompra_Load);
+            this.Load += new System.EventHandler(this.FrmCompra_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
-
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbProveedores;
-        private System.Windows.Forms.Label labelProveedor;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblProveedor;
+        private System.Windows.Forms.ComboBox cmbProveedor;
+        private System.Windows.Forms.Button btnSeleccionarProducto;
+        private System.Windows.Forms.Label lblProducto;
+        private System.Windows.Forms.TextBox txtProducto;
+        private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbProductos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDetalle;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Button btnAgregarAlCarrito;
+        private System.Windows.Forms.DataGridView dgvCarrito;
+        private System.Windows.Forms.Button btnFinalizarCompra;
+        private System.Windows.Forms.Label lblTextoTotalGrl;
+        private System.Windows.Forms.Label lblTotalGrl;
     }
 }

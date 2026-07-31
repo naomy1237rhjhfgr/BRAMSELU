@@ -1,67 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BRAMSELU.Compra
 {
-    public class CompraDAL
+    public class CompraDALL
     {
-        private Conexion conexion = new Conexion();
+        private Conexion conexionDB = new Conexion();
 
-        public bool RegistrarCompra(DataTable dtDetalle, decimal total, int idProveedor)
+        public bool RegistrarCompra(CompraED compra, DataTable dtDetalle)
         {
-            SqlConnection conn = conexion.Abrir();
-            SqlTransaction transaccion = conn.BeginTransaction();
+            SqlConnection conexion = conexionDB.Abrir();
+            SqlTransaction transaction = null;
 
             try
             {
-                string queryCompra = "INSERT INTO Compras (Fecha, Total, IdProveedor) OUTPUT INSERTED.IdCompra VALUES (GETDATE(), " + total.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", " + idProveedor + ")";
+                transaction = conexion.BeginTransaction();
+                int idCompraGenerado = 0;
 
-                SqlCommand cmdCompra = new SqlCommand(queryCompra, conn, transaccion);
-                int idCompraGenerado = (int)cmdCompra.ExecuteScalar();
+                string queryCompra = "INSERT INTO Compras (Fecha, Total, IdProveedor, NombreEmpleado) OUTPUT INSERTED.IdCompra VALUES (@Fecha, @Total, @IdProveedor, @NombreEmpleado)";
+
+                using (SqlCommand cmdCompra = new SqlCommand(queryCompra, conexion, transaction))
+                {
+                    cmdCompra.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                    cmdCompra.Parameters.AddWithValue("@Total", compra.Total);
+                    cmdCompra.Parameters.AddWithValue("@IdProveedor", compra.IdProveedor);
+                    cmdCompra.Parameters.AddWithValue("@NombreEmpleado", compra.NombreEmpleado ?? "Sistema");
+
+                    idCompraGenerado = (int)cmdCompra.ExecuteScalar();
+                }
 
                 foreach (DataRow row in dtDetalle.Rows)
                 {
-                    int idProducto = Convert.ToInt32(row["IdProducto"]);
-                    int cantidad = Convert.ToInt32(row["Cantidad"]);
-                    decimal precio = Convert.ToDecimal(row["PrecioUnitario"]);
-                    decimal subtotal = Convert.ToDecimal(row["Subtotal"]);
+                    string queryDetalle = "INSERT INTO DetalleCompra (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@IdC, @IdP, @Cant, @Precio, @Sub)";
 
-                    string queryDetalle = "INSERT INTO DetalleCompra (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) " +
-                                          "VALUES (" + idCompraGenerado + ", " + idProducto + ", " + cantidad + ", " + precio.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", " + subtotal.ToString(System.Globalization.CultureInfo.InvariantCulture) + "); " +
-                                          "UPDATE Productos SET Stock = Stock + " + cantidad + " WHERE IdProducto = " + idProducto + ";";
+                    using (SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conexion, transaction))
+                    {
+                        cmdDetalle.Parameters.AddWithValue("@IdC", idCompraGenerado);
+                        cmdDetalle.Parameters.AddWithValue("@IdP", Convert.ToInt32(row["IdProducto"]));
+                        cmdDetalle.Parameters.AddWithValue("@Cant", Convert.ToInt32(row["Cantidad"]));
+                        cmdDetalle.Parameters.AddWithValue("@Precio", Convert.ToDecimal(row["PrecioUnitario"]));
+                        cmdDetalle.Parameters.AddWithValue("@Sub", Convert.ToDecimal(row["Subtotal"]));
+                        cmdDetalle.ExecuteNonQuery();
+                    }
 
-                    SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conn, transaccion);
-                    cmdDetalle.ExecuteNonQuery();
+                    string queryStock = "UPDATE Productos SET Stock = Stock + @Cant WHERE IdProducto = @IdP";
+
+                    using (SqlCommand cmdStock = new SqlCommand(queryStock, conexion, transaction))
+                    {
+                        cmdStock.Parameters.AddWithValue("@Cant", Convert.ToInt32(row["Cantidad"]));
+                        cmdStock.Parameters.AddWithValue("@IdP", Convert.ToInt32(row["IdProducto"]));
+                        cmdStock.ExecuteNonQuery();
+                    }
                 }
 
-                transaccion.Commit();
-                conexion.Cerrar();
+                transaction.Commit();
                 return true;
             }
             catch (Exception ex)
             {
-                transaccion.Rollback();
-                conexion.Cerrar();
-                throw new Exception("Error en la Capa de Datos: " + ex.Message);
+                transaction?.Rollback();
+                System.Windows.Forms.MessageBox.Show("Error al registrar compra: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                conexionDB.Cerrar();
             }
         }
 
-        public DataTable ListarProductos()
-        {
-            string query = "SELECT IdProducto, NombreProducto AS Nombre FROM Productos";
-            return conexion.EjecutarConsultaDataTable(query);
-        }
-
-        public DataTable ListarProveedores()
+        public DataTable ObtenerProveedores()
         {
             string query = "SELECT IdProveedor, NombreEmpresa FROM Proveedores";
-            return conexion.EjecutarConsultaDataTable(query);
+            return conexionDB.EjecutarConsultaDataTable(query);
         }
     }
-
 }

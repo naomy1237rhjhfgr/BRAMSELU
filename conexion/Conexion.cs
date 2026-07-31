@@ -112,6 +112,7 @@ namespace BRAMSELU
         public DataTable EjecutarConsultaDataTable(string SQL)
         {
             DataTable tabla = new DataTable();
+            Conectar();
 
             try
             {
@@ -122,6 +123,10 @@ namespace BRAMSELU
             catch (Exception ex)
             {
                 throw new Exception("Error al ejecutar la consulta y obtener el DataTable. " , ex);
+            }
+            finally
+            {
+                Cerrar();
             }
 
             return tabla;
