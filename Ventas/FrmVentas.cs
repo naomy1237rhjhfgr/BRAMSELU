@@ -49,7 +49,7 @@ namespace BRAMSELU.Ventas
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
             frmInventario inventarioForm = new frmInventario();
-            inventarioForm.modoSeleccion = true;
+          
             inventarioForm.ShowDialog();
         }
 
