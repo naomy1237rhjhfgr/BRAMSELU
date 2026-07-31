@@ -101,13 +101,13 @@ namespace BRAMSELU.llamadoinventario.UI
             }
             catch
             {
-               
+
             }
         }
 
         private void btnAgregarACompra_Click(object sender, EventArgs e)
         {
-           
+
             if (dgvDatos.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,7 +119,7 @@ namespace BRAMSELU.llamadoinventario.UI
             PrecioSeleccionado = Convert.ToDecimal(dgvDatos.CurrentRow.Cells["Precio"].Value);
             StockSeleccionado = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Stock"].Value);
 
-            this.DialogResult = DialogResult.OK; 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
