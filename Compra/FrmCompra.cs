@@ -77,17 +77,16 @@ namespace BRAMSELU.Compra
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
+          
             frmllamado llamadoForm = new frmllamado();
 
-           
-            if (llamadoForm.ShowDialog() == DialogResult.OK || llamadoForm.ProductoIdSeleccionado > 0)
+            if (llamadoForm.ShowDialog() == DialogResult.OK && llamadoForm.ProductoSeleccionado != null)
             {
                
-                int id = llamadoForm.ProductoIdSeleccionado;
-                string nombre = llamadoForm.NombreSeleccionado;
-                decimal precio = llamadoForm.PrecioSeleccionado;
+                int id = llamadoForm.ProductoSeleccionado.IdProducto;
+                string nombre = llamadoForm.ProductoSeleccionado.NombreProducto;
+                decimal precio = llamadoForm.ProductoSeleccionado.Precio;
 
-               
                 CargarDatosProducto(id, nombre, precio);
             }
         }

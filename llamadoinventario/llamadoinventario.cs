@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BRAMSELU.llamadoinventario
 {
-    internal class llamadoinventario
+ public class llamadoinventario
     {
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }

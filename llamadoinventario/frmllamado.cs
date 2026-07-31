@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using BRAMSELU.llamadoinventario.BLL;
@@ -10,10 +9,10 @@ namespace BRAMSELU.llamadoinventario.UI
     {
         private llamadoinventarioBLL bll = new llamadoinventarioBLL();
 
-        public int ProductoIdSeleccionado { get; private set; }
-        public string NombreSeleccionado { get; private set; }
-        public decimal PrecioSeleccionado { get; private set; }
-        public int StockSeleccionado { get; private set; }
+     
+        public llamadoinventario ProductoSeleccionado { get; private set; }
+
+        private Form formularioActivo = null;
 
         public frmllamado()
         {
@@ -53,27 +52,7 @@ namespace BRAMSELU.llamadoinventario.UI
             try
             {
                 dgvDatos.DataSource = bll.Listar();
-
-                if (dgvDatos.Columns.Contains("IdProducto"))
-                    dgvDatos.Columns["IdProducto"].HeaderText = "Código";
-
-                if (dgvDatos.Columns.Contains("NombreProducto"))
-                    dgvDatos.Columns["NombreProducto"].HeaderText = "Producto";
-
-                if (dgvDatos.Columns.Contains("Marca"))
-                    dgvDatos.Columns["Marca"].HeaderText = "Marca";
-
-                if (dgvDatos.Columns.Contains("Categoria"))
-                    dgvDatos.Columns["Categoria"].HeaderText = "Categoría";
-
-                if (dgvDatos.Columns.Contains("Precio"))
-                {
-                    dgvDatos.Columns["Precio"].HeaderText = "Precio";
-                    dgvDatos.Columns["Precio"].DefaultCellStyle.Format = "C2";
-                }
-
-                if (dgvDatos.Columns.Contains("Stock"))
-                    dgvDatos.Columns["Stock"].HeaderText = "Existencias";
+                FormatearColumnasGrid();
             }
             catch (Exception ex)
             {
@@ -85,45 +64,66 @@ namespace BRAMSELU.llamadoinventario.UI
             }
         }
 
+        private void FormatearColumnasGrid()
+        {
+            if (dgvDatos.Columns.Contains("IdProducto"))
+                dgvDatos.Columns["IdProducto"].HeaderText = "Código";
+
+            if (dgvDatos.Columns.Contains("NombreProducto"))
+                dgvDatos.Columns["NombreProducto"].HeaderText = "Producto";
+
+            if (dgvDatos.Columns.Contains("Marca"))
+                dgvDatos.Columns["Marca"].HeaderText = "Marca";
+
+            if (dgvDatos.Columns.Contains("Categoria"))
+                dgvDatos.Columns["Categoria"].HeaderText = "Categoría";
+
+            if (dgvDatos.Columns.Contains("Precio"))
+            {
+                dgvDatos.Columns["Precio"].HeaderText = "Precio";
+                dgvDatos.Columns["Precio"].DefaultCellStyle.Format = "C2";
+            }
+
+            if (dgvDatos.Columns.Contains("Stock"))
+                dgvDatos.Columns["Stock"].HeaderText = "Existencias";
+        }
+
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dgvDatos.DataSource is DataTable dt)
-                {
-                    string texto = txtBuscar.Text.Trim().Replace("'", "''");
-
-                    dt.DefaultView.RowFilter =
-                        $"Convert(IdProducto,'System.String') LIKE '%{texto}%' " +
-                        $"OR NombreProducto LIKE '%{texto}%' " +
-                        $"OR Marca LIKE '%{texto}%'";
-                }
+                string texto = txtBuscar.Text.Trim().Replace("'", "''");
+                dgvDatos.DataSource = bll.Buscar(texto);
+                FormatearColumnasGrid();
             }
             catch
             {
-
+                // Control silencioso para errores temporales al escribir en vivo
             }
         }
 
         private void btnAgregarACompra_Click(object sender, EventArgs e)
         {
-
             if (dgvDatos.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            ProductoIdSeleccionado = Convert.ToInt32(dgvDatos.CurrentRow.Cells["IdProducto"].Value);
-            NombreSeleccionado = dgvDatos.CurrentRow.Cells["NombreProducto"].Value.ToString();
-            PrecioSeleccionado = Convert.ToDecimal(dgvDatos.CurrentRow.Cells["Precio"].Value);
-            StockSeleccionado = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Stock"].Value);
+            // Instanciamos y poblamos la clase llamandoinventario con los datos de la fila actual
+            ProductoSeleccionado = new llamadoinventario
+            {
+                IdProducto = Convert.ToInt32(dgvDatos.CurrentRow.Cells["IdProducto"].Value),
+                NombreProducto = dgvDatos.CurrentRow.Cells["NombreProducto"].Value.ToString(),
+                Marca = dgvDatos.CurrentRow.Cells["Marca"].Value.ToString(),
+                Categoria = dgvDatos.CurrentRow.Cells["Categoria"].Value.ToString(),
+                Precio = Convert.ToDecimal(dgvDatos.CurrentRow.Cells["Precio"].Value),
+                Stock = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Stock"].Value)
+            };
 
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
-        private Form formularioActivo = null;
 
         private void AbrirFormEnPanel(Form formulario)
         {
@@ -152,7 +152,6 @@ namespace BRAMSELU.llamadoinventario.UI
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

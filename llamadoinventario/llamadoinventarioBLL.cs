@@ -11,5 +11,10 @@ namespace BRAMSELU.llamadoinventario.BLL
         {
             return dal.Listar();
         }
+
+        public DataTable Buscar(string texto)
+        {
+            return dal.Buscar(texto);
+        }
     }
 }
