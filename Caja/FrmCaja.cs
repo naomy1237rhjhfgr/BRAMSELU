@@ -14,6 +14,9 @@ namespace BRAMSELU.Caja
     {
         private CajaBLL objBLL = new CajaBLL();
         private int idCajaActual = 0;
+        private decimal montoInicialActual = 0;
+        private decimal totalVentasActual = 0;
+        private decimal totalComprasActual = 0;
 
         public FrmCaja()
         {
@@ -34,22 +37,27 @@ namespace BRAMSELU.Caja
             if (dt.Rows.Count > 0)
             {
                 idCajaActual = Convert.ToInt32(dt.Rows[0]["IdCaja"]);
-                decimal montoInicial = Convert.ToDecimal(dt.Rows[0]["MontoInicial"]);
+                montoInicialActual = Convert.ToDecimal(dt.Rows[0]["MontoInicial"]);
+                string usuarioApertura = dt.Rows[0]["UsuarioApertura"] != DBNull.Value ? dt.Rows[0]["UsuarioApertura"].ToString() : "N/D";
 
                 lblEstado.Text = "Estado: CAJA DE SKINCARE ABIERTA";
                 lblEstado.ForeColor = System.Drawing.Color.Green;
-                lblInfoCaja.Text = "Caja iniciada con base de: L. " + montoInicial.ToString("N2");
+                lblInfoCaja.Text = $"Abierta por: {usuarioApertura} | Base inicial: L. {montoInicialActual:N2}";
 
                 txtMontoInicial.Enabled = false;
                 btnAbrirCaja.Enabled = false;
                 txtMontoFinal.Enabled = true;
                 btnCerrarCaja.Enabled = true;
 
-                CargarVentasDelDia(idCajaActual);
+                CargarDatosDelTurno(idCajaActual);
             }
             else
             {
                 idCajaActual = 0;
+                montoInicialActual = 0;
+                totalVentasActual = 0;
+                totalComprasActual = 0;
+
                 lblEstado.Text = "Estado: CAJA DE SKINCARE CERRADA";
                 lblEstado.ForeColor = System.Drawing.Color.Red;
                 lblInfoCaja.Text = "Debe abrir caja para poder vender productos.";
@@ -59,27 +67,50 @@ namespace BRAMSELU.Caja
                 txtMontoFinal.Enabled = false;
                 btnCerrarCaja.Enabled = false;
 
-
                 if (dgvVentasDelDia != null)
                 {
                     dgvVentasDelDia.DataSource = null;
                 }
+
+                // Limpiar etiquetas de resumen si las tienes diseñadas
+                if (lblTotalVentas != null) lblTotalVentas.Text = "L. 0.00";
+                if (lblTotalCompras != null) lblTotalCompras.Text = "L. 0.00";
+                if (lblEfectivoEsperado != null) lblEfectivoEsperado.Text = "L. 0.00";
             }
         }
 
-        private void CargarVentasDelDia(int idCaja)
+        private void CargarDatosDelTurno(int idCaja)
         {
             try
             {
+                // 1. Cargar la cuadrícula de ventas
+                DataTable dtVentas = objBLL.ObtenerVentasDeCajaActual(idCaja);
                 if (dgvVentasDelDia != null)
                 {
-                    DataTable dtVentas = objBLL.ObtenerVentasDeCajaActual(idCaja);
                     dgvVentasDelDia.DataSource = dtVentas;
                 }
+
+                // 2. Calcular el total acumulado de las ventas de la caja actual
+                totalVentasActual = 0;
+                foreach (DataRow row in dtVentas.Rows)
+                {
+                    totalVentasActual += Convert.ToDecimal(row["Total"]);
+                }
+
+                // 3. Obtener el total de compras hechas durante este turno de caja
+                totalComprasActual = objBLL.ObtenerTotalComprasDeCaja(idCaja);
+
+                // 4. Calcular el efectivo esperado en caja: (Monto Inicial + Ventas en Efectivo - Compras)
+                decimal efectivoEsperado = (montoInicialActual + totalVentasActual) - totalComprasActual;
+
+                // 5. Mostrar los resultados en las etiquetas del diseño (asegúrate de tener estos nombres de Labels en tu form)
+                if (lblTotalVentas != null) lblTotalVentas.Text = "L. " + totalVentasActual.ToString("N2");
+                if (lblTotalCompras != null) lblTotalCompras.Text = "L. " + totalComprasActual.ToString("N2");
+                if (lblEfectivoEsperado != null) lblEfectivoEsperado.Text = "L. " + efectivoEsperado.ToString("N2");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar las transacciones del día: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los movimientos del turno: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -94,7 +125,12 @@ namespace BRAMSELU.Caja
             try
             {
                 decimal montoInicial = Convert.ToDecimal(txtMontoInicial.Text);
-                bool resultado = objBLL.AbrirCaja(montoInicial);
+
+                // Aquí asignamos el usuario que se haya logueado en tu sistema (ejemplo genérico o usando una clase de sesión)
+                // Reemplaza "Administrador" por la variable real donde guardas el nombre de quien inició sesión.
+                string usuarioLogueado = "Administrador";
+
+                bool resultado = objBLL.AbrirCaja(montoInicial, usuarioLogueado);
 
                 if (resultado)
                 {
@@ -113,20 +149,48 @@ namespace BRAMSELU.Caja
         {
             if (string.IsNullOrWhiteSpace(txtMontoFinal.Text))
             {
-                MessageBox.Show("Ingrese el efectivo total contado en caja.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese el efectivo total contado en caja físicamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                decimal montoFinal = Convert.ToDecimal(txtMontoFinal.Text);
-                bool resultado = objBLL.CerrarCaja(idCajaActual, montoFinal);
+                decimal montoFinalContado = Convert.ToDecimal(txtMontoFinal.Text);
+                decimal efectivoEsperado = (montoInicialActual + totalVentasActual) - totalComprasActual;
+                decimal diferencia = montoFinalContado - efectivoEsperado;
 
-                if (resultado)
+                string mensajeCuadratura = $"Resumen de Cierre:\n" +
+                                           $"- Monto Inicial: L. {montoInicialActual:N2}\n" +
+                                           $"- Total Ventas (+): L. {totalVentasActual:N2}\n" +
+                                           $"- Total Compras (-): L. {totalComprasActual:N2}\n" +
+                                           $"- Efectivo Esperado: L. {efectivoEsperado:N2}\n" +
+                                           $"- Efectivo Contado: L. {montoFinalContado:N2}\n\n";
+
+                if (diferencia < 0)
                 {
-                    MessageBox.Show("¡Caja cerrada correctamente!", "Cierre de Caja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtMontoFinal.Clear();
-                    VerificarEstadoCaja();
+                    mensajeCuadratura += $"¡ALERTA! Hay un FALTANTE en caja por: L. {Math.Abs(diferencia):N2}";
+                }
+                else if (diferencia > 0)
+                {
+                    mensajeCuadratura += $"¡ATENCIÓN! Hay un SOBRANTE en caja por: L. {diferencia:N2}";
+                }
+                else
+                {
+                    mensajeCuadratura += "¡Caja cuadrada perfectamente! Sin diferencias.";
+                }
+
+                DialogResult dialogResult = MessageBox.Show(mensajeCuadratura + "\n\n¿Desea proceder a cerrar la caja?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bool resultado = objBLL.CerrarCaja(idCajaActual, montoFinalContado);
+
+                    if (resultado)
+                    {
+                        MessageBox.Show("¡Caja cerrada y registrada correctamente en la base de datos!", "Cierre Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMontoFinal.Clear();
+                        VerificarEstadoCaja();
+                    }
                 }
             }
             catch (Exception ex)
@@ -138,41 +202,31 @@ namespace BRAMSELU.Caja
         private void txtMontoInicial_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox txt = sender as TextBox;
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && txt.Text.Contains('.'))
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtMontoInicial_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtMontoFinal_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox txt = sender as TextBox;
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && txt.Text.Contains('.'))
             {
                 e.Handled = true;
             }
         }
 
-        private void txtMontoFinal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void txtMontoInicial_TextChanged(object sender, EventArgs e) { }
+        private void txtMontoFinal_TextChanged(object sender, EventArgs e) { }
+        private void lblEstado_Click(object sender, EventArgs e) { }
     }
 }
