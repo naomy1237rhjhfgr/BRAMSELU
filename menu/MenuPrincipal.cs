@@ -15,6 +15,7 @@ namespace BRAMSELU
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
         private Timer timerDashboard;
+        private Timer timerReloj;
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {
@@ -32,6 +33,10 @@ namespace BRAMSELU
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
+            
+            lblRuta.Text = "Inicio";
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             CargarEstadisticas();
 
@@ -55,6 +60,9 @@ namespace BRAMSELU
             }
 
             formActivo = formHijo;
+
+            lblTitulo.Text = formHijo.Text;
+            lblRuta.Text = "Inicio > " + formHijo.Text;
 
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
@@ -98,7 +106,7 @@ namespace BRAMSELU
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmReportes());
+            AbrirFormEnPanel(new FrmReporteVentas());
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
@@ -183,7 +191,7 @@ namespace BRAMSELU
                 lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
                 lblEmpleados.Text = estadisticas[1].ToString("D2");
                 lblProductos.Text = estadisticas[2].ToString("D2");
-                
+
             }
             catch (Exception ex)
             {
@@ -201,6 +209,11 @@ namespace BRAMSELU
         private void TimerDashboard_Tick(object sender, EventArgs e)
         {
             CargarEstadisticas();
+        }
+        private void TimerReloj_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
     }
 }

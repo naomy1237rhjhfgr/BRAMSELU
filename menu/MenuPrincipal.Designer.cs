@@ -31,10 +31,13 @@
             this.btnCitas = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
-            this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.btnCategorias = new System.Windows.Forms.Button();
+            this.lblUsuarioActivo = new System.Windows.Forms.Label();
             this.pnlContenido = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblRuta = new System.Windows.Forms.Label();
             this.PanelContenido = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -46,7 +49,6 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,6 +76,8 @@
             this.lblClientesRegistrados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.PanelContenido.SuspendLayout();
@@ -97,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -105,7 +110,6 @@
             this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlSidebar.Controls.Add(this.BtnCompras);
             this.pnlSidebar.Controls.Add(this.BtnCaja);
-            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
             this.pnlSidebar.Controls.Add(this.BtnInicio);
             this.pnlSidebar.Controls.Add(this.btnPanel);
             this.pnlSidebar.Controls.Add(this.btnEmpleados);
@@ -354,18 +358,6 @@
             this.btnInventario.UseVisualStyleBackColor = false;
             this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
-            // lblUsuarioActivo
-            // 
-            this.lblUsuarioActivo.AutoSize = true;
-            this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(273, 124);
-            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
-            this.lblUsuarioActivo.TabIndex = 1;
-            this.lblUsuarioActivo.Text = "Usuario activo";
-            // 
             // btnCategorias
             // 
             this.btnCategorias.BackColor = System.Drawing.Color.Transparent;
@@ -386,11 +378,23 @@
             this.btnCategorias.UseVisualStyleBackColor = false;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
+            // lblUsuarioActivo
+            // 
+            this.lblUsuarioActivo.AutoSize = true;
+            this.lblUsuarioActivo.BackColor = System.Drawing.Color.DarkGray;
+            this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(882, 24);
+            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(148, 28);
+            this.lblUsuarioActivo.TabIndex = 1;
+            this.lblUsuarioActivo.Text = "Usuario activo";
+            // 
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.White;
             this.pnlContenido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlContenido.Controls.Add(this.label13);
+            this.pnlContenido.Controls.Add(this.panel10);
             this.pnlContenido.Controls.Add(this.PanelContenido);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContenido.Location = new System.Drawing.Point(356, 0);
@@ -399,16 +403,42 @@
             this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
             this.pnlContenido.TabIndex = 0;
             // 
-            // label13
+            // lblTitulo
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DarkGray;
-            this.label13.Location = new System.Drawing.Point(13, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(362, 45);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Bienvenido a Bramselú";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(614, 18);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(0, 23);
+            this.lblTitulo.TabIndex = 13;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(1048, 34);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(64, 23);
+            this.lblFecha.TabIndex = 12;
+            this.lblFecha.Text = "label17";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(1048, 9);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(64, 23);
+            this.lblHora.TabIndex = 11;
+            this.lblHora.Text = "label13";
+            // 
+            // lblRuta
+            // 
+            this.lblRuta.AutoSize = true;
+            this.lblRuta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRuta.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblRuta.Location = new System.Drawing.Point(20, 24);
+            this.lblRuta.Name = "lblRuta";
+            this.lblRuta.Size = new System.Drawing.Size(64, 28);
+            this.lblRuta.TabIndex = 10;
+            this.lblRuta.Text = "Inicio";
             // 
             // PanelContenido
             // 
@@ -527,7 +557,6 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.pictureBox6);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(269, 170);
@@ -546,17 +575,6 @@
             this.label11.Size = new System.Drawing.Size(159, 28);
             this.label11.TabIndex = 4;
             this.label11.Text = "Ingresos del Día";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(3, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 59);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "50";
             // 
             // pictureBox6
             // 
@@ -868,6 +886,26 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Usuario activo";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(370, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(85, 22);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.lblTitulo);
+            this.panel10.Controls.Add(this.lblRuta);
+            this.panel10.Controls.Add(this.lblUsuarioActivo);
+            this.panel10.Controls.Add(this.lblFecha);
+            this.panel10.Controls.Add(this.lblHora);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1390, 67);
+            this.panel10.TabIndex = 14;
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -884,9 +922,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.pnlSidebar.ResumeLayout(false);
-            this.pnlSidebar.PerformLayout();
             this.pnlContenido.ResumeLayout(false);
-            this.pnlContenido.PerformLayout();
             this.PanelContenido.ResumeLayout(false);
             this.PanelContenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -917,6 +953,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -960,7 +998,6 @@
         private System.Windows.Forms.Label lblClientesRegistrados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
@@ -969,7 +1006,7 @@
         private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblRuta;
         private System.Windows.Forms.Button BtnCaja;
         private System.Windows.Forms.Button BtnCompras;
         private System.Windows.Forms.Label label14;
@@ -979,5 +1016,10 @@
         private System.Windows.Forms.Label lblEmpleados;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Panel panel10;
     }
 }
