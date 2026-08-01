@@ -73,6 +73,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblClientesRegistrados = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.PanelContenido.SuspendLayout();
@@ -104,6 +105,7 @@
             this.pnlSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlSidebar.Controls.Add(this.BtnCompras);
             this.pnlSidebar.Controls.Add(this.BtnCaja);
+            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
             this.pnlSidebar.Controls.Add(this.BtnInicio);
             this.pnlSidebar.Controls.Add(this.btnPanel);
             this.pnlSidebar.Controls.Add(this.btnEmpleados);
@@ -114,7 +116,6 @@
             this.pnlSidebar.Controls.Add(this.btnCitas);
             this.pnlSidebar.Controls.Add(this.btnVentas);
             this.pnlSidebar.Controls.Add(this.btnInventario);
-            this.pnlSidebar.Controls.Add(this.lblUsuarioActivo);
             this.pnlSidebar.Controls.Add(this.btnCategorias);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
@@ -127,7 +128,8 @@
             this.BtnCompras.BackColor = System.Drawing.Color.Transparent;
             this.BtnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCompras.FlatAppearance.BorderSize = 0;
-            this.BtnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.BtnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.BtnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.BtnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCompras.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -146,8 +148,8 @@
             this.BtnCaja.BackColor = System.Drawing.Color.Transparent;
             this.BtnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCaja.FlatAppearance.BorderSize = 0;
-            this.BtnCaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(212)))));
-            this.BtnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(212)))));
+            this.BtnCaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.BtnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.BtnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCaja.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -199,7 +201,8 @@
             this.btnEmpleados.BackColor = System.Drawing.Color.Transparent;
             this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleados.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -237,7 +240,8 @@
             this.btnClientes.BackColor = System.Drawing.Color.Transparent;
             this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -256,7 +260,7 @@
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -275,7 +279,8 @@
             this.btnServicios.BackColor = System.Drawing.Color.Transparent;
             this.btnServicios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnServicios.FlatAppearance.BorderSize = 0;
-            this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnServicios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServicios.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -294,7 +299,8 @@
             this.btnCitas.BackColor = System.Drawing.Color.Transparent;
             this.btnCitas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCitas.FlatAppearance.BorderSize = 0;
-            this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnCitas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCitas.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCitas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -313,7 +319,8 @@
             this.btnVentas.BackColor = System.Drawing.Color.Transparent;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVentas.FlatAppearance.BorderSize = 0;
-            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -332,7 +339,8 @@
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnInventario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -352,9 +360,9 @@
             this.lblUsuarioActivo.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuarioActivo.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.lblUsuarioActivo.Location = new System.Drawing.Point(37, 106);
+            this.lblUsuarioActivo.Location = new System.Drawing.Point(273, 124);
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(67, 12);
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(60, 12);
             this.lblUsuarioActivo.TabIndex = 1;
             this.lblUsuarioActivo.Text = "Usuario activo";
             // 
@@ -363,7 +371,8 @@
             this.btnCategorias.BackColor = System.Drawing.Color.Transparent;
             this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategorias.FlatAppearance.BorderSize = 0;
-            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(178)))), ((int)(((byte)(138)))));
+            this.btnCategorias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategorias.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
@@ -380,6 +389,7 @@
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.White;
+            this.pnlContenido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlContenido.Controls.Add(this.label13);
             this.pnlContenido.Controls.Add(this.PanelContenido);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Top;
@@ -387,8 +397,7 @@
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
-            this.pnlContenido.TabIndex = 1;
-            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint_1);
+            this.pnlContenido.TabIndex = 0;
             // 
             // label13
             // 
@@ -397,7 +406,7 @@
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
             this.label13.Location = new System.Drawing.Point(13, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(432, 54);
+            this.label13.Size = new System.Drawing.Size(362, 45);
             this.label13.TabIndex = 10;
             this.label13.Text = "Bienvenido a Bramselú";
             // 
@@ -440,7 +449,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(66, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 61);
+            this.label1.Size = new System.Drawing.Size(211, 50);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dashboard";
             // 
@@ -488,9 +497,9 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(8, 101);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(188, 32);
+            this.label14.Size = new System.Drawing.Size(205, 28);
             this.label14.TabIndex = 6;
-            this.label14.Text = "Ingresos del Día";
+            this.label14.Text = "Reportes Disponibles";
             // 
             // label15
             // 
@@ -499,7 +508,7 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(3, 41);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(90, 70);
+            this.label15.Size = new System.Drawing.Size(75, 59);
             this.label15.TabIndex = 5;
             this.label15.Text = "50";
             // 
@@ -534,7 +543,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(8, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(188, 32);
+            this.label11.Size = new System.Drawing.Size(159, 28);
             this.label11.TabIndex = 4;
             this.label11.Text = "Ingresos del Día";
             // 
@@ -545,7 +554,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(3, 41);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 70);
+            this.label12.Size = new System.Drawing.Size(75, 59);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -580,7 +589,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(8, 101);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 32);
+            this.label9.Size = new System.Drawing.Size(142, 28);
             this.label9.TabIndex = 4;
             this.label9.Text = "Ventas del Día";
             // 
@@ -591,7 +600,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(3, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 70);
+            this.label10.Size = new System.Drawing.Size(75, 59);
             this.label10.TabIndex = 3;
             this.label10.Text = "50";
             // 
@@ -648,9 +657,9 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(8, 101);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(188, 32);
+            this.label16.Size = new System.Drawing.Size(182, 28);
             this.label16.TabIndex = 8;
-            this.label16.Text = "Ingresos del Día";
+            this.label16.Text = "Empleados Activos";
             // 
             // lblEmpleados
             // 
@@ -659,7 +668,7 @@
             this.lblEmpleados.ForeColor = System.Drawing.Color.White;
             this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
             this.lblEmpleados.Name = "lblEmpleados";
-            this.lblEmpleados.Size = new System.Drawing.Size(90, 70);
+            this.lblEmpleados.Size = new System.Drawing.Size(75, 59);
             this.lblEmpleados.TabIndex = 7;
             this.lblEmpleados.Text = "50";
             // 
@@ -683,7 +692,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 32);
+            this.label7.Size = new System.Drawing.Size(176, 28);
             this.label7.TabIndex = 4;
             this.label7.Text = "Categorías Activas";
             // 
@@ -694,7 +703,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 40);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 70);
+            this.label8.Size = new System.Drawing.Size(75, 59);
             this.label8.TabIndex = 3;
             this.label8.Text = "50";
             // 
@@ -729,7 +738,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(275, 32);
+            this.label5.Size = new System.Drawing.Size(231, 28);
             this.label5.TabIndex = 4;
             this.label5.Text = "Productos en Inventario";
             // 
@@ -740,7 +749,7 @@
             this.lblProductos.ForeColor = System.Drawing.Color.White;
             this.lblProductos.Location = new System.Drawing.Point(3, 40);
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(120, 70);
+            this.lblProductos.Size = new System.Drawing.Size(100, 59);
             this.lblProductos.TabIndex = 3;
             this.lblProductos.Text = "250";
             // 
@@ -775,7 +784,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(8, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 32);
+            this.label3.Size = new System.Drawing.Size(124, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "Citas del Día";
             // 
@@ -786,7 +795,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 70);
+            this.label4.Size = new System.Drawing.Size(75, 59);
             this.label4.TabIndex = 3;
             this.label4.Text = "08";
             // 
@@ -821,7 +830,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(233, 32);
+            this.label2.Size = new System.Drawing.Size(195, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "Clientes Registrados";
             // 
@@ -832,7 +841,7 @@
             this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
             this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
             this.lblClientesRegistrados.Name = "lblClientesRegistrados";
-            this.lblClientesRegistrados.Size = new System.Drawing.Size(90, 70);
+            this.lblClientesRegistrados.Size = new System.Drawing.Size(75, 59);
             this.lblClientesRegistrados.TabIndex = 1;
             this.lblClientesRegistrados.Text = "50";
             // 
@@ -847,9 +856,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
+            this.label6.Location = new System.Drawing.Point(665, 519);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Usuario activo";
+            // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1746, 1050);
             this.ControlBox = false;
@@ -957,5 +978,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblEmpleados;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label6;
     }
 }
