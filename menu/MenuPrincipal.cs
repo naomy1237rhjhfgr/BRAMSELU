@@ -193,6 +193,7 @@ namespace BRAMSELU
                 lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
                 lblEmpleados.Text = estadisticas[1].ToString("D2");
                 lblProductos.Text = estadisticas[2].ToString("D2");
+                
 
             }
             catch (Exception ex)

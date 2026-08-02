@@ -18,7 +18,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAcento = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
             this.lblTitulo.Location = new System.Drawing.Point(67, 22);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(380, 48);
+            this.lblTitulo.Size = new System.Drawing.Size(320, 41);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Control de Inventario";
             // 
@@ -78,7 +78,7 @@
             this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblBuscar.Location = new System.Drawing.Point(67, 72);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(112, 38);
+            this.lblBuscar.Size = new System.Drawing.Size(92, 31);
             this.lblBuscar.TabIndex = 2;
             this.lblBuscar.Text = "Buscar:";
             // 
@@ -88,7 +88,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(165, 72);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(340, 44);
+            this.txtBuscar.Size = new System.Drawing.Size(340, 38);
             this.txtBuscar.TabIndex = 3;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -158,15 +158,17 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.ColumnHeadersHeight = 36;
             this.dgvDatos.Location = new System.Drawing.Point(67, 125);
             this.dgvDatos.MultiSelect = false;
@@ -186,7 +188,7 @@
             this.lblSeccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
             this.lblSeccion.Location = new System.Drawing.Point(67, 400);
             this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(269, 38);
+            this.lblSeccion.Size = new System.Drawing.Size(220, 31);
             this.lblSeccion.TabIndex = 10;
             this.lblSeccion.Text = "Datos del Producto";
             // 
@@ -197,7 +199,7 @@
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblNombre.Location = new System.Drawing.Point(67, 443);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(125, 38);
+            this.lblNombre.Size = new System.Drawing.Size(103, 31);
             this.lblNombre.TabIndex = 11;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -208,7 +210,7 @@
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblMarca.Location = new System.Drawing.Point(643, 443);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(99, 38);
+            this.lblMarca.Size = new System.Drawing.Size(83, 31);
             this.lblMarca.TabIndex = 13;
             this.lblMarca.Text = "Marca:";
             // 
@@ -219,7 +221,7 @@
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblCategoria.Location = new System.Drawing.Point(67, 481);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(141, 38);
+            this.lblCategoria.Size = new System.Drawing.Size(118, 31);
             this.lblCategoria.TabIndex = 15;
             this.lblCategoria.Text = "Categoría:";
             // 
@@ -230,7 +232,7 @@
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblPrecio.Location = new System.Drawing.Point(643, 481);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(100, 38);
+            this.lblPrecio.Size = new System.Drawing.Size(82, 31);
             this.lblPrecio.TabIndex = 17;
             this.lblPrecio.Text = "Precio:";
             // 
@@ -241,7 +243,7 @@
             this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblStock.Location = new System.Drawing.Point(67, 519);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(89, 38);
+            this.lblStock.Size = new System.Drawing.Size(73, 31);
             this.lblStock.TabIndex = 19;
             this.lblStock.Text = "Stock:";
             // 
@@ -251,7 +253,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(197, 443);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(348, 39);
+            this.txtNombre.Size = new System.Drawing.Size(348, 34);
             this.txtNombre.TabIndex = 12;
             // 
             // txtMarca
@@ -260,7 +262,7 @@
             this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(765, 443);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(348, 39);
+            this.txtMarca.Size = new System.Drawing.Size(348, 34);
             this.txtMarca.TabIndex = 14;
             // 
             // txtPrecio
@@ -269,7 +271,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(764, 481);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(348, 39);
+            this.txtPrecio.Size = new System.Drawing.Size(348, 34);
             this.txtPrecio.TabIndex = 18;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
@@ -279,7 +281,7 @@
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.Location = new System.Drawing.Point(197, 519);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(348, 39);
+            this.txtStock.Size = new System.Drawing.Size(348, 34);
             this.txtStock.TabIndex = 20;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
@@ -306,7 +308,7 @@
             this.lblImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
             this.lblImagen.Location = new System.Drawing.Point(643, 519);
             this.lblImagen.Name = "lblImagen";
-            this.lblImagen.Size = new System.Drawing.Size(115, 38);
+            this.lblImagen.Size = new System.Drawing.Size(96, 31);
             this.lblImagen.TabIndex = 22;
             this.lblImagen.Text = "Imagen:";
             // 
@@ -359,7 +361,7 @@
             "Accesorios"});
             this.CmbCa.Location = new System.Drawing.Point(197, 480);
             this.CmbCa.Name = "CmbCa";
-            this.CmbCa.Size = new System.Drawing.Size(348, 40);
+            this.CmbCa.Size = new System.Drawing.Size(348, 36);
             this.CmbCa.TabIndex = 25;
             // 
             // errorProvider1
@@ -380,7 +382,7 @@
             // 
             // frmInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);

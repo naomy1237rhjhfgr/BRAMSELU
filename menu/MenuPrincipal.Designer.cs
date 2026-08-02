@@ -46,14 +46,14 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblReportes = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblIngresos = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblVentas = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -62,14 +62,14 @@
             this.lblEmpleados = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblCategorias = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.lblProductos = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCitas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -525,7 +525,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(212)))));
             this.panel8.Controls.Add(this.pictureBox6);
             this.panel8.Controls.Add(this.label14);
-            this.panel8.Controls.Add(this.label15);
+            this.panel8.Controls.Add(this.lblReportes);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(530, 170);
             this.panel8.Margin = new System.Windows.Forms.Padding(8);
@@ -555,22 +555,22 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "Reportes Disponibles";
             // 
-            // label15
+            // lblReportes
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(3, 41);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 59);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "50";
+            this.lblReportes.AutoSize = true;
+            this.lblReportes.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportes.ForeColor = System.Drawing.Color.White;
+            this.lblReportes.Location = new System.Drawing.Point(3, 41);
+            this.lblReportes.Name = "lblReportes";
+            this.lblReportes.Size = new System.Drawing.Size(75, 59);
+            this.lblReportes.TabIndex = 5;
+            this.lblReportes.Text = "50";
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.lblIngresos);
             this.panel7.Controls.Add(this.label11);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(269, 170);
@@ -590,16 +590,16 @@
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             // 
-            // label12
+            // lblIngresos
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(3, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 59);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "50";
+            this.lblIngresos.AutoSize = true;
+            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresos.ForeColor = System.Drawing.Color.White;
+            this.lblIngresos.Location = new System.Drawing.Point(3, 41);
+            this.lblIngresos.Name = "lblIngresos";
+            this.lblIngresos.Size = new System.Drawing.Size(75, 59);
+            this.lblIngresos.TabIndex = 5;
+            this.lblIngresos.Text = "50";
             // 
             // label11
             // 
@@ -616,7 +616,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.lblVentas);
             this.panel6.Controls.Add(this.pictureBox5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(8, 170);
@@ -636,16 +636,16 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Ventas del Día";
             // 
-            // label10
+            // lblVentas
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(3, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 59);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "50";
+            this.lblVentas.AutoSize = true;
+            this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentas.ForeColor = System.Drawing.Color.White;
+            this.lblVentas.Location = new System.Drawing.Point(3, 41);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(75, 59);
+            this.lblVentas.TabIndex = 3;
+            this.lblVentas.Text = "50";
             // 
             // pictureBox5
             // 
@@ -719,7 +719,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.lblCategorias);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(791, 8);
@@ -739,16 +739,16 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Categorías Activas";
             // 
-            // label8
+            // lblCategorias
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 59);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "50";
+            this.lblCategorias.AutoSize = true;
+            this.lblCategorias.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorias.ForeColor = System.Drawing.Color.White;
+            this.lblCategorias.Location = new System.Drawing.Point(3, 40);
+            this.lblCategorias.Name = "lblCategorias";
+            this.lblCategorias.Size = new System.Drawing.Size(75, 59);
+            this.lblCategorias.TabIndex = 3;
+            this.lblCategorias.Text = "50";
             // 
             // pictureBox4
             // 
@@ -765,7 +765,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(216)))), ((int)(((byte)(182)))));
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.lbl);
             this.panel3.Controls.Add(this.lblProductos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(530, 8);
@@ -785,16 +785,16 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
-            // label5
+            // lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(8, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 28);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Productos en Inventario";
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ForeColor = System.Drawing.Color.White;
+            this.lbl.Location = new System.Drawing.Point(8, 100);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(231, 28);
+            this.lbl.TabIndex = 4;
+            this.lbl.Text = "Productos en Inventario";
             // 
             // lblProductos
             // 
@@ -810,7 +810,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblCitas);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -820,16 +820,16 @@
             this.panel2.Size = new System.Drawing.Size(245, 146);
             this.panel2.TabIndex = 1;
             // 
-            // label3
+            // lblCitas
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(8, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 28);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Citas del Día";
+            this.lblCitas.AutoSize = true;
+            this.lblCitas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitas.ForeColor = System.Drawing.Color.White;
+            this.lblCitas.Location = new System.Drawing.Point(8, 100);
+            this.lblCitas.Name = "lblCitas";
+            this.lblCitas.Size = new System.Drawing.Size(124, 28);
+            this.lblCitas.TabIndex = 4;
+            this.lblCitas.Text = "Citas del Día";
             // 
             // label4
             // 
@@ -1020,18 +1020,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCategorias;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lblProductos;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCitas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblRuta;
         private System.Windows.Forms.Button BtnCaja;
         private System.Windows.Forms.Button BtnCompras;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblReportes;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblEmpleados;
@@ -1042,7 +1042,7 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblIngresos;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox3;
