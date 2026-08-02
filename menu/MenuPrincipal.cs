@@ -15,7 +15,7 @@ namespace BRAMSELU
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
         private Timer timerDashboard;
-        private Timer timerReloj;
+        
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {

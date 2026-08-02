@@ -19,7 +19,7 @@ namespace BRAMSELU.Compra
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.lblProveedor = new System.Windows.Forms.Label();
@@ -35,6 +35,7 @@ namespace BRAMSELU.Compra
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.lblTextoTotalGrl = new System.Windows.Forms.Label();
             this.lblTotalGrl = new System.Windows.Forms.Label();
+            this.pnlAcento = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@ namespace BRAMSELU.Compra
             this.groupBox1.Controls.Add(this.txtPrecio);
             this.groupBox1.Controls.Add(this.btnAgregarAlCarrito);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
             this.groupBox1.Location = new System.Drawing.Point(67, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1045, 180);
@@ -178,14 +179,14 @@ namespace BRAMSELU.Compra
             this.dgvCarrito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrito.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarrito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarrito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarrito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCarrito.ColumnHeadersHeight = 34;
             this.dgvCarrito.EnableHeadersVisualStyles = false;
             this.dgvCarrito.Location = new System.Drawing.Point(67, 230);
@@ -203,7 +204,7 @@ namespace BRAMSELU.Compra
             this.btnFinalizarCompra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFinalizarCompra.FlatAppearance.BorderSize = 0;
             this.btnFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizarCompra.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnFinalizarCompra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizarCompra.ForeColor = System.Drawing.Color.White;
             this.btnFinalizarCompra.Location = new System.Drawing.Point(67, 645);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
@@ -235,10 +236,20 @@ namespace BRAMSELU.Compra
             this.lblTotalGrl.TabIndex = 4;
             this.lblTotalGrl.Text = "L. 0.00";
             // 
+            // pnlAcento
+            // 
+            this.pnlAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAcento.Location = new System.Drawing.Point(0, 0);
+            this.pnlAcento.Name = "pnlAcento";
+            this.pnlAcento.Size = new System.Drawing.Size(1182, 6);
+            this.pnlAcento.TabIndex = 97;
+            // 
             // FrmCompra
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);
+            this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvCarrito);
             this.Controls.Add(this.btnFinalizarCompra);
@@ -273,5 +284,6 @@ namespace BRAMSELU.Compra
         private Button btnFinalizarCompra;
         private Label lblTextoTotalGrl;
         private Label lblTotalGrl;
+        private Panel pnlAcento;
     }
 }
