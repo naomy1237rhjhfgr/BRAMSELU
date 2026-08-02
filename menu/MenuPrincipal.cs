@@ -15,7 +15,7 @@ namespace BRAMSELU
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
         private Timer timerDashboard;
-        
+        private Timer timerReloj = new Timer();
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {
@@ -24,10 +24,9 @@ namespace BRAMSELU
             this.nombreUsuario = nombreUsuario;
             this.rolUsuario = rolUsuario;
 
-            timerDashboard = new Timer();
-            timerDashboard.Interval = 1000; // 1 segundo
-            timerDashboard.Tick += TimerDashboard_Tick;
-            timerDashboard.Start();
+            timerReloj.Interval = 1000;
+            timerReloj.Tick += TimerReloj_Tick;
+            timerReloj.Start();
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
@@ -126,6 +125,7 @@ namespace BRAMSELU
                 login.Show();
                 this.Close();
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void btnPanel_Click(object sender, EventArgs e)
@@ -145,6 +145,7 @@ namespace BRAMSELU
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
@@ -164,6 +165,7 @@ namespace BRAMSELU
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void BtnCaja_Click(object sender, EventArgs e)

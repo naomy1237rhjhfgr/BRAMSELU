@@ -405,7 +405,7 @@
             this.pnlContenido.Location = new System.Drawing.Point(356, 0);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1390, 1050);
+            this.pnlContenido.Size = new System.Drawing.Size(1186, 1050);
             this.pnlContenido.TabIndex = 0;
             // 
             // panel10
@@ -419,7 +419,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1390, 67);
+            this.panel10.Size = new System.Drawing.Size(1186, 67);
             this.panel10.TabIndex = 14;
             // 
             // lblRuta
@@ -922,7 +922,7 @@
             // 
             this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(843, 3);
+            this.pictureBox9.Location = new System.Drawing.Point(639, 3);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(73, 66);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -933,7 +933,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1746, 1050);
+            this.ClientSize = new System.Drawing.Size(1542, 1050);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContenido);
             this.Controls.Add(this.pnlSidebar);
