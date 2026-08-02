@@ -61,7 +61,7 @@ namespace BRAMSELU
 
             formActivo = formHijo;
 
-            lblTitulo.Text = formHijo.Text;
+            //lblTitulo.Text = formHijo.Text;
             lblRuta.Text = "Inicio > " + formHijo.Text;
 
             formHijo.TopLevel = false;
