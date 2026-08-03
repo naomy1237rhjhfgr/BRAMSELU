@@ -66,7 +66,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblBuscar.ForeColor = System.Drawing.Color.DimGray;
             this.lblBuscar.Location = new System.Drawing.Point(67, 72);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(92, 31);
@@ -202,99 +202,99 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.DimGray;
             this.lblNombre.Location = new System.Drawing.Point(67, 443);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(103, 31);
+            this.lblNombre.Size = new System.Drawing.Size(108, 31);
             this.lblNombre.TabIndex = 12;
             this.lblNombre.Text = "Nombre:";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.ForeColor = System.Drawing.Color.DimGray;
             this.lblApellido.Location = new System.Drawing.Point(67, 481);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(105, 31);
+            this.lblApellido.Size = new System.Drawing.Size(111, 31);
             this.lblApellido.TabIndex = 14;
             this.lblApellido.Text = "Apellido:";
             // 
             // lblIdentidad
             // 
             this.lblIdentidad.AutoSize = true;
-            this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentidad.ForeColor = System.Drawing.Color.DimGray;
             this.lblIdentidad.Location = new System.Drawing.Point(67, 519);
             this.lblIdentidad.Name = "lblIdentidad";
-            this.lblIdentidad.Size = new System.Drawing.Size(118, 31);
+            this.lblIdentidad.Size = new System.Drawing.Size(123, 31);
             this.lblIdentidad.TabIndex = 16;
             this.lblIdentidad.Text = "Identidad:";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.DimGray;
             this.lblTelefono.Location = new System.Drawing.Point(67, 557);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(105, 31);
+            this.lblTelefono.Size = new System.Drawing.Size(113, 31);
             this.lblTelefono.TabIndex = 18;
             this.lblTelefono.Text = "Teléfono:";
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.ForeColor = System.Drawing.Color.DimGray;
             this.lblDireccion.Location = new System.Drawing.Point(67, 595);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(115, 31);
+            this.lblDireccion.Size = new System.Drawing.Size(122, 31);
             this.lblDireccion.TabIndex = 20;
             this.lblDireccion.Text = "Dirección:";
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.ForeColor = System.Drawing.Color.DimGray;
             this.lblCorreo.Location = new System.Drawing.Point(643, 443);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(87, 31);
+            this.lblCorreo.Size = new System.Drawing.Size(92, 31);
             this.lblCorreo.TabIndex = 22;
             this.lblCorreo.Text = "Correo:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.lblUsuario.Location = new System.Drawing.Point(643, 481);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(97, 31);
+            this.lblUsuario.Size = new System.Drawing.Size(103, 31);
             this.lblUsuario.TabIndex = 24;
             this.lblUsuario.Text = "Usuario:";
             // 
             // lblContrasena
             // 
             this.lblContrasena.AutoSize = true;
-            this.lblContrasena.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblContrasena.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasena.ForeColor = System.Drawing.Color.DimGray;
             this.lblContrasena.Location = new System.Drawing.Point(643, 519);
             this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(134, 31);
+            this.lblContrasena.Size = new System.Drawing.Size(140, 31);
             this.lblContrasena.TabIndex = 26;
             this.lblContrasena.Text = "Contraseña:";
             // 
             // lblTipoUsuario
             // 
             this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.lblTipoUsuario.Location = new System.Drawing.Point(643, 557);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(148, 31);
+            this.lblTipoUsuario.Size = new System.Drawing.Size(157, 31);
             this.lblTipoUsuario.TabIndex = 28;
             this.lblTipoUsuario.Text = "Tipo Usuario:";
             // 
@@ -471,11 +471,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.Label lblSeccion;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblIdentidad;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContrasena;
@@ -493,5 +488,10 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.ProgressBar progressBarempleados;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblIdentidad;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblDireccion;
     }
 }
