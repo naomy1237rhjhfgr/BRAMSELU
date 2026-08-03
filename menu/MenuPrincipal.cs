@@ -14,7 +14,7 @@ namespace BRAMSELU
         private Form formActivo = null;
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
-        private Timer timerDashboard;
+        
         private Timer timerReloj = new Timer();
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
@@ -198,7 +198,7 @@ namespace BRAMSELU
             }
             catch (Exception ex)
             {
-                timerDashboard?.Stop();
+                //timerDashboard?.Stop();
 
                 MessageBox.Show(
                     "No se pudieron actualizar las estadísticas del panel.\n\n" +
