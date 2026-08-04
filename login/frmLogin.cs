@@ -9,10 +9,29 @@ namespace BRAMSELU
     public partial class frmLogin : Form
     {
         private LoginBLL loginBLL = new LoginBLL();
+        private bool verPassword = false;
 
         public frmLogin()
         {
             InitializeComponent();
+
+            txtContrasena.PasswordChar = '●';
+            if (btnVerContrasena != null) btnVerContrasena.Text = "👁";
+        }
+
+        private void btnVerContrasena_Click_1(object sender, EventArgs e)
+        {
+            verPassword = !verPassword;
+            if (verPassword)
+            {
+                txtContrasena.PasswordChar = '\0';
+                btnVerContrasena.Text = "🙈";
+            }
+            else
+            {
+                txtContrasena.PasswordChar = '●';
+                btnVerContrasena.Text = "👁";
+            }
         }
 
         private void btnIniciarSesion_Click_1(object sender, EventArgs e)
@@ -30,7 +49,7 @@ namespace BRAMSELU
                 string nombreCompleto = $"{resultado["Nombre"]} {resultado["Apellido"]}";
                 string tipoUsuario = resultado["TipoUsuario"].ToString().Trim();
 
-                GestorMensajes.Exito($"¡Bienvenido{nombreCompleto}!({tipoUsuario})");
+                GestorMensajes.Exito($"¡Bienvenido {nombreCompleto}! ({tipoUsuario})");
 
                 frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, tipoUsuario);
                 menu.Show();
@@ -38,6 +57,12 @@ namespace BRAMSELU
             }
             else
             {
+                txtContrasena.Clear();
+                txtContrasena.Focus();
+                verPassword = false;
+                txtContrasena.PasswordChar = '●';
+                if (btnVerContrasena != null) btnVerContrasena.Text = "👁";
+
                 GestorMensajes.Error(loginBLL.Mensaje);
             }
         }
@@ -46,5 +71,9 @@ namespace BRAMSELU
         {
 
         }
+
+        
+
+       
     }
 }

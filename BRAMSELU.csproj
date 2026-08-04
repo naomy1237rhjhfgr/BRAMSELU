@@ -112,6 +112,7 @@
     <Compile Include="Categorias\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="login\SesionActual.cs" />
     <Compile Include="Mensajes\FrmCerrarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
