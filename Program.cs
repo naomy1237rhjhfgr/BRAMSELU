@@ -18,7 +18,7 @@ namespace BRAMSELU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMenuPrincipal("Adminsitrador","Abdiel"));
+            Application.Run(new frmLogin());
         }
     }
 }
