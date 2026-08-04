@@ -15,7 +15,7 @@ namespace BRAMSELU.reporteproductos
 
         private void FrmReporteProductosVendidos_Load(object sender, EventArgs e)
         {
-            // Valor predeterminado para el Top
+            
             txtTop.Text = "10";
             CargarReporte();
         }
@@ -42,6 +42,21 @@ namespace BRAMSELU.reporteproductos
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CargarReporte();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
+
+        private void txtTop_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
