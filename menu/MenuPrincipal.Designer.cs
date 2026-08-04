@@ -41,7 +41,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.PanelContenido = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvStockBajo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -70,8 +70,8 @@
             this.lbl = new System.Windows.Forms.Label();
             this.lblProductos = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label96 = new System.Windows.Forms.Label();
             this.lblCitas = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,13 +79,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.PanelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -467,8 +468,9 @@
             // PanelContenido
             // 
             this.PanelContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.PanelContenido.Controls.Add(this.label3);
             this.PanelContenido.Controls.Add(this.dataGridView2);
-            this.PanelContenido.Controls.Add(this.dataGridView1);
+            this.PanelContenido.Controls.Add(this.dgvStockBajo);
             this.PanelContenido.Controls.Add(this.label1);
             this.PanelContenido.Controls.Add(this.tableLayoutPanel1);
             this.PanelContenido.Location = new System.Drawing.Point(0, 67);
@@ -478,6 +480,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(610, 466);
             this.dataGridView2.Name = "dataGridView2";
@@ -486,15 +489,20 @@
             this.dataGridView2.Size = new System.Drawing.Size(502, 228);
             this.dataGridView2.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvStockBajo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 466);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(502, 228);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvStockBajo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStockBajo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvStockBajo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvStockBajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStockBajo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(240)))));
+            this.dgvStockBajo.Location = new System.Drawing.Point(64, 466);
+            this.dgvStockBajo.Name = "dgvStockBajo";
+            this.dgvStockBajo.RowHeadersWidth = 51;
+            this.dgvStockBajo.RowTemplate.Height = 24;
+            this.dgvStockBajo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStockBajo.Size = new System.Drawing.Size(502, 228);
+            this.dgvStockBajo.TabIndex = 2;
             // 
             // label1
             // 
@@ -569,11 +577,11 @@
             // lblReportes
             // 
             this.lblReportes.AutoSize = true;
-            this.lblReportes.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportes.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReportes.ForeColor = System.Drawing.Color.White;
             this.lblReportes.Location = new System.Drawing.Point(3, 41);
             this.lblReportes.Name = "lblReportes";
-            this.lblReportes.Size = new System.Drawing.Size(75, 59);
+            this.lblReportes.Size = new System.Drawing.Size(64, 50);
             this.lblReportes.TabIndex = 5;
             this.lblReportes.Text = "50";
             // 
@@ -604,11 +612,11 @@
             // lblIngresos
             // 
             this.lblIngresos.AutoSize = true;
-            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresos.ForeColor = System.Drawing.Color.White;
             this.lblIngresos.Location = new System.Drawing.Point(3, 41);
             this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(75, 59);
+            this.lblIngresos.Size = new System.Drawing.Size(64, 50);
             this.lblIngresos.TabIndex = 5;
             this.lblIngresos.Text = "50";
             // 
@@ -650,11 +658,11 @@
             // lblVentas
             // 
             this.lblVentas.AutoSize = true;
-            this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVentas.ForeColor = System.Drawing.Color.White;
             this.lblVentas.Location = new System.Drawing.Point(3, 41);
             this.lblVentas.Name = "lblVentas";
-            this.lblVentas.Size = new System.Drawing.Size(75, 59);
+            this.lblVentas.Size = new System.Drawing.Size(64, 50);
             this.lblVentas.TabIndex = 3;
             this.lblVentas.Text = "50";
             // 
@@ -718,11 +726,11 @@
             // lblEmpleados
             // 
             this.lblEmpleados.AutoSize = true;
-            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpleados.ForeColor = System.Drawing.Color.White;
             this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
             this.lblEmpleados.Name = "lblEmpleados";
-            this.lblEmpleados.Size = new System.Drawing.Size(75, 59);
+            this.lblEmpleados.Size = new System.Drawing.Size(64, 50);
             this.lblEmpleados.TabIndex = 7;
             this.lblEmpleados.Text = "50";
             // 
@@ -753,11 +761,11 @@
             // lblCategorias
             // 
             this.lblCategorias.AutoSize = true;
-            this.lblCategorias.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorias.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorias.ForeColor = System.Drawing.Color.White;
             this.lblCategorias.Location = new System.Drawing.Point(3, 40);
             this.lblCategorias.Name = "lblCategorias";
-            this.lblCategorias.Size = new System.Drawing.Size(75, 59);
+            this.lblCategorias.Size = new System.Drawing.Size(64, 50);
             this.lblCategorias.TabIndex = 3;
             this.lblCategorias.Text = "50";
             // 
@@ -810,19 +818,19 @@
             // lblProductos
             // 
             this.lblProductos.AutoSize = true;
-            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductos.ForeColor = System.Drawing.Color.White;
             this.lblProductos.Location = new System.Drawing.Point(3, 40);
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(100, 59);
+            this.lblProductos.Size = new System.Drawing.Size(85, 50);
             this.lblProductos.TabIndex = 3;
             this.lblProductos.Text = "250";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.label96);
             this.panel2.Controls.Add(this.lblCitas);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(269, 8);
@@ -831,27 +839,27 @@
             this.panel2.Size = new System.Drawing.Size(245, 146);
             this.panel2.TabIndex = 1;
             // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label96.ForeColor = System.Drawing.Color.White;
+            this.label96.Location = new System.Drawing.Point(8, 100);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(124, 28);
+            this.label96.TabIndex = 4;
+            this.label96.Text = "Citas del Día";
+            // 
             // lblCitas
             // 
             this.lblCitas.AutoSize = true;
-            this.lblCitas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCitas.ForeColor = System.Drawing.Color.White;
-            this.lblCitas.Location = new System.Drawing.Point(8, 100);
+            this.lblCitas.Location = new System.Drawing.Point(3, 40);
             this.lblCitas.Name = "lblCitas";
-            this.lblCitas.Size = new System.Drawing.Size(124, 28);
-            this.lblCitas.TabIndex = 4;
-            this.lblCitas.Text = "Citas del Día";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 59);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "08";
+            this.lblCitas.Size = new System.Drawing.Size(64, 50);
+            this.lblCitas.TabIndex = 3;
+            this.lblCitas.Text = "08";
             // 
             // pictureBox2
             // 
@@ -891,11 +899,11 @@
             // lblClientesRegistrados
             // 
             this.lblClientesRegistrados.AutoSize = true;
-            this.lblClientesRegistrados.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientesRegistrados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
             this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
             this.lblClientesRegistrados.Name = "lblClientesRegistrados";
-            this.lblClientesRegistrados.Size = new System.Drawing.Size(75, 59);
+            this.lblClientesRegistrados.Size = new System.Drawing.Size(64, 50);
             this.lblClientesRegistrados.TabIndex = 1;
             this.lblClientesRegistrados.Text = "50";
             // 
@@ -929,6 +937,17 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(85, 22);
             this.dateTimePicker1.TabIndex = 4;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGray;
+            this.label3.Location = new System.Drawing.Point(58, 432);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(284, 31);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Productos Bajos en Stock";
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -952,7 +971,7 @@
             this.PanelContenido.ResumeLayout(false);
             this.PanelContenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -1015,7 +1034,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvStockBajo;
         private System.Windows.Forms.Label lblClientesRegistrados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
@@ -1025,8 +1044,8 @@
         private System.Windows.Forms.Label lblCategorias;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lblProductos;
+        private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label lblCitas;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblRuta;
         private System.Windows.Forms.Button BtnCaja;
         private System.Windows.Forms.Button BtnCompras;
@@ -1047,5 +1066,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label3;
     }
 }

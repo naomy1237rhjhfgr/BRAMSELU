@@ -88,6 +88,7 @@
     <Compile Include="Compra\FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\Dashboard.cs" />
     <Compile Include="Dashboard\DashboardDAL.cs" />
     <Compile Include="llamadoinventario\frmllamado.cs">
       <SubType>Form</SubType>

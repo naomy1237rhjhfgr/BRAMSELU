@@ -3,6 +3,7 @@ using BRAMSELU.Compra;
 using BRAMSELU.Mensajes;
 using BRAMSELU.Ventas;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace BRAMSELU
@@ -217,15 +218,24 @@ namespace BRAMSELU
         {
             try
             {
-                int[] estadisticas = dashboardDAL.ObtenerEstadisticas();
+                DashboardModel datos = dashboardDAL.ObtenerEstadisticas();
 
-                lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
-                lblEmpleados.Text = estadisticas[1].ToString("D2");
-                lblProductos.Text = estadisticas[2].ToString("D2");
+                // Actualizar tarjetas
+                lblClientesRegistrados.Text = datos.TotalClientes.ToString("D2");
+                lblCitas.Text = datos.CitasDelDia.ToString("D2");
+                lblProductos.Text = datos.ProductosInventario.ToString("D2");
+                lblCategorias.Text = datos.CategoriasActivas.ToString("D2");
+                lblVentas.Text = datos.VentasDelDia.ToString("D2");
+                lblEmpleados.Text = datos.EmpleadosActivos.ToString("D2");
+                lblReportes.Text = datos.ReportesDisponibles.ToString("D2");
+                lblIngresos.Text = datos.IngresosDelDia.ToString("C2");
+
+                // Actualizar Grid de Stock Bajo
+                CargarProductosStockBajo();
             }
             catch (Exception ex)
             {
-                GestorMensajes.Error("No se pudieron actualizar las estadisticas del panel. \n\n" + ex.Message);
+                GestorMensajes.Error("No se pudieron actualizar las estadísticas del panel. \n\n" + ex.Message);
             }
         }
 
@@ -238,6 +248,81 @@ namespace BRAMSELU
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
+        private void CargarProductosStockBajo()
+        {
+            try
+            {
+                DataTable dtStockBajo = dashboardDAL.ObtenerProductosStockBajo(10);
+                dgvStockBajo.DataSource = dtStockBajo;
+                EstilarDataGridView(dgvStockBajo);
+                ResaltarFilasStock();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error al cargar stock bajo: " + ex.Message);
+            }
+        }
+        private void EstilarDataGridView(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.BackgroundColor = System.Drawing.Color.White;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.GridColor = System.Drawing.Color.FromArgb(235, 237, 240);
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+            dgv.ReadOnly = true;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Altura de filas para dar aspecto espacioso y moderno
+            dgv.RowTemplate.Height = 35;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgv.ColumnHeadersHeight = 38;
+
+            // Estilo de Encabezados (Coincide con el tono oscuro del menú lateral)
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(28, 35, 45); // Gris oscuro / Azul noche
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            // Estilo de Filas por defecto
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
+            dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250); // Azul suave
+            dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+
+            // Filas intercaladas (Efecto cebra suave)
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250);
+            dgv.AlternatingRowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+        }
+
+        private void ResaltarFilasStock()
+        {
+            foreach (DataGridViewRow fila in dgvStockBajo.Rows)
+            {
+                if (fila.Cells["Stock"].Value != null && int.TryParse(fila.Cells["Stock"].Value.ToString(), out int stock))
+                {
+                    if (stock == 0)
+                    {
+                        // Agotado: Fondo rojo suave con texto rojo oscuro (Mismo tono de la tarjeta 'Clientes')
+                        fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 225, 225);
+                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(180, 40, 40);
+                    }
+                    else if (stock <= 3)
+                    {
+                        // Alerta Crítica (<= 3): Fondo amarillo/naranja suave (Mismo tono de la tarjeta 'Categorías')
+                        fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 243, 205);
+                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(133, 100, 4);
+                    }
+                }
+            }
         }
     }
 }
