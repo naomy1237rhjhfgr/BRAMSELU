@@ -79,6 +79,15 @@
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
+    <Compile Include="clientellamado\clientellabll.cs" />
+    <Compile Include="clientellamado\clientelladal.cs" />
+    <Compile Include="clientellamado\clientellamado.cs" />
+    <Compile Include="clientellamado\Frmclientellamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientellamado\Frmclientellamado.Designer.cs">
+      <DependentUpon>Frmclientellamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compra\CompraBLL.cs" />
     <Compile Include="Compra\CompraDALL.cs" />
     <Compile Include="Compra\CompraED.cs" />
