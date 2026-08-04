@@ -41,5 +41,10 @@ namespace BRAMSELU
                 GestorMensajes.Error(loginBLL.Mensaje);
             }
         }
+
+        private void pnlCard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

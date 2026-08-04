@@ -4,6 +4,7 @@ using BRAMSELU.Mensajes;
 using BRAMSELU.Ventas;
 using System;
 using System.Windows.Forms;
+
 namespace BRAMSELU
 {
     public partial class frmMenuPrincipal : Form
@@ -14,7 +15,7 @@ namespace BRAMSELU
         private Form formActivo = null;
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
-        
+
         private Timer timerReloj = new Timer();
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
@@ -32,21 +33,35 @@ namespace BRAMSELU
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
-            
+
             lblRuta.Text = "Inicio";
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             CargarEstadisticas();
 
+           
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
-                btnEmpleados.Visible = false;
-                btnReportes.Visible = false;
+              
+                    btnEmpleados.Visible = false;
+                    btnReportes.Visible = false;
+                    BtnCompras.Visible = false; 
+            
 
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
                 {
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("panelEmpleadosActivos"))
+                {
+                    pnlContenido.Controls["panelEmpleadosActivos"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("panelReportesDisponibles"))
+                {
+                    pnlContenido.Controls["panelReportesDisponibles"].Visible = false;
                 }
             }
         }
@@ -60,7 +75,6 @@ namespace BRAMSELU
 
             formActivo = formHijo;
 
-            //lblTitulo.Text = formHijo.Text;
             lblRuta.Text = "Inicio > " + formHijo.Text;
 
             formHijo.TopLevel = false;
@@ -144,6 +158,14 @@ namespace BRAMSELU
                 {
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
+                if (pnlContenido.Controls.ContainsKey("panelEmpleadosActivos"))
+                {
+                    pnlContenido.Controls["panelEmpleadosActivos"].Visible = false;
+                }
+                if (pnlContenido.Controls.ContainsKey("panelReportesDisponibles"))
+                {
+                    pnlContenido.Controls["panelReportesDisponibles"].Visible = false;
+                }
             }
             lblRuta.Text = "Inicio";
         }
@@ -164,6 +186,14 @@ namespace BRAMSELU
                 {
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
+                if (pnlContenido.Controls.ContainsKey("panelEmpleadosActivos"))
+                {
+                    pnlContenido.Controls["panelEmpleadosActivos"].Visible = false;
+                }
+                if (pnlContenido.Controls.ContainsKey("panelReportesDisponibles"))
+                {
+                    pnlContenido.Controls["panelReportesDisponibles"].Visible = false;
+                }
             }
             lblRuta.Text = "Inicio";
         }
@@ -175,7 +205,6 @@ namespace BRAMSELU
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
-
             AbrirFormEnPanel(new FrmCompra());
         }
 
@@ -193,21 +222,18 @@ namespace BRAMSELU
                 lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
                 lblEmpleados.Text = estadisticas[1].ToString("D2");
                 lblProductos.Text = estadisticas[2].ToString("D2");
-                
-
             }
             catch (Exception ex)
             {
-                //timerDashboard?.Stop();
-
                 GestorMensajes.Error("No se pudieron actualizar las estadisticas del panel. \n\n" + ex.Message);
-               
             }
         }
+
         private void TimerDashboard_Tick(object sender, EventArgs e)
         {
             CargarEstadisticas();
         }
+
         private void TimerReloj_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
