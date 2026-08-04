@@ -22,7 +22,6 @@ namespace BRAMSELU.reportecaja
 
         private void FrmReporteCaja_Load(object sender, EventArgs e)
         {
-            
             dtpFechaInicio.Value = DateTime.Today;
             dtpFechaFin.Value = DateTime.Today;
             CargarReporte();
@@ -47,6 +46,12 @@ namespace BRAMSELU.reportecaja
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CargarReporte();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();
         }
     }
 }
