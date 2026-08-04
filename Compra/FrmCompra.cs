@@ -31,9 +31,7 @@ namespace BRAMSELU.Compra
 
         private void FrmCompra_Load(object sender, EventArgs e)
         {
-
-      
-        CargarComboProveedores();
+            CargarComboProveedores();
             InicializarCarrito();
         }
 
@@ -51,8 +49,6 @@ namespace BRAMSELU.Compra
             }
         }
 
-      
-
         private void InicializarCarrito()
         {
             dtCarrito = new DataTable();
@@ -67,12 +63,10 @@ namespace BRAMSELU.Compra
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
-          
             frmllamado llamadoForm = new frmllamado();
 
             if (llamadoForm.ShowDialog() == DialogResult.OK && llamadoForm.ProductoSeleccionado != null)
             {
-               
                 int id = llamadoForm.ProductoSeleccionado.IdProducto;
                 string nombre = llamadoForm.ProductoSeleccionado.NombreProducto;
                 decimal precio = llamadoForm.ProductoSeleccionado.Precio;
@@ -85,13 +79,13 @@ namespace BRAMSELU.Compra
         {
             if (idProductoSeleccionado == 0 || string.IsNullOrWhiteSpace(txtProducto.Text))
             {
-                MessageBox.Show("Por favor, seleccione un producto primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un producto primero.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
             {
-                GestorMensajes.Advertencia("Por favor completa la cantidad y el precio");
+                GestorMensajes.Advertencia("Por favor completa la cantidad y el precio.");
                 return;
             }
 
@@ -121,13 +115,13 @@ namespace BRAMSELU.Compra
             {
                 if (cmbProveedor.SelectedValue == null)
                 {
-                    GestorMensajes.Advertencia("Por favor seleccione un proveedor");
+                    GestorMensajes.Advertencia("Por favor seleccione un proveedor.");
                     return;
                 }
 
                 if (dtCarrito.Rows.Count == 0)
                 {
-                    MessageBox.Show("El carrito está vacío.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("El carrito está vacío.");
                     return;
                 }
 
@@ -153,7 +147,7 @@ namespace BRAMSELU.Compra
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo registrar la compra en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    GestorMensajes.Error("No se pudo registrar la compra en la base de datos.");
                 }
             }
             catch (Exception ex)
@@ -209,7 +203,5 @@ namespace BRAMSELU.Compra
         private void txtProducto_TextChanged(object sender, EventArgs e) { }
 
         private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e) { }
-
-       
     }
 }
