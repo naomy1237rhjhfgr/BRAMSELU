@@ -199,6 +199,7 @@ namespace BRAMSELU.Ventas
 
                 if (resultado)
                 {
+                    
                     GestorMensajes.Exito($"¡Venta realizada con éxito!\n\nCliente DNI: {txtDniCliente.Text}\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}");
 
                     DialogResult resultadoFactura = GestorMensajes.Confirmacion("¿Desea generar e imprimir la factura para el cliente?");
