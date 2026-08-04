@@ -1,4 +1,5 @@
-﻿using BRAMSELU.llamadoinventario.UI;
+﻿using BRAMSELU.clientellamado;
+using BRAMSELU.llamadoinventario.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace BRAMSELU.Ventas
         public decimal precioSeleccionado;
         public int stockSeleccionado;
 
+        public string dniClienteSeleccionado = string.Empty;
+
         public FrmVentas()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace BRAMSELU.Ventas
         {
             InicializarCarrito();
             txtCantidad.Text = "1";
+            txtDniCliente.ReadOnly = true;
         }
 
         private void InicializarCarrito()
@@ -62,6 +66,19 @@ namespace BRAMSELU.Ventas
             }
         }
 
+        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            Frmclientellamado clienteForm = new Frmclientellamado();
+
+            if (clienteForm.ShowDialog() == DialogResult.OK)
+            {
+                dniClienteSeleccionado = clienteForm.IdClienteSeleccionado;
+                txtDniCliente.Text = dniClienteSeleccionado;
+
+                btnSeleccionarCliente.Enabled = false;
+            }
+        }
+
         public void CargarDatosProducto(int id, string nombre, decimal precio, int stock)
         {
             idProductoSeleccionado = id;
@@ -73,6 +90,12 @@ namespace BRAMSELU.Ventas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDniCliente.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un cliente antes de agregar productos al carrito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (idProductoSeleccionado == 0 || string.IsNullOrWhiteSpace(txtProducto.Text))
             {
                 MessageBox.Show("Por favor, seleccione un producto primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -143,6 +166,12 @@ namespace BRAMSELU.Ventas
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(txtDniCliente.Text))
+                {
+                    MessageBox.Show("Por favor, seleccione un cliente antes de cobrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtEfectivo.Text))
                 {
                     MessageBox.Show("Ingrese el monto en efectivo entregado por el cliente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -169,10 +198,9 @@ namespace BRAMSELU.Ventas
 
                 if (resultado)
                 {
-                    MessageBox.Show($"¡Venta realizada con éxito!\n\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}",
+                    MessageBox.Show($"¡Venta realizada con éxito!\n\nCliente DNI: {txtDniCliente.Text}\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}",
                                     "Venta Registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                
                     DialogResult resultadoFactura = MessageBox.Show(
                         "¿Desea generar e imprimir la factura para el cliente?",
                         "Generar Factura",
@@ -180,17 +208,18 @@ namespace BRAMSELU.Ventas
                         MessageBoxIcon.Question
                     );
 
-                  
                     if (resultadoFactura == DialogResult.Yes)
                     {
                         GeneradorFactura factura = new GeneradorFactura();
                         factura.GenerarYMostrar(dtCarrito, totalGeneral, efectivoRecibido, cambio);
                     }
-
-                 
+                    txtCantidad.Clear();
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                     txtEfectivo.Clear();
+                    txtDniCliente.Clear();
+                    dniClienteSeleccionado = string.Empty;
+                    btnSeleccionarCliente.Enabled = true;
                     LimpiarCamposProducto();
                 }
             }
