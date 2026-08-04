@@ -44,5 +44,10 @@ namespace BRAMSELU.reportestock
         {
             CargarReporte();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
