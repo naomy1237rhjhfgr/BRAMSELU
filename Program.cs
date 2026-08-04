@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Ventas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace BRAMSELU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmReportes());
+            Application.Run(new FrmVentas());
         }
     }
 }
