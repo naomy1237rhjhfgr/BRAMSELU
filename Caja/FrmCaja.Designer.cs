@@ -100,6 +100,7 @@
             this.txtMontoInicial.Name = "txtMontoInicial";
             this.txtMontoInicial.Size = new System.Drawing.Size(320, 38);
             this.txtMontoInicial.TabIndex = 1;
+            this.txtMontoInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMontoInicial.TextChanged += new System.EventHandler(this.txtMontoInicial_TextChanged);
             // 
             // label1
@@ -147,6 +148,7 @@
             this.txtMontoFinal.Name = "txtMontoFinal";
             this.txtMontoFinal.Size = new System.Drawing.Size(320, 38);
             this.txtMontoFinal.TabIndex = 1;
+            this.txtMontoFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMontoFinal.TextChanged += new System.EventHandler(this.txtMontoFinal_TextChanged);
             // 
             // label2
