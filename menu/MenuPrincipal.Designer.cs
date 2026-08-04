@@ -139,7 +139,7 @@
             this.BtnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCompras.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.BtnCompras.Location = new System.Drawing.Point(0, 346);
+            this.BtnCompras.Location = new System.Drawing.Point(0, 570);
             this.BtnCompras.Name = "BtnCompras";
             this.BtnCompras.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.BtnCompras.Size = new System.Drawing.Size(356, 50);
@@ -213,7 +213,7 @@
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleados.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 458);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 626);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnEmpleados.Size = new System.Drawing.Size(356, 50);
@@ -253,7 +253,7 @@
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnClientes.Location = new System.Drawing.Point(0, 402);
+            this.btnClientes.Location = new System.Drawing.Point(0, 346);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(356, 50);
@@ -273,7 +273,7 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnReportes.Location = new System.Drawing.Point(0, 570);
+            this.btnReportes.Location = new System.Drawing.Point(0, 682);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(356, 50);
@@ -293,7 +293,7 @@
             this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServicios.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnServicios.Location = new System.Drawing.Point(0, 682);
+            this.btnServicios.Location = new System.Drawing.Point(0, 514);
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnServicios.Size = new System.Drawing.Size(356, 50);
@@ -333,7 +333,7 @@
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnVentas.Location = new System.Drawing.Point(0, 626);
+            this.btnVentas.Location = new System.Drawing.Point(0, 458);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(356, 50);
@@ -353,7 +353,7 @@
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            this.btnInventario.Location = new System.Drawing.Point(0, 514);
+            this.btnInventario.Location = new System.Drawing.Point(0, 402);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnInventario.Size = new System.Drawing.Size(356, 50);
