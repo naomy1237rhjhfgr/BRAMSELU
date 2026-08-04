@@ -189,13 +189,8 @@ namespace BRAMSELU
             {
                 timerDashboard?.Stop();
 
-                MessageBox.Show(
-                    "No se pudieron actualizar las estadísticas del panel.\n\n" +
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                GestorMensajes.Error("No se pudieron actualizar las estadisticas del panel. \n\n" + ex.Message);
+               
             }
         }
         private void TimerDashboard_Tick(object sender, EventArgs e)

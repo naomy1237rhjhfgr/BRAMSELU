@@ -4,6 +4,7 @@ using BRAMSELU.ClasesProducto;
 using BRAMSELU.Compra;
 using BRAMSELU.DAL;
 using BRAMSELU.Entidades;
+using BRAMSELU.Mensajes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -32,12 +33,7 @@ namespace BRAMSELU
         }
         private void frmInventario_Load(object sender, EventArgs e)
         {
-            CmbCa.DataSource = categoriaBLL.ObtenerCategorias();
-            CmbCa.DisplayMember = "NombreCategoria";
-            CmbCa.ValueMember = "IdCategoria";
-
-            CargarDatos();
-            BloquearCampos(true);
+           
             CmbCa.DataSource = categoriaBLL.ObtenerCategorias();
             CmbCa.DisplayMember = "NombreCategoria";
             CmbCa.ValueMember = "IdCategoria";
@@ -199,7 +195,7 @@ namespace BRAMSELU
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Por favor, seleccione un producto de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un producto en la tabla primero");
                 return;
             }
 
@@ -222,11 +218,11 @@ namespace BRAMSELU
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Por favor, seleccione el producto que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione el producto que desea eliminar");
                 return;
             }
-            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+            FrmConfirmacion confirmacion = new FrmConfirmacion("¿Esta seguro que desea eliminar este producto");
+            if (confirmacion.ShowDialog() == DialogResult.Yes)
             {
                 iniciarbarra("eliminar");
             }
@@ -236,7 +232,7 @@ namespace BRAMSELU
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                MessageBox.Show("Por favor, ingrese un criterio de búsqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, ingrese un criterio de busqueda");
                 txtBuscar.Focus();
                 return;
             }
@@ -318,11 +314,11 @@ namespace BRAMSELU
 
             if (idSeleccionado == 0)
             {
-                if (inventarioBLL.GuardarProducto(inv)) MessageBox.Show("Producto guardado");
+                if (inventarioBLL.GuardarProducto(inv)) GestorMensajes.Exito("Producto guardado correctamente");
             }
             else
             {
-                if (inventarioBLL.ActualizarProducto(inv)) MessageBox.Show("Producto actualizado");
+                if (inventarioBLL.ActualizarProducto(inv)) GestorMensajes.Exito("Producto actualizado correctamente");
             }
 
             CargarDatos();
@@ -342,7 +338,7 @@ namespace BRAMSELU
         {
             if (idSeleccionado != 0 && inventarioBLL.EliminarProducto(idSeleccionado))
             {
-                MessageBox.Show("Producto eliminado");
+                GestorMensajes.Error("Producto eliminado correctamente");
                 CargarDatos();
                 Limpiar();
                 BloquearCampos(true);
@@ -403,7 +399,7 @@ namespace BRAMSELU
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un producto de la tabla.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un producto de la tabla");
             }
         }
     }

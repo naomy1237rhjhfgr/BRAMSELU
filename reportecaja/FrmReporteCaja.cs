@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.reportecaja
 {
@@ -39,7 +40,7 @@ namespace BRAMSELU.reportecaja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el reporte de caja: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al cargar el reporte de caja: " + ex.Message);
             }
         }
 

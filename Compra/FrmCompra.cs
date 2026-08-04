@@ -40,9 +40,9 @@ namespace BRAMSELU.Compra
         {
             try
             {
-                cmbProveedores.DataSource = objBLL.ObtenerProveedores();
-                cmbProveedores.DisplayMember = "NombreEmpresa";
-                cmbProveedores.ValueMember = "IdProveedor";
+                cmbProveedor.DataSource = objBLL.ObtenerProveedores();
+                cmbProveedor.DisplayMember = "NombreEmpresa";
+                cmbProveedor.ValueMember = "IdProveedor";
             }
             catch (Exception ex)
             {
@@ -50,36 +50,23 @@ namespace BRAMSELU.Compra
             }
         }
 
+        /*
         private void CargarComboProductos()
         {
             try
             {
-                cmbProductos.DataSource = objBLL.ObtenerProductos();
+                cmbProveedor.DataSource = objBLL.ObtenerProductos();
                 cmbProductos.DisplayMember = "Nombre";
                 cmbProductos.ValueMember = "IdProducto";
             }
-                DataTable dtProveedores = objBLL.ObtenerProveedores();
-
-                if (dtProveedores != null && dtProveedores.Rows.Count > 0)
-                {
-                    cmbProveedor.DataSource = null;
-                    cmbProveedor.Items.Clear();
-                    cmbProveedor.DataSource = dtProveedores;
-                    cmbProveedor.DisplayMember = "NombreEmpresa";
-                    cmbProveedor.ValueMember = "IdProveedor";
-                    cmbProveedor.SelectedIndex = -1;
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron proveedores registrados en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar proveedores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GestorMensajes.Error("Error al cargar productos: " + ex.Message);
             }
+        
+            
         }
+        */
 
         private void InicializarCarrito()
         {

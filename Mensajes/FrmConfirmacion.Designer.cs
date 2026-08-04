@@ -40,9 +40,9 @@
             // lblMensajeconfirmacion
             // 
             this.lblMensajeconfirmacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeconfirmacion.Location = new System.Drawing.Point(76, 21);
+            this.lblMensajeconfirmacion.Location = new System.Drawing.Point(103, 21);
             this.lblMensajeconfirmacion.Name = "lblMensajeconfirmacion";
-            this.lblMensajeconfirmacion.Size = new System.Drawing.Size(328, 28);
+            this.lblMensajeconfirmacion.Size = new System.Drawing.Size(349, 46);
             this.lblMensajeconfirmacion.TabIndex = 0;
             this.lblMensajeconfirmacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -50,7 +50,7 @@
             // 
             this.pictureBox2.Location = new System.Drawing.Point(22, 11);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox2.Size = new System.Drawing.Size(63, 67);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -62,7 +62,7 @@
             this.panelsuperiorconfirmacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsuperiorconfirmacion.Location = new System.Drawing.Point(0, 0);
             this.panelsuperiorconfirmacion.Name = "panelsuperiorconfirmacion";
-            this.panelsuperiorconfirmacion.Size = new System.Drawing.Size(462, 75);
+            this.panelsuperiorconfirmacion.Size = new System.Drawing.Size(482, 93);
             this.panelsuperiorconfirmacion.TabIndex = 48;
             // 
             // bttnAceptarconfirmacion
@@ -73,7 +73,7 @@
             this.bttnAceptarconfirmacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAceptarconfirmacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttnAceptarconfirmacion.ForeColor = System.Drawing.Color.Transparent;
-            this.bttnAceptarconfirmacion.Location = new System.Drawing.Point(245, 89);
+            this.bttnAceptarconfirmacion.Location = new System.Drawing.Point(252, 109);
             this.bttnAceptarconfirmacion.Name = "bttnAceptarconfirmacion";
             this.bttnAceptarconfirmacion.Size = new System.Drawing.Size(100, 32);
             this.bttnAceptarconfirmacion.TabIndex = 49;
@@ -89,7 +89,7 @@
             this.bttncancelarconfirmacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttncancelarconfirmacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttncancelarconfirmacion.ForeColor = System.Drawing.Color.White;
-            this.bttncancelarconfirmacion.Location = new System.Drawing.Point(101, 89);
+            this.bttncancelarconfirmacion.Location = new System.Drawing.Point(108, 109);
             this.bttncancelarconfirmacion.Name = "bttncancelarconfirmacion";
             this.bttncancelarconfirmacion.Size = new System.Drawing.Size(100, 32);
             this.bttncancelarconfirmacion.TabIndex = 50;
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 133);
+            this.ClientSize = new System.Drawing.Size(482, 153);
             this.Controls.Add(this.bttncancelarconfirmacion);
             this.Controls.Add(this.bttnAceptarconfirmacion);
             this.Controls.Add(this.panelsuperiorconfirmacion);

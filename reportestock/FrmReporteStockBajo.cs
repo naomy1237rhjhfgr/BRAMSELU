@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Mensajes;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace BRAMSELU.reportestock
             {
                 if (!int.TryParse(txtStockLimite.Text, out int limite))
                 {
-                    MessageBox.Show("Por favor, ingrese un número válido para el límite de stock.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("Por favor, ingrese un número válido para el límite de stock.");
                     return;
                 }
 
@@ -35,7 +36,7 @@ namespace BRAMSELU.reportestock
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el reporte de stock bajo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al cargar el reporte de stock bajo: " + ex.Message);
             }
         }
 

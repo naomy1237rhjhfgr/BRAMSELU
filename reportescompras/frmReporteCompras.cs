@@ -1,4 +1,5 @@
-﻿using BRAMSELU.Ventas;
+﻿using BRAMSELU.Mensajes;
+using BRAMSELU.Ventas;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -35,8 +36,7 @@ namespace BRAMSELU.Ventas
 
                 if (fechaInicio > fechaFin)
                 {
-                    MessageBox.Show("La fecha de inicio no puede ser mayor que la fecha fin.",
-                                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("La fecha de inicio no puede ser mayor que la fecha fin.");
                     return;
                 }
 
@@ -45,14 +45,14 @@ namespace BRAMSELU.Ventas
 
                 if (dtResultado.Rows.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron registros en el rango de fechas seleccionado.",
-                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GestorMensajes.Exito("No se encontraron registros en el rango de fechas seleccionado.");
+                                    
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al generar el reporte: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al generar el reporte: " + ex.Message);
+                                
             }
         }
     }

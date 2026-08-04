@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Mensajes;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -25,12 +26,12 @@ namespace BRAMSELU.Ventas
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron ventas en el rango de fechas seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GestorMensajes.Exito("No se encontraron ventas en el rango de fechas seleccionado.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al generar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al generar el reporte: " + ex.Message);
             }
         }
     }

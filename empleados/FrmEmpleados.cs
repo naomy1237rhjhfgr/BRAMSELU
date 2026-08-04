@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using BRAMSELU.Entidades;
 using BRAMSELU.BLL;
 using System.Collections.Generic;
+using System.Windows.Ink;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU
 {
@@ -170,7 +172,7 @@ namespace BRAMSELU
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Por favor, seleccione un empleado de la tabla primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un empleado de la tabla primero");
                 return;
             }
 
@@ -193,11 +195,11 @@ namespace BRAMSELU
         {
             if (idSeleccionado == 0)
             {
-                MessageBox.Show("Por favor, seleccione el empleado que desea eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione el empleado que desea eliminar");
                 return;
             }
-            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+            FrmConfirmacion confirmar = new FrmConfirmacion("¿Estas seguro de que deseas eliminar este emplado?");
+            if (confirmar.ShowDialog() == DialogResult.Yes)
             {
                 iniciarbarra("eliminar");
             }
@@ -207,7 +209,7 @@ namespace BRAMSELU
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                MessageBox.Show("Por favor, ingrese un criterio de búsqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, ingrese un criterio de busqueda");
                 txtBuscar.Focus();
                 return;
             }
@@ -265,11 +267,11 @@ namespace BRAMSELU
 
             if (idSeleccionado == 0)
             {
-                if (empleadoBLL.GuardarEmpleado(emp)) MessageBox.Show("Empleado guardado");
+                if (empleadoBLL.GuardarEmpleado(emp)) GestorMensajes.Exito("Empleado guardado correctamente");
             }
             else
             {
-                if (empleadoBLL.ActualizarEmpleado(emp)) MessageBox.Show("Empleado actualizado");
+                if (empleadoBLL.ActualizarEmpleado(emp)) GestorMensajes.Exito("Empleado actualizado correctamente");
             }
             CargarDatos();
             Limpiar();
@@ -286,7 +288,7 @@ namespace BRAMSELU
         {
             if (idSeleccionado != 0 && empleadoBLL.EliminarEmpleado(idSeleccionado))
             {
-                MessageBox.Show("Empleado eliminado");
+                GestorMensajes.Exito("Empleado eliminado correctamente");
                 CargarDatos();
                 Limpiar();
                 BloquearCampos(true);

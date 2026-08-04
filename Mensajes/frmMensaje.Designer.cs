@@ -43,14 +43,14 @@
             this.panelsuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsuperior.Location = new System.Drawing.Point(0, 0);
             this.panelsuperior.Name = "panelsuperior";
-            this.panelsuperior.Size = new System.Drawing.Size(462, 75);
+            this.panelsuperior.Size = new System.Drawing.Size(502, 102);
             this.panelsuperior.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(22, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -58,9 +58,9 @@
             // lblMensaje
             // 
             this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(76, 11);
+            this.lblMensaje.Location = new System.Drawing.Point(86, 23);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(328, 48);
+            this.lblMensaje.Size = new System.Drawing.Size(404, 64);
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -72,7 +72,7 @@
             this.bttnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAceptar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttnAceptar.ForeColor = System.Drawing.Color.Transparent;
-            this.bttnAceptar.Location = new System.Drawing.Point(172, 89);
+            this.bttnAceptar.Location = new System.Drawing.Point(183, 119);
             this.bttnAceptar.Name = "bttnAceptar";
             this.bttnAceptar.Size = new System.Drawing.Size(100, 32);
             this.bttnAceptar.TabIndex = 47;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 133);
+            this.ClientSize = new System.Drawing.Size(502, 163);
             this.Controls.Add(this.bttnAceptar);
             this.Controls.Add(this.panelsuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

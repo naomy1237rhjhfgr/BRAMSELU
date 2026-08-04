@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using BRAMSELU.BLL;
 using System.Data;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU
 {
@@ -18,7 +19,7 @@ namespace BRAMSELU
         {
             if (string.IsNullOrWhiteSpace(txtUsuario.Text) || string.IsNullOrWhiteSpace(txtContrasena.Text))
             {
-                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, ingrese usuario y contraseña");
                 return;
             }
 
@@ -29,7 +30,7 @@ namespace BRAMSELU
                 string nombreCompleto = $"{resultado["Nombre"]} {resultado["Apellido"]}";
                 string tipoUsuario = resultado["TipoUsuario"].ToString().Trim();
 
-                MessageBox.Show($"¡Bienvenido {nombreCompleto}! ({tipoUsuario})", "Inicio de Sesión Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GestorMensajes.Exito($"¡Bienvenido{nombreCompleto}!({tipoUsuario})");
 
                 frmMenuPrincipal menu = new frmMenuPrincipal(nombreCompleto, tipoUsuario);
                 menu.Show();
@@ -37,7 +38,7 @@ namespace BRAMSELU
             }
             else
             {
-                MessageBox.Show(loginBLL.Mensaje, "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error(loginBLL.Mensaje);
             }
         }
     }
