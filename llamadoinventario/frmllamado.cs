@@ -98,7 +98,7 @@ namespace BRAMSELU.llamadoinventario.UI
             }
             catch
             {
-                // Control silencioso para errores temporales al escribir en vivo
+                
             }
         }
 
