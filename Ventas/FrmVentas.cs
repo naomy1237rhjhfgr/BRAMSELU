@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.llamadoinventario.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,9 +49,17 @@ namespace BRAMSELU.Ventas
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
-            frmInventario inventarioForm = new frmInventario();
-            inventarioForm.modoSeleccion = true;
-            inventarioForm.ShowDialog();
+            frmllamado llamadoForm = new frmllamado();
+
+            if (llamadoForm.ShowDialog() == DialogResult.OK && llamadoForm.ProductoSeleccionado != null)
+            {
+                int id = llamadoForm.ProductoSeleccionado.IdProducto;
+                string nombre = llamadoForm.ProductoSeleccionado.NombreProducto;
+                decimal precio = llamadoForm.ProductoSeleccionado.Precio;
+                int stockDisponible = llamadoForm.ProductoSeleccionado.Stock;
+
+                CargarDatosProducto(id, nombre, precio, stockDisponible);
+            }
         }
 
         public void CargarDatosProducto(int id, string nombre, decimal precio, int stock)
@@ -161,8 +170,24 @@ namespace BRAMSELU.Ventas
                 if (resultado)
                 {
                     MessageBox.Show($"¡Venta realizada con éxito!\n\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}",
-                                    "Factura Física Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    "Venta Registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                
+                    DialogResult resultadoFactura = MessageBox.Show(
+                        "¿Desea generar e imprimir la factura para el cliente?",
+                        "Generar Factura",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                  
+                    if (resultadoFactura == DialogResult.Yes)
+                    {
+                        GeneradorFactura factura = new GeneradorFactura();
+                        factura.GenerarYMostrar(dtCarrito, totalGeneral, efectivoRecibido, cambio);
+                    }
+
+                 
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                     txtEfectivo.Clear();

@@ -14,7 +14,8 @@ namespace BRAMSELU
         private Form formActivo = null;
 
         private DashboardDAL dashboardDAL = new DashboardDAL();
-        private Timer timerDashboard;
+        
+        private Timer timerReloj = new Timer();
 
         public frmMenuPrincipal(string nombreUsuario, string rolUsuario)
         {
@@ -23,15 +24,18 @@ namespace BRAMSELU
             this.nombreUsuario = nombreUsuario;
             this.rolUsuario = rolUsuario;
 
-            timerDashboard = new Timer();
-            timerDashboard.Interval = 1000; // 1 segundo
-            timerDashboard.Tick += TimerDashboard_Tick;
-            timerDashboard.Start();
+            timerReloj.Interval = 1000;
+            timerReloj.Tick += TimerReloj_Tick;
+            timerReloj.Start();
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             lblUsuarioActivo.Text = $"{nombreUsuario}  ({rolUsuario})";
+            
+            lblRuta.Text = "Inicio";
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             CargarEstadisticas();
 
@@ -55,6 +59,9 @@ namespace BRAMSELU
             }
 
             formActivo = formHijo;
+
+            //lblTitulo.Text = formHijo.Text;
+            lblRuta.Text = "Inicio > " + formHijo.Text;
 
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
@@ -98,7 +105,7 @@ namespace BRAMSELU
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmReportes());
+            AbrirFormEnPanel(new FrmReporteVentas());
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
@@ -118,6 +125,7 @@ namespace BRAMSELU
                 login.Show();
                 this.Close();
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void btnPanel_Click(object sender, EventArgs e)
@@ -137,6 +145,7 @@ namespace BRAMSELU
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
@@ -156,6 +165,7 @@ namespace BRAMSELU
                     pnlContenido.Controls["panelClientesRegistrados"].Visible = false;
                 }
             }
+            lblRuta.Text = "Inicio";
         }
 
         private void BtnCaja_Click(object sender, EventArgs e)
@@ -184,10 +194,11 @@ namespace BRAMSELU
                 lblEmpleados.Text = estadisticas[1].ToString("D2");
                 lblProductos.Text = estadisticas[2].ToString("D2");
                 
+
             }
             catch (Exception ex)
             {
-                timerDashboard?.Stop();
+                //timerDashboard?.Stop();
 
                 GestorMensajes.Error("No se pudieron actualizar las estadisticas del panel. \n\n" + ex.Message);
                
@@ -196,6 +207,11 @@ namespace BRAMSELU
         private void TimerDashboard_Tick(object sender, EventArgs e)
         {
             CargarEstadisticas();
+        }
+        private void TimerReloj_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
     }
 }

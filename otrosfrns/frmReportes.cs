@@ -1,4 +1,5 @@
 ﻿using BRAMSELU.reportecaja;
+using BRAMSELU.reporteproductos;
 using BRAMSELU.reportestock;
 using BRAMSELU.Ventas;
 using System;
@@ -72,6 +73,12 @@ namespace BRAMSELU
         {
             FrmReporteCaja frmcaja = new FrmReporteCaja();
             AbrirFormularioEnPanel(frmcaja);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmReporteProductosVendidos frmprod = new FrmReporteProductosVendidos();
+            AbrirFormularioEnPanel(frmprod);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BRAMSELU.llamadoinventario.UI;
+using BRAMSELU.Mensajes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.Compra
 {
@@ -28,10 +29,10 @@ namespace BRAMSELU.Compra
             this.txtPrecio.KeyPress += new KeyPressEventHandler(this.txtPrecio_KeyPress);
         }
 
-        private void FrmCompra_Load_1(object sender, EventArgs e)
+        private void FrmCompra_Load(object sender, EventArgs e)
         {
 
-       
+      
         CargarComboProveedores();
             InicializarCarrito();
         }
@@ -59,8 +60,24 @@ namespace BRAMSELU.Compra
                 cmbProductos.DisplayMember = "Nombre";
                 cmbProductos.ValueMember = "IdProducto";
             }
+
+                if (dtProveedores != null && dtProveedores.Rows.Count > 0)
+                {
+                    cmbProveedor.DataSource = null;
+                    cmbProveedor.Items.Clear();
+                    cmbProveedor.DataSource = dtProveedores;
+                    cmbProveedor.DisplayMember = "NombreEmpresa";
+                    cmbProveedor.ValueMember = "IdProveedor";
+                    cmbProveedor.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron proveedores registrados en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
             catch (Exception ex)
             {
+                MessageBox.Show("Error al cargar proveedores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GestorMensajes.Error("Error al cargar productos: " + ex.Message);
             }
         
@@ -82,9 +99,18 @@ namespace BRAMSELU.Compra
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
         {
-            frmInventario inventarioForm = new frmInventario();
-            inventarioForm.modoSeleccion = true;
-            inventarioForm.ShowDialog();
+          
+            frmllamado llamadoForm = new frmllamado();
+
+            if (llamadoForm.ShowDialog() == DialogResult.OK && llamadoForm.ProductoSeleccionado != null)
+            {
+               
+                int id = llamadoForm.ProductoSeleccionado.IdProducto;
+                string nombre = llamadoForm.ProductoSeleccionado.NombreProducto;
+                decimal precio = llamadoForm.ProductoSeleccionado.Precio;
+
+                CargarDatosProducto(id, nombre, precio);
+            }
         }
 
         private void btnAgregarAlCarrito_Click(object sender, EventArgs e)
@@ -208,29 +234,14 @@ namespace BRAMSELU.Compra
             txtPrecio.Text = precio.ToString("0.00");
         }
 
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
+        private void txtPrecio_TextChanged(object sender, EventArgs e) { }
 
-        }
+        private void txtCantidad_TextChanged(object sender, EventArgs e) { }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
+        private void txtProducto_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void txtProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e) { }
 
        
-
-        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        
     }
 }

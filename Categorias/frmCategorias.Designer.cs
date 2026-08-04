@@ -75,51 +75,52 @@
             // 
             // txtidcategoria
             // 
-            this.txtidcategoria.Location = new System.Drawing.Point(224, 452);
+            this.txtidcategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidcategoria.Location = new System.Drawing.Point(197, 443);
             this.txtidcategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtidcategoria.Name = "txtidcategoria";
-            this.txtidcategoria.Size = new System.Drawing.Size(340, 22);
+            this.txtidcategoria.Size = new System.Drawing.Size(348, 34);
             this.txtidcategoria.TabIndex = 59;
             // 
             // lblidcategoria
             // 
             this.lblidcategoria.AutoSize = true;
-            this.lblidcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidcategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblidcategoria.Location = new System.Drawing.Point(68, 443);
+            this.lblidcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidcategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.lblidcategoria.Location = new System.Drawing.Point(67, 443);
             this.lblidcategoria.Name = "lblidcategoria";
-            this.lblidcategoria.Size = new System.Drawing.Size(139, 31);
+            this.lblidcategoria.Size = new System.Drawing.Size(144, 31);
             this.lblidcategoria.TabIndex = 58;
             this.lblidcategoria.Text = "Id Categoria";
             // 
             // labeldescripcion
             // 
             this.labeldescripcion.AutoSize = true;
-            this.labeldescripcion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeldescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labeldescripcion.Location = new System.Drawing.Point(601, 452);
+            this.labeldescripcion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldescripcion.ForeColor = System.Drawing.Color.DimGray;
+            this.labeldescripcion.Location = new System.Drawing.Point(643, 443);
             this.labeldescripcion.Name = "labeldescripcion";
-            this.labeldescripcion.Size = new System.Drawing.Size(139, 31);
+            this.labeldescripcion.Size = new System.Drawing.Size(146, 31);
             this.labeldescripcion.TabIndex = 52;
             this.labeldescripcion.Text = "Descripcion:";
             // 
             // txtnombrecategoria
             // 
             this.txtnombrecategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtnombrecategoria.Location = new System.Drawing.Point(224, 500);
+            this.txtnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombrecategoria.Location = new System.Drawing.Point(197, 481);
             this.txtnombrecategoria.Name = "txtnombrecategoria";
-            this.txtnombrecategoria.Size = new System.Drawing.Size(340, 30);
+            this.txtnombrecategoria.Size = new System.Drawing.Size(348, 34);
             this.txtnombrecategoria.TabIndex = 51;
             // 
             // labelnombrecategoria
             // 
             this.labelnombrecategoria.AutoSize = true;
-            this.labelnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelnombrecategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelnombrecategoria.Location = new System.Drawing.Point(68, 495);
+            this.labelnombrecategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelnombrecategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.labelnombrecategoria.Location = new System.Drawing.Point(68, 481);
             this.labelnombrecategoria.Name = "labelnombrecategoria";
-            this.labelnombrecategoria.Size = new System.Drawing.Size(103, 31);
+            this.labelnombrecategoria.Size = new System.Drawing.Size(108, 31);
             this.labelnombrecategoria.TabIndex = 50;
             this.labelnombrecategoria.Text = "Nombre:";
             // 
@@ -254,10 +255,11 @@
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(746, 452);
+            this.txtdescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescripcion.Location = new System.Drawing.Point(765, 443);
             this.txtdescripcion.Multiline = true;
             this.txtdescripcion.Name = "txtdescripcion";
-            this.txtdescripcion.Size = new System.Drawing.Size(357, 78);
+            this.txtdescripcion.Size = new System.Drawing.Size(348, 78);
             this.txtdescripcion.TabIndex = 63;
             // 
             // timer1
@@ -267,11 +269,11 @@
             // lblproductoscategorias
             // 
             this.lblproductoscategorias.AutoSize = true;
-            this.lblproductoscategorias.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblproductoscategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblproductoscategorias.Location = new System.Drawing.Point(60, 556);
+            this.lblproductoscategorias.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblproductoscategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.lblproductoscategorias.Location = new System.Drawing.Point(68, 534);
             this.lblproductoscategorias.Name = "lblproductoscategorias";
-            this.lblproductoscategorias.Size = new System.Drawing.Size(382, 37);
+            this.lblproductoscategorias.Size = new System.Drawing.Size(316, 31);
             this.lblproductoscategorias.TabIndex = 64;
             this.lblproductoscategorias.Text = "Productos De Esta Categoria";
             this.lblproductoscategorias.Click += new System.EventHandler(this.lblproductoscategorias_Click);
@@ -281,7 +283,7 @@
             this.dataGridViewproCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewproCategorias.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewproCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewproCategorias.Location = new System.Drawing.Point(67, 609);
+            this.dataGridViewproCategorias.Location = new System.Drawing.Point(67, 568);
             this.dataGridViewproCategorias.MultiSelect = false;
             this.dataGridViewproCategorias.Name = "dataGridViewproCategorias";
             this.dataGridViewproCategorias.RowHeadersVisible = false;
@@ -296,8 +298,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1182, 968);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1182, 720);
             this.Controls.Add(this.dataGridViewproCategorias);
             this.Controls.Add(this.lblproductoscategorias);
             this.Controls.Add(this.txtdescripcion);

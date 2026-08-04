@@ -64,16 +64,16 @@
             // 
             // txtdescripcionservicio
             // 
-            this.txtdescripcionservicio.Location = new System.Drawing.Point(32, 433);
+            this.txtdescripcionservicio.Location = new System.Drawing.Point(197, 520);
             this.txtdescripcionservicio.Multiline = true;
             this.txtdescripcionservicio.Name = "txtdescripcionservicio";
-            this.txtdescripcionservicio.Size = new System.Drawing.Size(459, 90);
+            this.txtdescripcionservicio.Size = new System.Drawing.Size(348, 90);
             this.txtdescripcionservicio.TabIndex = 80;
             this.txtdescripcionservicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdescripcionservicio_KeyPress);
             // 
             // progressBarservicio
             // 
-            this.progressBarservicio.Location = new System.Drawing.Point(32, 564);
+            this.progressBarservicio.Location = new System.Drawing.Point(74, 661);
             this.progressBarservicio.Name = "progressBarservicio";
             this.progressBarservicio.Size = new System.Drawing.Size(129, 23);
             this.progressBarservicio.TabIndex = 79;
@@ -82,58 +82,58 @@
             // lblidservicio
             // 
             this.lblidservicio.AutoSize = true;
-            this.lblidservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.lblidservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblidservicio.Location = new System.Drawing.Point(28, 321);
+            this.lblidservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidservicio.ForeColor = System.Drawing.Color.DimGray;
+            this.lblidservicio.Location = new System.Drawing.Point(67, 443);
             this.lblidservicio.Name = "lblidservicio";
-            this.lblidservicio.Size = new System.Drawing.Size(121, 31);
+            this.lblidservicio.Size = new System.Drawing.Size(130, 31);
             this.lblidservicio.TabIndex = 77;
             this.lblidservicio.Text = "ID Servicio";
             // 
             // labeldescripcionservicio
             // 
             this.labeldescripcionservicio.AutoSize = true;
-            this.labeldescripcionservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.labeldescripcionservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labeldescripcionservicio.Location = new System.Drawing.Point(28, 399);
+            this.labeldescripcionservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldescripcionservicio.ForeColor = System.Drawing.Color.DimGray;
+            this.labeldescripcionservicio.Location = new System.Drawing.Point(67, 519);
             this.labeldescripcionservicio.Name = "labeldescripcionservicio";
-            this.labeldescripcionservicio.Size = new System.Drawing.Size(139, 31);
+            this.labeldescripcionservicio.Size = new System.Drawing.Size(146, 31);
             this.labeldescripcionservicio.TabIndex = 76;
             this.labeldescripcionservicio.Text = "Descripcion:";
             // 
             // labelnombreservicio
             // 
             this.labelnombreservicio.AutoSize = true;
-            this.labelnombreservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.labelnombreservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelnombreservicio.Location = new System.Drawing.Point(28, 358);
+            this.labelnombreservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelnombreservicio.ForeColor = System.Drawing.Color.DimGray;
+            this.labelnombreservicio.Location = new System.Drawing.Point(67, 481);
             this.labelnombreservicio.Name = "labelnombreservicio";
-            this.labelnombreservicio.Size = new System.Drawing.Size(103, 31);
+            this.labelnombreservicio.Size = new System.Drawing.Size(108, 31);
             this.labelnombreservicio.TabIndex = 74;
             this.labelnombreservicio.Text = "Nombre:";
             // 
             // lbldatosservicio
             // 
             this.lbldatosservicio.AutoSize = true;
-            this.lbldatosservicio.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lbldatosservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lbldatosservicio.Location = new System.Drawing.Point(28, 287);
+            this.lbldatosservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldatosservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.lbldatosservicio.Location = new System.Drawing.Point(67, 400);
             this.lbldatosservicio.Name = "lbldatosservicio";
-            this.lbldatosservicio.Size = new System.Drawing.Size(148, 21);
+            this.lbldatosservicio.Size = new System.Drawing.Size(207, 31);
             this.lbldatosservicio.TabIndex = 73;
             this.lbldatosservicio.Text = "Datos del Servicio";
             // 
             // btnbuscarservicio
             // 
-            this.btnbuscarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(130)))), ((int)(((byte)(160)))));
+            this.btnbuscarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnbuscarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnbuscarservicio.FlatAppearance.BorderSize = 0;
             this.btnbuscarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbuscarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnbuscarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbuscarservicio.ForeColor = System.Drawing.Color.White;
-            this.btnbuscarservicio.Location = new System.Drawing.Point(515, 70);
+            this.btnbuscarservicio.Location = new System.Drawing.Point(529, 72);
             this.btnbuscarservicio.Name = "btnbuscarservicio";
-            this.btnbuscarservicio.Size = new System.Drawing.Size(100, 32);
+            this.btnbuscarservicio.Size = new System.Drawing.Size(112, 38);
             this.btnbuscarservicio.TabIndex = 72;
             this.btnbuscarservicio.Text = "Buscar";
             this.btnbuscarservicio.UseVisualStyleBackColor = false;
@@ -142,24 +142,24 @@
             // txtBuscarservicio
             // 
             this.txtBuscarservicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarservicio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBuscarservicio.Location = new System.Drawing.Point(101, 73);
+            this.txtBuscarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarservicio.Location = new System.Drawing.Point(165, 72);
             this.txtBuscarservicio.Name = "txtBuscarservicio";
-            this.txtBuscarservicio.Size = new System.Drawing.Size(382, 30);
+            this.txtBuscarservicio.Size = new System.Drawing.Size(340, 38);
             this.txtBuscarservicio.TabIndex = 71;
             this.txtBuscarservicio.TextChanged += new System.EventHandler(this.txtBuscarservicio_TextChanged);
             // 
             // btnguardarservicio
             // 
-            this.btnguardarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            this.btnguardarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.btnguardarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnguardarservicio.FlatAppearance.BorderSize = 0;
             this.btnguardarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnguardarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardarservicio.ForeColor = System.Drawing.Color.White;
-            this.btnguardarservicio.Location = new System.Drawing.Point(989, 70);
+            this.btnguardarservicio.Location = new System.Drawing.Point(1001, 72);
             this.btnguardarservicio.Name = "btnguardarservicio";
-            this.btnguardarservicio.Size = new System.Drawing.Size(100, 32);
+            this.btnguardarservicio.Size = new System.Drawing.Size(112, 38);
             this.btnguardarservicio.TabIndex = 70;
             this.btnguardarservicio.Text = "Guardar";
             this.btnguardarservicio.UseVisualStyleBackColor = false;
@@ -167,15 +167,15 @@
             // 
             // bttneliminarservicio
             // 
-            this.bttneliminarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(90)))), ((int)(((byte)(80)))));
+            this.bttneliminarservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
             this.bttneliminarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttneliminarservicio.FlatAppearance.BorderSize = 0;
             this.bttneliminarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttneliminarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneliminarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttneliminarservicio.ForeColor = System.Drawing.Color.White;
-            this.bttneliminarservicio.Location = new System.Drawing.Point(874, 70);
+            this.bttneliminarservicio.Location = new System.Drawing.Point(883, 72);
             this.bttneliminarservicio.Name = "bttneliminarservicio";
-            this.bttneliminarservicio.Size = new System.Drawing.Size(100, 32);
+            this.bttneliminarservicio.Size = new System.Drawing.Size(112, 38);
             this.bttneliminarservicio.TabIndex = 69;
             this.bttneliminarservicio.Text = "Eliminar";
             this.bttneliminarservicio.UseVisualStyleBackColor = false;
@@ -187,11 +187,11 @@
             this.bttneditarservicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttneditarservicio.FlatAppearance.BorderSize = 0;
             this.bttneditarservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttneditarservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bttneditarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttneditarservicio.ForeColor = System.Drawing.Color.White;
-            this.bttneditarservicio.Location = new System.Drawing.Point(757, 70);
+            this.bttneditarservicio.Location = new System.Drawing.Point(765, 72);
             this.bttneditarservicio.Name = "bttneditarservicio";
-            this.bttneditarservicio.Size = new System.Drawing.Size(100, 32);
+            this.bttneditarservicio.Size = new System.Drawing.Size(112, 38);
             this.bttneditarservicio.TabIndex = 68;
             this.bttneditarservicio.Text = "Editar";
             this.bttneditarservicio.UseVisualStyleBackColor = false;
@@ -199,15 +199,15 @@
             // 
             // Btnnuevoservicio
             // 
-            this.Btnnuevoservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            this.Btnnuevoservicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
             this.Btnnuevoservicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btnnuevoservicio.FlatAppearance.BorderSize = 0;
             this.Btnnuevoservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btnnuevoservicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.Btnnuevoservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btnnuevoservicio.ForeColor = System.Drawing.Color.White;
-            this.Btnnuevoservicio.Location = new System.Drawing.Point(630, 70);
+            this.Btnnuevoservicio.Location = new System.Drawing.Point(647, 72);
             this.Btnnuevoservicio.Name = "Btnnuevoservicio";
-            this.Btnnuevoservicio.Size = new System.Drawing.Size(110, 32);
+            this.Btnnuevoservicio.Size = new System.Drawing.Size(112, 38);
             this.Btnnuevoservicio.TabIndex = 67;
             this.Btnnuevoservicio.Text = "Nuevo";
             this.Btnnuevoservicio.UseVisualStyleBackColor = false;
@@ -218,111 +218,116 @@
             this.dataGridViewservicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewservicio.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewservicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewservicio.Location = new System.Drawing.Point(24, 124);
+            this.dataGridViewservicio.Location = new System.Drawing.Point(67, 125);
             this.dataGridViewservicio.MultiSelect = false;
             this.dataGridViewservicio.Name = "dataGridViewservicio";
             this.dataGridViewservicio.RowHeadersVisible = false;
             this.dataGridViewservicio.RowHeadersWidth = 51;
             this.dataGridViewservicio.RowTemplate.Height = 24;
             this.dataGridViewservicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewservicio.Size = new System.Drawing.Size(1072, 146);
+            this.dataGridViewservicio.Size = new System.Drawing.Size(1045, 250);
             this.dataGridViewservicio.TabIndex = 66;
             this.dataGridViewservicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewservicio_CellClick);
             // 
             // labelbuscarservicio
             // 
             this.labelbuscarservicio.AutoSize = true;
-            this.labelbuscarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.labelbuscarservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.labelbuscarservicio.Location = new System.Drawing.Point(18, 71);
+            this.labelbuscarservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelbuscarservicio.ForeColor = System.Drawing.Color.DimGray;
+            this.labelbuscarservicio.Location = new System.Drawing.Point(67, 72);
             this.labelbuscarservicio.Name = "labelbuscarservicio";
-            this.labelbuscarservicio.Size = new System.Drawing.Size(86, 31);
+            this.labelbuscarservicio.Size = new System.Drawing.Size(92, 31);
             this.labelbuscarservicio.TabIndex = 65;
             this.labelbuscarservicio.Text = "Buscar:";
             // 
             // lblservicios
             // 
             this.lblservicios.AutoSize = true;
-            this.lblservicios.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblservicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(110)))), ((int)(((byte)(75)))));
-            this.lblservicios.Location = new System.Drawing.Point(17, 12);
+            this.lblservicios.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblservicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.lblservicios.Location = new System.Drawing.Point(67, 22);
             this.lblservicios.Name = "lblservicios";
-            this.lblservicios.Size = new System.Drawing.Size(132, 37);
+            this.lblservicios.Size = new System.Drawing.Size(300, 41);
             this.lblservicios.TabIndex = 64;
-            this.lblservicios.Text = "Servicios";
+            this.lblservicios.Text = "Control de Servicios";
             // 
             // lblprecioservicio
             // 
             this.lblprecioservicio.AutoSize = true;
-            this.lblprecioservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.lblprecioservicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblprecioservicio.Location = new System.Drawing.Point(706, 321);
+            this.lblprecioservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblprecioservicio.ForeColor = System.Drawing.Color.DimGray;
+            this.lblprecioservicio.Location = new System.Drawing.Point(643, 443);
             this.lblprecioservicio.Name = "lblprecioservicio";
-            this.lblprecioservicio.Size = new System.Drawing.Size(82, 31);
+            this.lblprecioservicio.Size = new System.Drawing.Size(87, 31);
             this.lblprecioservicio.TabIndex = 81;
             this.lblprecioservicio.Text = "Precio:";
             // 
             // lblduracion
             // 
             this.lblduracion.AutoSize = true;
-            this.lblduracion.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.lblduracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblduracion.Location = new System.Drawing.Point(706, 367);
+            this.lblduracion.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblduracion.ForeColor = System.Drawing.Color.DimGray;
+            this.lblduracion.Location = new System.Drawing.Point(643, 481);
             this.lblduracion.Name = "lblduracion";
-            this.lblduracion.Size = new System.Drawing.Size(111, 31);
+            this.lblduracion.Size = new System.Drawing.Size(118, 31);
             this.lblduracion.TabIndex = 83;
             this.lblduracion.Text = "Duracion:";
             // 
             // lblestado
             // 
             this.lblestado.AutoSize = true;
-            this.lblestado.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.lblestado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.lblestado.Location = new System.Drawing.Point(706, 414);
+            this.lblestado.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblestado.ForeColor = System.Drawing.Color.DimGray;
+            this.lblestado.Location = new System.Drawing.Point(643, 557);
             this.lblestado.Name = "lblestado";
-            this.lblestado.Size = new System.Drawing.Size(88, 31);
+            this.lblestado.Size = new System.Drawing.Size(91, 31);
             this.lblestado.TabIndex = 86;
             this.lblestado.Text = "Estado:";
             // 
             // comboBoxestadoservicio
             // 
+            this.comboBoxestadoservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxestadoservicio.FormattingEnabled = true;
             this.comboBoxestadoservicio.Items.AddRange(new object[] {
             "Activo ",
             "Inactivo"});
-            this.comboBoxestadoservicio.Location = new System.Drawing.Point(825, 421);
+            this.comboBoxestadoservicio.Location = new System.Drawing.Point(765, 556);
             this.comboBoxestadoservicio.Name = "comboBoxestadoservicio";
-            this.comboBoxestadoservicio.Size = new System.Drawing.Size(144, 24);
+            this.comboBoxestadoservicio.Size = new System.Drawing.Size(348, 39);
             this.comboBoxestadoservicio.TabIndex = 87;
             // 
             // txtIdservicio
             // 
-            this.txtIdservicio.Location = new System.Drawing.Point(155, 329);
+            this.txtIdservicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdservicio.Location = new System.Drawing.Point(197, 443);
             this.txtIdservicio.Name = "txtIdservicio";
-            this.txtIdservicio.Size = new System.Drawing.Size(207, 22);
+            this.txtIdservicio.Size = new System.Drawing.Size(348, 34);
             this.txtIdservicio.TabIndex = 88;
             // 
             // txtnombreservicio
             // 
-            this.txtnombreservicio.Location = new System.Drawing.Point(155, 367);
+            this.txtnombreservicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombreservicio.Location = new System.Drawing.Point(197, 481);
             this.txtnombreservicio.Name = "txtnombreservicio";
-            this.txtnombreservicio.Size = new System.Drawing.Size(354, 22);
+            this.txtnombreservicio.Size = new System.Drawing.Size(348, 34);
             this.txtnombreservicio.TabIndex = 89;
             this.txtnombreservicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombreservicio_KeyPress);
             // 
             // txtprecioservicio
             // 
-            this.txtprecioservicio.Location = new System.Drawing.Point(825, 325);
+            this.txtprecioservicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtprecioservicio.Location = new System.Drawing.Point(765, 443);
             this.txtprecioservicio.Name = "txtprecioservicio";
-            this.txtprecioservicio.Size = new System.Drawing.Size(144, 22);
+            this.txtprecioservicio.Size = new System.Drawing.Size(348, 34);
             this.txtprecioservicio.TabIndex = 90;
             this.txtprecioservicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecioservicio_KeyPress);
             // 
             // txtduracionservicio
             // 
-            this.txtduracionservicio.Location = new System.Drawing.Point(825, 376);
+            this.txtduracionservicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtduracionservicio.Location = new System.Drawing.Point(765, 481);
             this.txtduracionservicio.Name = "txtduracionservicio";
-            this.txtduracionservicio.Size = new System.Drawing.Size(144, 22);
+            this.txtduracionservicio.Size = new System.Drawing.Size(347, 38);
             this.txtduracionservicio.TabIndex = 91;
             this.txtduracionservicio.TextChanged += new System.EventHandler(this.txtduracionservicio_TextChanged);
             this.txtduracionservicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtduracionservicio_KeyPress);
@@ -330,21 +335,22 @@
             // L
             // 
             this.L.AutoSize = true;
-            this.L.Font = new System.Drawing.Font("Segoe UI", 10.8F);
-            this.L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
-            this.L.Location = new System.Drawing.Point(795, 325);
+            this.L.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L.ForeColor = System.Drawing.Color.DimGray;
+            this.L.Location = new System.Drawing.Point(736, 443);
             this.L.Name = "L";
-            this.L.Size = new System.Drawing.Size(24, 25);
+            this.L.Size = new System.Drawing.Size(32, 31);
             this.L.TabIndex = 92;
             this.L.Text = "L.";
             // 
             // minutosahoras
             // 
             this.minutosahoras.BackColor = System.Drawing.Color.Transparent;
+            this.minutosahoras.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minutosahoras.ForeColor = System.Drawing.Color.DimGray;
-            this.minutosahoras.Location = new System.Drawing.Point(825, 401);
+            this.minutosahoras.Location = new System.Drawing.Point(888, 522);
             this.minutosahoras.Name = "minutosahoras";
-            this.minutosahoras.Size = new System.Drawing.Size(144, 17);
+            this.minutosahoras.Size = new System.Drawing.Size(95, 28);
             this.minutosahoras.TabIndex = 93;
             this.minutosahoras.Text = "1 hora 30 minutos";
             // 
@@ -352,7 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(230)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);
             this.Controls.Add(this.minutosahoras);
             this.Controls.Add(this.L);

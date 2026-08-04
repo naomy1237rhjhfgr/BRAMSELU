@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblEspecialista = new System.Windows.Forms.Label();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
@@ -73,55 +73,55 @@
             // LblEspecialista
             // 
             this.LblEspecialista.AutoSize = true;
-            this.LblEspecialista.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEspecialista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblEspecialista.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEspecialista.ForeColor = System.Drawing.Color.DimGray;
             this.LblEspecialista.Location = new System.Drawing.Point(643, 481);
             this.LblEspecialista.Name = "LblEspecialista";
-            this.LblEspecialista.Size = new System.Drawing.Size(138, 31);
+            this.LblEspecialista.Size = new System.Drawing.Size(143, 31);
             this.LblEspecialista.TabIndex = 46;
             this.LblEspecialista.Text = "Especialista:";
             // 
             // LblHora
             // 
             this.LblHora.AutoSize = true;
-            this.LblHora.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblHora.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHora.ForeColor = System.Drawing.Color.DimGray;
             this.LblHora.Location = new System.Drawing.Point(67, 557);
             this.LblHora.Name = "LblHora";
-            this.LblHora.Size = new System.Drawing.Size(68, 31);
+            this.LblHora.Size = new System.Drawing.Size(73, 31);
             this.LblHora.TabIndex = 42;
             this.LblHora.Text = "Hora:";
             // 
             // LblFecha
             // 
             this.LblFecha.AutoSize = true;
-            this.LblFecha.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblFecha.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFecha.ForeColor = System.Drawing.Color.DimGray;
             this.LblFecha.Location = new System.Drawing.Point(67, 519);
             this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(78, 31);
+            this.LblFecha.Size = new System.Drawing.Size(81, 31);
             this.LblFecha.TabIndex = 40;
             this.LblFecha.Text = "Fecha:";
             // 
             // LblServicio
             // 
             this.LblServicio.AutoSize = true;
-            this.LblServicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblServicio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblServicio.ForeColor = System.Drawing.Color.DimGray;
             this.LblServicio.Location = new System.Drawing.Point(67, 481);
             this.LblServicio.Name = "LblServicio";
-            this.LblServicio.Size = new System.Drawing.Size(98, 31);
+            this.LblServicio.Size = new System.Drawing.Size(106, 31);
             this.LblServicio.TabIndex = 38;
             this.LblServicio.Text = "Servicio:";
             // 
             // LblCliente
             // 
             this.LblCliente.AutoSize = true;
-            this.LblCliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblCliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCliente.ForeColor = System.Drawing.Color.DimGray;
             this.LblCliente.Location = new System.Drawing.Point(67, 443);
             this.LblCliente.Name = "LblCliente";
-            this.LblCliente.Size = new System.Drawing.Size(90, 31);
+            this.LblCliente.Size = new System.Drawing.Size(95, 31);
             this.LblCliente.TabIndex = 36;
             this.LblCliente.Text = "Cliente:";
             // 
@@ -138,7 +138,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblBuscar.ForeColor = System.Drawing.Color.DimGray;
             this.lblBuscar.Location = new System.Drawing.Point(67, 72);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(92, 31);
@@ -159,14 +159,14 @@
             this.dgvCitas.AllowUserToOrderColumns = true;
             this.dgvCitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCitas.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(154)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCitas.ColumnHeadersHeight = 36;
             this.dgvCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
@@ -254,28 +254,28 @@
             this.TxtHora.Location = new System.Drawing.Point(197, 556);
             this.TxtHora.Multiline = true;
             this.TxtHora.Name = "TxtHora";
-            this.TxtHora.Size = new System.Drawing.Size(348, 30);
+            this.TxtHora.Size = new System.Drawing.Size(348, 36);
             this.TxtHora.TabIndex = 91;
             // 
             // LblEstado
             // 
             this.LblEstado.AutoSize = true;
-            this.LblEstado.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblEstado.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstado.ForeColor = System.Drawing.Color.DimGray;
             this.LblEstado.Location = new System.Drawing.Point(643, 443);
             this.LblEstado.Name = "LblEstado";
-            this.LblEstado.Size = new System.Drawing.Size(88, 31);
+            this.LblEstado.Size = new System.Drawing.Size(91, 31);
             this.LblEstado.TabIndex = 59;
             this.LblEstado.Text = "Estado:";
             // 
             // LblPrecio
             // 
             this.LblPrecio.AutoSize = true;
-            this.LblPrecio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblPrecio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPrecio.ForeColor = System.Drawing.Color.DimGray;
             this.LblPrecio.Location = new System.Drawing.Point(643, 519);
             this.LblPrecio.Name = "LblPrecio";
-            this.LblPrecio.Size = new System.Drawing.Size(82, 31);
+            this.LblPrecio.Size = new System.Drawing.Size(87, 31);
             this.LblPrecio.TabIndex = 60;
             this.LblPrecio.Text = "Precio:";
             // 
@@ -291,11 +291,11 @@
             // LblIdCita
             // 
             this.LblIdCita.AutoSize = true;
-            this.LblIdCita.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.LblIdCita.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.LblIdCita.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIdCita.ForeColor = System.Drawing.Color.DimGray;
             this.LblIdCita.Location = new System.Drawing.Point(68, 466);
             this.LblIdCita.Name = "LblIdCita";
-            this.LblIdCita.Size = new System.Drawing.Size(0, 21);
+            this.LblIdCita.Size = new System.Drawing.Size(0, 31);
             this.LblIdCita.TabIndex = 95;
             // 
             // pnlAcento
@@ -318,7 +318,7 @@
             this.BtnBuscar.FlatAppearance.BorderSize = 0;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.BtnBuscar.ForeColor = System.Drawing.SystemColors.Window;
             this.BtnBuscar.Location = new System.Drawing.Point(529, 72);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(112, 38);

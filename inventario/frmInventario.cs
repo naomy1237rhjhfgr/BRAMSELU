@@ -1,7 +1,6 @@
 ﻿using BRAMSELU.BLL;
 using BRAMSELU.Categorias;
 using BRAMSELU.ClasesProducto;
-using BRAMSELU.Compra;
 using BRAMSELU.DAL;
 using BRAMSELU.Entidades;
 using BRAMSELU.Mensajes;
@@ -16,8 +15,6 @@ namespace BRAMSELU
     {
         private InventarioBLL inventarioBLL;
         private ImagenProducto imgHelper;
-        
-        public bool modoSeleccion = false;
 
         private CategoriaBLL categoriaBLL = new CategoriaBLL();
 
@@ -31,6 +28,7 @@ namespace BRAMSELU
             inventarioBLL = new InventarioBLL();
             imgHelper = new ImagenProducto();
         }
+
         private void frmInventario_Load(object sender, EventArgs e)
         {
            
@@ -70,15 +68,12 @@ namespace BRAMSELU
                     }
                 }
 
-                this.Close();
-            }
-        }
-
         private void CargarDatos()
         {
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = inventarioBLL.ObtenerProductos();
-            dgvDatos.Columns["IdCategoria"].Visible = false;
+            if (dgvDatos.Columns.Contains("IdCategoria"))
+                dgvDatos.Columns["IdCategoria"].Visible = false;
             OcultarImagen();
         }
 
@@ -188,7 +183,6 @@ namespace BRAMSELU
             if (!Validar()) return;
 
             iniciarbarra("guardar");
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -239,6 +233,7 @@ namespace BRAMSELU
 
             iniciarbarra("buscar");
         }
+
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
@@ -324,14 +319,12 @@ namespace BRAMSELU
             CargarDatos();
             Limpiar();
             BloquearCampos(true);
-
         }
 
         private void BuscarProducto()
         {
             dgvDatos.DataSource = inventarioBLL.BuscarProducto(txtBuscar.Text);
             OcultarImagen();
-
         }
 
         private void EliminarProducto()
@@ -369,7 +362,6 @@ namespace BRAMSELU
                         break;
                 }
             }
-
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
