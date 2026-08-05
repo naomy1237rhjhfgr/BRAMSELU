@@ -355,5 +355,45 @@ namespace BRAMSELU
                 }
             }
         }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmClientes());
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmCitas());
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmInventario());
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmCategorias());
+        }
+
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmVentas());
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlReportesDisponibles_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmReportes());
+        }
+
+        private void pnlEmpleadosActivos_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmEmpleados());
+        }
     }
 }

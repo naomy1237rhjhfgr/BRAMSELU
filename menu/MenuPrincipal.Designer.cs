@@ -568,12 +568,14 @@
             this.pnlReportesDisponibles.Controls.Add(this.pictureBox6);
             this.pnlReportesDisponibles.Controls.Add(this.label14);
             this.pnlReportesDisponibles.Controls.Add(this.lblReportes);
+            this.pnlReportesDisponibles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlReportesDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReportesDisponibles.Location = new System.Drawing.Point(530, 170);
             this.pnlReportesDisponibles.Margin = new System.Windows.Forms.Padding(8);
             this.pnlReportesDisponibles.Name = "pnlReportesDisponibles";
             this.pnlReportesDisponibles.Size = new System.Drawing.Size(245, 147);
             this.pnlReportesDisponibles.TabIndex = 3;
+            this.pnlReportesDisponibles.Click += new System.EventHandler(this.pnlReportesDisponibles_Click);
             // 
             // pictureBox6
             // 
@@ -614,12 +616,14 @@
             this.panel7.Controls.Add(this.pictureBox7);
             this.panel7.Controls.Add(this.lblIngresos);
             this.panel7.Controls.Add(this.label11);
+            this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(269, 170);
             this.panel7.Margin = new System.Windows.Forms.Padding(8);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(245, 147);
             this.panel7.TabIndex = 5;
+            this.panel7.Click += new System.EventHandler(this.panel7_Click);
             // 
             // pictureBox7
             // 
@@ -660,12 +664,14 @@
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.lblVentas);
             this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(8, 170);
             this.panel6.Margin = new System.Windows.Forms.Padding(8);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(245, 147);
             this.panel6.TabIndex = 4;
+            this.panel6.Click += new System.EventHandler(this.panel6_Click);
             // 
             // label9
             // 
@@ -718,12 +724,14 @@
             this.pnlEmpleadosActivos.Controls.Add(this.pictureBox8);
             this.pnlEmpleadosActivos.Controls.Add(this.label16);
             this.pnlEmpleadosActivos.Controls.Add(this.lblEmpleados);
+            this.pnlEmpleadosActivos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEmpleadosActivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEmpleadosActivos.Location = new System.Drawing.Point(0, 0);
             this.pnlEmpleadosActivos.Margin = new System.Windows.Forms.Padding(8);
             this.pnlEmpleadosActivos.Name = "pnlEmpleadosActivos";
             this.pnlEmpleadosActivos.Size = new System.Drawing.Size(246, 147);
             this.pnlEmpleadosActivos.TabIndex = 4;
+            this.pnlEmpleadosActivos.Click += new System.EventHandler(this.pnlEmpleadosActivos_Click);
             // 
             // pictureBox8
             // 
@@ -764,12 +772,14 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.lblCategorias);
             this.panel4.Controls.Add(this.pictureBox4);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(791, 8);
             this.panel4.Margin = new System.Windows.Forms.Padding(8);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(246, 146);
             this.panel4.TabIndex = 3;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // label7
             // 
@@ -810,12 +820,14 @@
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.lbl);
             this.panel3.Controls.Add(this.lblProductos);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(530, 8);
             this.panel3.Margin = new System.Windows.Forms.Padding(8);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(245, 146);
             this.panel3.TabIndex = 2;
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
             // pictureBox3
             // 
@@ -856,12 +868,14 @@
             this.panel2.Controls.Add(this.label96);
             this.panel2.Controls.Add(this.lblCitas);
             this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(269, 8);
             this.panel2.Margin = new System.Windows.Forms.Padding(8);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(245, 146);
             this.panel2.TabIndex = 1;
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // label96
             // 
@@ -902,12 +916,14 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblClientesRegistrados);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(245, 146);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // label2
             // 
