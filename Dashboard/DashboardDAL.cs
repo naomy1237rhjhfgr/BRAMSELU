@@ -25,6 +25,7 @@ namespace BRAMSELU
                         (SELECT COUNT(*) FROM Ventas WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)) AS VentasDelDia,
                         (SELECT ISNULL(SUM(Total), 0) FROM Ventas WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)) AS IngresosDelDia,
                         (SELECT COUNT(*) FROM Citas WHERE Fecha = CAST(GETDATE() AS DATE) AND Estado != 'Cancelada') AS CitasDelDia;";
+                        
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {

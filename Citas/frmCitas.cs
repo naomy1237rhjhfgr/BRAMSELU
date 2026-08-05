@@ -358,10 +358,10 @@ namespace BRAMSELU
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
+            if (char.IsControl(e.KeyChar)) return;
+            if (char.IsDigit(e.KeyChar)) return;
+            if (e.KeyChar == '.' && !txtPrecio.Text.Contains(".")) return;
+            e.Handled = true;
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
