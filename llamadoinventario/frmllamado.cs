@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using BRAMSELU.llamadoinventario.BLL;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.llamadoinventario.UI
 {
@@ -56,11 +57,8 @@ namespace BRAMSELU.llamadoinventario.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error al cargar los productos.\n\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                GestorMensajes.Error(
+                    "Error al cargar los productos.\n\n" + ex.Message);
             }
         }
 
@@ -81,6 +79,7 @@ namespace BRAMSELU.llamadoinventario.UI
             if (dgvDatos.Columns.Contains("Precio"))
             {
                 dgvDatos.Columns["Precio"].HeaderText = "Precio";
+                dgvDatos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvDatos.Columns["Precio"].DefaultCellStyle.Format = "C2";
             }
 
@@ -106,7 +105,7 @@ namespace BRAMSELU.llamadoinventario.UI
         {
             if (dgvDatos.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GestorMensajes.Advertencia("Seleccione un producto.");
                 return;
             }
 

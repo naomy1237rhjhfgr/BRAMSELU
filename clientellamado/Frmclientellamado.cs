@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BRAMSELU.clientellamado;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.clientellamado
 {
@@ -65,7 +66,7 @@ namespace BRAMSELU.clientellamado
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un cliente de la lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un cliente de la lista.");
             }
         }
 

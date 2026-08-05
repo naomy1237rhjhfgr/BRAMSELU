@@ -37,6 +37,7 @@ namespace BRAMSELU.Ventas
         {
             InicializarCarrito();
             txtCantidad.Text = "1";
+            txtEfectivo.TextAlign = HorizontalAlignment.Right;
             txtDniCliente.ReadOnly = true;
         }
 
@@ -50,6 +51,18 @@ namespace BRAMSELU.Ventas
             dtCarrito.Columns.Add("Subtotal", typeof(decimal));
 
             dgvCarrito.DataSource = dtCarrito;
+
+            if (dgvCarrito.Columns.Contains("Precio"))
+            {
+                dgvCarrito.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvCarrito.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            }
+
+            if (dgvCarrito.Columns.Contains("Subtotal"))
+            {
+                dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Format = "N2";
+            }
         }
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)

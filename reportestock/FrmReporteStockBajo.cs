@@ -33,6 +33,12 @@ namespace BRAMSELU.reportestock
 
                 DataTable dt = objBLL.ObtenerProductosStockBajo(limite);
                 dgvStockBajo.DataSource = dt;
+
+                if (dgvStockBajo.Columns.Contains("Precio"))
+                {
+                    dgvStockBajo.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvStockBajo.Columns["Precio"].DefaultCellStyle.Format = "N2";
+                }
             }
             catch (Exception ex)
             {

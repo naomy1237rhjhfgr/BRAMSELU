@@ -36,6 +36,7 @@ namespace BRAMSELU
             txtnombreservicio.Enabled = habilitado;
             txtdescripcionservicio.Enabled = habilitado;
             txtprecioservicio.Enabled = habilitado;
+            txtprecioservicio.TextAlign = HorizontalAlignment.Right;
             txtduracionservicio.Enabled = habilitado;
             comboBoxestadoservicio.Enabled = habilitado;
         }
@@ -63,6 +64,12 @@ namespace BRAMSELU
         private void CargarServicios()
         {
             dataGridViewservicio.DataSource = servicioBLL.ObtenerServicios();
+
+            if (dataGridViewservicio.Columns.Contains("Precio"))
+            {
+                dataGridViewservicio.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridViewservicio.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            }
 
             dataGridViewservicio.ClearSelection();
             LimpiarCampos();

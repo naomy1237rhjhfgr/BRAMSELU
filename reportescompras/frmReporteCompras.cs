@@ -43,9 +43,15 @@ namespace BRAMSELU.Ventas
                 DataTable dtResultado = reporteBLL.ObtenerReporteCompras(fechaInicio, fechaFin);
                 dgvReporte.DataSource = dtResultado;
 
+                if (dgvReporte.Columns.Contains("Total"))
+                {
+                    dgvReporte.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvReporte.Columns["Total"].DefaultCellStyle.Format = "N2";
+                }
+
                 if (dtResultado.Rows.Count == 0)
                 {
-                    GestorMensajes.Exito("No se encontraron registros en el rango de fechas seleccionado.");
+                    GestorMensajes.Informacion("No se encontraron registros en el rango de fechas seleccionado.");
                                     
                 }
             }

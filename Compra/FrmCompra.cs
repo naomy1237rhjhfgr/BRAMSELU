@@ -59,6 +59,14 @@ namespace BRAMSELU.Compra
             dtCarrito.Columns.Add("Subtotal", typeof(decimal));
 
             dgvCarrito.DataSource = dtCarrito;
+
+            dgvCarrito.Columns["PrecioUnitario"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvCarrito.Columns["PrecioUnitario"].DefaultCellStyle.Format = "N2";
+
+            dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Format = "N2";
         }
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
