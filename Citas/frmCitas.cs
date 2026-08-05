@@ -10,11 +10,10 @@ namespace BRAMSELU
     public partial class frmCitas : Form
     {
         private CitaBLL citaBLL = new CitaBLL();
-        private bool editando = false;
-        private string accion = "";
 
-        private ClaseCitas citaActual;
-        private int idCitaEliminar;
+        // Variables de control estandarizadas (como en Inventario)
+        private int idSeleccionado = 0;
+        private string accion = "";
 
         public frmCitas()
         {
@@ -24,19 +23,16 @@ namespace BRAMSELU
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+            // Formato de hora
             dtpHora.Format = DateTimePickerFormat.Custom;
             dtpHora.CustomFormat = "hh:mm tt";
             dtpHora.ShowUpDown = true;
 
-
+            CargarComboBoxes();
             CargarTablaCitas();
 
-            CargarComboBoxes();
-
-
-            LimpiarCampos();
-
-            EstadoCampos();
+            Limpiar();
+            BloquearCampos(true); // Iniciamos con los campos bloqueados
         }
 
         private void CargarTablaCitas()
@@ -47,45 +43,88 @@ namespace BRAMSELU
             if (dgvCitas.Columns.Contains("IdCliente")) dgvCitas.Columns["IdCliente"].Visible = false;
             if (dgvCitas.Columns.Contains("IdServicio")) dgvCitas.Columns["IdServicio"].Visible = false;
             if (dgvCitas.Columns.Contains("IdEmpleado")) dgvCitas.Columns["IdEmpleado"].Visible = false;
+
+            // Formato de moneda para el precio
+            if (dgvCitas.Columns.Contains("Precio"))
+            {
+                dgvCitas.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvCitas.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            }
+
+            dgvCitas.ClearSelection();
         }
 
-        private void LimpiarCampos()
+        private void CargarComboBoxes()
         {
-            txtIdCita.Clear();
+            try
+            {
+                // CLIENTES
+                cmbCliente.DataSource = citaBLL.ListarClientes();
+                cmbCliente.DisplayMember = "Nombre";
+                cmbCliente.ValueMember = "IdCliente";
+                cmbCliente.SelectedIndex = -1;
 
+                // SERVICIOS
+                cmbServicio.DataSource = citaBLL.ListarServicios();
+                cmbServicio.DisplayMember = "NombreServicio";
+                cmbServicio.ValueMember = "IdServicio";
+                cmbServicio.SelectedIndex = -1;
+
+                // EMPLEADOS
+                cmbEmpleado.DataSource = citaBLL.ListarEmpleados();
+                cmbEmpleado.DisplayMember = "Nombre";
+                cmbEmpleado.ValueMember = "IdEmpleado";
+                cmbEmpleado.SelectedIndex = -1;
+
+                // ESTADOS
+                cmbEstado.Items.Clear();
+                cmbEstado.Items.Add("Pendiente");
+                cmbEstado.Items.Add("Confirmada");
+                cmbEstado.Items.Add("Cancelada");
+                cmbEstado.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Bloquea o desbloquea los controles de entrada (como en Inventario)
+        private void BloquearCampos(bool bloquear)
+        {
+            bool h = !bloquear;
+            cmbCliente.Enabled = h;
+            cmbServicio.Enabled = h;
+            cmbEmpleado.Enabled = h;
+            dtpFecha.Enabled = h;
+            dtpHora.Enabled = h;
+            cmbEstado.Enabled = h;
+            txtPrecio.Enabled = h;
+
+            txtIdCita.Enabled = false; // El ID siempre debe estar bloqueado
+
+            // Control de botones
+            btnGuardar.Enabled = h;
+            btnNuevo.Enabled = bloquear;
+        }
+
+        private void Limpiar()
+        {
+            errorProvider1.Clear();
+            txtIdCita.Clear();
             cmbCliente.SelectedIndex = -1;
             cmbServicio.SelectedIndex = -1;
             cmbEmpleado.SelectedIndex = -1;
-
             dtpFecha.Value = DateTime.Now;
             dtpHora.Value = DateTime.Now;
-
             cmbEstado.SelectedIndex = -1;
-
             txtPrecio.Clear();
 
-            editando = false;
+            idSeleccionado = 0;
             btnEditar.Text = "Editar";
-
-            EstadoCampos(false);
         }
 
-        private void EstadoCampos(bool habilitado = false)
-        {
-            txtIdCita.Enabled = false;
-
-            cmbCliente.Enabled = habilitado;
-            cmbServicio.Enabled = habilitado;
-            cmbEmpleado.Enabled = habilitado;
-
-            dtpFecha.Enabled = habilitado;
-            dtpHora.Enabled = habilitado;
-
-            cmbEstado.Enabled = habilitado;
-            txtPrecio.Enabled = habilitado;
-        }
-
-        private bool ValidarCampos()
+        private bool Validar()
         {
             bool valido = true;
             errorProvider1.Clear();
@@ -123,69 +162,6 @@ namespace BRAMSELU
             return valido;
         }
 
-        private ClaseCitas ObtenerDatos()
-        {
-            ClaseCitas cita = new ClaseCitas();
-
-            if (!string.IsNullOrEmpty(txtIdCita.Text))
-                cita.IdCita = Convert.ToInt32(txtIdCita.Text);
-
-            // IdCliente se maneja como string (VARCHAR)
-            cita.IdCliente = cmbCliente.SelectedValue.ToString();
-            cita.IdServicio = Convert.ToInt32(cmbServicio.SelectedValue);
-            cita.IdEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue);
-            cita.Fecha = dtpFecha.Value;
-            cita.Hora = dtpHora.Value.TimeOfDay;
-            cita.Estado = cmbEstado.Text;
-            cita.Precio = ObtenerPrecioDecimal();
-
-            return cita;
-        }
-        private void CargarComboBoxes()
-        {
-            try
-            {
-                // CLIENTES
-                DataTable clientes = citaBLL.ListarClientes();
-
-                cmbCliente.DataSource = clientes;
-                cmbCliente.DisplayMember = "Nombre";
-                cmbCliente.ValueMember = "IdCliente";
-                cmbCliente.SelectedIndex = -1;
-
-
-                // SERVICIOS
-                DataTable servicios = citaBLL.ListarServicios();
-
-                cmbServicio.DataSource = servicios;
-                cmbServicio.DisplayMember = "NombreServicio";
-                cmbServicio.ValueMember = "IdServicio";
-                cmbServicio.SelectedIndex = -1;
-
-
-                // EMPLEADOS
-                DataTable empleados = citaBLL.ListarEmpleados();
-
-                cmbEmpleado.DataSource = empleados;
-                cmbEmpleado.DisplayMember = "Nombre";
-                cmbEmpleado.ValueMember = "IdEmpleado";
-                cmbEmpleado.SelectedIndex = -1;
-
-
-                // ESTADOS
-                cmbEstado.Items.Clear();
-                cmbEstado.Items.Add("Pendiente");
-                cmbEstado.Items.Add("Confirmada");
-                cmbEstado.Items.Add("Cancelada");
-                cmbEstado.SelectedIndex = -1;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private decimal ObtenerPrecioDecimal()
         {
             string limpio = txtPrecio.Text.Replace("L.", "").Trim();
@@ -193,153 +169,139 @@ namespace BRAMSELU
             return precio;
         }
 
+        private void iniciarBarra(string accionElegida)
+        {
+            accion = accionElegida;
+            progressBarCitas.Value = 0;
+            progressBarCitas.Visible = true;
+            timerCitas.Start();
+        }
+
+        // Lógica unificada para Guardar o Actualizar
+        private void GuardarCita()
+        {
+            ClaseCitas cita = new ClaseCitas
+            {
+                IdCita = idSeleccionado,
+                IdCliente = cmbCliente.SelectedValue.ToString(),
+                IdServicio = Convert.ToInt32(cmbServicio.SelectedValue),
+                IdEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue),
+                Fecha = dtpFecha.Value,
+                Hora = dtpHora.Value.TimeOfDay,
+                Estado = cmbEstado.Text,
+                Precio = ObtenerPrecioDecimal()
+            };
+
+            if (idSeleccionado == 0) // Si el ID es 0, es un registro nuevo
+            {
+                if (citaBLL.GuardarCita(cita))
+                    GestorMensajes.Exito("Cita guardada correctamente.");
+                else
+                    GestorMensajes.Error("No se pudo guardar la información.");
+            }
+            else // Si hay un ID, es una actualización
+            {
+                if (citaBLL.ActualizarCita(cita))
+                    GestorMensajes.Exito("Cita actualizada correctamente.");
+                else
+                    GestorMensajes.Error("No se pudo actualizar la información.");
+            }
+
+            CargarTablaCitas();
+            Limpiar();
+            BloquearCampos(true);
+        }
+
+        private void EliminarCita()
+        {
+            if (idSeleccionado != 0 && citaBLL.EliminarCita(idSeleccionado))
+            {
+                GestorMensajes.Exito("Cita eliminada correctamente.");
+                CargarTablaCitas();
+                Limpiar();
+                BloquearCampos(true);
+            }
+            else
+            {
+                GestorMensajes.Error("No se pudo eliminar la cita.");
+            }
+        }
+
+        private void BuscarCita()
+        {
+            string texto = txtBuscar.Text.Trim();
+            DataTable tabla = citaBLL.ListarCitas();
+            DataView vista = tabla.DefaultView;
+
+            // Recuerda asegurarte de que tu consulta SQL devuelva la columna "Cliente"
+            vista.RowFilter = $"Cliente LIKE '%{texto}%' OR Estado LIKE '%{texto}%'";
+            dgvCitas.DataSource = vista;
+        }
+
+        // --- EVENTOS DE BOTONES ---
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
-
-            EstadoCampos(true);
-
+            Limpiar();
+            BloquearCampos(false);
             cmbCliente.Focus();
-
-            dgvCitas.ClearSelection();
-
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos())
-                return;
-
-
-            ClaseCitas cita = ObtenerDatos();
-
-            citaActual = cita;
-
+            if (!Validar()) return;
             iniciarBarra("guardar");
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (editando)
+            if (idSeleccionado == 0)
             {
-                if (!ValidarCampos())
-                    return;
+                GestorMensajes.Advertencia("Seleccione una cita en la tabla primero.");
+                return;
+            }
 
-
-                ClaseCitas cita = ObtenerDatos();
-
-                cita.IdCita = Convert.ToInt32(txtIdCita.Text);
-
-                citaActual = cita;
+            if (!cmbCliente.Enabled) // Si los campos están bloqueados, los abrimos para edición
+            {
+                BloquearCampos(false);
+                btnEditar.Text = "Actualizar";
+            }
+            else // Si ya estaban abiertos, validamos y guardamos (actualizamos)
+            {
+                if (!Validar()) return;
 
                 iniciarBarra("guardar");
-
-                return;
+                btnEditar.Text = "Editar";
             }
-
-
-            if (dgvCitas.SelectedRows.Count == 0)
-            {
-                GestorMensajes.Advertencia(
-                    "Seleccione una cita para editar."
-                );
-
-                return;
-            }
-
-
-            DataGridViewRow fila = dgvCitas.SelectedRows[0];
-
-
-            txtIdCita.Text =
-                fila.Cells["IdCita"].Value.ToString();
-
-
-            cmbCliente.SelectedValue =
-                fila.Cells["IdCliente"].Value.ToString();
-
-
-            cmbServicio.SelectedValue =
-                Convert.ToInt32(
-                    fila.Cells["IdServicio"].Value
-                );
-
-
-            cmbEmpleado.SelectedValue =
-                Convert.ToInt32(
-                    fila.Cells["IdEmpleado"].Value
-                );
-
-
-            dtpFecha.Value =
-                Convert.ToDateTime(
-                    fila.Cells["Fecha"].Value
-                );
-
-
-            dtpHora.Value =
-                DateTime.Today.Add(
-                    TimeSpan.Parse(
-                        fila.Cells["Hora"].Value.ToString()
-                    )
-                );
-
-
-            cmbEstado.Text =
-                fila.Cells["Estado"].Value.ToString();
-
-
-            txtPrecio.Text =
-                fila.Cells["Precio"].Value.ToString();
-
-
-
-            editando = true;
-
-            EstadoCampos(true);
-
-            btnEditar.Text = "Actualizar";
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvCitas.SelectedRows.Count == 0)
+            if (idSeleccionado == 0)
             {
-                GestorMensajes.Advertencia(
-                    "Seleccione una cita antes de eliminar."
-                );
-
+                GestorMensajes.Advertencia("Seleccione la cita que desea eliminar.");
                 return;
             }
 
-
-            DataGridViewRow fila =
-                dgvCitas.SelectedRows[0];
-
-
-            int id =
-                Convert.ToInt32(
-                    fila.Cells["IdCita"].Value
-                );
-
-
-            DialogResult resultado =
-                GestorMensajes.Confirmacion(
-                    "¿Desea eliminar esta cita?"
-                );
-
-
-            if (resultado == DialogResult.Yes)
+            DialogResult respuesta = GestorMensajes.Confirmacion("¿Está seguro que desea eliminar esta cita?");
+            if (respuesta == DialogResult.Yes)
             {
-                idCitaEliminar = id;
-
                 iniciarBarra("eliminar");
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                GestorMensajes.Advertencia("Ingrese un texto para iniciar la búsqueda.");
+                txtBuscar.Focus();
+                return;
+            }
+            iniciarBarra("buscar");
+        }
+
+        // --- OTROS EVENTOS (Grid, TextBox, Timer) ---
 
         private void dgvCitas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -347,34 +309,55 @@ namespace BRAMSELU
 
             DataGridViewRow fila = dgvCitas.Rows[e.RowIndex];
 
-            txtIdCita.Text = fila.Cells[0].Value.ToString();
+            idSeleccionado = Convert.ToInt32(fila.Cells["IdCita"].Value);
+            txtIdCita.Text = idSeleccionado.ToString();
 
-            // Asignación de ComboBoxes por SelectedValue
-            if (fila.Cells[1].Value != DBNull.Value)
-                cmbCliente.SelectedValue = fila.Cells[1].Value.ToString();
+            if (fila.Cells["IdCliente"].Value != DBNull.Value)
+                cmbCliente.SelectedValue = fila.Cells["IdCliente"].Value.ToString();
 
-            if (fila.Cells[3].Value != DBNull.Value)
-                cmbServicio.SelectedValue = Convert.ToInt32(fila.Cells[3].Value);
+            if (fila.Cells["IdServicio"].Value != DBNull.Value)
+                cmbServicio.SelectedValue = Convert.ToInt32(fila.Cells["IdServicio"].Value);
 
-            if (fila.Cells[5].Value != DBNull.Value)
-                cmbEmpleado.SelectedValue = Convert.ToInt32(fila.Cells[5].Value);
+            if (fila.Cells["IdEmpleado"].Value != DBNull.Value)
+                cmbEmpleado.SelectedValue = Convert.ToInt32(fila.Cells["IdEmpleado"].Value);
 
-            dtpFecha.Value = Convert.ToDateTime(fila.Cells[7].Value);
+            dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
 
-            if (TimeSpan.TryParse(fila.Cells[8].Value.ToString(), out TimeSpan hora))
-            {
+            if (TimeSpan.TryParse(fila.Cells["Hora"].Value.ToString(), out TimeSpan hora))
                 dtpHora.Value = DateTime.Today.Add(hora);
-            }
 
-            cmbEstado.Text = fila.Cells[9].Value.ToString();
+            cmbEstado.Text = fila.Cells["Estado"].Value.ToString();
 
-            decimal precio = Convert.ToDecimal(fila.Cells[10].Value);
+            decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value);
             txtPrecio.Text = string.Format("L. {0:N2}", precio);
 
-            EstadoCampos();
-            btnGuardar.Enabled = false;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
+            // Al seleccionar, bloqueamos los campos hasta que presione "Editar"
+            BloquearCampos(true);
+            btnEditar.Text = "Editar";
+        }
+
+        private void timerCitas_Tick(object sender, EventArgs e)
+        {
+            progressBarCitas.Increment(5);
+
+            if (progressBarCitas.Value >= 100)
+            {
+                timerCitas.Stop();
+                progressBarCitas.Visible = false;
+
+                switch (accion)
+                {
+                    case "guardar":
+                        GuardarCita();
+                        break;
+                    case "eliminar":
+                        EliminarCita();
+                        break;
+                    case "buscar":
+                        BuscarCita();
+                        break;
+                }
+            }
         }
 
         private void txtPrecio_Leave(object sender, EventArgs e)
@@ -395,107 +378,6 @@ namespace BRAMSELU
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
             {
                 e.Handled = true;
-            }
-        }
-        private void GuardarCita(ClaseCitas cita)
-        {
-            if (editando)
-            {
-                if (citaBLL.ActualizarCita(cita))
-                {
-                    GestorMensajes.Exito(
-                        "Cita actualizada correctamente."
-                    );
-                }
-                else
-                {
-                    GestorMensajes.Error(
-                        "No se pudo actualizar la cita."
-                    );
-                }
-            }
-            else
-            {
-                if (citaBLL.GuardarCita(cita))
-                {
-                    GestorMensajes.Exito(
-                        "Cita guardada correctamente."
-                    );
-                }
-                else
-                {
-                    GestorMensajes.Error(
-                        "No se pudo guardar la cita."
-                    );
-                }
-            }
-
-
-            CargarTablaCitas();
-
-            LimpiarCampos();
-
-            dgvCitas.ClearSelection();
-
-        }
-        private void EliminarCita(int id)
-        {
-            if (citaBLL.EliminarCita(id))
-            {
-                GestorMensajes.Exito(
-                    "Cita eliminada correctamente."
-                );
-
-                CargarTablaCitas();
-
-                LimpiarCampos();
-
-                dgvCitas.ClearSelection();
-            }
-            else
-            {
-                GestorMensajes.Error(
-                    "No se pudo eliminar la cita."
-                );
-            }
-        }
-        private void iniciarBarra(string accionElegida)
-        {
-            accion = accionElegida;
-
-            progressBarCitas.Value = 0;
-
-            progressBarCitas.Visible = true;
-
-            timerCitas.Start();
-        }
-        private void timerCitas_Tick(object sender, EventArgs e)
-        {
-            progressBarCitas.Increment(5);
-
-
-            if (progressBarCitas.Value >= 100)
-            {
-                timerCitas.Stop();
-
-                progressBarCitas.Visible = false;
-
-
-                switch (accion)
-                {
-                    case "guardar":
-
-                        GuardarCita(citaActual);
-
-                        break;
-
-
-                    case "eliminar":
-
-                        EliminarCita(idCitaEliminar);
-
-                        break;
-                }
             }
         }
     }

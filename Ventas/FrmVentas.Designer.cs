@@ -37,15 +37,12 @@ namespace BRAMSELU.Ventas
             this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.txtDniCliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.lblClienteCaption = new System.Windows.Forms.Label();
             this.pnlProducto = new System.Windows.Forms.Panel();
             this.lblProductoCaption = new System.Windows.Forms.Label();
             this.pnlResumen = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
-            this.pnlHeader.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlResumen.SuspendLayout();
@@ -75,7 +72,7 @@ namespace BRAMSELU.Ventas
             this.txtProducto.Location = new System.Drawing.Point(154, 36);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
-            this.txtProducto.Size = new System.Drawing.Size(300, 44);
+            this.txtProducto.Size = new System.Drawing.Size(300, 38);
             this.txtProducto.TabIndex = 2;
             // 
             // txtCantidad
@@ -85,7 +82,7 @@ namespace BRAMSELU.Ventas
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.txtCantidad.Location = new System.Drawing.Point(154, 98);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 44);
+            this.txtCantidad.Size = new System.Drawing.Size(100, 38);
             this.txtCantidad.TabIndex = 4;
             // 
             // btnAgregar
@@ -152,7 +149,7 @@ namespace BRAMSELU.Ventas
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.lblTotal.Location = new System.Drawing.Point(518, 40);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(159, 60);
+            this.lblTotal.Size = new System.Drawing.Size(134, 50);
             this.lblTotal.TabIndex = 8;
             this.lblTotal.Text = "L. 0.00";
             // 
@@ -163,7 +160,7 @@ namespace BRAMSELU.Ventas
             this.txtEfectivo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.txtEfectivo.Location = new System.Drawing.Point(230, 26);
             this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(265, 45);
+            this.txtEfectivo.Size = new System.Drawing.Size(265, 39);
             this.txtEfectivo.TabIndex = 6;
             this.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEfectivo.TextChanged += new System.EventHandler(this.txtEfectivo_TextChanged);
@@ -191,7 +188,7 @@ namespace BRAMSELU.Ventas
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.label1.Location = new System.Drawing.Point(16, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 38);
+            this.label1.Size = new System.Drawing.Size(119, 31);
             this.label1.TabIndex = 8;
             this.label1.Text = "Producto:";
             // 
@@ -202,7 +199,7 @@ namespace BRAMSELU.Ventas
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.label2.Location = new System.Drawing.Point(3, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 38);
+            this.label2.Size = new System.Drawing.Size(116, 31);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cantidad:";
             // 
@@ -213,7 +210,7 @@ namespace BRAMSELU.Ventas
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(100)))), ((int)(((byte)(115)))));
             this.label3.Location = new System.Drawing.Point(520, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 30);
+            this.label3.Size = new System.Drawing.Size(154, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "TOTAL A PAGAR";
             // 
@@ -224,7 +221,7 @@ namespace BRAMSELU.Ventas
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
             this.label4.Location = new System.Drawing.Point(24, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 32);
+            this.label4.Size = new System.Drawing.Size(177, 28);
             this.label4.TabIndex = 0;
             this.label4.Text = "Efectivo recibido:";
             // 
@@ -260,7 +257,7 @@ namespace BRAMSELU.Ventas
             this.txtDniCliente.Location = new System.Drawing.Point(70, 66);
             this.txtDniCliente.Name = "txtDniCliente";
             this.txtDniCliente.ReadOnly = true;
-            this.txtDniCliente.Size = new System.Drawing.Size(160, 44);
+            this.txtDniCliente.Size = new System.Drawing.Size(160, 38);
             this.txtDniCliente.TabIndex = 0;
             // 
             // label5
@@ -270,30 +267,9 @@ namespace BRAMSELU.Ventas
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.label5.Location = new System.Drawing.Point(18, 72);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 32);
+            this.label5.Size = new System.Drawing.Size(54, 28);
             this.label5.TabIndex = 1;
             this.label5.Text = "DNI:";
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
-            this.pnlHeader.Controls.Add(this.lblTitulo);
-            this.pnlHeader.Location = new System.Drawing.Point(0, 6);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1200, 64);
-            this.pnlHeader.TabIndex = 96;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(28, 15);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(292, 45);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Módulo de Ventas";
             // 
             // pnlCliente
             // 
@@ -315,7 +291,7 @@ namespace BRAMSELU.Ventas
             this.lblClienteCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lblClienteCaption.Location = new System.Drawing.Point(18, 12);
             this.lblClienteCaption.Name = "lblClienteCaption";
-            this.lblClienteCaption.Size = new System.Drawing.Size(83, 25);
+            this.lblClienteCaption.Size = new System.Drawing.Size(68, 20);
             this.lblClienteCaption.TabIndex = 0;
             this.lblClienteCaption.Text = "CLIENTE";
             // 
@@ -342,7 +318,7 @@ namespace BRAMSELU.Ventas
             this.lblProductoCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lblProductoCaption.Location = new System.Drawing.Point(18, 12);
             this.lblProductoCaption.Name = "lblProductoCaption";
-            this.lblProductoCaption.Size = new System.Drawing.Size(110, 25);
+            this.lblProductoCaption.Size = new System.Drawing.Size(89, 20);
             this.lblProductoCaption.TabIndex = 0;
             this.lblProductoCaption.Text = "PRODUCTO";
             // 
@@ -365,7 +341,6 @@ namespace BRAMSELU.Ventas
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1200, 704);
             this.Controls.Add(this.pnlAcento);
-            this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlCliente);
             this.Controls.Add(this.pnlProducto);
             this.Controls.Add(this.dgvCarrito);
@@ -375,8 +350,6 @@ namespace BRAMSELU.Ventas
             this.Text = "Módulo de Ventas";
             this.Load += new System.EventHandler(this.FrmVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
             this.pnlProducto.ResumeLayout(false);
@@ -403,9 +376,6 @@ namespace BRAMSELU.Ventas
         private Button btnSeleccionarCliente;
         private TextBox txtDniCliente;
         private Label label5;
-
-        private Panel pnlHeader;
-        private Label lblTitulo;
         private Panel pnlCliente;
         private Label lblClienteCaption;
         private Panel pnlProducto;
