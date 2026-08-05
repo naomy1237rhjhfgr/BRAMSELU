@@ -8,7 +8,19 @@ namespace BRAMSELU.llamadoinventario.DAL
         {
             Conexion conexionBD = new Conexion();
 
-            string query = "SELECT IdProducto, NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen, IdCategoria FROM Productos";
+            string query = @"SELECT
+                        P.IdProducto,
+                        P.NombreProducto,
+                        P.Marca,
+                        C.NombreCategoria AS Categoria,
+                        P.Precio,
+                        P.Stock,
+                        P.FechaRegistro,
+                        P.Imagen,
+                        P.IdCategoria
+                    FROM Productos P
+                    INNER JOIN Categorias C
+                        ON P.IdCategoria = C.IdCategoria";
 
             return conexionBD.EjecutarConsultaDataTable(query);
         }
@@ -17,12 +29,23 @@ namespace BRAMSELU.llamadoinventario.DAL
         {
             Conexion conexionBD = new Conexion();
 
-           
-            string query = "SELECT IdProducto, NombreProducto, Marca, Categoria, Precio, Stock, FechaRegistro, Imagen, IdCategoria " +
-                           "FROM Productos " +
-                           "WHERE CAST(IdProducto AS VARCHAR) LIKE '%" + texto + "%' " +
-                           "OR NombreProducto LIKE '%" + texto + "%' " +
-                           "OR Marca LIKE '%" + texto + "%'";
+            string query = @"SELECT
+                        P.IdProducto,
+                        P.NombreProducto,
+                        P.Marca,
+                        C.NombreCategoria AS Categoria,
+                        P.Precio,
+                        P.Stock,
+                        P.FechaRegistro,
+                        P.Imagen,
+                        P.IdCategoria
+                    FROM Productos P
+                    INNER JOIN Categorias C
+                        ON P.IdCategoria = C.IdCategoria
+                    WHERE CAST(P.IdProducto AS VARCHAR) LIKE '%" + texto + @"%'
+                       OR P.NombreProducto LIKE '%" + texto + @"%'
+                       OR P.Marca LIKE '%" + texto + @"%'
+                       OR C.NombreCategoria LIKE '%" + texto + @"%'";
 
             return conexionBD.EjecutarConsultaDataTable(query);
         }

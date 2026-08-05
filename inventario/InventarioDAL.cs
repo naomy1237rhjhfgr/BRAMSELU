@@ -91,7 +91,23 @@ namespace BRAMSELU.DAL
         {
             List<Inventario> lista = new List<Inventario>();
 
-            string SQL = $"SELECT * FROM Productos WHERE NombreProducto='{criterio}' OR Marca='{criterio}' OR Categoria='{criterio}'";
+            string SQL = $@"
+                        SELECT
+                        p.IdProducto,
+                        p.NombreProducto,
+                        p.Marca,
+                        c.NombreCategoria,
+                        p.Precio,
+                        p.Stock,
+                        p.Imagen
+                        FROM Productos p
+                        INNER JOIN Categorias c
+                        ON p.IdCategoria = c.IdCategoria
+                        WHERE
+                        CAST(p.IdProducto AS VARCHAR) LIKE '%{criterio}%'
+                        OR p.NombreProducto LIKE '%{criterio}%'
+                        OR p.Marca LIKE '%{criterio}%'
+                        OR c.NombreCategoria LIKE '%{criterio}%'";
 
             SqlDataReader reader = _conexion.EjecutarConsulta(SQL);
 
@@ -104,13 +120,10 @@ namespace BRAMSELU.DAL
                         IdProducto = reader.GetInt32(0),
                         NombreProducto = reader.GetString(1),
                         Marca = reader.GetString(2),
-                        IdCategoria = reader.GetInt32(3),
+                        Categoria = reader.GetString(3),
                         Precio = reader.GetDecimal(4),
                         Stock = reader.GetInt32(5),
-
-                        Imagen = reader.IsDBNull(7)
-                            ? null
-                            : (byte[])reader[7]
+                        Imagen = reader.IsDBNull(6) ? null : (byte[])reader[6]
                     };
 
                     lista.Add(inv);
