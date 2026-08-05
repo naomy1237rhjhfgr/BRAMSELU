@@ -40,15 +40,16 @@ namespace BRAMSELU
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             CargarEstadisticas();
-
            
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
               
                     btnEmpleados.Visible = false;
                     btnReportes.Visible = false;
-                    BtnCompras.Visible = false; 
-            
+                    BtnCompras.Visible = false;
+                    pnlEmpleadosActivos.Visible = false;
+                    pnlReportesDisponibles.Visible = false;
+
 
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
                 {
@@ -63,6 +64,16 @@ namespace BRAMSELU
                 if (pnlContenido.Controls.ContainsKey("panelReportesDisponibles"))
                 {
                     pnlContenido.Controls["panelReportesDisponibles"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("pnlEmpleadosActivos"))
+                {
+                    pnlContenido.Controls["pnlEmpleadosActivos"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("pnlReportesDisponibles"))
+                {
+                    pnlContenido.Controls["pnlReportesDisponibles"].Visible = false;
                 }
             }
         }
