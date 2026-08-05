@@ -49,6 +49,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblproductoscategorias = new System.Windows.Forms.Label();
             this.dataGridViewproCategorias = new System.Windows.Forms.DataGridView();
+            this.pnlAcento = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewproCategorias)).BeginInit();
             this.SuspendLayout();
@@ -246,7 +247,7 @@
             // 
             this.labelbuscarcategoria.AutoSize = true;
             this.labelbuscarcategoria.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelbuscarcategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelbuscarcategoria.ForeColor = System.Drawing.Color.DimGray;
             this.labelbuscarcategoria.Location = new System.Drawing.Point(67, 72);
             this.labelbuscarcategoria.Name = "labelbuscarcategoria";
             this.labelbuscarcategoria.Size = new System.Drawing.Size(92, 31);
@@ -294,12 +295,22 @@
             this.dataGridViewproCategorias.TabIndex = 65;
             this.dataGridViewproCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewproCategorias_CellContentClick);
             // 
+            // pnlAcento
+            // 
+            this.pnlAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAcento.Location = new System.Drawing.Point(0, 0);
+            this.pnlAcento.Name = "pnlAcento";
+            this.pnlAcento.Size = new System.Drawing.Size(1161, 6);
+            this.pnlAcento.TabIndex = 97;
+            // 
             // frmCategorias
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1182, 720);
+            this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.dataGridViewproCategorias);
             this.Controls.Add(this.lblproductoscategorias);
             this.Controls.Add(this.txtdescripcion);
@@ -351,5 +362,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblproductoscategorias;
         private System.Windows.Forms.DataGridView dataGridViewproCategorias;
+        private System.Windows.Forms.Panel pnlAcento;
     }
 }

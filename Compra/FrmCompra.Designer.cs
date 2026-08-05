@@ -50,21 +50,21 @@ namespace BRAMSELU.Compra
             this.cmbProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbProveedor.Location = new System.Drawing.Point(139, 19);
+            this.cmbProveedor.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProveedor.Location = new System.Drawing.Point(152, 19);
             this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(280, 36);
+            this.cmbProveedor.Size = new System.Drawing.Size(280, 39);
             this.cmbProveedor.TabIndex = 0;
             this.cmbProveedor.SelectedIndexChanged += new System.EventHandler(this.cmbProveedor_SelectedIndexChanged);
             // 
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblProveedor.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProveedor.ForeColor = System.Drawing.Color.DimGray;
             this.lblProveedor.Location = new System.Drawing.Point(18, 19);
             this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(115, 28);
+            this.lblProveedor.Size = new System.Drawing.Size(131, 31);
             this.lblProveedor.TabIndex = 1;
             this.lblProveedor.Text = "Proveedor:";
             // 
@@ -87,11 +87,11 @@ namespace BRAMSELU.Compra
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblProducto.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducto.ForeColor = System.Drawing.Color.DimGray;
             this.lblProducto.Location = new System.Drawing.Point(438, 19);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(103, 28);
+            this.lblProducto.Size = new System.Drawing.Size(119, 31);
             this.lblProducto.TabIndex = 2;
             this.lblProducto.Text = "Producto:";
             // 
@@ -99,8 +99,8 @@ namespace BRAMSELU.Compra
             // 
             this.txtProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProducto.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.txtProducto.Location = new System.Drawing.Point(547, 19);
+            this.txtProducto.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProducto.Location = new System.Drawing.Point(563, 19);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
             this.txtProducto.Size = new System.Drawing.Size(280, 38);
@@ -109,11 +109,11 @@ namespace BRAMSELU.Compra
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.Color.DimGray;
             this.lblCantidad.Location = new System.Drawing.Point(18, 94);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(101, 28);
+            this.lblCantidad.Size = new System.Drawing.Size(116, 31);
             this.lblCantidad.TabIndex = 3;
             this.lblCantidad.Text = "Cantidad:";
             // 
@@ -121,8 +121,8 @@ namespace BRAMSELU.Compra
             // 
             this.txtCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.txtCantidad.Location = new System.Drawing.Point(131, 90);
+            this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Location = new System.Drawing.Point(139, 90);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(90, 38);
             this.txtCantidad.TabIndex = 3;
@@ -131,11 +131,11 @@ namespace BRAMSELU.Compra
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.Color.DimGray;
             this.lblPrecio.Location = new System.Drawing.Point(258, 94);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(76, 28);
+            this.lblPrecio.Size = new System.Drawing.Size(87, 31);
             this.lblPrecio.TabIndex = 4;
             this.lblPrecio.Text = "Precio:";
             // 
@@ -143,8 +143,8 @@ namespace BRAMSELU.Compra
             // 
             this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.txtPrecio.Location = new System.Drawing.Point(340, 90);
+            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(351, 90);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(120, 38);
@@ -204,7 +204,7 @@ namespace BRAMSELU.Compra
             this.dgvCarrito.RowHeadersWidth = 62;
             this.dgvCarrito.RowTemplate.Height = 36;
             this.dgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarrito.Size = new System.Drawing.Size(1045, 347);
+            this.dgvCarrito.Size = new System.Drawing.Size(1045, 300);
             this.dgvCarrito.TabIndex = 6;
             // 
             // btnFinalizarCompra
@@ -215,7 +215,7 @@ namespace BRAMSELU.Compra
             this.btnFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizarCompra.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnFinalizarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizarCompra.Location = new System.Drawing.Point(24, 16);
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(24, 25);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(240, 44);
             this.btnFinalizarCompra.TabIndex = 7;
@@ -228,7 +228,7 @@ namespace BRAMSELU.Compra
             this.lblTextoTotalGrl.AutoSize = true;
             this.lblTextoTotalGrl.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblTextoTotalGrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(100)))), ((int)(((byte)(115)))));
-            this.lblTextoTotalGrl.Location = new System.Drawing.Point(787, 24);
+            this.lblTextoTotalGrl.Location = new System.Drawing.Point(880, 16);
             this.lblTextoTotalGrl.Name = "lblTextoTotalGrl";
             this.lblTextoTotalGrl.Size = new System.Drawing.Size(84, 30);
             this.lblTextoTotalGrl.TabIndex = 8;
@@ -239,7 +239,7 @@ namespace BRAMSELU.Compra
             this.lblTotalGrl.AutoSize = true;
             this.lblTotalGrl.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalGrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
-            this.lblTotalGrl.Location = new System.Drawing.Point(906, 16);
+            this.lblTotalGrl.Location = new System.Drawing.Point(853, 46);
             this.lblTotalGrl.Name = "lblTotalGrl";
             this.lblTotalGrl.Size = new System.Drawing.Size(124, 46);
             this.lblTotalGrl.TabIndex = 9;
@@ -290,15 +290,15 @@ namespace BRAMSELU.Compra
             this.pnlResumen.Controls.Add(this.btnFinalizarCompra);
             this.pnlResumen.Controls.Add(this.lblTextoTotalGrl);
             this.pnlResumen.Controls.Add(this.lblTotalGrl);
-            this.pnlResumen.Location = new System.Drawing.Point(67, 630);
+            this.pnlResumen.Location = new System.Drawing.Point(67, 580);
             this.pnlResumen.Name = "pnlResumen";
-            this.pnlResumen.Size = new System.Drawing.Size(1045, 76);
+            this.pnlResumen.Size = new System.Drawing.Size(1045, 100);
             this.pnlResumen.TabIndex = 93;
             // 
             // FrmCompra
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1200, 760);
+            this.ClientSize = new System.Drawing.Size(1182, 720);
             this.Controls.Add(this.lblCompraCaption);
             this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.pnlCompra);
