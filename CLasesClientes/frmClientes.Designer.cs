@@ -62,7 +62,7 @@
             // 
             this.labelbuscar.AutoSize = true;
             this.labelbuscar.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelbuscar.ForeColor = System.Drawing.Color.DimGray;
             this.labelbuscar.Location = new System.Drawing.Point(67, 72);
             this.labelbuscar.Name = "labelbuscar";
             this.labelbuscar.Size = new System.Drawing.Size(92, 31);
@@ -198,11 +198,11 @@
             // labelnombrecliente
             // 
             this.labelnombrecliente.AutoSize = true;
-            this.labelnombrecliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelnombrecliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelnombrecliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelnombrecliente.ForeColor = System.Drawing.Color.DimGray;
             this.labelnombrecliente.Location = new System.Drawing.Point(67, 481);
             this.labelnombrecliente.Name = "labelnombrecliente";
-            this.labelnombrecliente.Size = new System.Drawing.Size(103, 31);
+            this.labelnombrecliente.Size = new System.Drawing.Size(108, 31);
             this.labelnombrecliente.TabIndex = 26;
             this.labelnombrecliente.Text = "Nombre:";
             // 
@@ -218,22 +218,22 @@
             // labeltelefonocliente
             // 
             this.labeltelefonocliente.AutoSize = true;
-            this.labeltelefonocliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltelefonocliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labeltelefonocliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeltelefonocliente.ForeColor = System.Drawing.Color.DimGray;
             this.labeltelefonocliente.Location = new System.Drawing.Point(67, 519);
             this.labeltelefonocliente.Name = "labeltelefonocliente";
-            this.labeltelefonocliente.Size = new System.Drawing.Size(105, 31);
+            this.labeltelefonocliente.Size = new System.Drawing.Size(113, 31);
             this.labeltelefonocliente.TabIndex = 28;
             this.labeltelefonocliente.Text = "Telefono:";
             // 
             // labelcorreroclientle
             // 
             this.labelcorreroclientle.AutoSize = true;
-            this.labelcorreroclientle.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcorreroclientle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labelcorreroclientle.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcorreroclientle.ForeColor = System.Drawing.Color.DimGray;
             this.labelcorreroclientle.Location = new System.Drawing.Point(646, 443);
             this.labelcorreroclientle.Name = "labelcorreroclientle";
-            this.labelcorreroclientle.Size = new System.Drawing.Size(87, 31);
+            this.labelcorreroclientle.Size = new System.Drawing.Size(92, 31);
             this.labelcorreroclientle.TabIndex = 30;
             this.labelcorreroclientle.Text = "Correo:";
             // 
@@ -249,11 +249,11 @@
             // labeldireecioncliente
             // 
             this.labeldireecioncliente.AutoSize = true;
-            this.labeldireecioncliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeldireecioncliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labeldireecioncliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldireecioncliente.ForeColor = System.Drawing.Color.DimGray;
             this.labeldireecioncliente.Location = new System.Drawing.Point(646, 481);
             this.labeldireecioncliente.Name = "labeldireecioncliente";
-            this.labeldireecioncliente.Size = new System.Drawing.Size(115, 31);
+            this.labeldireecioncliente.Size = new System.Drawing.Size(122, 31);
             this.labeldireecioncliente.TabIndex = 32;
             this.labeldireecioncliente.Text = "Direccion:";
             // 
@@ -269,11 +269,11 @@
             // labeltipopielcliente
             // 
             this.labeltipopielcliente.AutoSize = true;
-            this.labeltipopielcliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltipopielcliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.labeltipopielcliente.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeltipopielcliente.ForeColor = System.Drawing.Color.DimGray;
             this.labeltipopielcliente.Location = new System.Drawing.Point(646, 519);
             this.labeltipopielcliente.Name = "labeltipopielcliente";
-            this.labeltipopielcliente.Size = new System.Drawing.Size(139, 31);
+            this.labeltipopielcliente.Size = new System.Drawing.Size(146, 31);
             this.labeltipopielcliente.TabIndex = 34;
             this.labeltipopielcliente.Text = "Tipo de Piel:";
             // 
@@ -288,11 +288,11 @@
             // lblIdentidad
             // 
             this.lblIdentidad.AutoSize = true;
-            this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(75)))), ((int)(((byte)(65)))));
+            this.lblIdentidad.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentidad.ForeColor = System.Drawing.Color.DimGray;
             this.lblIdentidad.Location = new System.Drawing.Point(67, 443);
             this.lblIdentidad.Name = "lblIdentidad";
-            this.lblIdentidad.Size = new System.Drawing.Size(118, 31);
+            this.lblIdentidad.Size = new System.Drawing.Size(123, 31);
             this.lblIdentidad.TabIndex = 36;
             this.lblIdentidad.Text = "Identidad:";
             // 
