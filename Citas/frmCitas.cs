@@ -10,8 +10,6 @@ namespace BRAMSELU
     public partial class frmCitas : Form
     {
         private CitaBLL citaBLL = new CitaBLL();
-
-        // Variables de control estandarizadas (como en Inventario)
         private int idSeleccionado = 0;
         private string accion = "";
 
@@ -23,7 +21,6 @@ namespace BRAMSELU
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
-            // Formato de hora
             dtpHora.Format = DateTimePickerFormat.Custom;
             dtpHora.CustomFormat = "hh:mm tt";
             dtpHora.ShowUpDown = true;
@@ -32,7 +29,7 @@ namespace BRAMSELU
             CargarTablaCitas();
 
             Limpiar();
-            BloquearCampos(true); // Iniciamos con los campos bloqueados
+            BloquearCampos(true);
         }
 
         private void CargarTablaCitas()
@@ -44,7 +41,6 @@ namespace BRAMSELU
             if (dgvCitas.Columns.Contains("IdServicio")) dgvCitas.Columns["IdServicio"].Visible = false;
             if (dgvCitas.Columns.Contains("IdEmpleado")) dgvCitas.Columns["IdEmpleado"].Visible = false;
 
-            // Formato de moneda para el precio
             if (dgvCitas.Columns.Contains("Precio"))
             {
                 dgvCitas.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -58,25 +54,21 @@ namespace BRAMSELU
         {
             try
             {
-                // CLIENTES
                 cmbCliente.DataSource = citaBLL.ListarClientes();
                 cmbCliente.DisplayMember = "Nombre";
                 cmbCliente.ValueMember = "IdCliente";
                 cmbCliente.SelectedIndex = -1;
 
-                // SERVICIOS
                 cmbServicio.DataSource = citaBLL.ListarServicios();
                 cmbServicio.DisplayMember = "NombreServicio";
                 cmbServicio.ValueMember = "IdServicio";
                 cmbServicio.SelectedIndex = -1;
 
-                // EMPLEADOS
                 cmbEmpleado.DataSource = citaBLL.ListarEmpleados();
                 cmbEmpleado.DisplayMember = "Nombre";
                 cmbEmpleado.ValueMember = "IdEmpleado";
                 cmbEmpleado.SelectedIndex = -1;
 
-                // ESTADOS
                 cmbEstado.Items.Clear();
                 cmbEstado.Items.Add("Pendiente");
                 cmbEstado.Items.Add("Confirmada");
@@ -89,7 +81,6 @@ namespace BRAMSELU
             }
         }
 
-        // Bloquea o desbloquea los controles de entrada (como en Inventario)
         private void BloquearCampos(bool bloquear)
         {
             bool h = !bloquear;
@@ -101,9 +92,8 @@ namespace BRAMSELU
             cmbEstado.Enabled = h;
             txtPrecio.Enabled = h;
 
-            txtIdCita.Enabled = false; // El ID siempre debe estar bloqueado
+            txtIdCita.Enabled = false;
 
-            // Control de botones
             btnGuardar.Enabled = h;
             btnNuevo.Enabled = bloquear;
         }
@@ -177,7 +167,6 @@ namespace BRAMSELU
             timerCitas.Start();
         }
 
-        // Lógica unificada para Guardar o Actualizar
         private void GuardarCita()
         {
             ClaseCitas cita = new ClaseCitas
@@ -192,14 +181,14 @@ namespace BRAMSELU
                 Precio = ObtenerPrecioDecimal()
             };
 
-            if (idSeleccionado == 0) // Si el ID es 0, es un registro nuevo
+            if (idSeleccionado == 0)
             {
                 if (citaBLL.GuardarCita(cita))
                     GestorMensajes.Exito("Cita guardada correctamente.");
                 else
                     GestorMensajes.Error("No se pudo guardar la información.");
             }
-            else // Si hay un ID, es una actualización
+            else
             {
                 if (citaBLL.ActualizarCita(cita))
                     GestorMensajes.Exito("Cita actualizada correctamente.");
@@ -233,12 +222,9 @@ namespace BRAMSELU
             DataTable tabla = citaBLL.ListarCitas();
             DataView vista = tabla.DefaultView;
 
-            // Recuerda asegurarte de que tu consulta SQL devuelva la columna "Cliente"
             vista.RowFilter = $"Cliente LIKE '%{texto}%' OR Estado LIKE '%{texto}%'";
             dgvCitas.DataSource = vista;
         }
-
-        // --- EVENTOS DE BOTONES ---
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -261,12 +247,12 @@ namespace BRAMSELU
                 return;
             }
 
-            if (!cmbCliente.Enabled) // Si los campos están bloqueados, los abrimos para edición
+            if (!cmbCliente.Enabled)
             {
                 BloquearCampos(false);
                 btnEditar.Text = "Actualizar";
             }
-            else // Si ya estaban abiertos, validamos y guardamos (actualizamos)
+            else 
             {
                 if (!Validar()) return;
 
@@ -300,9 +286,7 @@ namespace BRAMSELU
             }
             iniciarBarra("buscar");
         }
-
-        // --- OTROS EVENTOS (Grid, TextBox, Timer) ---
-
+       
         private void dgvCitas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -331,7 +315,6 @@ namespace BRAMSELU
             decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value);
             txtPrecio.Text = string.Format("L. {0:N2}", precio);
 
-            // Al seleccionar, bloqueamos los campos hasta que presione "Editar"
             BloquearCampos(true);
             btnEditar.Text = "Editar";
         }
@@ -378,6 +361,14 @@ namespace BRAMSELU
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                CargarTablaCitas();
             }
         }
     }
