@@ -79,6 +79,9 @@
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
+    <Compile Include="Citas\CitasBLL.cs" />
+    <Compile Include="Citas\CitasDAL.cs" />
+    <Compile Include="Citas\CitasEntidad.cs" />
     <Compile Include="Compra\CompraBLL.cs" />
     <Compile Include="Compra\CompraDALL.cs" />
     <Compile Include="Compra\CompraED.cs" />

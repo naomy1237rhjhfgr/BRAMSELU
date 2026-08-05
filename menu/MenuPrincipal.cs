@@ -279,25 +279,21 @@ namespace BRAMSELU
             dgv.RowHeadersVisible = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Altura de filas para dar aspecto espacioso y moderno
-            dgv.RowTemplate.Height = 35;
+            dgv.RowTemplate.Height = 38;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.ColumnHeadersHeight = 38;
 
-            // Estilo de Encabezados (Coincide con el tono oscuro del menú lateral)
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(28, 35, 45); // Gris oscuro / Azul noche
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(41, 128, 185);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
-            // Estilo de Filas por defecto
             dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
             dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250); // Azul suave
             dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
 
-            // Filas intercaladas (Efecto cebra suave)
             dgv.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
             dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250);
             dgv.AlternatingRowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
@@ -313,7 +309,7 @@ namespace BRAMSELU
                     {
                         // Agotado: Fondo rojo suave con texto rojo oscuro (Mismo tono de la tarjeta 'Clientes')
                         fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 225, 225);
-                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(180, 40, 40);
+                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
                     }
                     else if (stock <= 3)
                     {
