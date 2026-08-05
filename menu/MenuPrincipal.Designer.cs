@@ -40,47 +40,47 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.PanelContenido = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvUltimasVentas = new System.Windows.Forms.DataGridView();
             this.dgvStockBajo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlReportesDisponibles = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblReportes = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.lblIngresos = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblVentas = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlEmpleadosActivos = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblEmpleados = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblCategorias = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblProductos = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label96 = new System.Windows.Forms.Label();
+            this.lblCitas = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblClientesRegistrados = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblClientesRegistrados = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblCitas = new System.Windows.Forms.Label();
-            this.label96 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblProductos = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lblCategorias = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblVentas = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblIngresos = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pnlReportesDisponibles = new System.Windows.Forms.Panel();
-            this.lblReportes = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblEmpleados = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pnlEmpleadosActivos = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -88,24 +88,24 @@
             this.PanelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUltimasVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.pnlReportesDisponibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.pnlEmpleadosActivos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -480,6 +480,17 @@
             this.PanelContenido.Size = new System.Drawing.Size(1390, 988);
             this.PanelContenido.TabIndex = 9;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGray;
+            this.label4.Location = new System.Drawing.Point(604, 432);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(242, 31);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ventas Más Recientes";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -527,359 +538,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Dashboard";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.label6.Location = new System.Drawing.Point(665, 519);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 12);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Usuario activo";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(370, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(85, 22);
-            this.dateTimePicker1.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkGray;
-            this.label4.Location = new System.Drawing.Point(604, 432);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 31);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Ventas Más Recientes";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblClientesRegistrados);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(8, 8);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 146);
-            this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(157, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblClientesRegistrados
-            // 
-            this.lblClientesRegistrados.AutoSize = true;
-            this.lblClientesRegistrados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
-            this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
-            this.lblClientesRegistrados.Name = "lblClientesRegistrados";
-            this.lblClientesRegistrados.Size = new System.Drawing.Size(64, 50);
-            this.lblClientesRegistrados.TabIndex = 1;
-            this.lblClientesRegistrados.Text = "50";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(8, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 28);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Clientes Registrados";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.label96);
-            this.panel2.Controls.Add(this.lblCitas);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(269, 8);
-            this.panel2.Margin = new System.Windows.Forms.Padding(8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 146);
-            this.panel2.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(157, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblCitas
-            // 
-            this.lblCitas.AutoSize = true;
-            this.lblCitas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitas.ForeColor = System.Drawing.Color.White;
-            this.lblCitas.Location = new System.Drawing.Point(3, 40);
-            this.lblCitas.Name = "lblCitas";
-            this.lblCitas.Size = new System.Drawing.Size(64, 50);
-            this.lblCitas.TabIndex = 3;
-            this.lblCitas.Text = "08";
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label96.ForeColor = System.Drawing.Color.White;
-            this.label96.Location = new System.Drawing.Point(8, 100);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(124, 28);
-            this.label96.TabIndex = 4;
-            this.label96.Text = "Citas del Día";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(216)))), ((int)(((byte)(182)))));
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.lbl);
-            this.panel3.Controls.Add(this.lblProductos);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(530, 8);
-            this.panel3.Margin = new System.Windows.Forms.Padding(8);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(245, 146);
-            this.panel3.TabIndex = 2;
-            // 
-            // lblProductos
-            // 
-            this.lblProductos.AutoSize = true;
-            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductos.ForeColor = System.Drawing.Color.White;
-            this.lblProductos.Location = new System.Drawing.Point(3, 40);
-            this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(85, 50);
-            this.lblProductos.TabIndex = 3;
-            this.lblProductos.Text = "250";
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(8, 100);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(231, 28);
-            this.lbl.TabIndex = 4;
-            this.lbl.Text = "Productos en Inventario";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(156, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.lblCategorias);
-            this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(791, 8);
-            this.panel4.Margin = new System.Windows.Forms.Padding(8);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(246, 146);
-            this.panel4.TabIndex = 3;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(161, 22);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblCategorias
-            // 
-            this.lblCategorias.AutoSize = true;
-            this.lblCategorias.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategorias.ForeColor = System.Drawing.Color.White;
-            this.lblCategorias.Location = new System.Drawing.Point(3, 40);
-            this.lblCategorias.Name = "lblCategorias";
-            this.lblCategorias.Size = new System.Drawing.Size(64, 50);
-            this.lblCategorias.TabIndex = 3;
-            this.lblCategorias.Text = "50";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(8, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 28);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Categorías Activas";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.lblVentas);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(8, 170);
-            this.panel6.Margin = new System.Windows.Forms.Padding(8);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(245, 147);
-            this.panel6.TabIndex = 4;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(157, 17);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // lblVentas
-            // 
-            this.lblVentas.AutoSize = true;
-            this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentas.ForeColor = System.Drawing.Color.White;
-            this.lblVentas.Location = new System.Drawing.Point(3, 41);
-            this.lblVentas.Name = "lblVentas";
-            this.lblVentas.Size = new System.Drawing.Size(64, 50);
-            this.lblVentas.TabIndex = 3;
-            this.lblVentas.Text = "50";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(8, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 28);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Ventas del Día";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Controls.Add(this.lblIngresos);
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(269, 170);
-            this.panel7.Margin = new System.Windows.Forms.Padding(8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(245, 147);
-            this.panel7.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(8, 101);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(159, 28);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Ingresos del Día";
-            // 
-            // lblIngresos
-            // 
-            this.lblIngresos.AutoSize = true;
-            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresos.ForeColor = System.Drawing.Color.White;
-            this.lblIngresos.Location = new System.Drawing.Point(3, 41);
-            this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(64, 50);
-            this.lblIngresos.TabIndex = 5;
-            this.lblIngresos.Text = "50";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(157, 17);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pnlReportesDisponibles
-            // 
-            this.pnlReportesDisponibles.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlReportesDisponibles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(212)))));
-            this.pnlReportesDisponibles.Controls.Add(this.pictureBox6);
-            this.pnlReportesDisponibles.Controls.Add(this.label14);
-            this.pnlReportesDisponibles.Controls.Add(this.lblReportes);
-            this.pnlReportesDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlReportesDisponibles.Location = new System.Drawing.Point(530, 170);
-            this.pnlReportesDisponibles.Margin = new System.Windows.Forms.Padding(8);
-            this.pnlReportesDisponibles.Name = "pnlReportesDisponibles";
-            this.pnlReportesDisponibles.Size = new System.Drawing.Size(245, 147);
-            this.pnlReportesDisponibles.TabIndex = 3;
-            // 
-            // lblReportes
-            // 
-            this.lblReportes.AutoSize = true;
-            this.lblReportes.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReportes.ForeColor = System.Drawing.Color.White;
-            this.lblReportes.Location = new System.Drawing.Point(3, 41);
-            this.lblReportes.Name = "lblReportes";
-            this.lblReportes.Size = new System.Drawing.Size(64, 50);
-            this.lblReportes.TabIndex = 5;
-            this.lblReportes.Text = "50";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(8, 101);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 28);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Reportes Disponibles";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(156, 17);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 7;
-            this.pictureBox6.TabStop = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
@@ -903,9 +561,148 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1045, 325);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // pnlReportesDisponibles
+            // 
+            this.pnlReportesDisponibles.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlReportesDisponibles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(212)))));
+            this.pnlReportesDisponibles.Controls.Add(this.pictureBox6);
+            this.pnlReportesDisponibles.Controls.Add(this.label14);
+            this.pnlReportesDisponibles.Controls.Add(this.lblReportes);
+            this.pnlReportesDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlReportesDisponibles.Location = new System.Drawing.Point(530, 170);
+            this.pnlReportesDisponibles.Margin = new System.Windows.Forms.Padding(8);
+            this.pnlReportesDisponibles.Name = "pnlReportesDisponibles";
+            this.pnlReportesDisponibles.Size = new System.Drawing.Size(245, 147);
+            this.pnlReportesDisponibles.TabIndex = 3;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(156, 17);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 7;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(8, 101);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(205, 28);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Reportes Disponibles";
+            // 
+            // lblReportes
+            // 
+            this.lblReportes.AutoSize = true;
+            this.lblReportes.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportes.ForeColor = System.Drawing.Color.White;
+            this.lblReportes.Location = new System.Drawing.Point(3, 41);
+            this.lblReportes.Name = "lblReportes";
+            this.lblReportes.Size = new System.Drawing.Size(64, 50);
+            this.lblReportes.TabIndex = 5;
+            this.lblReportes.Text = "50";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
+            this.panel7.Controls.Add(this.pictureBox7);
+            this.panel7.Controls.Add(this.lblIngresos);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(269, 170);
+            this.panel7.Margin = new System.Windows.Forms.Padding(8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(245, 147);
+            this.panel7.TabIndex = 5;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(157, 17);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 6;
+            this.pictureBox7.TabStop = false;
+            // 
+            // lblIngresos
+            // 
+            this.lblIngresos.AutoSize = true;
+            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresos.ForeColor = System.Drawing.Color.White;
+            this.lblIngresos.Location = new System.Drawing.Point(3, 41);
+            this.lblIngresos.Name = "lblIngresos";
+            this.lblIngresos.Size = new System.Drawing.Size(64, 50);
+            this.lblIngresos.TabIndex = 5;
+            this.lblIngresos.Text = "50";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(8, 101);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(159, 28);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Ingresos del Día";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.lblVentas);
+            this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(8, 170);
+            this.panel6.Margin = new System.Windows.Forms.Padding(8);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(245, 147);
+            this.panel6.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(8, 101);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 28);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Ventas del Día";
+            // 
+            // lblVentas
+            // 
+            this.lblVentas.AutoSize = true;
+            this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVentas.ForeColor = System.Drawing.Color.White;
+            this.lblVentas.Location = new System.Drawing.Point(3, 41);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(64, 50);
+            this.lblVentas.TabIndex = 3;
+            this.lblVentas.Text = "50";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(157, 17);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(105)))), ((int)(((byte)(188)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.panel5.Controls.Add(this.pnlEmpleadosActivos);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(791, 170);
@@ -913,39 +710,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(246, 147);
             this.panel5.TabIndex = 3;
-            // 
-            // lblEmpleados
-            // 
-            this.lblEmpleados.AutoSize = true;
-            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleados.ForeColor = System.Drawing.Color.White;
-            this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
-            this.lblEmpleados.Name = "lblEmpleados";
-            this.lblEmpleados.Size = new System.Drawing.Size(64, 50);
-            this.lblEmpleados.TabIndex = 7;
-            this.lblEmpleados.Text = "50";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(8, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(182, 28);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Empleados Activos";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(161, 17);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(73, 66);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 9;
-            this.pictureBox8.TabStop = false;
             // 
             // pnlEmpleadosActivos
             // 
@@ -960,6 +724,242 @@
             this.pnlEmpleadosActivos.Name = "pnlEmpleadosActivos";
             this.pnlEmpleadosActivos.Size = new System.Drawing.Size(246, 147);
             this.pnlEmpleadosActivos.TabIndex = 4;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(161, 17);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 9;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(8, 101);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(182, 28);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Empleados Activos";
+            // 
+            // lblEmpleados
+            // 
+            this.lblEmpleados.AutoSize = true;
+            this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleados.ForeColor = System.Drawing.Color.White;
+            this.lblEmpleados.Location = new System.Drawing.Point(3, 41);
+            this.lblEmpleados.Name = "lblEmpleados";
+            this.lblEmpleados.Size = new System.Drawing.Size(64, 50);
+            this.lblEmpleados.TabIndex = 7;
+            this.lblEmpleados.Text = "50";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(77)))));
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.lblCategorias);
+            this.panel4.Controls.Add(this.pictureBox4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(791, 8);
+            this.panel4.Margin = new System.Windows.Forms.Padding(8);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(246, 146);
+            this.panel4.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(8, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(176, 28);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Categorías Activas";
+            // 
+            // lblCategorias
+            // 
+            this.lblCategorias.AutoSize = true;
+            this.lblCategorias.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorias.ForeColor = System.Drawing.Color.White;
+            this.lblCategorias.Location = new System.Drawing.Point(3, 40);
+            this.lblCategorias.Name = "lblCategorias";
+            this.lblCategorias.Size = new System.Drawing.Size(64, 50);
+            this.lblCategorias.TabIndex = 3;
+            this.lblCategorias.Text = "50";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(161, 22);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(216)))), ((int)(((byte)(182)))));
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.lbl);
+            this.panel3.Controls.Add(this.lblProductos);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(530, 8);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(245, 146);
+            this.panel3.TabIndex = 2;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(156, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ForeColor = System.Drawing.Color.White;
+            this.lbl.Location = new System.Drawing.Point(8, 100);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(231, 28);
+            this.lbl.TabIndex = 4;
+            this.lbl.Text = "Productos en Inventario";
+            // 
+            // lblProductos
+            // 
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductos.ForeColor = System.Drawing.Color.White;
+            this.lblProductos.Location = new System.Drawing.Point(3, 40);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(85, 50);
+            this.lblProductos.TabIndex = 3;
+            this.lblProductos.Text = "250";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.label96);
+            this.panel2.Controls.Add(this.lblCitas);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(269, 8);
+            this.panel2.Margin = new System.Windows.Forms.Padding(8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(245, 146);
+            this.panel2.TabIndex = 1;
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label96.ForeColor = System.Drawing.Color.White;
+            this.label96.Location = new System.Drawing.Point(8, 100);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(124, 28);
+            this.label96.TabIndex = 4;
+            this.label96.Text = "Citas del Día";
+            // 
+            // lblCitas
+            // 
+            this.lblCitas.AutoSize = true;
+            this.lblCitas.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitas.ForeColor = System.Drawing.Color.White;
+            this.lblCitas.Location = new System.Drawing.Point(3, 40);
+            this.lblCitas.Name = "lblCitas";
+            this.lblCitas.Size = new System.Drawing.Size(64, 50);
+            this.lblCitas.TabIndex = 3;
+            this.lblCitas.Text = "08";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(157, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblClientesRegistrados);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(8, 8);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(245, 146);
+            this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(8, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 28);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Clientes Registrados";
+            // 
+            // lblClientesRegistrados
+            // 
+            this.lblClientesRegistrados.AutoSize = true;
+            this.lblClientesRegistrados.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientesRegistrados.ForeColor = System.Drawing.Color.White;
+            this.lblClientesRegistrados.Location = new System.Drawing.Point(3, 40);
+            this.lblClientesRegistrados.Name = "lblClientesRegistrados";
+            this.lblClientesRegistrados.Size = new System.Drawing.Size(64, 50);
+            this.lblClientesRegistrados.TabIndex = 1;
+            this.lblClientesRegistrados.Text = "50";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(157, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
+            this.label6.Location = new System.Drawing.Point(665, 519);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Usuario activo";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(370, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(85, 22);
+            this.dateTimePicker1.TabIndex = 4;
             // 
             // frmMenuPrincipal
             // 
@@ -985,32 +985,32 @@
             this.PanelContenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUltimasVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlReportesDisponibles.ResumeLayout(false);
             this.pnlReportesDisponibles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.pnlEmpleadosActivos.ResumeLayout(false);
             this.pnlEmpleadosActivos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
