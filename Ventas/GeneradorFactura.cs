@@ -3,6 +3,7 @@ using System.Data;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.Ventas
 {
@@ -193,7 +194,7 @@ namespace BRAMSELU.Ventas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo generar el comprobante: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("No se pudo generar el comprobante: " + ex.Message);
             }
         }
     }

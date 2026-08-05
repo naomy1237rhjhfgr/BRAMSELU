@@ -92,6 +92,15 @@ namespace BRAMSELU.Caja
                 if (dgvVentasDelDia != null)
                 {
                     dgvVentasDelDia.DataSource = dtVentas;
+
+                    dgvVentasDelDia.Columns["Total"].DefaultCellStyle.Alignment =
+                        DataGridViewContentAlignment.MiddleRight;
+
+                    dgvVentasDelDia.Columns["EfectivoRecibido"].DefaultCellStyle.Alignment =
+                        DataGridViewContentAlignment.MiddleRight;
+
+                    dgvVentasDelDia.Columns["Cambio"].DefaultCellStyle.Alignment =
+                        DataGridViewContentAlignment.MiddleRight;
                 }
 
                 totalVentasActual = 0;
@@ -104,6 +113,8 @@ namespace BRAMSELU.Caja
                 if (dgvComprasDelDia != null)
                 {
                     dgvComprasDelDia.DataSource = dtCompras;
+
+                    dgvComprasDelDia.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
 
                 totalComprasActual = 0;
@@ -120,7 +131,6 @@ namespace BRAMSELU.Caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los movimientos del turno: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GestorMensajes.Error("Error al cargar las transacciones del dia: " + ex.Message);
             }
         }
@@ -157,7 +167,7 @@ namespace BRAMSELU.Caja
         {
             if (string.IsNullOrWhiteSpace(txtMontoFinal.Text))
             {
-                MessageBox.Show("Ingrese el efectivo total contado en caja físicamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Ingrese el efectivo total contado en caja fisicamente");
                 return;
             }
 
@@ -187,15 +197,15 @@ namespace BRAMSELU.Caja
                     mensajeCuadratura += "¡Caja cuadrada perfectamente! Sin diferencias.";
                 }
 
-                DialogResult dialogResult = MessageBox.Show(mensajeCuadratura + "\n\n¿Desea proceder a cerrar la caja?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                FrmConfirmacion confirmar = new FrmConfirmacion(mensajeCuadratura + "\n\n¿Desea proceder a cerrar la caja?");
 
-                if (dialogResult == DialogResult.Yes)
+                if (confirmar.ShowDialog() == DialogResult.Yes)
                 {
                     bool resultado = objBLL.CerrarCaja(idCajaActual, montoFinalContado);
 
                     if (resultado)
                     {
-                        MessageBox.Show("¡Caja cerrada y registrada correctamente en la base de datos!", "Cierre Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GestorMensajes.Exito("¡Caja cerrada y registrada correctamente en la base de datos!");
                         txtMontoFinal.Clear();
                         VerificarEstadoCaja();
                     }

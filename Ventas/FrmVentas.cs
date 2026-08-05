@@ -1,4 +1,6 @@
-﻿using BRAMSELU.llamadoinventario.UI;
+﻿using BRAMSELU.clientellamado;
+using BRAMSELU.llamadoinventario.UI;
+using BRAMSELU.Mensajes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +23,8 @@ namespace BRAMSELU.Ventas
         public decimal precioSeleccionado;
         public int stockSeleccionado;
 
+        public string dniClienteSeleccionado = string.Empty;
+
         public FrmVentas()
         {
             InitializeComponent();
@@ -33,6 +37,8 @@ namespace BRAMSELU.Ventas
         {
             InicializarCarrito();
             txtCantidad.Text = "1";
+            txtEfectivo.TextAlign = HorizontalAlignment.Right;
+            txtDniCliente.ReadOnly = true;
         }
 
         private void InicializarCarrito()
@@ -45,6 +51,18 @@ namespace BRAMSELU.Ventas
             dtCarrito.Columns.Add("Subtotal", typeof(decimal));
 
             dgvCarrito.DataSource = dtCarrito;
+
+            if (dgvCarrito.Columns.Contains("Precio"))
+            {
+                dgvCarrito.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvCarrito.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            }
+
+            if (dgvCarrito.Columns.Contains("Subtotal"))
+            {
+                dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvCarrito.Columns["Subtotal"].DefaultCellStyle.Format = "N2";
+            }
         }
 
         private void btnSeleccionarProducto_Click(object sender, EventArgs e)
@@ -62,6 +80,19 @@ namespace BRAMSELU.Ventas
             }
         }
 
+        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            Frmclientellamado clienteForm = new Frmclientellamado();
+
+            if (clienteForm.ShowDialog() == DialogResult.OK)
+            {
+                dniClienteSeleccionado = clienteForm.IdClienteSeleccionado;
+                txtDniCliente.Text = dniClienteSeleccionado;
+
+                btnSeleccionarCliente.Enabled = false;
+            }
+        }
+
         public void CargarDatosProducto(int id, string nombre, decimal precio, int stock)
         {
             idProductoSeleccionado = id;
@@ -73,15 +104,21 @@ namespace BRAMSELU.Ventas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDniCliente.Text))
+            {
+                GestorMensajes.Advertencia("Por favor, seleccione un cliente antes de agregar productos al carrito.");
+                return;
+            }
+
             if (idProductoSeleccionado == 0 || string.IsNullOrWhiteSpace(txtProducto.Text))
             {
-                MessageBox.Show("Por favor, seleccione un producto primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, seleccione un producto primero.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
-                MessageBox.Show("Por favor, ingrese una cantidad.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                GestorMensajes.Advertencia("Por favor, ingrese una cantidad.");
                 return;
             }
 
@@ -91,13 +128,13 @@ namespace BRAMSELU.Ventas
 
                 if (cantidad <= 0)
                 {
-                    MessageBox.Show("La cantidad debe ser mayor a 0.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("La cantidad debe ser mayor a 0.");
                     return;
                 }
 
                 if (cantidad > stockSeleccionado)
                 {
-                    MessageBox.Show($"Stock insuficiente. Stock disponible: {stockSeleccionado}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia($"Stock insuficiente. Stock disponible: {stockSeleccionado}");
                     return;
                 }
 
@@ -109,7 +146,7 @@ namespace BRAMSELU.Ventas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar producto al carrito: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al agregar producto al carrito: " + ex.Message);
             }
         }
 
@@ -139,13 +176,19 @@ namespace BRAMSELU.Ventas
             {
                 if (dtCarrito.Rows.Count == 0)
                 {
-                    MessageBox.Show("El carrito de compras está vacío.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("El carrito de compras está vacío.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtDniCliente.Text))
+                {
+                    GestorMensajes.Advertencia("Por favor, seleccione un cliente antes de cobrar.");
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtEfectivo.Text))
                 {
-                    MessageBox.Show("Ingrese el monto en efectivo entregado por el cliente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("Ingrese el monto en efectivo entregado por el cliente.");
                     return;
                 }
 
@@ -159,7 +202,7 @@ namespace BRAMSELU.Ventas
 
                 if (efectivoRecibido < totalGeneral)
                 {
-                    MessageBox.Show("El efectivo entregado es menor al total de la compra.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("El efectivo entregado es menor al total de la compra.");
                     return;
                 }
 
@@ -169,34 +212,29 @@ namespace BRAMSELU.Ventas
 
                 if (resultado)
                 {
-                    MessageBox.Show($"¡Venta realizada con éxito!\n\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}",
-                                    "Venta Registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    GestorMensajes.Exito($"¡Venta realizada con éxito!\n\nCliente DNI: {txtDniCliente.Text}\nTotal: L. {totalGeneral:N2}\nEfectivo: L. {efectivoRecibido:N2}\nCambio (Vuelto): L. {cambio:N2}");
 
-                
-                    DialogResult resultadoFactura = MessageBox.Show(
-                        "¿Desea generar e imprimir la factura para el cliente?",
-                        "Generar Factura",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question
-                    );
+                    DialogResult resultadoFactura = GestorMensajes.Confirmacion("¿Desea generar e imprimir la factura para el cliente?");
 
-                  
                     if (resultadoFactura == DialogResult.Yes)
                     {
                         GeneradorFactura factura = new GeneradorFactura();
                         factura.GenerarYMostrar(dtCarrito, totalGeneral, efectivoRecibido, cambio);
                     }
-
-                 
+                    txtCantidad.Clear();
                     dtCarrito.Clear();
                     lblTotal.Text = "L. 0.00";
                     txtEfectivo.Clear();
+                    txtDniCliente.Clear();
+                    dniClienteSeleccionado = string.Empty;
+                    btnSeleccionarCliente.Enabled = true;
                     LimpiarCamposProducto();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al procesar la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al procesar la venta: " + ex.Message);
             }
         }
 

@@ -27,6 +27,7 @@
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.lblFooter = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVerContrasena = new System.Windows.Forms.Button();
             this.pnlCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -34,6 +35,7 @@
             // pnlCard
             // 
             this.pnlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.pnlCard.Controls.Add(this.btnVerContrasena);
             this.pnlCard.Controls.Add(this.lblBienvenida);
             this.pnlCard.Controls.Add(this.lblBella);
             this.pnlCard.Controls.Add(this.lblSubtitulo);
@@ -171,6 +173,15 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btnVerContrasena
+            // 
+            this.btnVerContrasena.Location = new System.Drawing.Point(310, 312);
+            this.btnVerContrasena.Name = "btnVerContrasena";
+            this.btnVerContrasena.Size = new System.Drawing.Size(40, 27);
+            this.btnVerContrasena.TabIndex = 9;
+            this.btnVerContrasena.UseVisualStyleBackColor = true;
+            this.btnVerContrasena.Click += new System.EventHandler(this.btnVerContrasena_Click_1);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -210,5 +221,6 @@
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Label lblFooter;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnVerContrasena;
     }
 }

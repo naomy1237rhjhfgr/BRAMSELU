@@ -33,6 +33,12 @@ namespace BRAMSELU.reportestock
 
                 DataTable dt = objBLL.ObtenerProductosStockBajo(limite);
                 dgvStockBajo.DataSource = dt;
+
+                if (dgvStockBajo.Columns.Contains("Precio"))
+                {
+                    dgvStockBajo.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvStockBajo.Columns["Precio"].DefaultCellStyle.Format = "N2";
+                }
             }
             catch (Exception ex)
             {
@@ -43,6 +49,11 @@ namespace BRAMSELU.reportestock
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CargarReporte();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

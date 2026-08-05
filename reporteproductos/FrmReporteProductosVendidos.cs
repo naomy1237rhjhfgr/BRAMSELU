@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BRAMSELU.Mensajes;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -15,7 +16,7 @@ namespace BRAMSELU.reporteproductos
 
         private void FrmReporteProductosVendidos_Load(object sender, EventArgs e)
         {
-            // Valor predeterminado para el Top
+            
             txtTop.Text = "10";
             CargarReporte();
         }
@@ -26,22 +27,43 @@ namespace BRAMSELU.reporteproductos
             {
                 if (!int.TryParse(txtTop.Text, out int top))
                 {
-                    MessageBox.Show("Por favor, ingrese un número válido para el ranking.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GestorMensajes.Advertencia("Por favor, ingrese un número válido para el ranking.");
                     return;
                 }
 
                 DataTable dt = objBLL.ObtenerProductosMasVendidos(top);
                 dgvProductos.DataSource = dt;
+
+                if (dgvProductos.Columns.Contains("TotalIngresos"))
+                {
+                    dgvProductos.Columns["TotalIngresos"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvProductos.Columns["TotalIngresos"].DefaultCellStyle.Format = "N2";
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el reporte de productos más vendidos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GestorMensajes.Error("Error al cargar el reporte de productos más vendidos: " + ex.Message);
             }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CargarReporte();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
+
+        private void txtTop_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -22,7 +22,6 @@ namespace BRAMSELU.reportecaja
 
         private void FrmReporteCaja_Load(object sender, EventArgs e)
         {
-            
             dtpFechaInicio.Value = DateTime.Today;
             dtpFechaFin.Value = DateTime.Today;
             CargarReporte();
@@ -37,6 +36,30 @@ namespace BRAMSELU.reportecaja
 
                 DataTable dt = objBLL.ObtenerArqueoCajaPorFecha(inicio, fin);
                 dgvReporteCaja.DataSource = dt;
+
+                if (dgvReporteCaja.Columns.Contains("MontoInicial"))
+                {
+                    dgvReporteCaja.Columns["MontoInicial"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvReporteCaja.Columns["MontoInicial"].DefaultCellStyle.Format = "N2";
+                }
+
+                if (dgvReporteCaja.Columns.Contains("TotalVentasEfectivo"))
+                {
+                    dgvReporteCaja.Columns["TotalVentasEfectivo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvReporteCaja.Columns["TotalVentasEfectivo"].DefaultCellStyle.Format = "N2";
+                }
+
+                if (dgvReporteCaja.Columns.Contains("TotalCompras"))
+                {
+                    dgvReporteCaja.Columns["TotalCompras"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvReporteCaja.Columns["TotalCompras"].DefaultCellStyle.Format = "N2";
+                }
+
+                if (dgvReporteCaja.Columns.Contains("MontoFinal"))
+                {
+                    dgvReporteCaja.Columns["MontoFinal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvReporteCaja.Columns["MontoFinal"].DefaultCellStyle.Format = "N2";
+                }
             }
             catch (Exception ex)
             {
@@ -47,6 +70,12 @@ namespace BRAMSELU.reportecaja
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CargarReporte();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();
         }
     }
 }

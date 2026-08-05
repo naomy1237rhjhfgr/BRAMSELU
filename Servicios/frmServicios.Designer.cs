@@ -320,6 +320,7 @@
             this.txtprecioservicio.Name = "txtprecioservicio";
             this.txtprecioservicio.Size = new System.Drawing.Size(348, 34);
             this.txtprecioservicio.TabIndex = 90;
+            this.txtprecioservicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtprecioservicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecioservicio_KeyPress);
             // 
             // txtduracionservicio

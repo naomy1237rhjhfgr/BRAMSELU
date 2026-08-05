@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using BRAMSELU.Mensajes;
 
 namespace BRAMSELU.Compra
 {
@@ -60,7 +61,7 @@ namespace BRAMSELU.Compra
             catch (Exception ex)
             {
                 transaction?.Rollback();
-                System.Windows.Forms.MessageBox.Show("Error al registrar compra: " + ex.Message);
+                GestorMensajes.Error("Error al registrar compra: " + ex.Message);
                 return false;
             }
             finally

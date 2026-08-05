@@ -45,6 +45,13 @@ namespace BRAMSELU
             dgvDatos.DataSource = inventarioBLL.ObtenerProductos();
             if (dgvDatos.Columns.Contains("IdCategoria"))
                 dgvDatos.Columns["IdCategoria"].Visible = false;
+
+            if (dgvDatos.Columns.Contains("Precio"))
+            {
+                dgvDatos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvDatos.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            }
+
             OcultarImagen();
         }
 

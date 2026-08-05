@@ -36,8 +36,9 @@ namespace BRAMSELU
 
         private void CargarProductosPorCategoria(string categoria)
         {
-            dataGridViewproCategorias.DataSource =
-                categoriaBLL.ObtenerProductosPorCategoria(categoria);
+            dataGridViewproCategorias.DataSource = categoriaBLL.ObtenerProductosPorCategoria(categoria);
+
+            dataGridViewproCategorias.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dataGridViewproCategorias.ClearSelection();
         }
