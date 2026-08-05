@@ -219,8 +219,6 @@ namespace BRAMSELU
             try
             {
                 DashboardModel datos = dashboardDAL.ObtenerEstadisticas();
-
-                // Actualizar tarjetas
                 lblClientesRegistrados.Text = datos.TotalClientes.ToString("D2");
                 lblCitas.Text = datos.CitasDelDia.ToString("D2");
                 lblProductos.Text = datos.ProductosInventario.ToString("D2");
@@ -229,13 +227,41 @@ namespace BRAMSELU
                 lblEmpleados.Text = datos.EmpleadosActivos.ToString("D2");
                 lblReportes.Text = datos.ReportesDisponibles.ToString("D2");
                 lblIngresos.Text = datos.IngresosDelDia.ToString("C2");
-
-                // Actualizar Grid de Stock Bajo
                 CargarProductosStockBajo();
+                CargarUltimasVentas();
             }
             catch (Exception ex)
             {
                 GestorMensajes.Error("No se pudieron actualizar las estadísticas del panel. \n\n" + ex.Message);
+            }
+        }
+        private void CargarUltimasVentas()
+        {
+            try
+            {
+                DataTable dtVentas = dashboardDAL.ObtenerUltimasVentas(10);
+                dgvUltimasVentas.DataSource = dtVentas;
+                EstilarDataGridView(dgvUltimasVentas);
+                if (dgvUltimasVentas.Columns["Total"] != null)
+                {
+                    dgvUltimasVentas.Columns["Total"].DefaultCellStyle.Format = "C2";
+                    dgvUltimasVentas.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvUltimasVentas.Columns["N° Venta"] != null)
+                {
+                    dgvUltimasVentas.Columns["N° Venta"].DefaultCellStyle.Format = "D4";
+                    dgvUltimasVentas.Columns["N° Venta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                if (dgvUltimasVentas.Columns["Hora"] != null)
+                {
+                    dgvUltimasVentas.Columns["Hora"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error al cargar últimas ventas: " + ex.Message);
             }
         }
 
@@ -291,7 +317,7 @@ namespace BRAMSELU
             dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
             dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250); // Azul suave
+            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250);
             dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
 
             dgv.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
@@ -307,13 +333,11 @@ namespace BRAMSELU
                 {
                     if (stock == 0)
                     {
-                        // Agotado: Fondo rojo suave con texto rojo oscuro (Mismo tono de la tarjeta 'Clientes')
                         fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 225, 225);
                         fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
                     }
                     else if (stock <= 3)
                     {
-                        // Alerta Crítica (<= 3): Fondo amarillo/naranja suave (Mismo tono de la tarjeta 'Categorías')
                         fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 243, 205);
                         fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(133, 100, 4);
                     }

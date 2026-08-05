@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace BRAMSELU
 {
@@ -19,10 +20,11 @@ namespace BRAMSELU
                     SELECT
                         (SELECT COUNT(*) FROM Clientes) AS TotalClientes,
                         (SELECT COUNT(*) FROM Empleados WHERE Estado = 1) AS EmpleadosActivos,
-                        (SELECT ISNULL(SUM(Stock), 0) FROM Productos) AS ProductosInventario, -- <--- Cambiado a SUM(Stock)
+                        (SELECT ISNULL(SUM(Stock), 0) FROM Productos) AS ProductosInventario,
                         (SELECT COUNT(*) FROM Categorias) AS CategoriasActivas,
                         (SELECT COUNT(*) FROM Ventas WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)) AS VentasDelDia,
-                        (SELECT ISNULL(SUM(Total), 0) FROM Ventas WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)) AS IngresosDelDia;";
+                        (SELECT ISNULL(SUM(Total), 0) FROM Ventas WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)) AS IngresosDelDia,
+                        (SELECT COUNT(*) FROM Citas WHERE Fecha = CAST(GETDATE() AS DATE) AND Estado != 'Cancelada') AS CitasDelDia;";
 
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
@@ -38,8 +40,10 @@ namespace BRAMSELU
                             datos.CategoriasActivas = Convert.ToInt32(reader["CategoriasActivas"]);
                             datos.VentasDelDia = Convert.ToInt32(reader["VentasDelDia"]);
                             datos.IngresosDelDia = Convert.ToDecimal(reader["IngresosDelDia"]);
-                            datos.CitasDelDia = 0; // Pendiente si agregas la tabla Citas
-                            datos.ReportesDisponibles = 50; // Valor fijo según tu diseño
+                            datos.CitasDelDia = Convert.ToInt32(reader["CitasDelDia"]);
+
+                       
+                            datos.ReportesDisponibles = 6;
                         }
                     }
                 }
@@ -77,5 +81,35 @@ namespace BRAMSELU
 
             return tabla;
         }
+        public DataTable ObtenerUltimasVentas(int limite = 10)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Muestra las últimas 'N' ventas del día ordenadas de la más reciente a la más antigua
+                string query = @"
+                    SELECT TOP (@Limite)
+                        IdVenta AS [N° Venta],
+                        FORMAT(FechaVenta, 'hh:mm tt') AS [Hora],
+                        Total AS [Total]
+                    FROM Ventas
+                    WHERE CAST(FechaVenta AS DATE) = CAST(GETDATE() AS DATE)
+                    ORDER BY FechaVenta DESC;";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@Limite", limite);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        adapter.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+  
     }
 }

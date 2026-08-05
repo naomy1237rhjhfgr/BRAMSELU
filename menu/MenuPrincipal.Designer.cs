@@ -40,7 +40,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.PanelContenido = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvUltimasVentas = new System.Windows.Forms.DataGridView();
             this.dgvStockBajo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -79,13 +80,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.PanelContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUltimasVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -468,8 +469,9 @@
             // PanelContenido
             // 
             this.PanelContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.PanelContenido.Controls.Add(this.label4);
             this.PanelContenido.Controls.Add(this.label3);
-            this.PanelContenido.Controls.Add(this.dataGridView2);
+            this.PanelContenido.Controls.Add(this.dgvUltimasVentas);
             this.PanelContenido.Controls.Add(this.dgvStockBajo);
             this.PanelContenido.Controls.Add(this.label1);
             this.PanelContenido.Controls.Add(this.tableLayoutPanel1);
@@ -478,21 +480,31 @@
             this.PanelContenido.Size = new System.Drawing.Size(1390, 988);
             this.PanelContenido.TabIndex = 9;
             // 
-            // dataGridView2
+            // label3
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(610, 466);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(502, 228);
-            this.dataGridView2.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGray;
+            this.label3.Location = new System.Drawing.Point(58, 432);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(284, 31);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Productos Bajos en Stock";
+            // 
+            // dgvUltimasVentas
+            // 
+            this.dgvUltimasVentas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUltimasVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUltimasVentas.Location = new System.Drawing.Point(610, 466);
+            this.dgvUltimasVentas.Name = "dgvUltimasVentas";
+            this.dgvUltimasVentas.RowHeadersWidth = 51;
+            this.dgvUltimasVentas.RowTemplate.Height = 24;
+            this.dgvUltimasVentas.Size = new System.Drawing.Size(502, 228);
+            this.dgvUltimasVentas.TabIndex = 3;
             // 
             // dgvStockBajo
             // 
             this.dgvStockBajo.BackgroundColor = System.Drawing.Color.White;
-            this.dgvStockBajo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStockBajo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvStockBajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockBajo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(240)))));
@@ -937,16 +949,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(85, 22);
             this.dateTimePicker1.TabIndex = 4;
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkGray;
-            this.label3.Location = new System.Drawing.Point(58, 432);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(284, 31);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Productos Bajos en Stock";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGray;
+            this.label4.Location = new System.Drawing.Point(604, 432);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(242, 31);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ventas Más Recientes";
             // 
             // frmMenuPrincipal
             // 
@@ -970,7 +982,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.PanelContenido.ResumeLayout(false);
             this.PanelContenido.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUltimasVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockBajo)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -1033,7 +1045,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvUltimasVentas;
         private System.Windows.Forms.DataGridView dgvStockBajo;
         private System.Windows.Forms.Label lblClientesRegistrados;
         private System.Windows.Forms.Label label2;
@@ -1067,5 +1079,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
