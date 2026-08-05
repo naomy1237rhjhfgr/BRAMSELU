@@ -64,7 +64,6 @@ namespace BRAMSELU.Mensajes
             const int margen = 20;
             const int espacio = 15;
 
-            // Calcula el tamaño que necesita el texto
             Size texto = TextRenderer.MeasureText(
                 lblMensaje.Text,
                 lblMensaje.Font,
@@ -72,8 +71,6 @@ namespace BRAMSELU.Mensajes
                 TextFormatFlags.WordBreak);
 
             lblMensaje.Size = texto;
-
-            // Centrar icono y texto
             int anchoContenido = pictureBox1.Width + espacio + lblMensaje.Width;
             int inicioX = (ClientSize.Width - anchoContenido) / 2;
 
@@ -84,18 +81,10 @@ namespace BRAMSELU.Mensajes
 
             pictureBox1.Top = margen;
             lblMensaje.Top = margen + (altoContenido - lblMensaje.Height) / 2;
-
-            // Botón
-            // Obtener la parte más baja entre el icono y el mensaje
             int parteInferior = panelsuperior.Bottom;
 
-            // Colocar el botón debajo del panel
             bttnAceptar.Top = parteInferior + 50;
-
-            // Centrar el botón
             bttnAceptar.Left = (ClientSize.Width - bttnAceptar.Width) / 2;
-
-            // Ajustar la altura del formulario
             ClientSize = new Size(
                 ClientSize.Width,
                 bttnAceptar.Bottom + margen);
