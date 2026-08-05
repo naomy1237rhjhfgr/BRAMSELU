@@ -89,6 +89,11 @@ namespace BRAMSELU
                 GestorMensajes.Advertencia("Presione Nuevo o Editar antes de guardar");
                 return;
             }
+            if (editando && string.IsNullOrWhiteSpace(txtidcategoria.Text))
+            {
+                GestorMensajes.Advertencia("Seleccione una categoría antes de actualizar.");
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(txtidcategoria.Text))
                 categoria.IdCategoria = 0;
@@ -182,8 +187,15 @@ namespace BRAMSELU
         private void btnbuscarcategoria_Click(object sender, EventArgs e)
         {
             textoBuscar = txtBuscarcategoria.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(textoBuscar))
+            {
+                GestorMensajes.Advertencia("Ingrese un nombre para realizar la búsqueda.");
+                txtBuscarcategoria.Focus();
+                return;
+            }
+
             iniciarBarra("buscar");
-           
         }
 
         private void dataGridViewcategoria_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -231,9 +243,10 @@ namespace BRAMSELU
             {
                 GestorMensajes.Exito("Categoría eliminada correctamente.");
                 CargarCategorias();
-                LimpiarCampos();
+             
                 txtBuscarcategoria.Clear();
                 dataGridViewcategoria.ClearSelection();
+                LimpiarCampos();
             }
         }
 
@@ -251,6 +264,7 @@ namespace BRAMSELU
                 {
                     dataGridViewcategoria.DataSource = resultado;
                     dataGridViewcategoria.ClearSelection();
+                    LimpiarCampos() ;
                 }
                 else
                 {
@@ -306,6 +320,7 @@ namespace BRAMSELU
             {
                 CargarCategorias();
                 dataGridViewcategoria.ClearSelection();
+                LimpiarCampos();
             }
         }
 
