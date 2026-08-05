@@ -33,6 +33,7 @@
             this.panelsuperiorconfirmacion = new System.Windows.Forms.Panel();
             this.bttnAceptarconfirmacion = new System.Windows.Forms.Button();
             this.bttncancelarconfirmacion = new System.Windows.Forms.Button();
+            this.pnlAcento = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelsuperiorconfirmacion.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // panelsuperiorconfirmacion
             // 
+            this.panelsuperiorconfirmacion.Controls.Add(this.pnlAcento);
             this.panelsuperiorconfirmacion.Controls.Add(this.pictureBox2);
             this.panelsuperiorconfirmacion.Controls.Add(this.lblMensajeconfirmacion);
             this.panelsuperiorconfirmacion.Dock = System.Windows.Forms.DockStyle.Top;
@@ -67,13 +69,13 @@
             // 
             // bttnAceptarconfirmacion
             // 
-            this.bttnAceptarconfirmacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            this.bttnAceptarconfirmacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.bttnAceptarconfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttnAceptarconfirmacion.FlatAppearance.BorderSize = 0;
             this.bttnAceptarconfirmacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAceptarconfirmacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttnAceptarconfirmacion.ForeColor = System.Drawing.Color.Transparent;
-            this.bttnAceptarconfirmacion.Location = new System.Drawing.Point(252, 109);
+            this.bttnAceptarconfirmacion.Location = new System.Drawing.Point(108, 109);
             this.bttnAceptarconfirmacion.Name = "bttnAceptarconfirmacion";
             this.bttnAceptarconfirmacion.Size = new System.Drawing.Size(100, 32);
             this.bttnAceptarconfirmacion.TabIndex = 49;
@@ -83,19 +85,28 @@
             // 
             // bttncancelarconfirmacion
             // 
-            this.bttncancelarconfirmacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(90)))), ((int)(((byte)(80)))));
+            this.bttncancelarconfirmacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(112)))));
             this.bttncancelarconfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttncancelarconfirmacion.FlatAppearance.BorderSize = 0;
             this.bttncancelarconfirmacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttncancelarconfirmacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttncancelarconfirmacion.ForeColor = System.Drawing.Color.White;
-            this.bttncancelarconfirmacion.Location = new System.Drawing.Point(108, 109);
+            this.bttncancelarconfirmacion.Location = new System.Drawing.Point(252, 109);
             this.bttncancelarconfirmacion.Name = "bttncancelarconfirmacion";
             this.bttncancelarconfirmacion.Size = new System.Drawing.Size(100, 32);
             this.bttncancelarconfirmacion.TabIndex = 50;
             this.bttncancelarconfirmacion.Text = "Cancelar";
             this.bttncancelarconfirmacion.UseVisualStyleBackColor = false;
             this.bttncancelarconfirmacion.Click += new System.EventHandler(this.bttncancelarconfirmacion_Click);
+            // 
+            // pnlAcento
+            // 
+            this.pnlAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAcento.Location = new System.Drawing.Point(0, 0);
+            this.pnlAcento.Name = "pnlAcento";
+            this.pnlAcento.Size = new System.Drawing.Size(482, 6);
+            this.pnlAcento.TabIndex = 98;
             // 
             // FrmConfirmacion
             // 
@@ -125,5 +136,6 @@
         private System.Windows.Forms.Panel panelsuperiorconfirmacion;
         private System.Windows.Forms.Button bttnAceptarconfirmacion;
         private System.Windows.Forms.Button bttncancelarconfirmacion;
+        private System.Windows.Forms.Panel pnlAcento;
     }
 }

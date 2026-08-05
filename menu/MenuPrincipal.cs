@@ -3,6 +3,7 @@ using BRAMSELU.Compra;
 using BRAMSELU.Mensajes;
 using BRAMSELU.Ventas;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace BRAMSELU
@@ -39,15 +40,16 @@ namespace BRAMSELU
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             CargarEstadisticas();
-
            
             if (rolUsuario.Equals("Empleado", StringComparison.OrdinalIgnoreCase))
             {
               
                     btnEmpleados.Visible = false;
                     btnReportes.Visible = false;
-                    BtnCompras.Visible = false; 
-            
+                    BtnCompras.Visible = false;
+                    pnlEmpleadosActivos.Visible = false;
+                    pnlReportesDisponibles.Visible = false;
+
 
                 if (pnlContenido.Controls.ContainsKey("panelClientesRegistrados"))
                 {
@@ -62,6 +64,16 @@ namespace BRAMSELU
                 if (pnlContenido.Controls.ContainsKey("panelReportesDisponibles"))
                 {
                     pnlContenido.Controls["panelReportesDisponibles"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("pnlEmpleadosActivos"))
+                {
+                    pnlContenido.Controls["pnlEmpleadosActivos"].Visible = false;
+                }
+
+                if (pnlContenido.Controls.ContainsKey("pnlReportesDisponibles"))
+                {
+                    pnlContenido.Controls["pnlReportesDisponibles"].Visible = false;
                 }
             }
         }
@@ -217,15 +229,50 @@ namespace BRAMSELU
         {
             try
             {
-                int[] estadisticas = dashboardDAL.ObtenerEstadisticas();
-
-                lblClientesRegistrados.Text = estadisticas[0].ToString("D2");
-                lblEmpleados.Text = estadisticas[1].ToString("D2");
-                lblProductos.Text = estadisticas[2].ToString("D2");
+                DashboardModel datos = dashboardDAL.ObtenerEstadisticas();
+                lblClientesRegistrados.Text = datos.TotalClientes.ToString("D2");
+                lblCitas.Text = datos.CitasDelDia.ToString("D2");
+                lblProductos.Text = datos.ProductosInventario.ToString("D2");
+                lblCategorias.Text = datos.CategoriasActivas.ToString("D2");
+                lblVentas.Text = datos.VentasDelDia.ToString("D2");
+                lblEmpleados.Text = datos.EmpleadosActivos.ToString("D2");
+                lblReportes.Text = datos.ReportesDisponibles.ToString("D2");
+                lblIngresos.Text = datos.IngresosDelDia.ToString("C2");
+                CargarProductosStockBajo();
+                CargarUltimasVentas();
             }
             catch (Exception ex)
             {
-                GestorMensajes.Error("No se pudieron actualizar las estadisticas del panel. \n\n" + ex.Message);
+                GestorMensajes.Error("No se pudieron actualizar las estadísticas del panel. \n\n" + ex.Message);
+            }
+        }
+        private void CargarUltimasVentas()
+        {
+            try
+            {
+                DataTable dtVentas = dashboardDAL.ObtenerUltimasVentas(10);
+                dgvUltimasVentas.DataSource = dtVentas;
+                EstilarDataGridView(dgvUltimasVentas);
+                if (dgvUltimasVentas.Columns["Total"] != null)
+                {
+                    dgvUltimasVentas.Columns["Total"].DefaultCellStyle.Format = "C2";
+                    dgvUltimasVentas.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvUltimasVentas.Columns["N° Venta"] != null)
+                {
+                    dgvUltimasVentas.Columns["N° Venta"].DefaultCellStyle.Format = "D4";
+                    dgvUltimasVentas.Columns["N° Venta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                if (dgvUltimasVentas.Columns["Hora"] != null)
+                {
+                    dgvUltimasVentas.Columns["Hora"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error al cargar últimas ventas: " + ex.Message);
             }
         }
 
@@ -238,6 +285,75 @@ namespace BRAMSELU
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
+        private void CargarProductosStockBajo()
+        {
+            try
+            {
+                DataTable dtStockBajo = dashboardDAL.ObtenerProductosStockBajo(10);
+                dgvStockBajo.DataSource = dtStockBajo;
+                EstilarDataGridView(dgvStockBajo);
+                ResaltarFilasStock();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error al cargar stock bajo: " + ex.Message);
+            }
+        }
+        private void EstilarDataGridView(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.BackgroundColor = System.Drawing.Color.White;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.GridColor = System.Drawing.Color.FromArgb(235, 237, 240);
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+            dgv.ReadOnly = true;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.RowTemplate.Height = 38;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgv.ColumnHeadersHeight = 38;
+
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(41, 128, 185);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
+            dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250);
+            dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(225, 238, 250);
+            dgv.AlternatingRowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+        }
+
+        private void ResaltarFilasStock()
+        {
+            foreach (DataGridViewRow fila in dgvStockBajo.Rows)
+            {
+                if (fila.Cells["Stock"].Value != null && int.TryParse(fila.Cells["Stock"].Value.ToString(), out int stock))
+                {
+                    if (stock == 0)
+                    {
+                        fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 225, 225);
+                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+                    }
+                    else if (stock <= 3)
+                    {
+                        fila.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 243, 205);
+                        fila.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(133, 100, 4);
+                    }
+                }
+            }
         }
     }
 }

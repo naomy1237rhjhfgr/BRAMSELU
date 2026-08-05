@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelsuperior = new System.Windows.Forms.Panel();
+            this.pnlAcento = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.bttnAceptar = new System.Windows.Forms.Button();
@@ -38,21 +39,29 @@
             // 
             // panelsuperior
             // 
+            this.panelsuperior.Controls.Add(this.pnlAcento);
             this.panelsuperior.Controls.Add(this.pictureBox1);
             this.panelsuperior.Controls.Add(this.lblMensaje);
             this.panelsuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelsuperior.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelsuperior.Name = "panelsuperior";
-            this.panelsuperior.Size = new System.Drawing.Size(651, 179);
+            this.panelsuperior.Size = new System.Drawing.Size(579, 143);
             this.panelsuperior.TabIndex = 0;
+            // 
+            // pnlAcento
+            // 
+            this.pnlAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(35)))), ((int)(((byte)(42)))));
+            this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAcento.Location = new System.Drawing.Point(0, 0);
+            this.pnlAcento.Name = "pnlAcento";
+            this.pnlAcento.Size = new System.Drawing.Size(579, 6);
+            this.pnlAcento.TabIndex = 98;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 29);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -61,24 +70,23 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(97, 29);
+            this.lblMensaje.Location = new System.Drawing.Point(86, 23);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 32);
+            this.lblMensaje.Size = new System.Drawing.Size(0, 28);
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bttnAceptar
             // 
-            this.bttnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            this.bttnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(193)))), ((int)(((byte)(91)))));
             this.bttnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttnAceptar.FlatAppearance.BorderSize = 0;
             this.bttnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAceptar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bttnAceptar.ForeColor = System.Drawing.Color.Transparent;
-            this.bttnAceptar.Location = new System.Drawing.Point(237, 187);
-            this.bttnAceptar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bttnAceptar.Location = new System.Drawing.Point(235, 149);
             this.bttnAceptar.Name = "bttnAceptar";
-            this.bttnAceptar.Size = new System.Drawing.Size(112, 40);
+            this.bttnAceptar.Size = new System.Drawing.Size(100, 32);
             this.bttnAceptar.TabIndex = 47;
             this.bttnAceptar.Text = "Aceptar";
             this.bttnAceptar.UseVisualStyleBackColor = false;
@@ -86,13 +94,12 @@
             // 
             // frmMensaje
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 240);
+            this.ClientSize = new System.Drawing.Size(579, 192);
             this.Controls.Add(this.bttnAceptar);
             this.Controls.Add(this.panelsuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMensaje";
@@ -113,5 +120,6 @@
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button bttnAceptar;
+        private System.Windows.Forms.Panel pnlAcento;
     }
 }

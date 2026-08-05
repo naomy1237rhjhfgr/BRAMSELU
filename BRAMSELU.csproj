@@ -79,6 +79,9 @@
     <Compile Include="Categorias\Categoria.cs" />
     <Compile Include="Categorias\CategoriaBLL.cs" />
     <Compile Include="Categorias\CategoriaDatos.cs" />
+    <Compile Include="Citas\CitasBLL.cs" />
+    <Compile Include="Citas\CitasDAL.cs" />
+    <Compile Include="Citas\CitasEntidad.cs" />
     <Compile Include="clientellamado\clientellabll.cs" />
     <Compile Include="clientellamado\clientelladal.cs" />
     <Compile Include="clientellamado\clientellamado.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Compra\FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\Dashboard.cs" />
     <Compile Include="Dashboard\DashboardDAL.cs" />
     <Compile Include="llamadoinventario\frmllamado.cs">
       <SubType>Form</SubType>
