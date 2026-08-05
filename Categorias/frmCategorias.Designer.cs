@@ -301,7 +301,7 @@
             this.pnlAcento.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAcento.Location = new System.Drawing.Point(0, 0);
             this.pnlAcento.Name = "pnlAcento";
-            this.pnlAcento.Size = new System.Drawing.Size(1161, 6);
+            this.pnlAcento.Size = new System.Drawing.Size(1182, 6);
             this.pnlAcento.TabIndex = 97;
             // 
             // frmCategorias
@@ -309,7 +309,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1182, 720);
+            this.ClientSize = new System.Drawing.Size(1203, 720);
             this.Controls.Add(this.pnlAcento);
             this.Controls.Add(this.dataGridViewproCategorias);
             this.Controls.Add(this.lblproductoscategorias);
