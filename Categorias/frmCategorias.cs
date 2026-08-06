@@ -1,12 +1,6 @@
 ﻿using BRAMSELU.Categorias;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BRAMSELU.Mensajes;
 
@@ -26,27 +20,41 @@ namespace BRAMSELU
         {
             InitializeComponent();
 
+            dataGridViewcategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewcategoria.MultiSelect = false;
+            dataGridViewcategoria.AllowUserToAddRows = false;
+
+            QuitarSeleccionCategoria();
             EstadoCampos(false);
         }
 
         private void CargarCategorias()
         {
             dataGridViewcategoria.DataSource = categoriaBLL.ObtenerCategorias();
+            QuitarSeleccionCategoria();
         }
 
         private void CargarProductosPorCategoria(string categoria)
         {
             dataGridViewproCategorias.DataSource = categoriaBLL.ObtenerProductosPorCategoria(categoria);
 
-            dataGridViewproCategorias.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            if (dataGridViewproCategorias.Columns.Contains("Precio"))
+            {
+                dataGridViewproCategorias.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
 
             dataGridViewproCategorias.ClearSelection();
+        }
+
+        private void QuitarSeleccionCategoria()
+        {
+            dataGridViewcategoria.ClearSelection();
+            dataGridViewcategoria.CurrentCell = null;
         }
 
         private void EstadoCampos(bool habilitado)
         {
             txtidcategoria.Enabled = false;
-
             txtnombrecategoria.Enabled = habilitado;
             txtdescripcion.Enabled = habilitado;
         }
@@ -67,8 +75,7 @@ namespace BRAMSELU
         private void frmCategorias_Load(object sender, EventArgs e)
         {
             CargarCategorias();
-            dataGridViewcategoria.ClearSelection();
-
+            QuitarSeleccionCategoria();
             dataGridViewproCategorias.DataSource = null;
         }
 
@@ -77,31 +84,28 @@ namespace BRAMSELU
             LimpiarCampos();
             EstadoCampos(true);
             txtnombrecategoria.Focus();
-            dataGridViewcategoria.ClearSelection();
+            QuitarSeleccionCategoria();
         }
 
         private void btnguardarcategoria_Click(object sender, EventArgs e)
         {
-            Categoria categoria = new Categoria ();
+            Categoria categoria = new Categoria();
 
             if (!txtnombrecategoria.Enabled)
             {
                 GestorMensajes.Advertencia("Presione Nuevo o Editar antes de guardar");
                 return;
             }
+
             if (editando && string.IsNullOrWhiteSpace(txtidcategoria.Text))
             {
                 GestorMensajes.Advertencia("Seleccione una categoría antes de actualizar.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtidcategoria.Text))
-                categoria.IdCategoria = 0;
-            else
-                categoria.IdCategoria = Convert.ToInt32(txtidcategoria.Text);
-
-            categoria.NombreCategoria = txtnombrecategoria.Text.Trim().Replace(" "," ");
-            categoria.Descripcion = txtdescripcion.Text.Trim().Replace(" ", " "); 
+            categoria.IdCategoria = string.IsNullOrWhiteSpace(txtidcategoria.Text) ? 0 : Convert.ToInt32(txtidcategoria.Text);
+            categoria.NombreCategoria = txtnombrecategoria.Text.Trim().Replace("  ", " ");
+            categoria.Descripcion = txtdescripcion.Text.Trim().Replace("  ", " ");
 
             if (string.IsNullOrWhiteSpace(categoria.NombreCategoria))
             {
@@ -127,7 +131,6 @@ namespace BRAMSELU
             categoriaActual = categoria;
             iniciarBarra("guardar");
         }
-
         private void bttneditarcategoria_Click(object sender, EventArgs e)
         {
             if (editando)
@@ -143,13 +146,13 @@ namespace BRAMSELU
                 return;
             }
 
-            if (dataGridViewcategoria.SelectedRows.Count == 0)
+            if (dataGridViewcategoria.CurrentRow == null)
             {
                 GestorMensajes.Advertencia("Seleccione una categoría para editar.");
                 return;
             }
 
-            DataGridViewRow fila = dataGridViewcategoria.SelectedRows[0];
+            DataGridViewRow fila = dataGridViewcategoria.CurrentRow;
 
             idCategoria = Convert.ToInt32(fila.Cells["IdCategoria"].Value);
 
@@ -159,21 +162,21 @@ namespace BRAMSELU
 
             editando = true;
             EstadoCampos(true);
+
             txtnombrecategoria.Focus();
             bttneditarcategoria.Text = "Actualizar";
         }
 
+
         private void bttneliminarcategoria_Click(object sender, EventArgs e)
         {
-            if (dataGridViewcategoria.SelectedRows.Count == 0)
+            if (dataGridViewcategoria.CurrentRow == null)
             {
                 GestorMensajes.Advertencia("Seleccione una categoría antes de eliminar.");
                 return;
             }
 
-            DataGridViewRow fila = dataGridViewcategoria.SelectedRows[0];
-
-            int id = Convert.ToInt32(fila.Cells["IdCategoria"].Value);
+            int id = Convert.ToInt32(dataGridViewcategoria.CurrentRow.Cells["IdCategoria"].Value);
 
             DialogResult resultado = GestorMensajes.Confirmacion("¿Desea eliminar esta categoría?");
 
@@ -183,6 +186,7 @@ namespace BRAMSELU
                 iniciarBarra("eliminar");
             }
         }
+
 
         private void btnbuscarcategoria_Click(object sender, EventArgs e)
         {
@@ -198,6 +202,7 @@ namespace BRAMSELU
             iniciarBarra("buscar");
         }
 
+
         private void dataGridViewcategoria_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -205,14 +210,19 @@ namespace BRAMSELU
                 DataGridViewRow fila = dataGridViewcategoria.Rows[e.RowIndex];
 
                 idCategoria = Convert.ToInt32(fila.Cells["IdCategoria"].Value);
+
                 txtidcategoria.Text = idCategoria.ToString();
                 txtnombrecategoria.Text = fila.Cells["NombreCategoria"].Value.ToString();
                 txtdescripcion.Text = fila.Cells["Descripcion"].Value.ToString();
 
                 string categoria = fila.Cells["NombreCategoria"].Value.ToString();
+
                 CargarProductosPorCategoria(categoria);
+
+                dataGridViewcategoria.CurrentRow.Selected = true;
             }
         }
+
 
         private void GuardarCategoria(Categoria categoria)
         {
@@ -234,21 +244,26 @@ namespace BRAMSELU
             CargarCategorias();
             LimpiarCampos();
             txtBuscarcategoria.Clear();
-            dataGridViewcategoria.ClearSelection();
+            QuitarSeleccionCategoria();
         }
+
 
         private void EliminarCategoria(int id)
         {
             if (categoriaBLL.EliminarCategoria(id))
             {
                 GestorMensajes.Exito("Categoría eliminada correctamente.");
+
                 CargarCategorias();
-             
+
                 txtBuscarcategoria.Clear();
-                dataGridViewcategoria.ClearSelection();
+
+                QuitarSeleccionCategoria();
+
                 LimpiarCampos();
             }
         }
+
 
         private void BuscarCategoria(string nombre)
         {
@@ -263,22 +278,20 @@ namespace BRAMSELU
                 if (resultado.Rows.Count > 0)
                 {
                     dataGridViewcategoria.DataSource = resultado;
-                    dataGridViewcategoria.ClearSelection();
-                    LimpiarCampos() ;
+                    QuitarSeleccionCategoria();
+                    LimpiarCampos();
                 }
                 else
                 {
                     GestorMensajes.Informacion("No se encontró ninguna categoría con ese nombre.");
+
                     CargarCategorias();
+
                     txtBuscarcategoria.Focus();
                     txtBuscarcategoria.SelectAll();
                 }
             }
         }
-
-
-
-
         private void iniciarBarra(string accionElegida)
         {
             accion = accionElegida;
@@ -287,11 +300,12 @@ namespace BRAMSELU
             timer1.Start();
         }
 
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBarcategorias.Increment(5);
 
-            if(progressBarcategorias.Value >= 100)
+            if (progressBarcategorias.Value >= 100)
             {
                 timer1.Stop();
                 progressBarcategorias.Visible = false;
@@ -311,28 +325,31 @@ namespace BRAMSELU
                         break;
                 }
             }
-
         }
+
 
         private void txtBuscarcategoria_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBuscarcategoria.Text))
             {
                 CargarCategorias();
-                dataGridViewcategoria.ClearSelection();
+                QuitarSeleccionCategoria();
                 LimpiarCampos();
             }
         }
+
 
         private void lblproductoscategorias_Click(object sender, EventArgs e)
         {
 
         }
 
+
         private void dataGridViewproCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
 
         private void progressBarcategorias_Click(object sender, EventArgs e)
         {
